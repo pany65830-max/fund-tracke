@@ -138,6 +138,10 @@ export function EtfPage({
     else setRangeEnd(value);
   };
 
+  const topSectors = [...etf.sectors]
+    .sort((a, b) => b.changePct - a.changePct)
+    .slice(0, 4);
+
   return (
     <div className="etf-page">
       <section className="card highlight-card">
@@ -146,52 +150,63 @@ export function EtfPage({
           <span className="muted">截至 {snap.tradeDate}</span>
         </div>
 
-        <div className="index-grid">
-          {etf.indices.map((idx) => (
-            <div key={idx.code} className="index-tile">
-              <div className="index-name">{idx.name}</div>
-              <div className="index-last">{idx.last.toFixed(2)}</div>
-              <div className={`index-chg ${pctClass(idx.changePct)}`}>
-                {formatPct(idx.changePct)}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="highlight-block">
-          <h3>涨幅靠前</h3>
-          <div className="highlight-row">
-            {highlightGainers.map((p) => (
-              <div key={productKey(p.firm, p.code)} className="highlight-tile">
-                <div className="muted">{INSTITUTION_LABEL[p.firm]}</div>
-                <div className="hl-name">
-                  {p.name}
-                  <span className="mono muted"> {p.code}</span>
-                </div>
-                <div className={`hl-pct ${pctClass(p.changePct)}`}>
-                  {formatPct(p.changePct)}
-                </div>
-              </div>
-            ))}
-            {!highlightGainers.length ? <p className="muted">暂无数据</p> : null}
-          </div>
-        </div>
-
-        <div className="hot-grid">
-          <RankTable title="净流入靠前" rows={highlightInflow} />
-          <RankTable title="成交活跃" rows={highlightTurnover} />
-          <div className="rank-card">
-            <h3>强势主题</h3>
-            <div className="sector-mini">
-              {[...etf.sectors]
-                .sort((a, b) => b.changePct - a.changePct)
-                .slice(0, 4)
-                .map((s) => (
-                  <div key={s.name} className="sector-mini-row">
-                    <span>{s.name}</span>
-                    <span className={pctClass(s.changePct)}>{formatPct(s.changePct)}</span>
+        <div className="hl-stack">
+          <div className="hl-section">
+            <h3 className="hl-title">市场指数</h3>
+            <div className="index-grid">
+              {etf.indices.map((idx) => (
+                <div key={idx.code} className="index-tile">
+                  <div className="index-name">{idx.name}</div>
+                  <div className="index-last">{idx.last.toFixed(2)}</div>
+                  <div className={`index-chg ${pctClass(idx.changePct)}`}>
+                    {formatPct(idx.changePct)}
                   </div>
-                ))}
+                </div>
+              ))}
+              {!etf.indices.length ? <p className="muted">暂无指数</p> : null}
+            </div>
+          </div>
+
+          <div className="hl-section">
+            <h3 className="hl-title">涨幅靠前</h3>
+            <div className="hl-list">
+              {highlightGainers.map((p, i) => (
+                <div key={productKey(p.firm, p.code)} className="hl-list-row">
+                  <span className="hl-rank">{i + 1}</span>
+                  <div className="hl-list-main">
+                    <div className="hl-list-name">{p.name}</div>
+                    <div className="muted hl-list-sub">
+                      {INSTITUTION_LABEL[p.firm]} · {p.code}
+                    </div>
+                  </div>
+                  <div className={`hl-pct ${pctClass(p.changePct)}`}>
+                    {formatPct(p.changePct)}
+                  </div>
+                </div>
+              ))}
+              {!highlightGainers.length ? <p className="muted">暂无数据</p> : null}
+            </div>
+          </div>
+
+          <div className="hl-section">
+            <h3 className="hl-title">资金与主题</h3>
+            <div className="hot-grid">
+              <RankTable title="净流入" rows={highlightInflow} />
+              <RankTable title="成交额" rows={highlightTurnover} />
+              <div className="rank-card">
+                <h3>强势主题</h3>
+                <div className="sector-mini">
+                  {topSectors.map((s) => (
+                    <div key={s.name} className="sector-mini-row">
+                      <span className="sector-mini-name">{s.name}</span>
+                      <span className={pctClass(s.changePct)}>
+                        {formatPct(s.changePct)}
+                      </span>
+                    </div>
+                  ))}
+                  {!topSectors.length ? <p className="muted">暂无</p> : null}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -342,7 +357,7 @@ function RankTable({
         <tbody>
           {(rows || []).map((r) => (
             <tr key={r.code}>
-              <td>{r.name}</td>
+              <td title={r.name}>{r.name}</td>
               <td className={`num ${r.value >= 0 ? "up" : "down"}`}>{r.value}</td>
             </tr>
           ))}
