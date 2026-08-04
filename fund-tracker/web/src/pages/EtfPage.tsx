@@ -42,18 +42,12 @@ export function EtfPage({
 
   const [firmFilter, setFirmFilter] = useState<"all" | Firm>("all");
   const [codeQuery, setCodeQuery] = useState("");
-  const [selected, setSelected] = useState<Set<string>>(new Set());
-  const [addKey, setAddKey] = useState("");
+  const [pickedKey, setPickedKey] = useState<string>("all");
   const [rangeStart, setRangeStart] = useState(asOfDate);
   const [rangeEnd, setRangeEnd] = useState(asOfDate);
   const [startSnap, setStartSnap] = useState<DaySnapshot | null>(null);
   const [endSnap, setEndSnap] = useState<DaySnapshot | null>(null);
   const [rangeError, setRangeError] = useState<string | null>(null);
-  const [pickerMsg, setPickerMsg] = useState<string | null>(null);
-
-  useEffect(() => {
-    setSelected(new Set(allProducts.map((p) => productKey(p.firm, p.code))));
-  }, [allProducts]);
 
   useEffect(() => {
     setRangeStart(asOfDate);
@@ -86,74 +80,24 @@ export function EtfPage({
   }, [rangeStart, rangeEnd]);
 
   const dropdownOptions = useMemo(() => {
-    const q = codeQuery.trim();
     return allProducts.filter((p) => {
       if (firmFilter !== "all" && p.firm !== firmFilter) return false;
-      if (!q) return true;
-      return p.code.includes(q) || p.name.includes(q);
+      return true;
     });
-  }, [allProducts, firmFilter, codeQuery]);
+  }, [allProducts, firmFilter]);
 
   useEffect(() => {
-    const first = dropdownOptions[0];
-    setAddKey(first ? productKey(first.firm, first.code) : "");
-  }, [dropdownOptions]);
+    setPickedKey("all");
+  }, [firmFilter]);
 
-  const addSelectedFromDropdown = () => {
-    setPickerMsg(null);
-    if (!addKey) {
-      setPickerMsg("当前筛选下没有可添加的产品");
-      return;
-    }
-    setSelected((prev) => new Set(prev).add(addKey));
-  };
+  const highlightGainers = useMemo(() => {
+    return [...allProducts]
+      .sort((a, b) => b.changePct - a.changePct)
+      .slice(0, 4);
+  }, [allProducts]);
 
-  const searchAndAddByCode = () => {
-    setPickerMsg(null);
-    const q = codeQuery.trim();
-    if (!q) {
-      setPickerMsg("请输入基金代码");
-      return;
-    }
-    const hits = allProducts.filter((p) => p.code === q || p.code.includes(q));
-    const exact = hits.filter((p) => p.code === q);
-    const list = exact.length ? exact : hits;
-    if (!list.length) {
-      setPickerMsg(`未找到代码含「${q}」的产品`);
-      return;
-    }
-    setSelected((prev) => {
-      const next = new Set(prev);
-      for (const p of list) next.add(productKey(p.firm, p.code));
-      return next;
-    });
-    setPickerMsg(
-      list.length === 1
-        ? `已添加 ${list[0].code} ${list[0].name}`
-        : `已添加 ${list.length} 只匹配产品`,
-    );
-  };
-
-  const removeOne = (key: string) => {
-    setSelected((prev) => {
-      const next = new Set(prev);
-      next.delete(key);
-      return next;
-    });
-  };
-
-  const clearAll = () => setSelected(new Set());
-  const addAllInFirm = () => {
-    const list =
-      firmFilter === "all"
-        ? allProducts
-        : allProducts.filter((p) => p.firm === firmFilter);
-    setSelected((prev) => {
-      const next = new Set(prev);
-      for (const p of list) next.add(productKey(p.firm, p.code));
-      return next;
-    });
-  };
+  const highlightInflow = etf.hotInflow.slice(0, 4);
+  const highlightTurnover = etf.hotTurnover.slice(0, 4);
 
   const sameDay = rangeStart === rangeEnd;
   const startMap = new Map(
@@ -169,14 +113,20 @@ export function EtfPage({
     ]),
   );
 
-  const selectedProducts = allProducts.filter((p) =>
-    selected.has(productKey(p.firm, p.code)),
-  );
-  const resultRows = selectedProducts.map((p) => {
-    const key = productKey(p.firm, p.code);
-    const pct = rangeReturnPct(startMap.get(key), endMap.get(key), sameDay);
-    return { ...p, rangePct: pct };
-  });
+  const resultRows = allProducts
+    .filter((p) => {
+      if (firmFilter !== "all" && p.firm !== firmFilter) return false;
+      const key = productKey(p.firm, p.code);
+      if (pickedKey !== "all" && key !== pickedKey) return false;
+      const q = codeQuery.trim();
+      if (q && !p.code.includes(q) && !p.name.includes(q)) return false;
+      return true;
+    })
+    .map((p) => {
+      const key = productKey(p.firm, p.code);
+      const pct = rangeReturnPct(startMap.get(key), endMap.get(key), sameDay);
+      return { ...p, rangePct: pct };
+    });
 
   const onRangeChange = (which: "start" | "end", value: string) => {
     if (!value) return;
@@ -190,11 +140,12 @@ export function EtfPage({
 
   return (
     <div className="etf-page">
-      <section className="card">
+      <section className="card highlight-card">
         <div className="section-head">
-          <h2>行情概览</h2>
+          <h2>近期亮眼表现</h2>
           <span className="muted">截至 {snap.tradeDate}</span>
         </div>
+
         <div className="index-grid">
           {etf.indices.map((idx) => (
             <div key={idx.code} className="index-tile">
@@ -206,30 +157,43 @@ export function EtfPage({
             </div>
           ))}
         </div>
-      </section>
 
-      <section className="card">
-        <div className="section-head">
-          <h2>板块 / 主题</h2>
+        <div className="highlight-block">
+          <h3>涨幅靠前</h3>
+          <div className="highlight-row">
+            {highlightGainers.map((p) => (
+              <div key={productKey(p.firm, p.code)} className="highlight-tile">
+                <div className="muted">{INSTITUTION_LABEL[p.firm]}</div>
+                <div className="hl-name">
+                  {p.name}
+                  <span className="mono muted"> {p.code}</span>
+                </div>
+                <div className={`hl-pct ${pctClass(p.changePct)}`}>
+                  {formatPct(p.changePct)}
+                </div>
+              </div>
+            ))}
+            {!highlightGainers.length ? <p className="muted">暂无数据</p> : null}
+          </div>
         </div>
-        <div className="sector-grid">
-          {etf.sectors.map((s) => (
-            <div key={s.name} className="sector-tile">
-              <div>{s.name}</div>
-              <div className={pctClass(s.changePct)}>{formatPct(s.changePct)}</div>
-            </div>
-          ))}
-        </div>
-      </section>
 
-      <section className="card">
-        <div className="section-head">
-          <h2>热榜</h2>
-        </div>
         <div className="hot-grid">
-          <RankTable title="净流入" rows={etf.hotInflow} />
-          <RankTable title="涨幅" rows={etf.hotGainers} />
-          <RankTable title="成交额" rows={etf.hotTurnover} />
+          <RankTable title="净流入靠前" rows={highlightInflow} />
+          <RankTable title="成交活跃" rows={highlightTurnover} />
+          <div className="rank-card">
+            <h3>强势主题</h3>
+            <div className="sector-mini">
+              {[...etf.sectors]
+                .sort((a, b) => b.changePct - a.changePct)
+                .slice(0, 4)
+                .map((s) => (
+                  <div key={s.name} className="sector-mini-row">
+                    <span>{s.name}</span>
+                    <span className={pctClass(s.changePct)}>{formatPct(s.changePct)}</span>
+                  </div>
+                ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -252,7 +216,7 @@ export function EtfPage({
             />
           </label>
           <label className="field">
-            <span>结束日（与起始日相同 = 单日）</span>
+            <span>结束日（相同即单日）</span>
             <input
               type="date"
               value={rangeEnd}
@@ -267,104 +231,47 @@ export function EtfPage({
           </datalist>
         </div>
 
-        <div className="product-picker">
-          <div className="etf-toolbar compact">
-            <label className="field">
-              <span>公司</span>
-              <select
-                value={firmFilter}
-                onChange={(e) =>
-                  setFirmFilter(e.target.value as "all" | Firm)
-                }
-              >
-                <option value="all">全部公司</option>
-                {FIRMS.map((f) => (
-                  <option key={f} value={f}>
-                    {INSTITUTION_LABEL[f]}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label className="field grow">
-              <span>产品下拉</span>
-              <select
-                value={addKey}
-                onChange={(e) => setAddKey(e.target.value)}
-              >
-                {!dropdownOptions.length ? (
-                  <option value="">无匹配产品</option>
-                ) : (
-                  dropdownOptions.map((p) => (
-                    <option key={productKey(p.firm, p.code)} value={productKey(p.firm, p.code)}>
-                      {INSTITUTION_LABEL[p.firm]} · {p.code} · {p.name}
-                    </option>
-                  ))
-                )}
-              </select>
-            </label>
-            <div className="field">
-              <span>&nbsp;</span>
-              <button type="button" className="btn-primary" onClick={addSelectedFromDropdown}>
-                添加
-              </button>
-            </div>
-          </div>
-
-          <div className="etf-toolbar compact">
-            <label className="field grow">
-              <span>代码精确搜索</span>
-              <input
-                type="text"
-                placeholder="例如 512760"
-                value={codeQuery}
-                onChange={(e) => setCodeQuery(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") searchAndAddByCode();
-                }}
-              />
-            </label>
-            <div className="field">
-              <span>&nbsp;</span>
-              <button type="button" onClick={searchAndAddByCode}>
-                搜索添加
-              </button>
-            </div>
-            <div className="field">
-              <span>&nbsp;</span>
-              <button type="button" onClick={addAllInFirm}>
-                添加该公司全部
-              </button>
-            </div>
-            <div className="field">
-              <span>&nbsp;</span>
-              <button type="button" onClick={clearAll}>
-                清空已选
-              </button>
-            </div>
-          </div>
-          {pickerMsg ? <p className="muted picker-msg">{pickerMsg}</p> : null}
-
-          {selectedProducts.length ? (
-            <div className="selected-chips">
-              {selectedProducts.map((p) => {
-                const key = productKey(p.firm, p.code);
-                return (
-                  <button
-                    key={key}
-                    type="button"
-                    className="chip"
-                    onClick={() => removeOne(key)}
-                    title="点击移除"
-                  >
-                    {INSTITUTION_LABEL[p.firm]} {p.code}
-                    <span className="chip-x">×</span>
-                  </button>
-                );
-              })}
-            </div>
-          ) : (
-            <p className="muted">尚未选择产品，请用下拉或代码搜索添加</p>
-          )}
+        <div className="etf-toolbar compact">
+          <label className="field">
+            <span>公司</span>
+            <select
+              value={firmFilter}
+              onChange={(e) => setFirmFilter(e.target.value as "all" | Firm)}
+            >
+              <option value="all">全部公司</option>
+              {FIRMS.map((f) => (
+                <option key={f} value={f}>
+                  {INSTITUTION_LABEL[f]}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="field grow">
+            <span>产品</span>
+            <select
+              value={pickedKey}
+              onChange={(e) => setPickedKey(e.target.value)}
+            >
+              <option value="all">该公司全部产品</option>
+              {dropdownOptions.map((p) => (
+                <option
+                  key={productKey(p.firm, p.code)}
+                  value={productKey(p.firm, p.code)}
+                >
+                  {p.code} · {p.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="field">
+            <span>代码搜索</span>
+            <input
+              type="text"
+              placeholder="输入代码，如 512760"
+              value={codeQuery}
+              onChange={(e) => setCodeQuery(e.target.value)}
+            />
+          </label>
         </div>
 
         {rangeError ? <div className="banner failed">{rangeError}</div> : null}
@@ -401,13 +308,15 @@ export function EtfPage({
                   <td className="num mono">
                     {endMap.get(productKey(p.firm, p.code))?.nav?.toFixed(4) ?? "—"}
                   </td>
-                  <td className="num">{p.amount != null ? p.amount.toFixed(2) : "—"}</td>
+                  <td className="num">
+                    {p.amount != null ? p.amount.toFixed(2) : "—"}
+                  </td>
                 </tr>
               ))}
               {!resultRows.length ? (
                 <tr>
                   <td colSpan={6} className="muted">
-                    请先添加要对比的产品
+                    没有匹配的产品，试试换公司或代码
                   </td>
                 </tr>
               ) : null}

@@ -126,6 +126,40 @@ a:hover { text-decoration: underline; }
 .chip:hover { border-color: var(--accent); }
 .chip-x { color: var(--muted); font-weight: 700; }
 
+.highlight-card {
+  background:
+    linear-gradient(180deg, #fffdf8 0%, #ffffff 42%);
+}
+.highlight-block { margin-top: 16px; }
+.highlight-block h3,
+.rank-card h3 {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+}
+.highlight-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.highlight-tile {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+}
+.hl-name { font-weight: 600; margin: 4px 0 6px; }
+.hl-pct { font-size: 1.15rem; font-weight: 700; }
+.sector-mini { display: flex; flex-direction: column; gap: 8px; }
+.sector-mini-row {
+  display: flex; justify-content: space-between; gap: 8px;
+  padding: 6px 0; border-bottom: 1px solid var(--border); font-weight: 600;
+}
+.sector-mini-row:last-child { border-bottom: none; }
+
+@media (max-width: 768px) {
+  .highlight-row { grid-template-columns: 1fr 1fr; }
+}
+
 .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; }
 .data-table {
   width: 100%; border-collapse: collapse; font-size: 0.92rem; table-layout: fixed;
