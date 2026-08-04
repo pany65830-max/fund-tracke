@@ -1,5 +1,10 @@
 name: fund-tracker-daily
 on:
+  push:
+    branches: [main]
+    paths:
+      - "fund-tracker/**"
+      - ".github/workflows/fund-tracker-daily.yml"
   schedule:
     - cron: "30 0 * * 1-5"
   workflow_dispatch:
