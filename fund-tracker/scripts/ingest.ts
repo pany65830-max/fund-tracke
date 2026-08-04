@@ -123,7 +123,7 @@ async function main() {
   const useFixture =
     process.env.IFIND_USE_FIXTURE === "1" ||
     process.env.IFIND_USE_FIXTURE === "true" ||
-    !process.env.IFIND_TOKEN;
+    !(process.env.IFIND_REFRESH_TOKEN || process.env.IFIND_TOKEN);
   const dataDir = join(ROOT, "data");
 
   try {

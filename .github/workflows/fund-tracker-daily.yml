@@ -29,10 +29,8 @@ jobs:
       - name: Ingest
         working-directory: fund-tracker
         env:
+          IFIND_REFRESH_TOKEN: ${{ secrets.IFIND_REFRESH_TOKEN }}
           IFIND_BASE_URL: ${{ secrets.IFIND_BASE_URL }}
-          IFIND_TOKEN: ${{ secrets.IFIND_TOKEN }}
-          IFIND_NEWS_PATH: ${{ secrets.IFIND_NEWS_PATH }}
-          IFIND_ETF_PATH: ${{ secrets.IFIND_ETF_PATH }}
           IFIND_USE_FIXTURE: ${{ secrets.IFIND_USE_FIXTURE }}
         run: npm run ingest
       - name: Commit data if changed

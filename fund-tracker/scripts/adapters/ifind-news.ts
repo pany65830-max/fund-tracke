@@ -1,50 +1,84 @@
 import type { Institution, NewsItem } from "../../shared/schema.js";
 import { classifyNews } from "../../shared/classify.js";
 import type { NewsAdapter } from "./types.js";
+import {
+  bareCode,
+  flattenTables,
+  getAccessToken,
+  ifindPost,
+  loadCodesFromWhitelist,
+  toThsCode,
+} from "./ifind-shared.js";
 
-type Row = Record<string, unknown>;
-
-function pick(row: Row, ...keys: string[]): string {
-  for (const k of keys) {
-    const v = row[k];
-    if (typeof v === "string" && v.trim()) return v.trim();
-  }
-  return "";
+function mapInstitutionByCode(
+  code: string,
+  codeFirm: Map<string, Institution>,
+): Institution {
+  return codeFirm.get(bareCode(code)) || codeFirm.get(code) || "huatai";
 }
 
-function mapInstitution(raw: string): Institution {
-  const s = raw.toLowerCase();
-  if (s.includes("华夏") || s.includes("huaxia")) return "huaxia";
-  if (s.includes("易方达") || s.includes("efund")) return "efunds";
-  if (s.includes("国泰") || s.includes("guotai")) return "guotai";
-  if (s.includes("华泰") || s.includes("huatai")) return "huatai";
-  if (s.includes("上交") || s.includes("sse")) return "sse";
-  if (s.includes("深交") || s.includes("szse")) return "szse";
-  return "huatai";
+function addDays(date: string, delta: number): string {
+  const [y, m, d] = date.split("-").map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  dt.setUTCDate(dt.getUTCDate() + delta);
+  const yy = dt.getUTCFullYear();
+  const mm = String(dt.getUTCMonth() + 1).padStart(2, "0");
+  const dd = String(dt.getUTCDate()).padStart(2, "0");
+  return `${yy}-${mm}-${dd}`;
 }
 
-export function mapIfindNewsRow(row: Row, tradeDate: string, idx: number): NewsItem {
-  const title = pick(row, "标题", "title", "Title");
-  const summary = pick(row, "摘要", "summary", "Summary");
-  const body = pick(row, "正文", "body", "Content") || undefined;
-  const sourceUrl =
-    pick(row, "链接", "url", "Url", "sourceUrl") || "https://example.com/ifind-missing";
-  const institution = mapInstitution(
-    pick(row, "机构", "institution", "公司", "company") || "华泰柏瑞",
-  );
-  const publishedAt =
-    pick(row, "时间", "publishedAt", "datetime") || `${tradeDate}T08:00:00+08:00`;
-  const category = classifyNews({ title, summary, institution });
+export function mapIfindNewsRow(
+  row: Record<string, unknown>,
+  tradeDate: string,
+  idx: number,
+): NewsItem {
+  const title = String(row.reportTitle || row.title || row.标题 || "").trim();
+  const summary = String(row.secName || row.摘要 || row.summary || "");
+  const body = String(row.body || row.正文 || "") || undefined;
+  const pdf = String(row.pdfURL || row.pdfUrl || row.链接 || row.url || "").trim();
+  const sourceUrl = pdf || "https://example.com/ifind-missing";
+  const thscode = String(row.thscode || row.机构 || "");
+  const { codeFirm } = loadCodesFromWhitelist();
+  const institution = mapInstitutionByCode(thscode, codeFirm);
   return {
-    id: pick(row, "id", "ID") || `ifind-news-${idx}-${tradeDate}`,
+    id: String(row.seq || row.id || `ifind-news-${idx}-${tradeDate}`),
     title: title || `未命名资讯-${idx}`,
     summary,
     body: body || undefined,
     institution,
-    category,
+    category: classifyNews({ title, summary, institution }),
     source: "ifind",
-    publishedAt,
-    sourceUrl,
+    publishedAt: String(
+      row.ctime || row.时间 || row.publishedAt || `${tradeDate}T08:00:00+08:00`,
+    ),
+    sourceUrl: sourceUrl.startsWith("http") ? sourceUrl : `https://${sourceUrl}`,
+  };
+}
+
+export function mapReportRow(
+  row: Record<string, unknown>,
+  tradeDate: string,
+  idx: number,
+  codeFirm: Map<string, Institution>,
+): NewsItem | null {
+  const title = String(row.reportTitle || row.title || "").trim();
+  if (!title) return null;
+  const thscode = String(row.thscode || row.THSCODE || "");
+  const institution = mapInstitutionByCode(thscode, codeFirm);
+  const pdf = String(row.pdfURL || row.pdfUrl || "").trim();
+  const sourceUrl = pdf || `https://www.baidu.com/s?wd=${encodeURIComponent(title)}`;
+  const summary = String(row.secName || title);
+  return {
+    id: String(row.seq || `ifind-rpt-${idx}-${tradeDate}`),
+    title,
+    summary,
+    institution,
+    category: classifyNews({ title, summary, institution }),
+    source: "ifind",
+    publishedAt: String(
+      row.ctime || row.reportDate || `${tradeDate}T08:00:00+08:00`,
+    ),
+    sourceUrl: sourceUrl.startsWith("http") ? sourceUrl : `https://${sourceUrl}`,
   };
 }
 
@@ -54,19 +88,30 @@ export function createIfindNewsAdapter(
   return {
     name: "ifind-news",
     async fetchNews(tradeDate: string): Promise<NewsItem[]> {
-      const token = process.env.IFIND_TOKEN;
-      if (!token) throw new Error("IFIND_TOKEN missing");
-      const base = process.env.IFIND_BASE_URL || "";
-      const path = process.env.IFIND_NEWS_PATH || "/api/news";
-      const url = new URL(path, base.endsWith("/") ? base : base + "/");
-      url.searchParams.set("date", tradeDate);
-      const res = await fetchImpl(url.toString(), {
-        headers: { Authorization: `Bearer ${token}` },
+      const { codes, codeFirm } = loadCodesFromWhitelist();
+      if (!codes.length) return [];
+      const accessToken = await getAccessToken(fetchImpl);
+      const begin = addDays(tradeDate, -7);
+      const json = await ifindPost(
+        "report_query",
+        {
+          codes: codes.map(toThsCode).join(","),
+          functionpara: { reportType: "901" },
+          beginrDate: begin,
+          endrDate: tradeDate,
+          outputpara:
+            "reportDate:Y,thscode:Y,secName:Y,ctime:Y,reportTitle:Y,pdfURL:Y,seq:Y",
+        },
+        accessToken,
+        fetchImpl,
+      );
+      const rows = flattenTables(json.tables);
+      const items: NewsItem[] = [];
+      rows.forEach((row, idx) => {
+        const item = mapReportRow(row, tradeDate, idx, codeFirm);
+        if (item) items.push(item);
       });
-      if (!res.ok) throw new Error(`ifind-news HTTP ${res.status}`);
-      const data = (await res.json()) as { rows?: Row[] } | Row[];
-      const rows = Array.isArray(data) ? data : data.rows || [];
-      return rows.map((r, i) => mapIfindNewsRow(r, tradeDate, i));
+      return items;
     },
   };
 }

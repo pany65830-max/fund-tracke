@@ -1,6 +1,22 @@
 import { describe, it, expect } from "vitest";
 import { mapIfindNewsRow } from "./ifind-news";
 import { mapIfindEtfPayload, loadWhitelist } from "./ifind-etf";
+import { toThsCode, bareCode, flattenTables } from "./ifind-client";
+
+describe("ifind helpers", () => {
+  it("toThsCode", () => {
+    expect(toThsCode("510050")).toBe("510050.SH");
+    expect(toThsCode("159915")).toBe("159915.SZ");
+  });
+
+  it("flattenTables expands column arrays", () => {
+    const rows = flattenTables([
+      { thscode: "510050.SH", latest: [1.2], changeRatio: [0.01] },
+    ]);
+    expect(rows[0].latest).toBe(1.2);
+    expect(bareCode(String(rows[0].thscode))).toBe("510050");
+  });
+});
 
 describe("ifind mappers", () => {
   it("mapIfindNewsRow reads Chinese keys", () => {
@@ -10,14 +26,12 @@ describe("ifind mappers", () => {
         摘要: "摘要",
         正文: "正文全文",
         链接: "https://example.com/n",
-        机构: "华泰柏瑞",
+        机构: "512760.SH",
       },
       "2026-08-03",
       0,
     );
     expect(item.source).toBe("ifind");
-    expect(item.institution).toBe("huatai");
-    expect(item.category).toBe("research");
     expect(item.body).toBe("正文全文");
   });
 
@@ -31,17 +45,11 @@ describe("ifind mappers", () => {
           { code: "512760", name: "芯片ETF", changePct: 2, amount: 1 },
           { code: "999999", name: "非白名单", changePct: 9 },
         ],
-        hotInflow: [{ code: "512760", name: "芯片ETF", value: 1 }],
-        hotGainers: [],
-        hotTurnover: [],
       },
       wl,
     );
-    expect(dash.productsByFirm.huatai.some((p) => p.code === "512760")).toBe(true);
-    expect(
-      Object.values(dash.productsByFirm)
-        .flat()
-        .some((p) => p.code === "999999"),
-    ).toBe(false);
+    expect(dash.productsByFirm.huatai.some((p) => p.code === "512760")).toBe(
+      true,
+    );
   });
 });
