@@ -29,6 +29,8 @@ function copyDataPlugin(): Plugin {
 }
 
 export default defineConfig({
+  // GitHub Pages project site: https://pany65830-max.github.io/fund-tracke/
+  base: "/fund-tracke/",
   plugins: [react(), copyDataPlugin()],
   build: {
     outDir: "dist",
