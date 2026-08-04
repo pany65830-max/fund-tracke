@@ -1,9 +1,10 @@
 {
   "tradeDate": "2026-08-04",
-  "updatedAt": "2026-08-04T09:54:54.516Z",
+  "updatedAt": "2026-08-04T09:56:36.318Z",
   "status": "partial",
   "errors": [
-    "ifind-news: report_query failed: no data."
+    "ifind-news: report_query failed: no data.",
+    "exchange-web: sse fetch failed; szse fetch failed"
   ],
   "news": [
     {
@@ -14,7 +15,7 @@
       "category": "other",
       "source": "wechat",
       "publishedAt": "2026-07-31T07:55:52.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32kBLIstnTn_cmVOQdBO8bUlqXa8Fplpd9-_IQlBbD7dVKcozd45iDTf2qjQp4DtS7D_Q1_4qFeu9FOZm3EE96DfNC_VJ7ANIrlCeizZRSXCS463dvrzuSFbabqEsUK8XBG8FhhGi6JgroaVFxTQkdmxuxaUOPMZwhQKaRHNayj5V7RVNR5KttKjFRHEsvAazOQGHXnLIykvdQ_LeJW-Rhtg..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=F4F834657837420A8A8FD2BF2E5FE9118AEB5B256A71B6E2"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32m2khi0f_RiYmVOQdBO8bUlqXa8Fplpd9-_IQlBbD7dVKcozd45iDTf2qjQp4DtS7D_Q1_4qFeu9FOZm3EE96DfNC_VJ7ANIrlCeizZRSXCS463dvrzuSFVf7CIJq_ZgkyukEoeqCvHg2rS25zLnMhmUBGtzbDGBvQWuhZ-ORw4xVdP4zzmsyzuDk4pYSumkR3z3vbFBUi1hS6t2rFt2rnA..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=F4FA29EDA0D1A97CFCFBA5C9560B9D6CFD0C06ED6A71B749"
     },
     {
       "id": "wx-sg-efunds-1-2026-08-04",
@@ -24,7 +25,7 @@
       "category": "other",
       "source": "wechat",
       "publishedAt": "2026-07-30T06:41:30.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32kBLIstnTn_cmVOQdBO8bUlqXa8Fplpd9-_IQlBbD7dVKcozd45iDTf2qjQp4DtS7D_Q1_4qFeu9FOZm3EE96DY9tRrib4pkWzh4KWZpZ04tnLVfRh2Tx-FW1jzvsbVuK4eFdGT_GpyCwNcNukpIc18q_YDZ5qnu9AJ6eqpL8BbhtMG8Szdzf0xH2ph6zZk9U5LOAdrelXJRflztgI7RZ1g..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=F4F834657837420A8A8FD2BF2E5FE9118AEB5B256A71B6E2"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32m2khi0f_RiYmVOQdBO8bUlqXa8Fplpd9-_IQlBbD7dVKcozd45iDTf2qjQp4DtS7D_Q1_4qFeu9FOZm3EE96DY9tRrib4pkWzh4KWZpZ04tnLVfRh2Tx-MYCCO1xpneBD40Hx7pgvWR3O4iSsbUZqA0i1W_dKIyZ39e5hmhJ3q8zAOxYrxFnjjrzKeZ2MWc8dqfMDu0vc7oY-UZGbO56rA..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=F4FA29EDA0D1A97CFCFBA5C9560B9D6CFD0C06ED6A71B749"
     },
     {
       "id": "wx-sg-sse-0-2026-08-04",
@@ -34,7 +35,7 @@
       "category": "exchange",
       "source": "wechat",
       "publishedAt": "2026-07-28T08:33:58.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak3216CSUn0ELvUmVOQdBO8bUlqXa8Fplpd9lzwuusaclhmENpgNbqqCga4O5-SltP4KD7dpSV_tYVfGlKBH56zK2xxXH_gI6XUZAJP4hT2wvNkseRB8gJVJkqAAeGLxeQBBJ4MiPVmykcGT3zCQjszLaO9a4ecKXsnAfOBuKp2WzH0x-Tvw6VezGZQuelwX2YK70nwUjvToMS5S6t2rFt2rnA..&type=2&query=%E4%B8%8A%E4%BA%A4%E6%89%80%E5%8F%91%E5%B8%83&token=F4F851C78FC3B6FD7D78264BDB4A68B67EDAC7706A71B6E8"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32nDrt2xGRJHcmVOQdBO8bUlqXa8Fplpd9lzwuusaclhmENpgNbqqCga4O5-SltP4KD7dpSV_tYVfGlKBH56zK2xxXH_gI6XUZAJP4hT2wvNkseRB8gJVJkt2d46PVuoxNtxrknTY4OtRRNKq2rVhKPEGEBg4Ni0GcbFTvKpSmfdxllADQK7INwtkCQgGJuiNzCLcJVv0pQbl5LU3lqtPw9g..&type=2&query=%E4%B8%8A%E4%BA%A4%E6%89%80%E5%8F%91%E5%B8%83&token=F4FA48F8EB9BE337B6B0EE821CE5CB7FB7DE916F6A71B74F"
     },
     {
       "id": "wx-sg-szse-1-2026-08-04",
@@ -44,7 +45,7 @@
       "category": "exchange",
       "source": "wechat",
       "publishedAt": "2026-08-04T01:43:52.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32vv5ehU0-HzEmVOQdBO8bUlqXa8Fplpd9QFWUWqxlfY6AKOKqgywSgkSbdQNNqzqq_aYGIOdUvxmisTtPEIa9JgagG89hsKkdCkpTxFYRhqP0a5Rc3Rj_Y81cdmj2dKmxTZTUgwUMav0ZA64MFRMPnQaBNkFxC8fFZ6nRnbjzBFcTXrwYIcpjyU0oS_J9s63dYkj6Uj9nPKj0OK9DLfgmPA..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=F4F8584E2E63145EDFD887EB7B9679B7DF11AAE36A71B6E9"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32i5tm6mpTO0AmVOQdBO8bUlqXa8Fplpd9QFWUWqxlfY6AKOKqgywSgkSbdQNNqzqq_aYGIOdUvxmisTtPEIa9JgagG89hsKkdCkpTxFYRhqP0a5Rc3Rj_YyuZxt8gA62jjBj-Km35MSsknmWe6fbkQ5Yl2PMQoTxqtwssG7jsdRcXa8cqLYcYeHtIqrTgAqOalOG_XFYtypZFkDr8IT4KYw..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=F4FA500B6D1C64B0313669059B5967B8314BEA896A71B750"
     },
     {
       "id": "wx-sg-szse-0-2026-08-04",
@@ -54,177 +55,7 @@
       "category": "exchange",
       "source": "wechat",
       "publishedAt": "2026-08-04T01:31:33.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32vv5ehU0-HzEmVOQdBO8bUlqXa8Fplpd9QFWUWqxlfY6AKOKqgywSgkSbdQNNqzqq_aYGIOdUvxmisTtPEIa9Ji4t6Qail3c8eSNcuVSqLrze_NXWinoLGVWA2gpJ97HTctzu-3oveYYDCf6F2fb28DtnayUd5w75O393gJa4ZVj2U6E48LT7h9YLhsJksMFVjmYMTOYanTwY-UZGbO56rA..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=F4F8584E2E63145EDFD887EB7B9679B7DF11AAE36A71B6E9"
-    },
-    {
-      "id": "ex-sse-0-2026-08-04",
-      "title": "衍生品与基金业务专区",
-      "summary": "衍生品与基金业务专区",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-04T08:00:00+08:00",
-      "sourceUrl": "http://www.sse.com.cn/home/biz/fund/"
-    },
-    {
-      "id": "ex-sse-1-2026-08-04",
-      "title": "习近平对基础教育工作作出重要指示",
-      "summary": "习近平对基础教育工作作出重要指示",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-04T08:00:00+08:00",
-      "sourceUrl": "https://www.gov.cn/yaowen/liebiao/202607/content_7076265.htm"
-    },
-    {
-      "id": "ex-sse-2-2026-08-04",
-      "title": "吴清主席出席人民币国债期货在港交所挂牌上市仪式并致辞",
-      "summary": "吴清主席出席人民币国债期货在港交所挂牌上市仪式并致辞",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-04T08:00:00+08:00",
-      "sourceUrl": "https://www.sse.com.cn/home/component/news/c/c_20260804_10827733.shtml"
-    },
-    {
-      "id": "ex-sse-3-2026-08-04",
-      "title": "深化务实合作 密切协同发展 共创“十五五”资本市场高水平开放新局面",
-      "summary": "深化务实合作 密切协同发展 共创“十五五”资本市场高水平开放新局面",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-04T08:00:00+08:00",
-      "sourceUrl": "https://www.sse.com.cn/home/component/news/c/c_20260803_10827683.shtml"
-    },
-    {
-      "id": "ex-sse-4-2026-08-04",
-      "title": "习近平总书记引领“十五五”开局之年中国经济破浪前行",
-      "summary": "习近平总书记引领“十五五”开局之年中国经济破浪前行",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-04T08:00:00+08:00",
-      "sourceUrl": "https://www.gov.cn/yaowen/liebiao/202608/content_7077356.htm"
-    },
-    {
-      "id": "ex-sse-5-2026-08-04",
-      "title": "上交所修订资产支持证券大类基础资产指引 推动债券市场高质量发展",
-      "summary": "上交所修订资产支持证券大类基础资产指引 推动债券市场高质量发展",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-04T08:00:00+08:00",
-      "sourceUrl": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20260724_10826669.shtml"
-    },
-    {
-      "id": "ex-sse-6-2026-08-04",
-      "title": "助力公司吸引更多全球长期资金",
-      "summary": "助力公司吸引更多全球长期资金",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-04T08:00:00+08:00",
-      "sourceUrl": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20260723_10826580.shtml"
-    },
-    {
-      "id": "ex-sse-7-2026-08-04",
-      "title": "上海证券交易所和香港联合交易所有限公司签署合作备忘录",
-      "summary": "上海证券交易所和香港联合交易所有限公司签署合作备忘录",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-04T08:00:00+08:00",
-      "sourceUrl": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20260717_10826020.shtml"
-    },
-    {
-      "id": "ex-sse-8-2026-08-04",
-      "title": "上交所向沪市公司发出“提质增效重回报”2.0专项行动公开倡议",
-      "summary": "上交所向沪市公司发出“提质增效重回报”2.0专项行动公开倡议",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-04T08:00:00+08:00",
-      "sourceUrl": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20260623_10823235.shtml"
-    },
-    {
-      "id": "ex-sse-9-2026-08-04",
-      "title": "关于开展沪市公司“提质增效重回报”2.0专项行动的倡议",
-      "summary": "关于开展沪市公司“提质增效重回报”2.0专项行动的倡议",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-04T08:00:00+08:00",
-      "sourceUrl": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20260623_10823266.shtml"
-    },
-    {
-      "id": "ex-sse-10-2026-08-04",
-      "title": "首批商业不动产REITs在上交所上市",
-      "summary": "首批商业不动产REITs在上交所上市",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-04T08:00:00+08:00",
-      "sourceUrl": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20260618_10822885.shtml"
-    },
-    {
-      "id": "ex-sse-11-2026-08-04",
-      "title": "第五百一十二期新闻发布会",
-      "summary": "第五百一十二期新闻发布会",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-04T08:00:00+08:00",
-      "sourceUrl": "https://www.sse.com.cn/aboutus/mediacenter/conference/c/10827492/files/ce02bd6f239042729ffeab6202253a65.pdf"
-    },
-    {
-      "id": "ex-sse-12-2026-08-04",
-      "title": "第五百一十一期新闻发布会",
-      "summary": "第五百一十一期新闻发布会",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-04T08:00:00+08:00",
-      "sourceUrl": "https://www.sse.com.cn/aboutus/mediacenter/conference/c/10826679/files/b69f212457e44d76a02d8efc07fdf30b.pdf"
-    },
-    {
-      "id": "ex-sse-13-2026-08-04",
-      "title": "[合约与交易公告]",
-      "summary": "[合约与交易公告]",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-04T08:00:00+08:00",
-      "sourceUrl": "https://www.sse.com.cn/assortment/options/disclo/update//"
-    },
-    {
-      "id": "ex-sse-14-2026-08-04",
-      "title": "关于提醒ETF期权合约行权交收日的公告",
-      "summary": "关于提醒ETF期权合约行权交收日的公告",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-04T08:00:00+08:00",
-      "sourceUrl": "https://www.sse.com.cn/assortment/options/disclo/update/c/c_20260715_10825550.shtml"
-    },
-    {
-      "id": "ex-sse-15-2026-08-04",
-      "title": "关于提醒ETF期权合约最后交易日、行权日、到期日的公告",
-      "summary": "关于提醒ETF期权合约最后交易日、行权日、到期日的公告",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-04T08:00:00+08:00",
-      "sourceUrl": "https://www.sse.com.cn/assortment/options/disclo/update/c/c_20260715_10825546.shtml"
-    },
-    {
-      "id": "ex-sse-18-2026-08-04",
-      "title": "关于上海证券交易所上证50ETF期权、沪深300ETF期权和中证500ETF期权一般做市商的公告",
-      "summary": "关于上海证券交易所上证50ETF期权、沪深300ETF期权和中证500ETF期权一般做市商的公告",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-04T08:00:00+08:00",
-      "sourceUrl": "https://www.sse.com.cn/assortment/options/disclo/marketmaker/c/c_20260720_10826283.shtml"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32i5tm6mpTO0AmVOQdBO8bUlqXa8Fplpd9QFWUWqxlfY6AKOKqgywSgkSbdQNNqzqq_aYGIOdUvxmisTtPEIa9Ji4t6Qail3c8eSNcuVSqLrze_NXWinoLGZ2BcV7UlC-tL8JkzCbT8zZaQV7yHARznxK5pycSoSezzFjjumKOIo8qjEJfaf9D5RVeFs_uLf8mEmoJE5Opb2hOJBjQH7pCxQ..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=F4FA500B6D1C64B0313669059B5967B8314BEA896A71B750"
     }
   ],
   "etf": {
