@@ -85,7 +85,7 @@ function Shell() {
   return (
     <div className="layout">
       <header className="topbar">
-        <div className="brand">基金信息追踪</div>
+        <div className="brand">基金看板</div>
         <nav className="nav">
           <Link className={navClass("/")} to={date ? `/?date=${date}` : "/"}>
             基金资讯

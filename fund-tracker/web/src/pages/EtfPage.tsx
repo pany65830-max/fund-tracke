@@ -191,8 +191,8 @@ export function EtfPage({
           <div className="hl-section">
             <h3 className="hl-title">资金与主题</h3>
             <div className="hot-grid">
-              <RankTable title="净流入" rows={highlightInflow} />
-              <RankTable title="成交额" rows={highlightTurnover} />
+              <RankTable title="净流入" unit="亿元" rows={highlightInflow} />
+              <RankTable title="成交额" unit="亿元" rows={highlightTurnover} />
               <div className="rank-card">
                 <h3>强势主题</h3>
                 <div className="sector-mini">
@@ -306,9 +306,9 @@ export function EtfPage({
                 <th>公司</th>
                 <th>代码</th>
                 <th>名称</th>
-                <th className="num">{sameDay ? "当日涨跌" : "区间涨跌"}</th>
-                <th className="num">最新净值</th>
-                <th className="num">成交额</th>
+                <th className="num">{sameDay ? "当日涨跌(%)" : "区间涨跌(%)"}</th>
+                <th className="num">最新净值(元)</th>
+                <th className="num">成交额(亿元)</th>
               </tr>
             </thead>
             <tbody>
@@ -321,7 +321,9 @@ export function EtfPage({
                     {p.rangePct == null ? "—" : formatPct(p.rangePct)}
                   </td>
                   <td className="num mono">
-                    {endMap.get(productKey(p.firm, p.code))?.nav?.toFixed(4) ?? "—"}
+                    {endMap.get(productKey(p.firm, p.code))?.nav != null
+                      ? `${endMap.get(productKey(p.firm, p.code))!.nav!.toFixed(4)}`
+                      : "—"}
                   </td>
                   <td className="num">
                     {p.amount != null ? p.amount.toFixed(2) : "—"}
@@ -345,20 +347,27 @@ export function EtfPage({
 
 function RankTable({
   title,
+  unit,
   rows,
 }: {
   title: string;
+  unit: string;
   rows: Array<{ code: string; name: string; value: number }>;
 }) {
   return (
     <div className="rank-card">
-      <h3>{title}</h3>
+      <h3>
+        {title}
+        <span className="unit-label">（{unit}）</span>
+      </h3>
       <table className="data-table compact">
         <tbody>
           {(rows || []).map((r) => (
             <tr key={r.code}>
               <td title={r.name}>{r.name}</td>
-              <td className={`num ${r.value >= 0 ? "up" : "down"}`}>{r.value}</td>
+              <td className={`num ${r.value >= 0 ? "up" : "down"}`}>
+                {Number(r.value).toFixed(2)}
+              </td>
             </tr>
           ))}
           {!rows?.length ? (
