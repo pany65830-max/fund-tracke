@@ -77,6 +77,6 @@ describe("runIngest", () => {
     const latest = JSON.parse(readFileSync(join(dir, "latest.json"), "utf8"));
     expect(latest.tradeDate).toBe("2026-08-03");
     expect(latest.news[0].id).toBe("keep-1");
-    expect(existsSync(join(dir, "2026-08-04.json"))).toBe(true);
+    expect(existsSync(join(dir, "2026-08-04.json"))).toBe(false);
   });
 });
