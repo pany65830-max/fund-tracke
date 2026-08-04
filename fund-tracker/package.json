@@ -1,0 +1,21 @@
+{
+  "name": "fund-tracker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "ingest": "tsx scripts/ingest.ts",
+    "build:web": "npm run build --prefix web"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8",
+    "zod": "^3.24.1"
+  },
+  "dependencies": {
+    "zod": "^3.24.1"
+  }
+}

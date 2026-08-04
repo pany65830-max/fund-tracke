@@ -9,3 +9,8 @@ dist/
 .worktrees/
 .superpowers/sdd/
 
+
+fund-tracker/.env
+fund-tracker/**/node_modules/
+fund-tracker/web/dist/
+
