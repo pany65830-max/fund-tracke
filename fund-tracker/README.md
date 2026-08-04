@@ -41,12 +41,20 @@ npm run ingest
 
 失败时若当天完全无数据，**不会覆盖**已有的 `latest.json`，避免把网站刷成空白。
 
+## 微信公众号
+
+默认用**搜狗微信文章搜索**按公众号名拉近期标题/摘要/链接（不存全文）。  
+账号在 `config/wechat-accounts.json`：`name` 为搜索词，`publishers` 为官方发布名白名单（过滤媒体转载；华泰柏瑞常见为「华泰柏瑞微理财」）。  
+若填了 `feedUrl` 则优先 RSS。搜狗验证码/拦截时该源记 partial。
+
+设计说明：`docs/superpowers/specs/2026-08-04-wechat-sogou-design.md`
+
 ## 配置
 
 | 文件 | 用途 |
 |---|---|
 | `config/etf-whitelist.json` | 四家公司 ETF 白名单 |
-| `config/wechat-accounts.json` | 公众号；填写 `feedUrl`（RSS）后才会拉取 |
+| `config/wechat-accounts.json` | 公众号名（搜狗搜索用）；若填写 `feedUrl` 则优先走 RSS |
 | `config/exchange-sources.json` | 上交所/深交所官网入口 |
 | `config/category-rules.json` | 资讯类型关键词 |
 | `config/holidays-cn.json` | A 股休市日（逐年补充） |
