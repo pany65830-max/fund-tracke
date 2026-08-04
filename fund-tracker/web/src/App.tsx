@@ -38,7 +38,6 @@ function Shell() {
   const [snap, setSnap] = useState<DaySnapshot | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [availableDates, setAvailableDates] = useState<string[]>([]);
-  const [jumpInput, setJumpInput] = useState(dateParam || "");
 
   useEffect(() => {
     loadAvailableDates().then(setAvailableDates).catch(() => setAvailableDates([]));
@@ -50,10 +49,7 @@ function Shell() {
       try {
         setError(null);
         const data = dateParam ? await loadSnapshot(dateParam) : await loadLatest();
-        if (!cancelled) {
-          setSnap(data);
-          setJumpInput(data.tradeDate);
-        }
+        if (!cancelled) setSnap(data);
       } catch (e) {
         if (!cancelled) {
           setSnap(null);
@@ -69,18 +65,15 @@ function Shell() {
   const date = snap?.tradeDate || dateParam || "";
 
   const setDate = (d: string) => {
+    if (!d) return;
+    if (availableDates.length && !availableDates.includes(d)) {
+      setError(`${d} 暂无存档。有数据的日期：${availableDates.join("、")}`);
+      return;
+    }
+    setError(null);
     const next = new URLSearchParams(params);
     next.set("date", d);
     navigate({ pathname: location.pathname, search: `?${next.toString()}` });
-  };
-
-  const jumpToDate = () => {
-    if (!jumpInput) return;
-    if (availableDates.length && !availableDates.includes(jumpInput)) {
-      setError(`${jumpInput} 暂无存档。可选：${availableDates.join("、")}`);
-      return;
-    }
-    setDate(jumpInput);
   };
 
   const navClass = (path: string) =>
@@ -112,8 +105,8 @@ function Shell() {
           <input
             type="date"
             className="date-input"
-            value={jumpInput}
-            onChange={(e) => setJumpInput(e.target.value)}
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
             list="available-dates"
           />
           <datalist id="available-dates">
@@ -121,9 +114,6 @@ function Shell() {
               <option key={d} value={d} />
             ))}
           </datalist>
-          <button type="button" className="btn-primary" onClick={jumpToDate}>
-            跳转
-          </button>
           <button
             type="button"
             disabled={!date}
@@ -141,13 +131,7 @@ function Shell() {
           <Route path="/news/:id" element={<NewsDetailPage snap={snap} />} />
           <Route
             path="/etf"
-            element={
-              <EtfPage
-                snap={snap}
-                availableDates={availableDates}
-                asOfDate={date}
-              />
-            }
+            element={<EtfPage snap={snap} availableDates={availableDates} asOfDate={date} />}
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

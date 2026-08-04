@@ -6,6 +6,7 @@ import { loadSnapshot } from "../lib/loadData";
 import { flattenProducts, rangeReturnPct } from "../lib/rangeReturn";
 
 const FIRMS = ["huaxia", "efunds", "guotai", "huatai"] as const;
+type Firm = (typeof FIRMS)[number];
 
 type ProductRow = {
   code: string;
@@ -14,6 +15,10 @@ type ProductRow = {
   amount?: number;
   nav?: number;
 };
+
+function productKey(firm: string, code: string) {
+  return `${firm}::${code}`;
+}
 
 export function EtfPage({
   snap,
@@ -26,7 +31,7 @@ export function EtfPage({
 }) {
   const { etf } = snap;
   const allProducts = useMemo(() => {
-    const rows: Array<ProductRow & { firm: (typeof FIRMS)[number] }> = [];
+    const rows: Array<ProductRow & { firm: Firm }> = [];
     for (const firm of FIRMS) {
       for (const p of (etf.productsByFirm[firm] || []) as ProductRow[]) {
         rows.push({ ...p, firm });
@@ -35,18 +40,19 @@ export function EtfPage({
     return rows;
   }, [etf.productsByFirm]);
 
-  const [firmFilter, setFirmFilter] = useState<"all" | (typeof FIRMS)[number]>("all");
+  const [firmFilter, setFirmFilter] = useState<"all" | Firm>("all");
+  const [codeQuery, setCodeQuery] = useState("");
   const [selected, setSelected] = useState<Set<string>>(new Set());
-  const [pickStep, setPickStep] = useState<"idle" | "start" | "end">("idle");
+  const [addKey, setAddKey] = useState("");
   const [rangeStart, setRangeStart] = useState(asOfDate);
   const [rangeEnd, setRangeEnd] = useState(asOfDate);
   const [startSnap, setStartSnap] = useState<DaySnapshot | null>(null);
   const [endSnap, setEndSnap] = useState<DaySnapshot | null>(null);
   const [rangeError, setRangeError] = useState<string | null>(null);
+  const [pickerMsg, setPickerMsg] = useState<string | null>(null);
 
-  // Default select all products when data changes
   useEffect(() => {
-    setSelected(new Set(allProducts.map((p) => `${p.firm}::${p.code}`)));
+    setSelected(new Set(allProducts.map((p) => productKey(p.firm, p.code))));
   }, [allProducts]);
 
   useEffect(() => {
@@ -60,9 +66,7 @@ export function EtfPage({
       try {
         setRangeError(null);
         const [a, b] =
-          rangeStart <= rangeEnd
-            ? [rangeStart, rangeEnd]
-            : [rangeEnd, rangeStart];
+          rangeStart <= rangeEnd ? [rangeStart, rangeEnd] : [rangeEnd, rangeStart];
         const [s, e] = await Promise.all([loadSnapshot(a), loadSnapshot(b)]);
         if (!cancelled) {
           setStartSnap(s);
@@ -81,75 +85,108 @@ export function EtfPage({
     };
   }, [rangeStart, rangeEnd]);
 
-  const filteredCatalog = allProducts.filter(
-    (p) => firmFilter === "all" || p.firm === firmFilter,
-  );
-
-  const toggleProduct = (key: string) => {
-    setSelected((prev) => {
-      const next = new Set(prev);
-      if (next.has(key)) next.delete(key);
-      else next.add(key);
-      return next;
+  const dropdownOptions = useMemo(() => {
+    const q = codeQuery.trim();
+    return allProducts.filter((p) => {
+      if (firmFilter !== "all" && p.firm !== firmFilter) return false;
+      if (!q) return true;
+      return p.code.includes(q) || p.name.includes(q);
     });
-  };
+  }, [allProducts, firmFilter, codeQuery]);
 
-  const selectAllVisible = () => {
-    setSelected((prev) => {
-      const next = new Set(prev);
-      for (const p of filteredCatalog) next.add(`${p.firm}::${p.code}`);
-      return next;
-    });
-  };
+  useEffect(() => {
+    const first = dropdownOptions[0];
+    setAddKey(first ? productKey(first.firm, first.code) : "");
+  }, [dropdownOptions]);
 
-  const clearVisible = () => {
-    setSelected((prev) => {
-      const next = new Set(prev);
-      for (const p of filteredCatalog) next.delete(`${p.firm}::${p.code}`);
-      return next;
-    });
-  };
-
-  const onPickDate = (d: string) => {
-    if (pickStep === "idle" || pickStep === "end") {
-      setRangeStart(d);
-      setRangeEnd(d);
-      setPickStep("start");
+  const addSelectedFromDropdown = () => {
+    setPickerMsg(null);
+    if (!addKey) {
+      setPickerMsg("当前筛选下没有可添加的产品");
       return;
     }
-    // second click
-    if (d === rangeStart) {
-      setRangeEnd(d);
-    } else if (d < rangeStart) {
-      setRangeEnd(rangeStart);
-      setRangeStart(d);
-    } else {
-      setRangeEnd(d);
+    setSelected((prev) => new Set(prev).add(addKey));
+  };
+
+  const searchAndAddByCode = () => {
+    setPickerMsg(null);
+    const q = codeQuery.trim();
+    if (!q) {
+      setPickerMsg("请输入基金代码");
+      return;
     }
-    setPickStep("end");
+    const hits = allProducts.filter((p) => p.code === q || p.code.includes(q));
+    const exact = hits.filter((p) => p.code === q);
+    const list = exact.length ? exact : hits;
+    if (!list.length) {
+      setPickerMsg(`未找到代码含「${q}」的产品`);
+      return;
+    }
+    setSelected((prev) => {
+      const next = new Set(prev);
+      for (const p of list) next.add(productKey(p.firm, p.code));
+      return next;
+    });
+    setPickerMsg(
+      list.length === 1
+        ? `已添加 ${list[0].code} ${list[0].name}`
+        : `已添加 ${list.length} 只匹配产品`,
+    );
+  };
+
+  const removeOne = (key: string) => {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      next.delete(key);
+      return next;
+    });
+  };
+
+  const clearAll = () => setSelected(new Set());
+  const addAllInFirm = () => {
+    const list =
+      firmFilter === "all"
+        ? allProducts
+        : allProducts.filter((p) => p.firm === firmFilter);
+    setSelected((prev) => {
+      const next = new Set(prev);
+      for (const p of list) next.add(productKey(p.firm, p.code));
+      return next;
+    });
   };
 
   const sameDay = rangeStart === rangeEnd;
   const startMap = new Map(
     flattenProducts(startSnap?.etf.productsByFirm || {}).map((p) => [
-      `${p.firm}::${p.code}`,
+      productKey(p.firm, p.code),
       p,
     ]),
   );
   const endMap = new Map(
     flattenProducts(endSnap?.etf.productsByFirm || {}).map((p) => [
-      `${p.firm}::${p.code}`,
+      productKey(p.firm, p.code),
       p,
     ]),
   );
 
-  const resultRows = allProducts
-    .filter((p) => selected.has(`${p.firm}::${p.code}`))
-    .map((p) => {
-      const key = `${p.firm}::${p.code}`;
-      const pct = rangeReturnPct(startMap.get(key), endMap.get(key), sameDay);
-      return { ...p, rangePct: pct };
-    });
+  const selectedProducts = allProducts.filter((p) =>
+    selected.has(productKey(p.firm, p.code)),
+  );
+  const resultRows = selectedProducts.map((p) => {
+    const key = productKey(p.firm, p.code);
+    const pct = rangeReturnPct(startMap.get(key), endMap.get(key), sameDay);
+    return { ...p, rangePct: pct };
+  });
+
+  const onRangeChange = (which: "start" | "end", value: string) => {
+    if (!value) return;
+    if (availableDates.length && !availableDates.includes(value)) {
+      setRangeError(`${value} 暂无存档`);
+      return;
+    }
+    if (which === "start") setRangeStart(value);
+    else setRangeEnd(value);
+  };
 
   return (
     <div className="etf-page">
@@ -200,122 +237,134 @@ export function EtfPage({
         <div className="section-head">
           <h2>产品涨跌对比</h2>
           <span className="muted">
-            {sameDay
-              ? `单日 ${rangeStart}`
-              : `区间 ${rangeStart} → ${rangeEnd}`}
+            {sameDay ? `单日 ${rangeStart}` : `区间 ${rangeStart} → ${rangeEnd}`}
           </span>
         </div>
 
         <div className="etf-toolbar">
           <label className="field">
-            <span>公司筛选</span>
-            <select
-              value={firmFilter}
-              onChange={(e) =>
-                setFirmFilter(e.target.value as "all" | (typeof FIRMS)[number])
-              }
-            >
-              <option value="all">全部公司</option>
-              {FIRMS.map((f) => (
-                <option key={f} value={f}>
-                  {INSTITUTION_LABEL[f]}
-                </option>
-              ))}
-            </select>
-          </label>
-          <div className="field">
-            <span>区间选择</span>
-            <div className="range-pick">
-              <button
-                type="button"
-                className={pickStep !== "idle" ? "btn-primary" : ""}
-                onClick={() => setPickStep(pickStep === "idle" ? "start" : "idle")}
-              >
-                {pickStep === "idle"
-                  ? "点选起止日期"
-                  : pickStep === "start"
-                    ? "请点起始日…"
-                    : "可再点结束日"}
-              </button>
-              <span className="muted tip">
-                点两次同一天 = 只看当天；也可直接改下方日期
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {pickStep !== "idle" ? (
-          <div className="date-chip-row">
-            {availableDates.map((d) => (
-              <button
-                key={d}
-                type="button"
-                className={
-                  "date-chip" +
-                  (d === rangeStart || d === rangeEnd ? " active" : "")
-                }
-                onClick={() => onPickDate(d)}
-              >
-                {d.slice(5)}
-              </button>
-            ))}
-          </div>
-        ) : null}
-
-        <div className="etf-toolbar compact">
-          <label className="field">
             <span>起始日</span>
             <input
               type="date"
               value={rangeStart}
-              onChange={(e) => {
-                setRangeStart(e.target.value);
-                setPickStep("end");
-              }}
+              list="etf-range-dates"
+              onChange={(e) => onRangeChange("start", e.target.value)}
             />
           </label>
           <label className="field">
-            <span>结束日</span>
+            <span>结束日（与起始日相同 = 单日）</span>
             <input
               type="date"
               value={rangeEnd}
-              onChange={(e) => {
-                setRangeEnd(e.target.value);
-                setPickStep("end");
-              }}
+              list="etf-range-dates"
+              onChange={(e) => onRangeChange("end", e.target.value)}
             />
           </label>
+          <datalist id="etf-range-dates">
+            {availableDates.map((d) => (
+              <option key={d} value={d} />
+            ))}
+          </datalist>
         </div>
 
-        <div className="product-filter">
-          <div className="filter-actions">
-            <strong>勾选产品（类似 Excel 筛选）</strong>
-            <div>
-              <button type="button" onClick={selectAllVisible}>
-                全选当前
-              </button>
-              <button type="button" onClick={clearVisible}>
-                清空当前
+        <div className="product-picker">
+          <div className="etf-toolbar compact">
+            <label className="field">
+              <span>公司</span>
+              <select
+                value={firmFilter}
+                onChange={(e) =>
+                  setFirmFilter(e.target.value as "all" | Firm)
+                }
+              >
+                <option value="all">全部公司</option>
+                {FIRMS.map((f) => (
+                  <option key={f} value={f}>
+                    {INSTITUTION_LABEL[f]}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="field grow">
+              <span>产品下拉</span>
+              <select
+                value={addKey}
+                onChange={(e) => setAddKey(e.target.value)}
+              >
+                {!dropdownOptions.length ? (
+                  <option value="">无匹配产品</option>
+                ) : (
+                  dropdownOptions.map((p) => (
+                    <option key={productKey(p.firm, p.code)} value={productKey(p.firm, p.code)}>
+                      {INSTITUTION_LABEL[p.firm]} · {p.code} · {p.name}
+                    </option>
+                  ))
+                )}
+              </select>
+            </label>
+            <div className="field">
+              <span>&nbsp;</span>
+              <button type="button" className="btn-primary" onClick={addSelectedFromDropdown}>
+                添加
               </button>
             </div>
           </div>
-          <div className="product-check-grid">
-            {filteredCatalog.map((p) => {
-              const key = `${p.firm}::${p.code}`;
-              return (
-                <label key={key} className="check-item">
-                  <input
-                    type="checkbox"
-                    checked={selected.has(key)}
-                    onChange={() => toggleProduct(key)}
-                  />
-                  <span className="check-firm">{INSTITUTION_LABEL[p.firm]}</span>
-                  <span className="check-code">{p.code}</span>
-                  <span className="check-name">{p.name}</span>
-                </label>
-              );
-            })}
+
+          <div className="etf-toolbar compact">
+            <label className="field grow">
+              <span>代码精确搜索</span>
+              <input
+                type="text"
+                placeholder="例如 512760"
+                value={codeQuery}
+                onChange={(e) => setCodeQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") searchAndAddByCode();
+                }}
+              />
+            </label>
+            <div className="field">
+              <span>&nbsp;</span>
+              <button type="button" onClick={searchAndAddByCode}>
+                搜索添加
+              </button>
+            </div>
+            <div className="field">
+              <span>&nbsp;</span>
+              <button type="button" onClick={addAllInFirm}>
+                添加该公司全部
+              </button>
+            </div>
+            <div className="field">
+              <span>&nbsp;</span>
+              <button type="button" onClick={clearAll}>
+                清空已选
+              </button>
+            </div>
           </div>
+          {pickerMsg ? <p className="muted picker-msg">{pickerMsg}</p> : null}
+
+          {selectedProducts.length ? (
+            <div className="selected-chips">
+              {selectedProducts.map((p) => {
+                const key = productKey(p.firm, p.code);
+                return (
+                  <button
+                    key={key}
+                    type="button"
+                    className="chip"
+                    onClick={() => removeOne(key)}
+                    title="点击移除"
+                  >
+                    {INSTITUTION_LABEL[p.firm]} {p.code}
+                    <span className="chip-x">×</span>
+                  </button>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="muted">尚未选择产品，请用下拉或代码搜索添加</p>
+          )}
         </div>
 
         {rangeError ? <div className="banner failed">{rangeError}</div> : null}
@@ -335,16 +384,14 @@ export function EtfPage({
                 <th>公司</th>
                 <th>代码</th>
                 <th>名称</th>
-                <th className="num">
-                  {sameDay ? "当日涨跌" : "区间涨跌"}
-                </th>
+                <th className="num">{sameDay ? "当日涨跌" : "区间涨跌"}</th>
                 <th className="num">最新净值</th>
                 <th className="num">成交额</th>
               </tr>
             </thead>
             <tbody>
               {resultRows.map((p) => (
-                <tr key={`${p.firm}-${p.code}`}>
+                <tr key={productKey(p.firm, p.code)}>
                   <td>{INSTITUTION_LABEL[p.firm]}</td>
                   <td className="mono">{p.code}</td>
                   <td>{p.name}</td>
@@ -352,17 +399,15 @@ export function EtfPage({
                     {p.rangePct == null ? "—" : formatPct(p.rangePct)}
                   </td>
                   <td className="num mono">
-                    {endMap.get(`${p.firm}::${p.code}`)?.nav?.toFixed(4) ?? "—"}
+                    {endMap.get(productKey(p.firm, p.code))?.nav?.toFixed(4) ?? "—"}
                   </td>
-                  <td className="num">
-                    {p.amount != null ? p.amount.toFixed(2) : "—"}
-                  </td>
+                  <td className="num">{p.amount != null ? p.amount.toFixed(2) : "—"}</td>
                 </tr>
               ))}
               {!resultRows.length ? (
                 <tr>
                   <td colSpan={6} className="muted">
-                    请至少勾选一只产品
+                    请先添加要对比的产品
                   </td>
                 </tr>
               ) : null}
