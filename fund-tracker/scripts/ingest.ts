@@ -17,9 +17,11 @@ import { createWechatAdapter } from "./adapters/wechat.js";
 import { createIfindNewsAdapter } from "./adapters/ifind-news.js";
 import { createIfindEtfAdapter } from "./adapters/ifind-etf.js";
 import { writeSnapshot } from "./write-snapshot.js";
+import { loadDotEnv } from "./load-dotenv.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
+loadDotEnv(ROOT);
 
 function loadHolidays(): Set<string> {
   const raw = JSON.parse(

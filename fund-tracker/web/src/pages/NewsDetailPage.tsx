@@ -1,6 +1,7 @@
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import type { DaySnapshot } from "../lib/schema";
 import { CATEGORY_LABEL, INSTITUTION_LABEL, SOURCE_LABEL } from "../lib/labels";
+import { isReadableSourceUrl } from "../lib/sourceUrl";
 
 export function NewsDetailPage({ snap }: { snap: DaySnapshot }) {
   const { id } = useParams();
@@ -17,6 +18,8 @@ export function NewsDetailPage({ snap }: { snap: DaySnapshot }) {
     );
   }
 
+  const showSource = isReadableSourceUrl(item.sourceUrl);
+
   return (
     <article className="card">
       <Link to={`/?date=${date}`}>← 返回列表</Link>
@@ -30,13 +33,19 @@ export function NewsDetailPage({ snap }: { snap: DaySnapshot }) {
       {item.body ? (
         <div className="article-body">{item.body}</div>
       ) : (
-        <p>{item.summary || "暂无全文，请阅读原文。"}</p>
+        <p>{item.summary || "暂无全文。"}</p>
       )}
-      <p style={{ marginTop: 20 }}>
-        <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer">
-          阅读原文
-        </a>
-      </p>
+      {showSource ? (
+        <p style={{ marginTop: 20 }}>
+          <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer">
+            阅读原文
+          </a>
+        </p>
+      ) : (
+        <p className="muted" style={{ marginTop: 20 }}>
+          暂无可用原文链接
+        </p>
+      )}
     </article>
   );
 }

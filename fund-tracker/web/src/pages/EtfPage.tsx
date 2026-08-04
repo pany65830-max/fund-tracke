@@ -146,7 +146,7 @@ export function EtfPage({
     <div className="etf-page">
       <section className="card highlight-card">
         <div className="section-head">
-          <h2>近期亮眼表现</h2>
+          <h2>当日亮眼数据</h2>
           <span className="muted">截至 {snap.tradeDate}</span>
         </div>
 

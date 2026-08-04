@@ -1,28 +1,69 @@
 {
   "tradeDate": "2026-08-03",
-  "updatedAt": "2026-08-03T08:30:00+08:00",
+  "updatedAt": "2026-08-04T09:27:41.293Z",
   "status": "ok",
   "news": [
     {
-      "id": "n-2026-08-03-1",
-      "title": "2026-08-03 市场策略会纪要",
-      "summary": "摘要",
-      "body": "正文",
-      "institution": "huatai",
+      "id": "fx-hx-1",
+      "title": "【演示】华夏基金市场策略会纪要",
+      "summary": "演示数据：GitHub 海外节点无法访问 iFinD 时使用。请本机配置密钥后重新拉数。",
+      "body": "【演示正文】正式环境将展示 iFinD / 公众号摘要。当前链接指向公司官网首页，非原文。",
+      "institution": "huaxia",
       "category": "research",
       "source": "ifind",
       "publishedAt": "2026-08-03T07:00:00+08:00",
-      "sourceUrl": "https://example.com/2026-08-03/1"
+      "sourceUrl": "https://www.chinaamc.com/"
     },
     {
-      "id": "n-2026-08-03-2",
-      "title": "2026-08-03 上交所资讯",
-      "summary": "交易所",
+      "id": "fx-ef-1",
+      "title": "【演示】易方达新产品发行安排",
+      "summary": "演示数据：认购期说明占位。",
+      "institution": "efunds",
+      "category": "new_product",
+      "source": "ifind",
+      "publishedAt": "2026-08-03T07:00:00+08:00",
+      "sourceUrl": "https://www.efunds.com.cn/"
+    },
+    {
+      "id": "fx-gt-1",
+      "title": "【演示】国泰主动ETF业务进展",
+      "summary": "演示数据：主动ETF动态占位。",
+      "institution": "guotai",
+      "category": "active_etf",
+      "source": "wechat",
+      "publishedAt": "2026-08-03T07:00:00+08:00",
+      "sourceUrl": "https://www.gtfund.com/"
+    },
+    {
+      "id": "fx-ht-1",
+      "title": "【演示】华泰柏瑞基金份额变动公告",
+      "summary": "演示数据：信披摘要占位。",
+      "body": "【演示正文】正式环境将展示信披全文。",
+      "institution": "huatai",
+      "category": "disclosure",
+      "source": "ifind",
+      "publishedAt": "2026-08-03T07:00:00+08:00",
+      "sourceUrl": "https://www.huatai-pb.com/"
+    },
+    {
+      "id": "fx-sse-1",
+      "title": "【演示】上交所市场动态",
+      "summary": "演示数据：请从交易所官网查看最新公告。",
       "institution": "sse",
       "category": "exchange",
       "source": "exchange_web",
       "publishedAt": "2026-08-03T07:00:00+08:00",
-      "sourceUrl": "https://www.sse.com.cn/2026-08-03"
+      "sourceUrl": "https://www.sse.com.cn/"
+    },
+    {
+      "id": "fx-szse-1",
+      "title": "【演示】深交所监管动态",
+      "summary": "演示数据：请从交易所官网查看最新公告。",
+      "institution": "szse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-03T07:00:00+08:00",
+      "sourceUrl": "https://www.szse.cn/"
     }
   ],
   "etf": {
@@ -30,28 +71,28 @@
       {
         "code": "000300",
         "name": "沪深300",
-        "last": 4000.89,
-        "changePct": 0.7
+        "last": 4000.12,
+        "changePct": 0.85
       },
       {
         "code": "000905",
         "name": "中证500",
-        "last": 5775,
-        "changePct": 0.04999999999999999
+        "last": 5800.5,
+        "changePct": -0.32
       }
     ],
     "sectors": [
       {
         "name": "半导体",
-        "changePct": 2
+        "changePct": 2.1
       },
       {
         "name": "新能源",
-        "changePct": 0
+        "changePct": -1.2
       },
       {
         "name": "金融",
-        "changePct": 0.45
+        "changePct": 0.4
       }
     ],
     "hotInflow": [
@@ -87,31 +128,15 @@
           "code": "510050",
           "name": "上证50ETF",
           "changePct": 0.5,
-          "amount": 5.19,
-          "nav": 1.2193
-        },
-        {
-          "code": "159919",
-          "name": "沪深300ETF",
-          "changePct": 0.7,
-          "amount": 2.06,
-          "nav": 1.1743
+          "amount": 2.1
         }
       ],
       "efunds": [
         {
-          "code": "510310",
-          "name": "沪深300ETF易方达",
-          "changePct": 0.6,
-          "amount": 5.96,
-          "nav": 1.121
-        },
-        {
           "code": "159915",
           "name": "创业板ETF",
           "changePct": 1.8,
-          "amount": 2.82,
-          "nav": 0.9933
+          "amount": 5
         }
       ],
       "guotai": [
@@ -119,31 +144,15 @@
           "code": "510300",
           "name": "沪深300ETF国泰",
           "changePct": 0.7,
-          "amount": 4.74,
-          "nav": 1.0996
-        },
-        {
-          "code": "159901",
-          "name": "深证100ETF",
-          "changePct": 0.4,
-          "amount": 6.06,
-          "nav": 1.0364
+          "amount": 4.2
         }
       ],
       "huatai": [
         {
-          "code": "510300",
-          "name": "沪深300ETF",
-          "changePct": 0.7,
-          "amount": 2.92,
-          "nav": 1.1097
-        },
-        {
           "code": "512760",
           "name": "芯片ETF",
           "changePct": 2,
-          "amount": 2.32,
-          "nav": 0.9385
+          "amount": 3.2
         }
       ]
     }

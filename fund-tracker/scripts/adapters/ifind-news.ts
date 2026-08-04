@@ -36,7 +36,11 @@ export function mapIfindNewsRow(
   const summary = String(row.secName || row.摘要 || row.summary || "");
   const body = String(row.body || row.正文 || "") || undefined;
   const pdf = String(row.pdfURL || row.pdfUrl || row.链接 || row.url || "").trim();
-  const sourceUrl = pdf || "https://example.com/ifind-missing";
+  const sourceUrl = pdf.startsWith("http")
+    ? pdf
+    : pdf
+      ? `https://${pdf}`
+      : "https://www.51ifind.com/";
   const thscode = String(row.thscode || row.机构 || "");
   const { codeFirm } = loadCodesFromWhitelist();
   const institution = mapInstitutionByCode(thscode, codeFirm);
@@ -51,7 +55,7 @@ export function mapIfindNewsRow(
     publishedAt: String(
       row.ctime || row.时间 || row.publishedAt || `${tradeDate}T08:00:00+08:00`,
     ),
-    sourceUrl: sourceUrl.startsWith("http") ? sourceUrl : `https://${sourceUrl}`,
+    sourceUrl,
   };
 }
 
@@ -66,7 +70,11 @@ export function mapReportRow(
   const thscode = String(row.thscode || row.THSCODE || "");
   const institution = mapInstitutionByCode(thscode, codeFirm);
   const pdf = String(row.pdfURL || row.pdfUrl || "").trim();
-  const sourceUrl = pdf || `https://www.baidu.com/s?wd=${encodeURIComponent(title)}`;
+  const sourceUrl = pdf.startsWith("http")
+    ? pdf
+    : pdf
+      ? `https://${pdf}`
+      : "https://www.51ifind.com/";
   const summary = String(row.secName || title);
   return {
     id: String(row.seq || `ifind-rpt-${idx}-${tradeDate}`),
@@ -78,7 +86,7 @@ export function mapReportRow(
     publishedAt: String(
       row.ctime || row.reportDate || `${tradeDate}T08:00:00+08:00`,
     ),
-    sourceUrl: sourceUrl.startsWith("http") ? sourceUrl : `https://${sourceUrl}`,
+    sourceUrl,
   };
 }
 

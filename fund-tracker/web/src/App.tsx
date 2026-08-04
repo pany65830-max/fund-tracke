@@ -21,13 +21,24 @@ const holidaySet = new Set(holidays as string[]);
 function StatusBanner({ snap }: { snap: DaySnapshot }) {
   const cls =
     snap.status === "ok" ? "ok" : snap.status === "partial" ? "partial" : "failed";
+  const isDemo = snap.news.some((n) => n.id.startsWith("fx-"));
   const text =
     snap.status === "ok"
       ? `数据日期 ${snap.tradeDate} · 已更新`
       : snap.status === "partial"
         ? `数据日期 ${snap.tradeDate} · 部分更新失败`
         : `数据日期 ${snap.tradeDate} · 更新失败`;
-  return <div className={`banner ${cls}`}>{text}</div>;
+  return (
+    <>
+      <div className={`banner ${cls}`}>{text}</div>
+      {isDemo ? (
+        <div className="banner partial">
+          当前为演示数据。GitHub 海外服务器无法访问 iFinD；请在本机配置
+          IFIND_REFRESH_TOKEN 后执行 npm run ingest，再推送 data/。
+        </div>
+      ) : null}
+    </>
+  );
 }
 
 function Shell() {

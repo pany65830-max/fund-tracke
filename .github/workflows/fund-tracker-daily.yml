@@ -32,7 +32,18 @@ jobs:
           IFIND_REFRESH_TOKEN: ${{ secrets.IFIND_REFRESH_TOKEN }}
           IFIND_BASE_URL: ${{ secrets.IFIND_BASE_URL }}
           IFIND_USE_FIXTURE: ${{ secrets.IFIND_USE_FIXTURE }}
-        run: npm run ingest
+        run: |
+          npm run ingest
+          node -e "
+            const fs=require('fs');
+            const p='data/latest.json';
+            if(!fs.existsSync(p)) process.exit(0);
+            const j=JSON.parse(fs.readFileSync(p,'utf8'));
+            console.log('latest', j.tradeDate, j.status, 'news='+(j.news||[]).length);
+            if(j.status==='failed' && !(j.news||[]).length) {
+              console.warn('WARNING: empty failed snapshot; prefer local ingest in China network');
+            }
+          "
       - name: Commit data if changed
         run: |
           git config user.name "github-actions[bot]"
@@ -40,10 +51,16 @@ jobs:
           git add fund-tracker/data
           if git diff --staged --quiet; then
             echo "No data changes"
-          else
-            git commit -m "data: update fund-tracker snapshot"
-            git push
+            exit 0
           fi
+          EMPTY=$(node -e "const j=require('./fund-tracker/data/latest.json'); const empty=j.status==='failed'&&!(j.news||[]).length&&!((j.etf&&j.etf.indices)||[]).length; process.stdout.write(empty?'1':'0')")
+          if [ "$EMPTY" = "1" ]; then
+            git reset HEAD fund-tracker/data
+            echo "Skipped commit: empty failed latest"
+            exit 0
+          fi
+          git commit -m "data: update fund-tracker snapshot"
+          git push
       - name: Build web
         working-directory: fund-tracker
         run: |

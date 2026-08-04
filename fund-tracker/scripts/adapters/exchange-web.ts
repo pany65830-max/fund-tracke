@@ -64,15 +64,25 @@ export function createExchangeWebAdapter(
     name: "exchange-web",
     async fetchNews(tradeDate: string): Promise<NewsItem[]> {
       const items: NewsItem[] = [];
+      const errors: string[] = [];
       for (const src of loadSources()) {
-        const res = await fetchImpl(src.listUrl);
-        if (!res.ok) {
-          throw new Error(`exchange-web ${src.institution} HTTP ${res.status}`);
+        try {
+          const res = await fetchImpl(src.listUrl);
+          if (!res.ok) {
+            errors.push(`${src.institution} HTTP ${res.status}`);
+            continue;
+          }
+          const html = await res.text();
+          items.push(
+            ...parseAnchorLinks(html, src.listUrl, src.institution, tradeDate),
+          );
+        } catch (e) {
+          const msg = e instanceof Error ? e.message : String(e);
+          errors.push(`${src.institution} ${msg}`);
         }
-        const html = await res.text();
-        items.push(
-          ...parseAnchorLinks(html, src.listUrl, src.institution, tradeDate),
-        );
+      }
+      if (!items.length && errors.length) {
+        throw new Error(errors.join("; "));
       }
       return items;
     },

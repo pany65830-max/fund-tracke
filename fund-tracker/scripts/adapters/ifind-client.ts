@@ -14,6 +14,15 @@ export function getIfindBase(): string {
   return (process.env.IFIND_BASE_URL || DEFAULT_BASE).replace(/\/$/, "");
 }
 
+function networkHint(err: unknown): string {
+  const msg = err instanceof Error ? err.message : String(err);
+  const cause =
+    err instanceof Error && "cause" in err && err.cause
+      ? ` cause=${String(err.cause)}`
+      : "";
+  return `${msg}${cause}（若在 GitHub Actions：海外节点常无法访问 quantapi.51ifind.com，请本机拉数后推送 data/）`;
+}
+
 /** Exchange refresh_token for short-lived access_token (valid ~7 days). */
 export async function getAccessToken(
   fetchImpl: typeof fetch = fetch,
@@ -24,13 +33,18 @@ export async function getAccessToken(
     throw new Error("IFIND_REFRESH_TOKEN missing");
   }
   const url = `${getIfindBase()}/get_access_token`;
-  const res = await fetchImpl(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      refresh_token: refresh,
-    },
-  });
+  let res: Response;
+  try {
+    res = await fetchImpl(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        refresh_token: refresh,
+      },
+    });
+  } catch (e) {
+    throw new Error(`get_access_token network: ${networkHint(e)}`);
+  }
   const text = await res.text();
   let json: IfindJson;
   try {
@@ -56,14 +70,19 @@ export async function ifindPost(
   fetchImpl: typeof fetch = fetch,
 ): Promise<IfindJson> {
   const url = `${getIfindBase()}/${path.replace(/^\//, "")}`;
-  const res = await fetchImpl(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      access_token: accessToken,
-    },
-    body: JSON.stringify(body),
-  });
+  let res: Response;
+  try {
+    res = await fetchImpl(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        access_token: accessToken,
+      },
+      body: JSON.stringify(body),
+    });
+  } catch (e) {
+    throw new Error(`${path} network: ${networkHint(e)}`);
+  }
   const text = await res.text();
   let json: IfindJson;
   try {
