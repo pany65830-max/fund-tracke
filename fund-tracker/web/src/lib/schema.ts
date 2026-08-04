@@ -53,7 +53,19 @@ export const DaySnapshotSchema = z.object({
     hotInflow: z.array(z.any()),
     hotGainers: z.array(z.any()),
     hotTurnover: z.array(z.any()),
-    productsByFirm: z.record(z.array(z.any())),
+    productsByFirm: z.record(
+      z.array(
+        z.object({
+          code: z.string(),
+          name: z.string(),
+          changePct: z.number(),
+          amount: z.number().optional(),
+          nav: z.number().optional(),
+          volume: z.number().optional(),
+          shares: z.number().optional(),
+        }),
+      ),
+    ),
   }),
 });
 export type DaySnapshot = z.infer<typeof DaySnapshotSchema>;

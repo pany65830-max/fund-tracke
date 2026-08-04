@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
-import { Link, Navigate, Route, Routes, useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import {
+  Link,
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 import holidays from "../../config/holidays-cn.json";
 import { nextTradingDay, previousTradingDay } from "./lib/tradingDays";
-import { loadLatest, loadSnapshot } from "./lib/loadData";
+import { loadAvailableDates, loadLatest, loadSnapshot } from "./lib/loadData";
 import type { DaySnapshot } from "./lib/schema";
 import { NewsPage } from "./pages/NewsPage";
 import { NewsDetailPage } from "./pages/NewsDetailPage";
@@ -15,20 +23,11 @@ function StatusBanner({ snap }: { snap: DaySnapshot }) {
     snap.status === "ok" ? "ok" : snap.status === "partial" ? "partial" : "failed";
   const text =
     snap.status === "ok"
-      ? `数据日期 ${snap.tradeDate} · 今日已更新`
+      ? `数据日期 ${snap.tradeDate} · 已更新`
       : snap.status === "partial"
-        ? `数据日期 ${snap.tradeDate} · 部分更新失败（展示已成功数据）`
+        ? `数据日期 ${snap.tradeDate} · 部分更新失败`
         : `数据日期 ${snap.tradeDate} · 更新失败`;
-  return (
-    <div className={`banner ${cls}`}>
-      {text}
-      {snap.errors?.length ? (
-        <div className="muted" style={{ marginTop: 4 }}>
-          {snap.errors.join("；")}
-        </div>
-      ) : null}
-    </div>
-  );
+  return <div className={`banner ${cls}`}>{text}</div>;
 }
 
 function Shell() {
@@ -38,18 +37,28 @@ function Shell() {
   const dateParam = params.get("date");
   const [snap, setSnap] = useState<DaySnapshot | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [availableDates, setAvailableDates] = useState<string[]>([]);
+  const [jumpInput, setJumpInput] = useState(dateParam || "");
+
+  useEffect(() => {
+    loadAvailableDates().then(setAvailableDates).catch(() => setAvailableDates([]));
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
         setError(null);
-        const data = dateParam
-          ? await loadSnapshot(dateParam)
-          : await loadLatest();
-        if (!cancelled) setSnap(data);
+        const data = dateParam ? await loadSnapshot(dateParam) : await loadLatest();
+        if (!cancelled) {
+          setSnap(data);
+          setJumpInput(data.tradeDate);
+        }
       } catch (e) {
-        if (!cancelled) setError((e as Error).message);
+        if (!cancelled) {
+          setSnap(null);
+          setError((e as Error).message);
+        }
       }
     })();
     return () => {
@@ -65,8 +74,18 @@ function Shell() {
     navigate({ pathname: location.pathname, search: `?${next.toString()}` });
   };
 
+  const jumpToDate = () => {
+    if (!jumpInput) return;
+    if (availableDates.length && !availableDates.includes(jumpInput)) {
+      setError(`${jumpInput} 暂无存档。可选：${availableDates.join("、")}`);
+      return;
+    }
+    setDate(jumpInput);
+  };
+
   const navClass = (path: string) =>
-    location.pathname === path || (path === "/" && location.pathname.startsWith("/news"))
+    location.pathname === path ||
+    (path === "/" && location.pathname.startsWith("/news"))
       ? "active"
       : "";
 
@@ -82,23 +101,37 @@ function Shell() {
             ETF 看板
           </Link>
         </nav>
-        {date ? (
-          <div className="date-nav">
-            <button
-              type="button"
-              onClick={() => setDate(previousTradingDay(date, holidaySet))}
-            >
-              上一交易日
-            </button>
-            <span>{date}</span>
-            <button
-              type="button"
-              onClick={() => setDate(nextTradingDay(date, holidaySet))}
-            >
-              下一交易日
-            </button>
-          </div>
-        ) : null}
+        <div className="date-nav">
+          <button
+            type="button"
+            disabled={!date}
+            onClick={() => date && setDate(previousTradingDay(date, holidaySet))}
+          >
+            ‹ 前一日
+          </button>
+          <input
+            type="date"
+            className="date-input"
+            value={jumpInput}
+            onChange={(e) => setJumpInput(e.target.value)}
+            list="available-dates"
+          />
+          <datalist id="available-dates">
+            {availableDates.map((d) => (
+              <option key={d} value={d} />
+            ))}
+          </datalist>
+          <button type="button" className="btn-primary" onClick={jumpToDate}>
+            跳转
+          </button>
+          <button
+            type="button"
+            disabled={!date}
+            onClick={() => date && setDate(nextTradingDay(date, holidaySet))}
+          >
+            后一日 ›
+          </button>
+        </div>
       </header>
       {error ? <div className="banner failed">{error}</div> : null}
       {snap ? <StatusBanner snap={snap} /> : null}
@@ -106,7 +139,16 @@ function Shell() {
         <Routes>
           <Route path="/" element={<NewsPage snap={snap} />} />
           <Route path="/news/:id" element={<NewsDetailPage snap={snap} />} />
-          <Route path="/etf" element={<EtfPage snap={snap} />} />
+          <Route
+            path="/etf"
+            element={
+              <EtfPage
+                snap={snap}
+                availableDates={availableDates}
+                asOfDate={date}
+              />
+            }
+          />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       ) : !error ? (

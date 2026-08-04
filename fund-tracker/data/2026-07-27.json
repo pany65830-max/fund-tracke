@@ -1,28 +1,28 @@
 {
-  "tradeDate": "2026-08-03",
-  "updatedAt": "2026-08-03T08:30:00+08:00",
+  "tradeDate": "2026-07-27",
+  "updatedAt": "2026-07-27T08:30:00+08:00",
   "status": "ok",
   "news": [
     {
-      "id": "n-2026-08-03-1",
-      "title": "2026-08-03 市场策略会纪要",
+      "id": "n-2026-07-27-1",
+      "title": "2026-07-27 市场策略会纪要",
       "summary": "摘要",
       "body": "正文",
       "institution": "huatai",
       "category": "research",
       "source": "ifind",
-      "publishedAt": "2026-08-03T07:00:00+08:00",
-      "sourceUrl": "https://example.com/2026-08-03/1"
+      "publishedAt": "2026-07-27T07:00:00+08:00",
+      "sourceUrl": "https://example.com/2026-07-27/1"
     },
     {
-      "id": "n-2026-08-03-2",
-      "title": "2026-08-03 上交所资讯",
+      "id": "n-2026-07-27-2",
+      "title": "2026-07-27 上交所资讯",
       "summary": "交易所",
       "institution": "sse",
       "category": "exchange",
       "source": "exchange_web",
-      "publishedAt": "2026-08-03T07:00:00+08:00",
-      "sourceUrl": "https://www.sse.com.cn/2026-08-03"
+      "publishedAt": "2026-07-27T07:00:00+08:00",
+      "sourceUrl": "https://www.sse.com.cn/2026-07-27"
     }
   ],
   "etf": {
@@ -30,28 +30,28 @@
       {
         "code": "000300",
         "name": "沪深300",
-        "last": 4000.89,
-        "changePct": 0.7
+        "last": 3900.77,
+        "changePct": 0.5
       },
       {
         "code": "000905",
         "name": "中证500",
-        "last": 5775,
-        "changePct": 0.04999999999999999
+        "last": 5700,
+        "changePct": -0.2
       }
     ],
     "sectors": [
       {
         "name": "半导体",
-        "changePct": 2
+        "changePct": 1.5
       },
       {
         "name": "新能源",
-        "changePct": 0
+        "changePct": -1
       },
       {
         "name": "金融",
-        "changePct": 0.45
+        "changePct": 0.2
       }
     ],
     "hotInflow": [
@@ -68,7 +68,7 @@
         "code": "159915",
         "name": "创业板ETF",
         "institution": "efunds",
-        "value": 1.8,
+        "value": 1.2,
         "unit": "pct"
       }
     ],
@@ -86,64 +86,64 @@
         {
           "code": "510050",
           "name": "上证50ETF",
-          "changePct": 0.5,
-          "amount": 5.19,
-          "nav": 1.2193
+          "changePct": 0.3,
+          "amount": 6.74,
+          "nav": 1.2036
         },
         {
           "code": "159919",
           "name": "沪深300ETF",
-          "changePct": 0.7,
-          "amount": 2.06,
-          "nav": 1.1743
+          "changePct": 0.4,
+          "amount": 5.81,
+          "nav": 1.1546
         }
       ],
       "efunds": [
         {
           "code": "510310",
           "name": "沪深300ETF易方达",
-          "changePct": 0.6,
-          "amount": 5.96,
-          "nav": 1.121
+          "changePct": 0.4,
+          "amount": 6.03,
+          "nav": 1.1044
         },
         {
           "code": "159915",
           "name": "创业板ETF",
-          "changePct": 1.8,
-          "amount": 2.82,
-          "nav": 0.9933
+          "changePct": 1.2,
+          "amount": 6.34,
+          "nav": 0.9614
         }
       ],
       "guotai": [
         {
           "code": "510300",
           "name": "沪深300ETF国泰",
-          "changePct": 0.7,
-          "amount": 4.74,
-          "nav": 1.0996
+          "changePct": 0.5,
+          "amount": 5.66,
+          "nav": 1.0854
         },
         {
           "code": "159901",
           "name": "深证100ETF",
-          "changePct": 0.4,
-          "amount": 6.06,
-          "nav": 1.0364
+          "changePct": 0.6,
+          "amount": 4.05,
+          "nav": 1.0261
         }
       ],
       "huatai": [
         {
           "code": "510300",
           "name": "沪深300ETF",
-          "changePct": 0.7,
-          "amount": 2.92,
-          "nav": 1.1097
+          "changePct": 0.5,
+          "amount": 6.9,
+          "nav": 1.0955
         },
         {
           "code": "512760",
           "name": "芯片ETF",
-          "changePct": 2,
-          "amount": 2.32,
-          "nav": 0.9385
+          "changePct": 1.5,
+          "amount": 6.78,
+          "nav": 0.8932
         }
       ]
     }
