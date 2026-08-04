@@ -1,69 +1,210 @@
 {
   "tradeDate": "2026-08-04",
-  "updatedAt": "2026-08-04T09:29:33.867Z",
-  "status": "ok",
+  "updatedAt": "2026-08-04T09:30:43.632Z",
+  "status": "partial",
+  "errors": [
+    "ifind-news: report_query failed: no data."
+  ],
   "news": [
     {
-      "id": "fx-hx-1",
-      "title": "【演示】华夏基金市场策略会纪要",
-      "summary": "演示数据：GitHub 海外节点无法访问 iFinD 时使用。请本机配置密钥后重新拉数。",
-      "body": "【演示正文】正式环境将展示 iFinD / 公众号摘要。当前链接指向公司官网首页，非原文。",
-      "institution": "huaxia",
-      "category": "research",
-      "source": "ifind",
-      "publishedAt": "2026-08-04T07:00:00+08:00",
-      "sourceUrl": "https://www.chinaamc.com/"
-    },
-    {
-      "id": "fx-ef-1",
-      "title": "【演示】易方达新产品发行安排",
-      "summary": "演示数据：认购期说明占位。",
-      "institution": "efunds",
-      "category": "new_product",
-      "source": "ifind",
-      "publishedAt": "2026-08-04T07:00:00+08:00",
-      "sourceUrl": "https://www.efunds.com.cn/"
-    },
-    {
-      "id": "fx-gt-1",
-      "title": "【演示】国泰主动ETF业务进展",
-      "summary": "演示数据：主动ETF动态占位。",
-      "institution": "guotai",
-      "category": "active_etf",
-      "source": "wechat",
-      "publishedAt": "2026-08-04T07:00:00+08:00",
-      "sourceUrl": "https://www.gtfund.com/"
-    },
-    {
-      "id": "fx-ht-1",
-      "title": "【演示】华泰柏瑞基金份额变动公告",
-      "summary": "演示数据：信披摘要占位。",
-      "body": "【演示正文】正式环境将展示信披全文。",
-      "institution": "huatai",
-      "category": "disclosure",
-      "source": "ifind",
-      "publishedAt": "2026-08-04T07:00:00+08:00",
-      "sourceUrl": "https://www.huatai-pb.com/"
-    },
-    {
-      "id": "fx-sse-1",
-      "title": "【演示】上交所市场动态",
-      "summary": "演示数据：请从交易所官网查看最新公告。",
+      "id": "ex-sse-0-2026-08-04",
+      "title": "投资者服务中心",
+      "summary": "投资者服务中心",
       "institution": "sse",
       "category": "exchange",
       "source": "exchange_web",
-      "publishedAt": "2026-08-04T07:00:00+08:00",
-      "sourceUrl": "https://www.sse.com.cn/"
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://one.sse.com.cn/investor/#/personCenter/personHome"
     },
     {
-      "id": "fx-szse-1",
-      "title": "【演示】深交所监管动态",
-      "summary": "演示数据：请从交易所官网查看最新公告。",
-      "institution": "szse",
+      "id": "ex-sse-1-2026-08-04",
+      "title": "APP下载",
+      "summary": "APP下载",
+      "institution": "sse",
       "category": "exchange",
       "source": "exchange_web",
-      "publishedAt": "2026-08-04T07:00:00+08:00",
-      "sourceUrl": "https://www.szse.cn/"
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://www.sse.com.cn/home/app/update/"
+    },
+    {
+      "id": "ex-sse-2-2026-08-04",
+      "title": "微博微信",
+      "summary": "微博微信",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://www.sse.com.cn/home/weixin/"
+    },
+    {
+      "id": "ex-sse-3-2026-08-04",
+      "title": "English",
+      "summary": "English",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "http://english.sse.com.cn/"
+    },
+    {
+      "id": "ex-sse-4-2026-08-04",
+      "title": "一网通办",
+      "summary": "一网通办",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://one.sse.com.cn/"
+    },
+    {
+      "id": "ex-sse-5-2026-08-04",
+      "title": "“三开门”专栏",
+      "summary": "“三开门”专栏",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://www.sse.com.cn/transparency/home/"
+    },
+    {
+      "id": "ex-sse-6-2026-08-04",
+      "title": "简中EN",
+      "summary": "简中EN",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://english.sse.com.cn/"
+    },
+    {
+      "id": "ex-sse-7-2026-08-04",
+      "title": "会员机构",
+      "summary": "会员机构",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://one.sse.com.cn/member/"
+    },
+    {
+      "id": "ex-sse-8-2026-08-04",
+      "title": "拟上市公司",
+      "summary": "拟上市公司",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://one.sse.com.cn/to-be-listed/"
+    },
+    {
+      "id": "ex-sse-9-2026-08-04",
+      "title": "债券机构",
+      "summary": "债券机构",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://one.sse.com.cn/bond/"
+    },
+    {
+      "id": "ex-sse-10-2026-08-04",
+      "title": "上市公司",
+      "summary": "上市公司",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://one.sse.com.cn/list/"
+    },
+    {
+      "id": "ex-sse-11-2026-08-04",
+      "title": "基金公司",
+      "summary": "基金公司",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://one.sse.com.cn/fund/"
+    },
+    {
+      "id": "ex-sse-12-2026-08-04",
+      "title": "股票投资一件事",
+      "summary": "股票投资一件事",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://one.sse.com.cn/onething/gptz/"
+    },
+    {
+      "id": "ex-sse-13-2026-08-04",
+      "title": "债券发行上市一件事",
+      "summary": "债券发行上市一件事",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://one.sse.com.cn/onething/zqfx/"
+    },
+    {
+      "id": "ex-sse-14-2026-08-04",
+      "title": "期权投资一件事",
+      "summary": "期权投资一件事",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://one.sse.com.cn/onething/qqtz/"
+    },
+    {
+      "id": "ex-sse-15-2026-08-04",
+      "title": "REITs发行上市一件事",
+      "summary": "REITs发行上市一件事",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://one.sse.com.cn/onething/reits/"
+    },
+    {
+      "id": "ex-sse-16-2026-08-04",
+      "title": "企业上市一件事",
+      "summary": "企业上市一件事",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://one.sse.com.cn/onething/qyss/"
+    },
+    {
+      "id": "ex-sse-17-2026-08-04",
+      "title": "服务预约一件事",
+      "summary": "服务预约一件事",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://one.sse.com.cn/onething/fwyy/"
+    },
+    {
+      "id": "ex-sse-18-2026-08-04",
+      "title": "信息披露一件事",
+      "summary": "信息披露一件事",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://one.sse.com.cn/onething/xxpl/"
+    },
+    {
+      "id": "ex-sse-19-2026-08-04",
+      "title": "股票业务专区",
+      "summary": "股票业务专区",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-04T08:00:00+08:00",
+      "sourceUrl": "https://cbm.uap.sse.com.cn/"
     }
   ],
   "etf": {
@@ -71,54 +212,125 @@
       {
         "code": "000300",
         "name": "沪深300",
-        "last": 4000.12,
-        "changePct": 0.85
+        "last": 0,
+        "changePct": 0
       },
       {
         "code": "000905",
         "name": "中证500",
-        "last": 5800.5,
-        "changePct": -0.32
+        "last": 0,
+        "changePct": 0
       }
     ],
-    "sectors": [
-      {
-        "name": "半导体",
-        "changePct": 2.1
-      },
-      {
-        "name": "新能源",
-        "changePct": -1.2
-      },
-      {
-        "name": "金融",
-        "changePct": 0.4
-      }
-    ],
+    "sectors": [],
     "hotInflow": [
       {
-        "code": "512760",
-        "name": "芯片ETF",
+        "code": "510050",
+        "name": "上证50ETF",
+        "institution": "huaxia",
+        "value": 0,
+        "unit": "yi"
+      },
+      {
+        "code": "159919",
+        "name": "沪深300ETF",
+        "institution": "huaxia",
+        "value": 0,
+        "unit": "yi"
+      },
+      {
+        "code": "510310",
+        "name": "沪深300ETF易方达",
+        "institution": "efunds",
+        "value": 0,
+        "unit": "yi"
+      },
+      {
+        "code": "159915",
+        "name": "创业板ETF",
+        "institution": "efunds",
+        "value": 0,
+        "unit": "yi"
+      },
+      {
+        "code": "510300",
+        "name": "沪深300ETF",
         "institution": "huatai",
-        "value": 3.2,
+        "value": 0,
         "unit": "yi"
       }
     ],
     "hotGainers": [
       {
+        "code": "510050",
+        "name": "上证50ETF",
+        "institution": "huaxia",
+        "value": 0,
+        "unit": "pct"
+      },
+      {
+        "code": "159919",
+        "name": "沪深300ETF",
+        "institution": "huaxia",
+        "value": 0,
+        "unit": "pct"
+      },
+      {
+        "code": "510310",
+        "name": "沪深300ETF易方达",
+        "institution": "efunds",
+        "value": 0,
+        "unit": "pct"
+      },
+      {
         "code": "159915",
         "name": "创业板ETF",
         "institution": "efunds",
-        "value": 1.8,
+        "value": 0,
+        "unit": "pct"
+      },
+      {
+        "code": "510300",
+        "name": "沪深300ETF",
+        "institution": "huatai",
+        "value": 0,
         "unit": "pct"
       }
     ],
     "hotTurnover": [
       {
+        "code": "510050",
+        "name": "上证50ETF",
+        "institution": "huaxia",
+        "value": 0,
+        "unit": "yi_amount"
+      },
+      {
+        "code": "159919",
+        "name": "沪深300ETF",
+        "institution": "huaxia",
+        "value": 0,
+        "unit": "yi_amount"
+      },
+      {
+        "code": "510310",
+        "name": "沪深300ETF易方达",
+        "institution": "efunds",
+        "value": 0,
+        "unit": "yi_amount"
+      },
+      {
+        "code": "159915",
+        "name": "创业板ETF",
+        "institution": "efunds",
+        "value": 0,
+        "unit": "yi_amount"
+      },
+      {
         "code": "510300",
         "name": "沪深300ETF",
-        "institution": "guotai",
-        "value": 12.5,
+        "institution": "huatai",
+        "value": 0,
         "unit": "yi_amount"
       }
     ],
@@ -127,32 +339,56 @@
         {
           "code": "510050",
           "name": "上证50ETF",
-          "changePct": 0.5,
-          "amount": 2.1
+          "changePct": 0,
+          "amount": 0
+        },
+        {
+          "code": "159919",
+          "name": "沪深300ETF",
+          "changePct": 0,
+          "amount": 0
         }
       ],
       "efunds": [
         {
+          "code": "510310",
+          "name": "沪深300ETF易方达",
+          "changePct": 0,
+          "amount": 0
+        },
+        {
           "code": "159915",
           "name": "创业板ETF",
-          "changePct": 1.8,
-          "amount": 5
+          "changePct": 0,
+          "amount": 0
         }
       ],
       "guotai": [
         {
-          "code": "510300",
-          "name": "沪深300ETF国泰",
-          "changePct": 0.7,
-          "amount": 4.2
+          "code": "159901",
+          "name": "深证100ETF",
+          "changePct": 0,
+          "amount": 0
         }
       ],
       "huatai": [
         {
+          "code": "510300",
+          "name": "沪深300ETF",
+          "changePct": 0,
+          "amount": 0
+        },
+        {
+          "code": "510300",
+          "name": "沪深300ETF",
+          "changePct": 0,
+          "amount": 0
+        },
+        {
           "code": "512760",
           "name": "芯片ETF",
-          "changePct": 2,
-          "amount": 3.2
+          "changePct": 0,
+          "amount": 0
         }
       ]
     }
