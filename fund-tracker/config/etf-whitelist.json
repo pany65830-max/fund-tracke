@@ -1,0 +1,18 @@
+{
+  "huaxia": [
+    {"code": "510050", "name": "上证50ETF"},
+    {"code": "159919", "name": "沪深300ETF"}
+  ],
+  "efunds": [
+    {"code": "510310", "name": "沪深300ETF易方达"},
+    {"code": "159915", "name": "创业板ETF"}
+  ],
+  "guotai": [
+    {"code": "510300", "name": "沪深300ETF国泰"},
+    {"code": "159901", "name": "深证100ETF"}
+  ],
+  "huatai": [
+    {"code": "510300", "name": "沪深300ETF"},
+    {"code": "512760", "name": "芯片ETF"}
+  ]
+}
