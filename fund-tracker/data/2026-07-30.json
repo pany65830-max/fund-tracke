@@ -1,8 +1,21 @@
 {
   "tradeDate": "2026-07-30",
-  "updatedAt": "2026-08-05T01:27:04.963Z",
+  "updatedAt": "2026-08-05T06:52:44.574Z",
   "status": "ok",
+  "errors": [
+    "ifind-news: report_query failed: no data."
+  ],
   "news": [
+    {
+      "id": "wx-sg-efunds-0-2026-07-30",
+      "title": "投资有方 | 易方达基金蔡荣成:掘金科技浪潮,紧跟产业最新变化",
+      "summary": "“面对这场快速发展的科技浪潮,我是既兴奋又恐惧.”易方达基金的基金经理蔡荣成在接受中国证券报记者专访时表示,近年来,...",
+      "institution": "efunds",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-07-31T07:55:52.000Z",
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk9gffXt3vtNJH8pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aDhjuvSn6CDF-KxrgLoFf7hKuraf9e0CxT8ZkW6Dxn1SAcRvmWkjyAK2jus_A5QXWF6LYbL60u5Ya1_0FC6qr-4DfKQctFCatVFLuwaXCuEvxRXLvgoBDoerCDCayYmfpA..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FBF46FE9F50D21176A6C332D5D28015B6BFAB2B06A72DDA0"
+    },
     {
       "id": "wx-sg-efunds-1-2026-07-30",
       "title": "AI浪潮涌向ChinaJoy,易方达带你＂一探到底＂",
@@ -11,7 +24,67 @@
       "category": "other",
       "source": "wechat",
       "publishedAt": "2026-07-30T06:41:30.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32v5ydxUuF6x38pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aIQv66I6KLWpt4QBfyYAzj-XqCHT054hQ14O2EsIkOrO_Xcuq0SoNCxNeJbqAoiYVDbhKECR0n4O00_VtoJ25GGsZ1FSZyWK5mz9YqjScQdOwrP0qgbkZxqrCDCayYmfpA..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FA3ADA92EC15390E72752A30DB954E4A73E024256A729141"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk9gffXt3vtNJH8pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aLKGzGVkVKp8Us7laR0wcvMmqq2QpIpDkymHoL8csuS8-MxvN2bIRNY1qM28r0fxKMGajwMt-Diu7ddZDS-4cXqHfhlZl72Tbv5Y5ETQ_ya8-nmgksqhFUgC2Qmj7RgGwQ..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FBF46FE9F50D21176A6C332D5D28015B6BFAB2B06A72DDA0"
+    },
+    {
+      "id": "wx-sg-efunds-0-2026-07-30",
+      "title": "易方达基金成曦:双创板块是否跌出“黄金坑”了?",
+      "summary": "大家好,我是易方达基金经理成曦.近一周科技板块依旧剧烈波动,而伴随着7月份过去以及某科技龙头上市,我们可以来复盘一下7月...",
+      "institution": "efunds",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-07-29T08:40:14.000Z",
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk96V8MWP_RMKv8pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aI_sswIz2eAH31SCMlGVAibm32EtUbLPU9DhUsWAOBIWCAvtjijItN4Ptb-3zr3Wf5QCNS1BszzQuKtfFT6HupBrel0DX-P4X_rLKpGry90LfetVfenHI4654z_tGSZTqA..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FBF475B1877E5364181E415F2F4E3DE119F9E2586A72DDA1"
+    },
+    {
+      "id": "wx-sg-efunds-1-2026-07-30",
+      "title": "易方达基金杨正旺:地缘又升温,市场向价值风格倾斜?",
+      "summary": "大家好,我是易方达基金经理杨正旺!也是《旺仔说红利》专栏的主理人旺仔本旺~01市场复盘上周相比前两周科技板块的回调,整体...",
+      "institution": "efunds",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-07-28T07:59:57.000Z",
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk96V8MWP_RMKv8pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aAf8wHEhExlV_POlGA_u2oXvVchIL9DLngb68O45_RgAEp4JQgagESzovtRv2er-mKdvtzhfGKDMv270shA7M-EaeAgiQmxgswCiK7sRJph6odfV9NFxRckYJSSFPgfogQ..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FBF475B1877E5364181E415F2F4E3DE119F9E2586A72DDA1"
+    },
+    {
+      "id": "wx-sg-efunds-2-2026-07-30",
+      "title": "2026年二季报出炉,易方达主动权益观点速览!",
+      "summary": "易方达基金2026年二季报近期已披露,本文摘编了季报中主动权益基金经理的最新观点,作为投资参考.蔡荣成金融硕士现任易方达基...",
+      "institution": "efunds",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-07-24T07:08:46.000Z",
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk96V8MWP_RMKv8pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aL8ubXowbY083bJoqHWDRHXETx5_-6b9xhsThSyFseJ-xhlE1Q31BP2---A2ldMuOalKm_2xyI_RvbzanyfXXShey-tZ_xqm0EymoRjoYZvkw5AM-r2jnS8tPujwwRB2Pw..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FBF475B1877E5364181E415F2F4E3DE119F9E2586A72DDA1"
+    },
+    {
+      "id": "wx-sg-sse-0-2026-07-30",
+      "title": "中航中核汇能新能源REIT(508030.SH)今日在上交所上市",
+      "summary": "上市仪式2026年7月28日,中航中核汇能新能源REIT(基金代码:508030)在我所上市.产品简介中航中核汇能新能源REIT基金份额2...",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-07-28T08:33:58.000Z",
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk9d6kARwiFKd38pqs6ydegaVqXa8Fplpd96bnDhUoL3Y7GJFAYZiHIc-0_HE53BgPcwMLeHIbinlGd4Dn1WxN6PgxqKOyrZcXvjJ9n8E44CYFu4BzNVruxvedSDQNGxq4x4bklhEnDMNCYjQ4xnh1qa6MZ0BKentf5Pj4bpNEg-WEPbppKpVFJHeEtDSxMQmsxwTYmlvlu97eFW6cwuUnkdA..&type=2&query=%E4%B8%8A%E4%BA%A4%E6%89%80%E5%8F%91%E5%B8%83&token=FBF4CCAFC9311C2A56500E11610FE5C6576C809A6A72DDB2"
+    },
+    {
+      "id": "wx-sg-sse-1-2026-07-30",
+      "title": "长鑫科技(688825.SH)今日在上交所上市",
+      "summary": "公司简介长鑫科技集团股份有限公司本次公开发行股票668,808.8608万股(超额配售选择权行使前)/769,130.1608万股(超额配售选...",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-07-27T08:33:15.000Z",
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk9d6kARwiFKd38pqs6ydegaVqXa8Fplpd96bnDhUoL3Y7GJFAYZiHIc-0_HE53BgPcwMLeHIbinlGd4Dn1WxN6Pnq4e3wvHXTjuLQOUQRF91Rv4-KupslvKqKmCqyGsG6POle3mu9yeyuanYX3m7qtBdhAa26EN8FNSx3jiBXtsrO8sX4qKei3qS_Y7298HnvnH3PDEu2Z56vyPfCoem7FzA..&type=2&query=%E4%B8%8A%E4%BA%A4%E6%89%80%E5%8F%91%E5%B8%83&token=FBF4CCAFC9311C2A56500E11610FE5C6576C809A6A72DDB2"
+    },
+    {
+      "id": "wx-sg-sse-0-2026-07-30",
+      "title": "上海证券交易所债券质押式协议回购业务出资人信息展示(2026年7月更新)",
+      "summary": "《上海证券交易所债券质押式协议回购交易业务指引》以及《关于上海证券交易所债券质押式协议回购业务开展有关事项的通知》等业...",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-07-28T11:03:54.000Z",
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk9aJqAQtE8H8T8pqs6ydegaVqXa8Fplpd9M7MZW9xd0iLv3JozPzpzD8jJ1ITaRcpv7G-ybY5tgbrM-aGi8fOYnJo-DQVCV42a-JRQ2YALrbsDpk8vn0hf2CqavumzOfpeKRKNzCiwqLUSPS-gg3AY2t3Zc2gcO11vNSMNTHxwwaKv4T7myVg-eEx4dQ1UOJIgOdQtJwfGo37f3q8uRDTfkw..&type=2&query=%E4%B8%8A%E6%B5%B7%E8%AF%81%E5%88%B8%E4%BA%A4%E6%98%93%E6%89%80&token=FBF4D8DA1BE3CFF98483DDC3B2FB325D8592B6476A72DDB5"
     }
   ],
   "etf": {

@@ -83,11 +83,6 @@ export function mapIfindEtfPayload(
   };
 }
 
-function normalizeChangePct(v: number): number {
-  if (Math.abs(v) > 0 && Math.abs(v) < 0.5) return v * 100;
-  return v;
-}
-
 function yuanToYi(v: number): number {
   if (!v) return 0;
   if (Math.abs(v) < 1000) return v;
@@ -111,7 +106,7 @@ export function createIfindEtfAdapter(
         "real_time_quotation",
         {
           codes: thsCodes,
-          indicators: "latest,changeRatio,amount,volume,amplitude,shortName",
+          indicators: "latest,changeRatio,preClose,amount,volume,amplitude,shortName",
         },
         accessToken,
         fetchImpl,
@@ -129,6 +124,7 @@ export function createIfindEtfAdapter(
           thscode: ths,
           latest: first("latest"),
           changeRatio: first("changeRatio"),
+          preClose: first("preClose"),
           amount: first("amount"),
           volume: first("volume"),
           amplitude: first("amplitude"),
@@ -138,13 +134,22 @@ export function createIfindEtfAdapter(
         byCode.set(ths, rec);
       }
 
+      // 涨跌幅：直接用 latest/preClose 计算（最稳，避免 changeRatio 缩放歧义）。
+      // 个别标的无 preClose 时回退到 changeRatio（iFinD 已为百分比）。
+      const calcChangePct = (row: Record<string, unknown>): number => {
+        const latest = asNumber(row.latest);
+        const preClose = asNumber(row.preClose);
+        if (latest && preClose) return ((latest - preClose) / preClose) * 100;
+        return asNumber(row.changeRatio);
+      };
+
       const indices = INDEX_LIST.map((idx) => {
         const row = byCode.get(idx.code) || byCode.get(idx.ths) || {};
         return {
           code: idx.code,
           name: idx.name,
           last: asNumber(row.latest),
-          changePct: normalizeChangePct(asNumber(row.changeRatio)),
+          changePct: +calcChangePct(row).toFixed(2),
         };
       });
 
@@ -166,7 +171,7 @@ export function createIfindEtfAdapter(
       for (const code of codes) {
         const row = byCode.get(code) || {};
         const firm = codeFirm.get(code) || "huatai";
-        const changePct = normalizeChangePct(asNumber(row.changeRatio));
+        const changePct = +calcChangePct(row).toFixed(2);
         const amountYi = yuanToYi(asNumber(row.amount));
         const name = String(row.shortName || "") || names.get(code) || code;
         productsByFirm[firm] = productsByFirm[firm] || [];
@@ -220,10 +225,7 @@ export function createIfindEtfAdapter(
           .filter((r): r is Record<string, unknown> => !!r);
         if (!members.length) return null;
         const avg =
-          members.reduce(
-            (a, r) => a + normalizeChangePct(asNumber(r.changeRatio)),
-            0,
-          ) / members.length;
+          members.reduce((a, r) => a + calcChangePct(r), 0) / members.length;
         return { name: s.name, changePct: +avg.toFixed(2) };
       }).filter(
         (x): x is { name: string; changePct: number } => x !== null,

@@ -1,7 +1,10 @@
 {
   "tradeDate": "2026-07-31",
-  "updatedAt": "2026-08-05T01:27:04.969Z",
+  "updatedAt": "2026-08-05T06:53:10.588Z",
   "status": "ok",
+  "errors": [
+    "ifind-news: report_query failed: no data."
+  ],
   "news": [
     {
       "id": "wx-sg-efunds-0-2026-07-31",
@@ -11,7 +14,37 @@
       "category": "other",
       "source": "wechat",
       "publishedAt": "2026-07-31T07:55:52.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32v5ydxUuF6x38pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aP8iFO_LxoUTb-OlA85yg6_xbkzbxRmQc7EN9IxLo9-AcIH1OiMxELwlQzeVH--xcUUSevuw4ylFp-3gxcj4_exMo3UIPqj_ypeolm7sQnGgUYWGc3q3hadAe0f8bRARvQ..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FA3ADA92EC15390E72752A30DB954E4A73E024256A729141"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk9C6tme5qrZuH8pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aDhjuvSn6CDF-KxrgLoFf7hKuraf9e0CxSDF5WA3mEJ_X9KQyUzn4QrnMHJCOFJ-Jt86aEgpd6RqoiZ_hUXNxz5VKVcSdfTds5UC7yljfE1lggMAtLLCuaiE8RsmObDbtQ..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FBF52C2A17EFC3F4888ED1CFB1F9C97089EDA2C16A72DDC5"
+    },
+    {
+      "id": "wx-sg-efunds-1-2026-07-31",
+      "title": "AI浪潮涌向ChinaJoy,易方达带你＂一探到底＂",
+      "summary": "易方达基金管理有限公司有权取消其活动资格并收回已发放的奖励,同时易方达基金管理有限公司保留必要时追究其法律责任的权利....",
+      "institution": "efunds",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-07-30T06:41:30.000Z",
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk9C6tme5qrZuH8pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aLKGzGVkVKp8Us7laR0wcvMmqq2QpIpDk_-JqsuyiER9CWR_3GD1upCHXeeSU-oKsKKloSFRnOulHo-l1JmcRmTU1d72vVR8GhcsRX7tRR8YLaEURyc9_h8Cn9lOoZLP2Q..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FBF52C2A17EFC3F4888ED1CFB1F9C97089EDA2C16A72DDC5"
+    },
+    {
+      "id": "wx-sg-efunds-0-2026-07-31",
+      "title": "易方达基金成曦:双创板块是否跌出“黄金坑”了?",
+      "summary": "大家好,我是易方达基金经理成曦.近一周科技板块依旧剧烈波动,而伴随着7月份过去以及某科技龙头上市,我们可以来复盘一下7月...",
+      "institution": "efunds",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-07-29T08:40:14.000Z",
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk95hBIxnQCwrP8pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aI_sswIz2eAH31SCMlGVAibm32EtUbLPU4zdLSDiSb77hi1Mt4B24uLpSwNyUxpWxMco5Iu5AfeaizrSuLwUWmB7U_7T2x1Igui5Ub36oHBVdpkFicxEdKMGX_iHL9MadA..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FBF5324FE51B36077B7D243C44F8A3E37C8A628B6A72DDC6"
+    },
+    {
+      "id": "wx-sg-efunds-1-2026-07-31",
+      "title": "易方达基金杨正旺:地缘又升温,市场向价值风格倾斜?",
+      "summary": "大家好,我是易方达基金经理杨正旺!也是《旺仔说红利》专栏的主理人旺仔本旺~01市场复盘上周相比前两周科技板块的回调,整体...",
+      "institution": "efunds",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-07-28T07:59:57.000Z",
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk95hBIxnQCwrP8pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aAf8wHEhExlV_POlGA_u2oXvVchIL9DLnkvxU5qEb1bp8xVuwLVhcY7c4IyOIFvFfK-uAVr0PoCLHbud5OzW3lKbM7SMICjW1GCn-eynMaDBP8WGzI797bbvzHZXxeLdyg..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FBF5324FE51B36077B7D243C44F8A3E37C8A628B6A72DDC6"
     }
   ],
   "etf": {

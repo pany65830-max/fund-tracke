@@ -1,4 +1,4 @@
-import { existsSync, writeFileSync, readdirSync } from "node:fs";
+import { existsSync, writeFileSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { DaySnapshotSchema, type DaySnapshot } from "../shared/schema.js";
 
@@ -21,6 +21,21 @@ function rewriteDates(dataDir: string): void {
 export function writeSnapshot(dataDir: string, snapshot: DaySnapshot): void {
   const parsed = DaySnapshotSchema.parse(snapshot);
   const latestPath = join(dataDir, "latest.json");
+  const dayFile = join(dataDir, `${parsed.tradeDate}.json`);
+
+  // 上游限流（iFinD no data / 微信搜狗 CAPTCHA）会导致本次新闻为空。
+  // 若旧文件已有新闻，保留旧新闻，避免重跑时静默清空某日资讯。
+  if (parsed.news.length === 0 && existsSync(dayFile)) {
+    try {
+      const old = JSON.parse(readFileSync(dayFile, "utf8")) as DaySnapshot;
+      if (old.news && old.news.length > 0) {
+        parsed.news = old.news;
+        if (parsed.status === "failed") parsed.status = "ok";
+      }
+    } catch {
+      /* ignore corrupt old file */
+    }
+  }
 
   // Never blank the site or wipe a good day file when today's ingest fully failed
   // (common on GitHub Actions overseas runners that cannot reach iFinD).
