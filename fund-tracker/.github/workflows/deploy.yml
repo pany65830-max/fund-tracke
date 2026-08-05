@@ -1,0 +1,54 @@
+name: Deploy fund-tracker to Pages
+
+# 数据由本机定时任务（每日 08:30）拉取 iFinD 后 push 到本分支；
+# 海外 Actions 节点连不上 iFinD，因此本工作流【只构建、不拉数】，
+# 直接把已提交的 data/ 打包部署到 GitHub Pages。
+on:
+  push:
+    branches: [feature/fund-tracker]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install root deps
+        run: npm ci
+
+      - name: Install web deps
+        run: npm ci --prefix web
+
+      # vite build 时 copyDataPlugin 会把 data/*.json 拷进 web/dist/data
+      - name: Build web
+        run: npm run build:web
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
