@@ -14,6 +14,7 @@ type ProductRow = {
   changePct: number;
   amount?: number;
   nav?: number;
+  amplitude?: number;
 };
 
 function productKey(firm: string, code: string) {
@@ -98,6 +99,13 @@ export function EtfPage({
 
   const highlightInflow = etf.hotInflow.slice(0, 4);
   const highlightTurnover = etf.hotTurnover.slice(0, 4);
+  const highlightAmplitude = useMemo(
+    () =>
+      [...allProducts]
+        .sort((a, b) => (b.amplitude ?? 0) - (a.amplitude ?? 0))
+        .slice(0, 4),
+    [allProducts],
+  );
 
   const sameDay = rangeStart === rangeEnd;
   const startMap = new Map(
@@ -191,7 +199,16 @@ export function EtfPage({
           <div className="hl-section">
             <h3 className="hl-title">资金与主题</h3>
             <div className="hot-grid">
-              <RankTable title="净流入" unit="亿元" rows={highlightInflow} />
+              <RankTable
+                title="振幅榜"
+                unit="%"
+                plain
+                rows={highlightAmplitude.map((p) => ({
+                  code: p.code,
+                  name: p.name,
+                  value: p.amplitude ?? 0,
+                }))}
+              />
               <RankTable title="成交额" unit="亿元" rows={highlightTurnover} />
               <div className="rank-card">
                 <h3>强势主题</h3>
@@ -349,10 +366,12 @@ function RankTable({
   title,
   unit,
   rows,
+  plain,
 }: {
   title: string;
   unit: string;
   rows: Array<{ code: string; name: string; value: number }>;
+  plain?: boolean;
 }) {
   return (
     <div className="rank-card">
@@ -365,7 +384,9 @@ function RankTable({
           {(rows || []).map((r) => (
             <tr key={r.code}>
               <td title={r.name}>{r.name}</td>
-              <td className={`num ${r.value >= 0 ? "up" : "down"}`}>
+              <td
+                className={`num${plain ? "" : ` ${r.value >= 0 ? "up" : "down"}`}`}
+              >
                 {Number(r.value).toFixed(2)}
               </td>
             </tr>

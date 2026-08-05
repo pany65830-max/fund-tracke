@@ -65,6 +65,7 @@ export const EtfProductSchema = z.object({
   amount: z.number().optional(),
   shares: z.number().optional(),
   nav: z.number().optional(),
+  amplitude: z.number().optional(),
 });
 
 export const EtfDashboardSchema = z.object({

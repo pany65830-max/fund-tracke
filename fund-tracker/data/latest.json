@@ -1,10 +1,9 @@
 {
   "tradeDate": "2026-08-05",
-  "updatedAt": "2026-08-05T01:43:40.066Z",
-  "status": "partial",
+  "updatedAt": "2026-08-05T06:15:48.393Z",
+  "status": "ok",
   "errors": [
-    "ifind-news: get_access_token network: fetch failed cause=AggregateError（若在 GitHub Actions：海外节点常无法访问 quantapi.51ifind.com，请本机拉数后推送 data/）",
-    "ifind-etf: get_access_token network: fetch failed cause=AggregateError（若在 GitHub Actions：海外节点常无法访问 quantapi.51ifind.com，请本机拉数后推送 data/）"
+    "ifind-news: report_query failed: no data."
   ],
   "news": [
     {
@@ -15,7 +14,7 @@
       "category": "other",
       "source": "wechat",
       "publishedAt": "2026-07-31T07:55:52.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32nns8vNrywwr8pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aP8iFO_LxoUTb-OlA85yg6_xbkzbxRmQc6OpiHlxOudgO_KMId6eiNyLdK4Zd_IdMEV21M1OgUnzoknaKmDsHOGfIev91fiW-cw37Dr4Ma9noFP5r_zRER0CYioxHkzTmA..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FA5267763A937AD4EDE8B6AC0D2266DDEEE5C7236A72951D"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk98QyqHpHUISP8pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aDhjuvSn6CDF-KxrgLoFf7hKuraf9e0CxbWqH30u5P3fL-8bxErwlzq_VrgRqMNzngkvNUGn2g2SuVFAfK_uSrJfcrcbVcLleP6siTRR3d82QhZpv4WCbS55Nu7CnoSqqg..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FBC3C5F76099B782FEF8A6BB4C209DE6FE3EDEB06A72D4F3"
     },
     {
       "id": "wx-sg-efunds-1-2026-08-05",
@@ -25,37 +24,47 @@
       "category": "other",
       "source": "wechat",
       "publishedAt": "2026-07-30T06:41:30.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32nns8vNrywwr8pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aIQv66I6KLWpt4QBfyYAzj-XqCHT054hQ6yjgPUDRGeUNufhnR53oAogoAnL8CRhBx1RT1ZvXgOj7wTW1ZptQTw6qi6OQNDifwbjWmivmMbA1gHv4xozsg7Yl_Q5RRZQjg..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FA5267763A937AD4EDE8B6AC0D2266DDEEE5C7236A72951D"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk98QyqHpHUISP8pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aLKGzGVkVKp8Us7laR0wcvMmqq2QpIpDk33ObvkJ4lL9lzRwXXHmtODkUtLjlE8CH5RX5mEnZYoi_50dGrkDUx85f1IPUu2-m0fdmEIK8aLGTHk_tHbQZnX6zvkPgoArRQ..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FBC3C5F76099B782FEF8A6BB4C209DE6FE3EDEB06A72D4F3"
     },
     {
-      "id": "wx-sg-szse-1-2026-08-05",
+      "id": "wx-sg-sse-0-2026-08-05",
+      "title": "关于举办上交所第五十五期债券交易员培训的通知",
+      "summary": "各有关单位:为加强市场机构对上交所债券交易、结算规则的理解,上交所拟开展第五十五期债券交易员培训,现将培训事项通知如下...",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-04T06:52:07.000Z",
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk9Jrofb6EC-7j8pqs6ydegaVqXa8Fplpd9ZG8SLt4iWkijBC68DRAyH6Z9sQxWCWbpAO6E6xWknyQkBcAo6MuGpoxrEpk9Y-e_PgxbrgXReAha60kSDHqG2-JhyHFTGixcEyWESRLilwM-hwgdAbzNEhKcQUUJgRdAgGR97Lzhs8nf8xFEPV7csZ7gge-4knA0C90Mr0EvYeyfxjh3za6jWA..&type=2&query=%E4%B8%8A%E4%BA%A4%E6%89%80&token=FBC4256BD52C00374B4D130DF8B28D824B48DF906A72D505"
+    },
+    {
+      "id": "wx-sg-sse-0-2026-08-05",
+      "title": "2026年上交所上市公司“提质增效重回报”2.0暨市值管理专题第三期培训(线上培训)通知",
+      "summary": "近期,上海证券交易所(以下简称为“上交所”)向全体沪市上市公司发出开展“提质增效重回报”2.0专项行动的倡议,为协助公司...",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-04T14:01:39.000Z",
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk9IWsZCkQ6bfL8pqs6ydegaVqXa8Fplpd9ZG8SLt4iWkijBC68DRAyH6Z9sQxWCWbpAO6E6xWknyQkBcAo6MuGpol4CDl1dr7y5SJx6tpA08n4VaJRu_k89pQpr2BkNaJavGdWPk7tw-QulWk13kJ2NKLdyiJyctheGjooMW3W1teUw8BnlyJttJnNpI8mNxQZLB0JQUqzsJFe0WC6Sbi7DA..&type=2&query=%E4%B8%8A%E4%BA%A4%E6%89%80&token=FBC42BB0C53C16205C5A031DEF56788B5CAB3C6B6A72D507"
+    },
+    {
+      "id": "wx-sg-szse-2-2026-08-05",
       "title": "深交所与广东省签署全面战略合作框架协议 助力广东实现疫情防控和经济社会发展“双胜利”",
       "summary": "7月6日,深圳证券交易所与广东省人民政府签署全面战略合作框架协议,广东省省长、深交所主要负责同志等见证签约,并共同为深交...",
       "institution": "szse",
       "category": "exchange",
       "source": "wechat",
       "publishedAt": "2026-08-04T01:43:52.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32HWEaJ4hV3in8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGQx_WuprOIXXrKx1W3fzjs8vI4jaZzJE5D_2kCGW7c7np2gpWr6f1VtV6hL8R_Q4v4MI_zzAo5pL5I7BoZ4N-JTHpx_TDjBzTciisYOQimuirJ8tNpndR3iAFV_3u-a3OQ..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA5331368F21CB655B5D041EB9E098035CC4734D6A72953D"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk9lwuRMF0yN_b8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGSBZLQ4yosmDSBnu7DZswy_cWDys-K69UVL7WKmU4nK_VhU-01N3zgT71hvscxE2a3tFtzirKQmwguhjGwaIOSldftmpAdtWMxAmwDoZ-SLczVOZ1F2ditUY-UZGbO56rA..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FBC445CBE21B37007D7A253ACF237DA57D102A276A72D50C"
     },
     {
-      "id": "wx-sg-szse-4-2026-08-05",
+      "id": "wx-sg-szse-1-2026-08-05",
       "title": "深交所联合举办首届中日资本市场论坛",
       "summary": "深交所创新创业投融资服务平台(V-Next平台)覆盖多家日本科技创新项目.下一步,深交所将与日本资本市场各方继续保持密切沟通...",
       "institution": "szse",
       "category": "exchange",
       "source": "wechat",
       "publishedAt": "2026-08-04T01:31:33.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32HWEaJ4hV3in8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGcoNrd2Xiv3lnNy81mWzV4D0lnAbCCCOW6DJ7-vaXeVFP_lDGsfQQWQO6PlKz9ECsa0aWe57uVFfmNI-Mj1XJb6WKM8e7Fn_Rqxd3_VVmBOspO8fBm7ZP8D0OK9DLfgmPA..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA5331368F21CB655B5D041EB9E098035CC4734D6A72953D"
-    },
-    {
-      "id": "wx-sg-szse-2-2026-08-05",
-      "title": "深交所与日本交易所集团深化合作 中日ETF互通再结硕果",
-      "summary": "深交所总经理沙雁在“市场结构改革以及资本市场合作的展望”圆桌论坛发言.本届论坛由中日两国证券业协会主办,来自中日两国证...",
-      "institution": "szse",
-      "category": "exchange",
-      "source": "wechat",
-      "publishedAt": "2026-08-04T01:27:58.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32HWEaJ4hV3in8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGVCeAA0R_yOBKULoa7ImVFx0joHpcaUtvV15hcv5bNdrdi-Tb3Q_Ur_c7drR-jO9hc-BwUZNQhLs-KfTvMHAQybRbQAIi09fX5jq7XTvFKntyzqmmraWXmqjotuuiAmOIg..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA5331368F21CB655B5D041EB9E098035CC4734D6A72953D"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk9lwuRMF0yN_b8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGWUAdiHMRJK-HOptUve0PAsiLygR8rJUw0S2_eZvHZXLl7IvxxwckghPF5QBnbgGO6nBoAgGDsKhHE1v6Nh5okQ5nJagfgN8eAJ8eW1X__wPhIDSUzAgtNWfxjh3za6jWA..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FBC445CBE21B37007D7A253ACF237DA57D102A276A72D50C"
     },
     {
       "id": "wx-sg-szse-0-2026-08-05",
@@ -65,47 +74,27 @@
       "category": "exchange",
       "source": "wechat",
       "publishedAt": "2026-08-04T01:25:55.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32HWEaJ4hV3in8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGea3sP2FahSvEntYQbg1GJqGwHugvP7usw4ozU5OULungC2-wGhc1tjtcJQ4mbLnw17tB-D5d-TyT1PUuc0bn80DIeP_j0uwvlPUc-awIGRr0cMZwKj45HwHpHkoPMgL3A..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA5331368F21CB655B5D041EB9E098035CC4734D6A72953D"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk9lwuRMF0yN_b8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGZTsPdIfOhSxBjOamhagd8tIcQqgSQqSIiczevupDBOV2Z_ACZaMseLSPYIEYqM_EfVIVRWfAn2NmrvPYdU4ShxcevhFgTDtQQs2hthBU8TklHmYLOeJ2jNOJBjQH7pCxQ..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FBC445CBE21B37007D7A253ACF237DA57D102A276A72D50C"
     },
     {
       "id": "wx-sg-szse-3-2026-08-05",
-      "title": "深交所投教 | 期权入市手册(十三):做市商制度",
-      "summary": "为帮助投资者系统了解期权产品特征、理性参与期权交易、有效提升风险管理能力,深交所联合市场机构推出“期权入市手册”系列连...",
-      "institution": "szse",
-      "category": "exchange",
-      "source": "wechat",
-      "publishedAt": "2026-08-04T01:18:20.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32HWEaJ4hV3in8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGVNQIcRhv8FMIxxBTtxKPvogM-izx7Tiejlq4gTqF1zr9CDQLhEmLLKu5DdRQAn8xxDiEiWloMykHROKPN2mL7o6eR2-7ESBZXMCrIlWczyY5Xgyt4suDBkSYTqT4eyLmA..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA5331368F21CB655B5D041EB9E098035CC4734D6A72953D"
-    },
-    {
-      "id": "wx-sg-szse-5-2026-08-05",
-      "title": "深交所科技成果与知识产权交易中心正式揭牌",
-      "summary": "2022年11月8日,“深圳创投日”启动大会暨深交所科技成果与知识产权交易中心(以下称科交中心)揭牌仪式成功举行.中国证监会...",
-      "institution": "szse",
-      "category": "exchange",
-      "source": "wechat",
-      "publishedAt": "2026-08-04T01:18:20.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32HWEaJ4hV3in8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGfaETVg_7ERDM9waAX1Q0-R7sDY7KR_QNEijVO5nMQT0XdtvNZJRqtUnwYA_1tEaMeeA8AqxCq1LlpbG3ALPNtflnskwGapkW-ZUllb_28RGTebJCKF7Q_fRtmyIGw2VAg..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA5331368F21CB655B5D041EB9E098035CC4734D6A72953D"
-    },
-    {
-      "id": "wx-sg-szse-6-2026-08-05",
       "title": "深交所“踔厉奋发新征程 投教服务再出发”主体活动走进浙江",
       "summary": "深交所“踔厉奋发新征程 投教服务再出发”主题活动走进浙江.深交所联合浙江证监局采用线上线下相结合方式,举办走进上市公司、...",
       "institution": "szse",
       "category": "exchange",
       "source": "wechat",
       "publishedAt": "2026-08-04T01:18:20.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32HWEaJ4hV3in8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGa5I4nsaQsDTcApKVJMzJ37P4ttdjD9-l5HU6aRmkVEyLMgJVPN-DMfFui8va0UNqtRdD1nOF-J4U1wIlmQse8172_YZGMMrkMpX4OPJlMmPjWNDPlTzMjGfxjh3za6jWA..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA5331368F21CB655B5D041EB9E098035CC4734D6A72953D"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk9lwuRMF0yN_b8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGdh56lNYJ8GwcDIJDos2b0B8hTWguBMhaMu2tEvOXhX58mkhIGwQDAMwbrmEHxMTdArBbCnUZAl9fXEWgxIoWDJmHScjWXlCUUtbsbZMyH-MOA7zTQYq9s3zAjcIGepUqA..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FBC445CBE21B37007D7A253ACF237DA57D102A276A72D50C"
     },
     {
       "id": "wx-sg-szse-0-2026-08-05",
-      "title": "深交所召开2019年会员大会",
-      "summary": "4月22日,深交所以非现场方式组织召开2019年会员大会.本次大会会期五天,主要审议深交所理事会、总经理、监事会工作报告,及...",
+      "title": "深交所科技成果与知识产权交易中心正式揭牌",
+      "summary": "2022年11月8日,“深圳创投日”启动大会暨深交所科技成果与知识产权交易中心(以下称科交中心)揭牌仪式成功举行.中国证监会...",
       "institution": "szse",
       "category": "exchange",
       "source": "wechat",
-      "publishedAt": "2026-08-04T01:31:33.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32F98h5yHa8xb8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGR0ZaVd4mBLNoQRDnjJcc5fB_c3fNwgAim8x1lRgBd4WdJTeCSVLVwThKuJ4BZqnMPz6tFJ1P3CIM75WwBWbSFuJQmkuO3Q9w_Vz5EDvUH9eQVpebfZ-u1ktPujwwRB2Pw..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA533BB32C856FC0F9FFA1BA1D2EABA8F92A1E186A72953F"
+      "publishedAt": "2026-08-04T01:18:20.000Z",
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk9G5b3ruAcUln8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGcPeFO9uHsJZP321QH9xFWTqmqnHZv1VG1dtxHdgxbPgKVDApBB0v6OH89HuJykUcDjU70iVSE9E7rtXhmmJwDigpI3cSmZmUDht9MEmTbmWyaXM9_SEGh-E8RsmObDbtQ..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FBC44CCD936944720D0B5648BE7A7C2D0E6073306A72D50D"
     },
     {
       "id": "wx-sg-szse-0-2026-08-05",
@@ -115,17 +104,7 @@
       "category": "exchange",
       "source": "wechat",
       "publishedAt": "2026-08-04T08:26:58.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32at-LoPzcyKn8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGfjiSfsTHhge3E6tYJbNzOioVjwCkdvmYaHY4qEc33L7aHNOM49WZPLLUDb1SH7xWgQCMETQKoR-zJZ1dM5owTsPqMxlePW1Of4n8P44nYqhRVJqdl1JV9Xm0CtGSSkZQQ..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA53475354FD17B97F86D83D9A6F83DF804CF6FE6A729541"
-    },
-    {
-      "id": "wx-sg-szse-0-2026-08-05",
-      "title": "深交所投教丨互动易一周统计(2019年4月15日-21日)",
-      "summary": "深交所投教丨互动易一周统计(2019年4月15日-21日)",
-      "institution": "szse",
-      "category": "exchange",
-      "source": "wechat",
-      "publishedAt": "2026-08-04T01:31:33.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32WjO-R9M74Vf8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGemWSPv6WSlPSa5WeH3ij8_q0GXUyXcZ-56Xv_T-Dh05rt7NeeP-VdV99NUJ-OGL8jHbfq_vIFMys4Ryydz9uTZFc-CIEWhezbm_cUig5rn9knyisc63_4889kyxDwoXvg..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA5351C59B32D8694F49080DA946D070501412016A729542"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk9ZJw4p_Wow0X8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGRTtkLViuuTxYCwSjuC9xJD6ED8FcEg5PEKhJbNlN7e_tvKTbW4xOXqBTcqxSRR2lvnXklQvi5CCYzDStY_Nuld3Ns9dF6temD_gntadEshuOPeAcv917L5QL0Hr9Gyd3Q..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FBC452ACA9517C4A36316E7084BF0F9737FE84CF6A72D50F"
     },
     {
       "id": "wx-sg-szse-0-2026-08-05",
@@ -135,15 +114,332 @@
       "category": "exchange",
       "source": "wechat",
       "publishedAt": "2026-08-04T01:25:55.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32JtU1X1H3scX8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGTWMEF9GmVv7zOPWJ1ca7Ra4yatuIS9UysfnfWKF-UfuUwS20GT-xowbHBoojyxx67za5TXCaZA9nwnchWbZCn5H3S-fcWoWfslncYVMMx1g39D8JIAfynv0OK9DLfgmPA..&type=2&query=%E6%B7%B1%E5%9C%B3%E8%AF%81%E5%88%B8%E4%BA%A4%E6%98%93%E6%89%80&token=FA536BE059F319B78D8BD5CF68C9B07D8EAB70056A729546"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS9lV92R3PTk9Acp0wqUARlv8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGVcTgdVmhOJ3ZlkQCbEvb6Vr4HOa10XdeElDBB7ZmWLGn5iT2tbC-souSSMZ6x5DA4pGTLvY_mfyVzV8ibvpxI6g0tb5mihESrdNkuZmFlViaLNIS5rAkXfwdVqCwyPdzA..&type=2&query=%E6%B7%B1%E5%9C%B3%E8%AF%81%E5%88%B8%E4%BA%A4%E6%98%93%E6%89%80&token=FBC4612EFC04291E62653B25D1D14FDA632767F26A72D512"
     }
   ],
   "etf": {
-    "indices": [],
-    "sectors": [],
-    "hotInflow": [],
-    "hotGainers": [],
-    "hotTurnover": [],
-    "productsByFirm": {}
+    "indices": [
+      {
+        "code": "000300",
+        "name": "沪深300",
+        "last": 4653.06,
+        "changePct": 1.1330318000925923
+      },
+      {
+        "code": "000905",
+        "name": "中证500",
+        "last": 7787.07,
+        "changePct": 2.360568334628109
+      },
+      {
+        "code": "399006",
+        "name": "创业板指",
+        "last": 3530.5447,
+        "changePct": 1.1917111380525478
+      },
+      {
+        "code": "000688",
+        "name": "科创50",
+        "last": 1693.91,
+        "changePct": 4.7978173179242365
+      },
+      {
+        "code": "000016",
+        "name": "上证50",
+        "last": 2923.31,
+        "changePct": 1.5507161293236067
+      }
+    ],
+    "sectors": [
+      {
+        "name": "宽基ETF",
+        "changePct": 2.69
+      },
+      {
+        "name": "港股/中概",
+        "changePct": 14.66
+      },
+      {
+        "name": "银行",
+        "changePct": -1.11
+      },
+      {
+        "name": "军工",
+        "changePct": 1.52
+      },
+      {
+        "name": "半导体",
+        "changePct": 6.31
+      },
+      {
+        "name": "新能源",
+        "changePct": 1.6
+      },
+      {
+        "name": "通信",
+        "changePct": 0.63
+      },
+      {
+        "name": "红利",
+        "changePct": -33.98
+      },
+      {
+        "name": "创业板",
+        "changePct": 1.17
+      },
+      {
+        "name": "深证100",
+        "changePct": 0.85
+      }
+    ],
+    "hotInflow": [
+      {
+        "code": "588000",
+        "name": "科创50ETF",
+        "institution": "huaxia",
+        "value": 98.52,
+        "unit": "yi"
+      },
+      {
+        "code": "159915",
+        "name": "创业板ETF",
+        "institution": "efunds",
+        "value": 96.47,
+        "unit": "yi"
+      },
+      {
+        "code": "515880",
+        "name": "通信ETF",
+        "institution": "guotai",
+        "value": 69.43,
+        "unit": "yi"
+      },
+      {
+        "code": "510300",
+        "name": "沪深300ETF",
+        "institution": "huatai",
+        "value": 51.66,
+        "unit": "yi"
+      },
+      {
+        "code": "513130",
+        "name": "恒生科技ETF",
+        "institution": "huatai",
+        "value": 28.88,
+        "unit": "yi"
+      }
+    ],
+    "hotGainers": [
+      {
+        "code": "510900",
+        "name": "H股ETF",
+        "institution": "efunds",
+        "value": 28.33,
+        "unit": "pct"
+      },
+      {
+        "code": "512760",
+        "name": "芯片ETF",
+        "institution": "guotai",
+        "value": 6.31,
+        "unit": "pct"
+      },
+      {
+        "code": "588090",
+        "name": "科创50ETF",
+        "institution": "huatai",
+        "value": 4.88,
+        "unit": "pct"
+      },
+      {
+        "code": "588000",
+        "name": "科创50ETF",
+        "institution": "huaxia",
+        "value": 4.81,
+        "unit": "pct"
+      },
+      {
+        "code": "512500",
+        "name": "中证500ETF",
+        "institution": "huaxia",
+        "value": 2.46,
+        "unit": "pct"
+      }
+    ],
+    "hotTurnover": [
+      {
+        "code": "588000",
+        "name": "科创50ETF",
+        "institution": "huaxia",
+        "value": 98.52,
+        "unit": "yi_amount"
+      },
+      {
+        "code": "159915",
+        "name": "创业板ETF",
+        "institution": "efunds",
+        "value": 96.47,
+        "unit": "yi_amount"
+      },
+      {
+        "code": "515880",
+        "name": "通信ETF",
+        "institution": "guotai",
+        "value": 69.43,
+        "unit": "yi_amount"
+      },
+      {
+        "code": "510300",
+        "name": "沪深300ETF",
+        "institution": "huatai",
+        "value": 51.66,
+        "unit": "yi_amount"
+      },
+      {
+        "code": "513130",
+        "name": "恒生科技ETF",
+        "institution": "huatai",
+        "value": 28.88,
+        "unit": "yi_amount"
+      }
+    ],
+    "productsByFirm": {
+      "huaxia": [
+        {
+          "code": "510050",
+          "name": "上证50ETF",
+          "changePct": 1.6091183372443862,
+          "amount": 17.91,
+          "nav": 3.031,
+          "amplitude": 2.0113979215554827
+        },
+        {
+          "code": "588000",
+          "name": "科创50ETF",
+          "changePct": 4.806565064478316,
+          "amount": 98.52,
+          "nav": 1.788,
+          "amplitude": 6.3892145369284865
+        },
+        {
+          "code": "515030",
+          "name": "新能源车ETF",
+          "changePct": 1.5970515970515984,
+          "amount": 1.6,
+          "nav": 1.654,
+          "amplitude": 2.5798525798525827
+        },
+        {
+          "code": "512500",
+          "name": "中证500ETF",
+          "changePct": 2.4616813748258215,
+          "amount": 5.02,
+          "nav": 4.412,
+          "amplitude": 3.576405016256384
+        }
+      ],
+      "efunds": [
+        {
+          "code": "510310",
+          "name": "沪深300ETF易方达",
+          "changePct": 1.1052166224579978,
+          "amount": 8.53,
+          "nav": 4.574,
+          "amplitude": 2.630415561450039
+        },
+        {
+          "code": "159915",
+          "name": "创业板ETF",
+          "changePct": 1.166761525327273,
+          "amount": 96.47,
+          "nav": 3.555,
+          "amplitude": 5.890722822993748
+        },
+        {
+          "code": "159901",
+          "name": "深证100ETF",
+          "changePct": 0.8469945355191173,
+          "amount": 3.57,
+          "nav": 3.691,
+          "amplitude": 3.8797814207650245
+        },
+        {
+          "code": "510900",
+          "name": "H股ETF",
+          "changePct": 28.328611898018075,
+          "amount": 1.68,
+          "nav": 1.062,
+          "amplitude": 1.2275731822473939
+        }
+      ],
+      "guotai": [
+        {
+          "code": "510880",
+          "name": "红利ETF",
+          "changePct": -33.98208217485363,
+          "amount": 6.97,
+          "nav": 3.226,
+          "amplitude": 1.0194624652455953
+        },
+        {
+          "code": "512660",
+          "name": "军工ETF",
+          "changePct": 1.523297491039418,
+          "amount": 2.94,
+          "nav": 1.133,
+          "amplitude": 2.59856630824372
+        },
+        {
+          "code": "515880",
+          "name": "通信ETF",
+          "changePct": 0.6279434850863428,
+          "amount": 69.43,
+          "nav": 0.641,
+          "amplitude": 8.320251177394042
+        },
+        {
+          "code": "512760",
+          "name": "芯片ETF",
+          "changePct": 6.309751434034422,
+          "amount": 6.4,
+          "nav": 1.112,
+          "amplitude": 7.743785850860417
+        }
+      ],
+      "huatai": [
+        {
+          "code": "510300",
+          "name": "沪深300ETF",
+          "changePct": 1.2685443990539704,
+          "amount": 51.66,
+          "nav": 4.71,
+          "amplitude": 2.666093313265957
+        },
+        {
+          "code": "512800",
+          "name": "银行ETF",
+          "changePct": -1.1097410604192364,
+          "amount": 9.73,
+          "nav": 0.802,
+          "amplitude": 1.849568434032047
+        },
+        {
+          "code": "513130",
+          "name": "恒生科技ETF",
+          "changePct": 0.9884678747940702,
+          "amount": 28.88,
+          "nav": 0.613,
+          "amplitude": 1.482701812191105
+        },
+        {
+          "code": "588090",
+          "name": "科创50ETF",
+          "changePct": 4.876580373269112,
+          "amount": 2.68,
+          "nav": 1.742,
+          "amplitude": 6.622516556291383
+        }
+      ]
+    }
   }
 }
