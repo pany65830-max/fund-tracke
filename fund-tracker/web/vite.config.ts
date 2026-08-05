@@ -1,7 +1,10 @@
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
-import { cpSync, existsSync, mkdirSync, readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { resolve, dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 function copyDataPlugin(): Plugin {
   const dataSrc = resolve(__dirname, "../data");
@@ -20,10 +23,17 @@ function copyDataPlugin(): Plugin {
         next();
       });
     },
-    closeBundle() {
-      const dest = resolve(__dirname, "dist/data");
-      mkdirSync(dest, { recursive: true });
-      cpSync(dataSrc, dest, { recursive: true });
+    generateBundle() {
+      if (!existsSync(dataSrc)) return;
+      for (const f of readdirSync(dataSrc)) {
+        if (!f.endsWith(".json")) continue;
+        const content = readFileSync(join(dataSrc, f));
+        this.emitFile({
+          type: "asset",
+          fileName: `data/${f}`,
+          source: content,
+        });
+      }
     },
   };
 }

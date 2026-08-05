@@ -3,7 +3,6 @@ import type { EtfAdapter } from "./types.js";
 import {
   asNumber,
   bareCode,
-  flattenTables,
   getAccessToken,
   ifindPost,
   loadCodesFromWhitelist,
@@ -16,6 +15,23 @@ export { loadWhitelist };
 const INDEX_LIST = [
   { code: "000300", ths: "000300.SH", name: "沪深300" },
   { code: "000905", ths: "000905.SH", name: "中证500" },
+  { code: "399006", ths: "399006.SZ", name: "创业板指" },
+  { code: "000688", ths: "000688.SH", name: "科创50" },
+  { code: "000016", ths: "000016.SH", name: "上证50" },
+];
+
+/** 板块主题 → 白名单内成分代码。changePct 取成分产品真实涨跌幅均值。 */
+const SECTORS: Array<{ name: string; codes: string[] }> = [
+  { name: "宽基ETF", codes: ["510300", "510050", "510310", "588000", "588090", "512500"] },
+  { name: "港股/中概", codes: ["513130", "510900"] },
+  { name: "银行", codes: ["512800"] },
+  { name: "军工", codes: ["512660"] },
+  { name: "半导体", codes: ["512760"] },
+  { name: "新能源", codes: ["515030"] },
+  { name: "通信", codes: ["515880"] },
+  { name: "红利", codes: ["510880"] },
+  { name: "创业板", codes: ["159915"] },
+  { name: "深证100", codes: ["159901"] },
 ];
 
 /** Keep for unit tests / fixture-style payloads. */
@@ -40,13 +56,14 @@ export function mapIfindEtfPayload(
     if (!allowed.has(code)) continue;
     const firm = (codeFirm.get(code) || "huatai") as Institution;
     productsByFirm[firm] = productsByFirm[firm] || [];
-    productsByFirm[firm].push({
-      code,
-      name: String(row.name || code),
-      changePct: asNumber(row.changePct),
-      amount: asNumber(row.amount),
-      nav: asNumber(row.nav) || undefined,
-    });
+        productsByFirm[firm].push({
+          code,
+          name: String(row.name || code),
+          changePct: asNumber(row.changePct),
+          amount: asNumber(row.amount),
+          nav: asNumber(row.nav) || undefined,
+          amplitude: asNumber(row.amplitude) || undefined,
+        });
   }
   return {
     indices: ((payload.indices as Record<string, unknown>[]) || []).map((r) => ({
@@ -94,18 +111,31 @@ export function createIfindEtfAdapter(
         "real_time_quotation",
         {
           codes: thsCodes,
-          indicators: "latest,changeRatio,amount,volume,shortName",
+          indicators: "latest,changeRatio,amount,volume,amplitude,shortName",
         },
         accessToken,
         fetchImpl,
       );
 
-      const rows = flattenTables(json.tables);
+      // real_time_quotation 把数值包在 tables[].table.{field:[v]} 里，
+      // flattenTables 不会下钻 table，这里手动按首元素提取标量。
       const byCode = new Map<string, Record<string, unknown>>();
-      for (const row of rows) {
-        const ths = String(row.thscode || "");
-        byCode.set(bareCode(ths), row);
-        byCode.set(ths, row);
+      for (const t of (json.tables as Array<Record<string, unknown>>) || []) {
+        const ths = String(t.thscode || "");
+        const tbl = (t.table as Record<string, unknown>) || {};
+        const first = (k: string): unknown =>
+          Array.isArray(tbl[k]) ? (tbl[k] as unknown[])[0] : tbl[k];
+        const rec: Record<string, unknown> = {
+          thscode: ths,
+          latest: first("latest"),
+          changeRatio: first("changeRatio"),
+          amount: first("amount"),
+          volume: first("volume"),
+          amplitude: first("amplitude"),
+          shortName: first("shortName"),
+        };
+        byCode.set(bareCode(ths), rec);
+        byCode.set(ths, rec);
       }
 
       const indices = INDEX_LIST.map((idx) => {
@@ -146,6 +176,7 @@ export function createIfindEtfAdapter(
           changePct,
           amount: +amountYi.toFixed(2),
           nav: asNumber(row.latest) || undefined,
+          amplitude: asNumber(row.amplitude) || undefined,
         });
         flatProducts.push({
           code,
@@ -183,9 +214,24 @@ export function createIfindEtfAdapter(
         unit: "yi" as const,
       }));
 
+      const sectors = SECTORS.map((s) => {
+        const members = s.codes
+          .map((c) => byCode.get(c))
+          .filter((r): r is Record<string, unknown> => !!r);
+        if (!members.length) return null;
+        const avg =
+          members.reduce(
+            (a, r) => a + normalizeChangePct(asNumber(r.changeRatio)),
+            0,
+          ) / members.length;
+        return { name: s.name, changePct: +avg.toFixed(2) };
+      }).filter(
+        (x): x is { name: string; changePct: number } => x !== null,
+      );
+
       return {
         indices,
-        sectors: [],
+        sectors,
         hotInflow,
         hotGainers,
         hotTurnover,
