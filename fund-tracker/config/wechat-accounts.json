@@ -2,42 +2,42 @@
   {
     "institution": "huaxia",
     "name": "华夏基金",
-    "publishers": ["华夏基金"],
+    "publishers": ["华夏基金", "华夏基金微资讯", "华夏基金客服"],
     "accountId": "",
     "feedUrl": ""
   },
   {
     "institution": "efunds",
     "name": "易方达基金",
-    "publishers": ["易方达微资讯", "易方达基金"],
+    "publishers": ["易方达微资讯", "易方达基金", "易方达投资者教育"],
     "accountId": "",
     "feedUrl": ""
   },
   {
     "institution": "guotai",
     "name": "国泰基金",
-    "publishers": ["国泰基金"],
+    "publishers": ["国泰基金", "国泰基金微资讯", "国泰君安君得利"],
     "accountId": "",
     "feedUrl": ""
   },
   {
     "institution": "huatai",
     "name": "华泰柏瑞基金",
-    "publishers": ["华泰柏瑞微理财", "华泰柏瑞基金"],
+    "publishers": ["华泰柏瑞微理财", "华泰柏瑞基金", "华泰柏瑞"],
     "accountId": "",
     "feedUrl": ""
   },
   {
     "institution": "sse",
     "name": "上交所发布",
-    "publishers": ["上交所发布"],
+    "publishers": ["上交所发布", "上交所", "上海证券交易所"],
     "accountId": "",
     "feedUrl": ""
   },
   {
     "institution": "szse",
     "name": "深交所",
-    "publishers": ["深交所"],
+    "publishers": ["深交所", "深交所投教", "深圳证券交易所"],
     "accountId": "",
     "feedUrl": ""
   }

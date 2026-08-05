@@ -274,7 +274,21 @@ export function createWechatAdapter(
             const seen = new Set<string>();
             for (const q of queries) {
               for (let page = 1; page <= pages; page++) {
-                const html = await fetchText(sogouSearchUrl(q, page), fetchImpl);
+                let html: string;
+                try {
+                  html = await fetchText(sogouSearchUrl(q, page), fetchImpl);
+                } catch (e) {
+                  const msg = e instanceof Error ? e.message : String(e);
+                  errors.push(`${acc.institution} p${page}: ${msg}`);
+                  break;
+                }
+                if (/验证码|antispider|请输入验证|captcha/i.test(html)) {
+                  errors.push(`${acc.institution}: sogou captcha on page ${page}`);
+                  break;
+                }
+                if (!/news-list|sogou_vr_11002601_box/i.test(html)) {
+                  break; // no more results
+                }
                 const batch = parseSogouNewsList(
                   html,
                   acc.institution,
@@ -284,9 +298,10 @@ export function createWechatAdapter(
                     publishers: acc.publishers || [acc.name],
                     maxAgeDays,
                     sameDayOnly,
-                    limit: 20,
+                    limit: 30,
                   },
                 );
+                if (!batch.length && page > 1) break;
                 for (const item of batch) {
                   if (seen.has(item.sourceUrl)) continue;
                   seen.add(item.sourceUrl);

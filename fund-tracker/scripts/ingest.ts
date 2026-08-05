@@ -73,9 +73,21 @@ export async function runIngest(opts: {
     : hasIfind
       ? [
           createIfindNewsAdapter(),
-          createWechatAdapter(fetch, { sameDayOnly: false, maxAgeDays: 7, pages: 2 }),
+          createWechatAdapter(fetch, {
+            sameDayOnly: false,
+            maxAgeDays: 7,
+            pages: 5,
+            delayMs: 1200,
+          }),
         ]
-      : [createWechatAdapter(fetch, { sameDayOnly: false, maxAgeDays: 7, pages: 2 })];
+      : [
+          createWechatAdapter(fetch, {
+            sameDayOnly: false,
+            maxAgeDays: 7,
+            pages: 5,
+            delayMs: 1200,
+          }),
+        ];
 
   for (const adapter of newsAdapters) {
     try {
