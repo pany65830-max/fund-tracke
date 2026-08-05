@@ -55,6 +55,7 @@ export async function runIngest(opts: {
   tradeDate: string;
   dataDir: string;
   useFixture: boolean;
+  newsOnly?: boolean;
 }): Promise<DaySnapshot> {
   const holidays = loadHolidays();
   if (!isTradingDay(opts.tradeDate, holidays)) {
@@ -114,7 +115,7 @@ export async function runIngest(opts: {
     } catch (e) {
       errors.push(`fixture-etf: ${(e as Error).message}`);
     }
-  } else if (hasIfind) {
+  } else if (hasIfind && !opts.newsOnly) {
     try {
       etf = await createIfindEtfAdapter().fetchEtf(opts.tradeDate);
     } catch (e) {
@@ -160,10 +161,11 @@ async function main() {
   const useFixture =
     process.env.IFIND_USE_FIXTURE === "1" ||
     process.env.IFIND_USE_FIXTURE === "true";
+  const newsOnly = args.includes("--news-only");
   const dataDir = join(ROOT, "data");
 
   try {
-    const snap = await runIngest({ tradeDate, dataDir, useFixture });
+    const snap = await runIngest({ tradeDate, dataDir, useFixture, newsOnly });
     console.log(
       `ingest ok date=${snap.tradeDate} status=${snap.status} news=${snap.news.length}`,
     );

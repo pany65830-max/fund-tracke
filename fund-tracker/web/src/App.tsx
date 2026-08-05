@@ -55,44 +55,6 @@ function buildWeekStrip(availableDates: string[]): string[] {
   return out;
 }
 
-function StatusBanner({
-  snap,
-  onGoLatest,
-}: {
-  snap: DaySnapshot;
-  onGoLatest: () => void;
-}) {
-  const demo = isDemoSnapshot(snap);
-  const softPartial = snap.status === "partial" && snap.news.length > 0;
-  const cls = demo
-    ? "partial"
-    : softPartial || snap.status === "ok"
-      ? "ok"
-      : snap.status === "partial"
-        ? "partial"
-        : "failed";
-  const text = demo
-    ? `数据日期 ${snap.tradeDate} · 演示存档`
-    : softPartial || snap.status === "ok"
-      ? `数据日期 ${snap.tradeDate} · 已更新`
-      : snap.status === "partial"
-        ? `数据日期 ${snap.tradeDate} · 部分更新失败`
-        : `数据日期 ${snap.tradeDate} · 更新失败`;
-  return (
-    <>
-      <div className={`banner ${cls}`}>{text}</div>
-      {demo ? (
-        <div className="banner partial">
-          该日是旧的演示存档，不是最新实盘。
-          <button type="button" className="banner-link" onClick={onGoLatest}>
-            查看最新数据
-          </button>
-        </div>
-      ) : null}
-    </>
-  );
-}
-
 function Shell() {
   const [params] = useSearchParams();
   const navigate = useNavigate();
@@ -177,11 +139,6 @@ function Shell() {
     navigate({ pathname: location.pathname, search: `?${next.toString()}` });
   };
 
-  const goLatest = () => {
-    if (latestDate) setDate(latestDate);
-    else navigate({ pathname: location.pathname, search: "" });
-  };
-
   const navClass = (path: string) =>
     location.pathname === path ||
     (path === "/" && location.pathname.startsWith("/news"))
@@ -249,7 +206,6 @@ function Shell() {
       ) : null}
 
       {error ? <div className="banner failed">{error}</div> : null}
-      {snap ? <StatusBanner snap={snap} onGoLatest={goLatest} /> : null}
       {snap ? (
         <Routes>
           <Route path="/" element={<NewsPage snap={snap} />} />
