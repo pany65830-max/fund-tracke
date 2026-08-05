@@ -1,10 +1,7 @@
 {
   "tradeDate": "2026-08-05",
   "updatedAt": "2026-08-05T01:00:01.301Z",
-  "status": "partial",
-  "errors": [
-    "ifind-news: report_query failed: no data."
-  ],
+  "status": "ok",
   "news": [
     {
       "id": "wx-sg-efunds-0-2026-08-05",

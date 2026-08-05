@@ -70,13 +70,12 @@ export async function runIngest(opts: {
 
   const newsAdapters = opts.useFixture
     ? [createFixtureNewsAdapter()]
-      : hasIfind
+    : hasIfind
       ? [
           createIfindNewsAdapter(),
-          createWechatAdapter(fetch, { sameDayOnly: true }),
-          createExchangeWebAdapter(),
+          createWechatAdapter(fetch, { sameDayOnly: false, maxAgeDays: 7, pages: 2 }),
         ]
-      : [createWechatAdapter(fetch, { sameDayOnly: true }), createExchangeWebAdapter()];
+      : [createWechatAdapter(fetch, { sameDayOnly: false, maxAgeDays: 7, pages: 2 })];
 
   for (const adapter of newsAdapters) {
     try {
