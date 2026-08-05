@@ -64,10 +64,19 @@ export async function runIngest(opts: {
   const errors: string[] = [];
   let news: NewsItem[] = [];
   let etf: EtfDashboard = emptyEtf();
+  const hasIfind =
+    !!(process.env.IFIND_REFRESH_TOKEN || process.env.IFIND_TOKEN) &&
+    !opts.useFixture;
 
   const newsAdapters = opts.useFixture
     ? [createFixtureNewsAdapter()]
-    : [createIfindNewsAdapter(), createWechatAdapter(), createExchangeWebAdapter()];
+      : hasIfind
+      ? [
+          createIfindNewsAdapter(),
+          createWechatAdapter(fetch, { sameDayOnly: true }),
+          createExchangeWebAdapter(),
+        ]
+      : [createWechatAdapter(fetch, { sameDayOnly: true }), createExchangeWebAdapter()];
 
   for (const adapter of newsAdapters) {
     try {
@@ -88,19 +97,33 @@ export async function runIngest(opts: {
   }));
   news = dedupeNews(news);
 
-  const etfAdapter = opts.useFixture
-    ? createFixtureEtfAdapter()
-    : createIfindEtfAdapter();
-  try {
-    etf = await etfAdapter.fetchEtf(opts.tradeDate);
-  } catch (e) {
-    errors.push(`${etfAdapter.name}: ${(e as Error).message}`);
+  if (opts.useFixture) {
+    try {
+      etf = await createFixtureEtfAdapter().fetchEtf(opts.tradeDate);
+    } catch (e) {
+      errors.push(`fixture-etf: ${(e as Error).message}`);
+    }
+  } else if (hasIfind) {
+    try {
+      etf = await createIfindEtfAdapter().fetchEtf(opts.tradeDate);
+    } catch (e) {
+      errors.push(`ifind-etf: ${(e as Error).message}`);
+    }
   }
 
+  // Soft: empty iFind news / flaky exchange should not scare users when WeChat worked.
+  const hardErrors = errors.filter(
+    (e) =>
+      !/report_query failed:\s*no data/i.test(e) &&
+      !/^exchange-web:/i.test(e),
+  );
+
   let status: DaySnapshot["status"] = "ok";
-  if (errors.length && news.length === 0 && etf.indices.length === 0) {
+  if (hardErrors.length && news.length === 0 && etf.indices.length === 0) {
     status = "failed";
-  } else if (errors.length) {
+  } else if (hardErrors.length) {
+    status = "partial";
+  } else if (errors.length && news.length === 0 && etf.indices.length === 0) {
     status = "partial";
   }
 
@@ -122,10 +145,10 @@ async function main() {
   const args = process.argv.slice(2);
   const dateArg = args.find((a) => a.startsWith("--date="))?.slice(7);
   const tradeDate = dateArg || shanghaiToday();
+  // Fixture only when explicitly requested. No token → still pull WeChat/exchange.
   const useFixture =
     process.env.IFIND_USE_FIXTURE === "1" ||
-    process.env.IFIND_USE_FIXTURE === "true" ||
-    !(process.env.IFIND_REFRESH_TOKEN || process.env.IFIND_TOKEN);
+    process.env.IFIND_USE_FIXTURE === "true";
   const dataDir = join(ROOT, "data");
 
   try {

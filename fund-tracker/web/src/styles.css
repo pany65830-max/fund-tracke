@@ -50,6 +50,45 @@ a:hover { text-decoration: underline; }
 }
 .banner.ok { background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; }
 .banner.partial, .banner.failed { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+.banner-link {
+  margin-left: 10px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
+.date-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 14px;
+}
+.date-chip {
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font: inherit;
+  color: var(--text);
+}
+.date-chip.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.date-chip.disabled {
+  background: #eef0f3;
+  color: #9ca3af;
+  border-color: #e5e7eb;
+  cursor: not-allowed;
+}
+.date-chip-md { font-variant-numeric: tabular-nums; }
 
 .up { color: var(--up); font-variant-numeric: tabular-nums; }
 .down { color: var(--down); font-variant-numeric: tabular-nums; }

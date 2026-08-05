@@ -55,6 +55,15 @@ function sleep(ms: number): Promise<void> {
   return new Promise((r) => setTimeout(r, ms));
 }
 
+export function shanghaiDateFromUnix(unixSec: number): string {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date(unixSec * 1000));
+}
+
 export function isRecentEnough(
   unixSec: number | null,
   tradeDate: string,
@@ -65,6 +74,16 @@ export function isRecentEnough(
   const tradeEnd = Date.UTC(y, m - 1, d, 23, 59, 59) / 1000;
   const ageDays = (tradeEnd - unixSec) / 86400;
   return ageDays >= -1 && ageDays <= maxAgeDays;
+}
+
+/** Keep items published on tradeDate (Asia/Shanghai). Unknown time → drop when strict. */
+export function isOnTradeDate(
+  unixSec: number | null,
+  tradeDate: string,
+  strict = true,
+): boolean {
+  if (unixSec == null || !Number.isFinite(unixSec)) return !strict;
+  return shanghaiDateFromUnix(unixSec) === tradeDate;
 }
 
 function publisherAllowed(
@@ -125,7 +144,12 @@ export function parseSogouNewsList(
   institution: Institution,
   accountName: string,
   tradeDate: string,
-  opts: { limit?: number; publishers?: string[]; maxAgeDays?: number } = {},
+  opts: {
+    limit?: number;
+    publishers?: string[];
+    maxAgeDays?: number;
+    sameDayOnly?: boolean;
+  } = {},
 ): NewsItem[] {
   if (/验证码|antispider|请输入验证|captcha/i.test(html)) {
     throw new Error("sogou captcha / anti-spider");
@@ -133,6 +157,7 @@ export function parseSogouNewsList(
 
   const limit = opts.limit ?? 10;
   const maxAgeDays = opts.maxAgeDays ?? 30;
+  const sameDayOnly = opts.sameDayOnly ?? false;
   const items: NewsItem[] = [];
   const liRe = /<li[^>]*id=["']sogou_vr_11002601_box_[^"']*["'][\s\S]*?<\/li>/gi;
   let liMatch: RegExpExecArray | null;
@@ -165,7 +190,11 @@ export function parseSogouNewsList(
       const raw = Number(tAttr[1]);
       unix = raw > 1e12 ? Math.floor(raw / 1000) : raw;
     }
-    if (!isRecentEnough(unix, tradeDate, maxAgeDays)) continue;
+    if (sameDayOnly) {
+      if (!isOnTradeDate(unix, tradeDate, true)) continue;
+    } else if (!isRecentEnough(unix, tradeDate, maxAgeDays)) {
+      continue;
+    }
 
     const publishedAt = unix
       ? new Date(unix * 1000).toISOString()
@@ -189,9 +218,10 @@ export function parseSogouNewsList(
   return items.slice(0, limit);
 }
 
-export function sogouSearchUrl(accountName: string): string {
+export function sogouSearchUrl(accountName: string, page = 1): string {
   const q = encodeURIComponent(accountName);
-  return `https://weixin.sogou.com/weixin?type=2&s_from=input&query=${q}&ie=utf8&_sug_=n&_sug_type_=`;
+  const p = page > 1 ? `&page=${page}` : "";
+  return `https://weixin.sogou.com/weixin?type=2&s_from=input&query=${q}&ie=utf8&_sug_=n&_sug_type_=${p}`;
 }
 
 async function fetchText(
@@ -212,9 +242,18 @@ async function fetchText(
 
 export function createWechatAdapter(
   fetchImpl: typeof fetch = fetch,
-  opts: { delayMs?: number; accounts?: WechatAccount[] } = {},
+  opts: {
+    delayMs?: number;
+    accounts?: WechatAccount[];
+    maxAgeDays?: number;
+    sameDayOnly?: boolean;
+    pages?: number;
+  } = {},
 ): NewsAdapter {
   const delayMs = opts.delayMs ?? 500;
+  const maxAgeDays = opts.maxAgeDays ?? 30;
+  const sameDayOnly = opts.sameDayOnly ?? false;
+  const pages = Math.max(1, opts.pages ?? 1);
   return {
     name: "wechat",
     async fetchNews(tradeDate: string): Promise<NewsItem[]> {
@@ -234,20 +273,27 @@ export function createWechatAdapter(
             );
             const seen = new Set<string>();
             for (const q of queries) {
-              const html = await fetchText(sogouSearchUrl(q), fetchImpl);
-              const batch = parseSogouNewsList(
-                html,
-                acc.institution,
-                acc.name,
-                tradeDate,
-                { publishers: acc.publishers || [acc.name] },
-              );
-              for (const item of batch) {
-                if (seen.has(item.sourceUrl)) continue;
-                seen.add(item.sourceUrl);
-                out.push(item);
+              for (let page = 1; page <= pages; page++) {
+                const html = await fetchText(sogouSearchUrl(q, page), fetchImpl);
+                const batch = parseSogouNewsList(
+                  html,
+                  acc.institution,
+                  acc.name,
+                  tradeDate,
+                  {
+                    publishers: acc.publishers || [acc.name],
+                    maxAgeDays,
+                    sameDayOnly,
+                    limit: 20,
+                  },
+                );
+                for (const item of batch) {
+                  if (seen.has(item.sourceUrl)) continue;
+                  seen.add(item.sourceUrl);
+                  out.push(item);
+                }
+                if (delayMs > 0) await sleep(delayMs);
               }
-              if (delayMs > 0) await sleep(delayMs);
             }
           }
         } catch (e) {

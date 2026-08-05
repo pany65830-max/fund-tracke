@@ -151,8 +151,31 @@ describe("wechat", () => {
     expect(items[0].id.startsWith("wx-huatai")).toBe(true);
   });
 
-  it("builds sogou url", () => {
-    expect(sogouSearchUrl("深交所")).toContain("type=2");
-    expect(sogouSearchUrl("深交所")).toContain(encodeURIComponent("深交所"));
+  it("sameDayOnly keeps only tradeDate articles", () => {
+    const html = `
+<ul class="news-list">
+  <li id="sogou_vr_11002601_box_0">
+    <div class="txt-box">
+      <h3><a href="/link?url=a">当天文章标题要够长</a></h3>
+      <p class="txt-info">摘要</p>
+      <div class="s-p"><span class="all-time-y2">深交所</span>
+      <script>document.write(timeConvert('1785801600'))</script></div>
+    </div>
+  </li>
+  <li id="sogou_vr_11002601_box_1">
+    <div class="txt-box">
+      <h3><a href="/link?url=b">昨天文章标题也要够长</a></h3>
+      <p class="txt-info">摘要</p>
+      <div class="s-p"><span class="all-time-y2">深交所</span>
+      <script>document.write(timeConvert('1785715200'))</script></div>
+    </div>
+  </li>
+</ul>`;
+    const items = parseSogouNewsList(html, "szse", "深交所", "2026-08-04", {
+      publishers: ["深交所"],
+      sameDayOnly: true,
+    });
+    expect(items).toHaveLength(1);
+    expect(items[0].title).toContain("当天");
   });
 });

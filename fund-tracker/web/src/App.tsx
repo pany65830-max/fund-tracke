@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   Link,
   Navigate,
@@ -8,22 +8,72 @@ import {
   useNavigate,
   useSearchParams,
 } from "react-router-dom";
-import holidays from "../../config/holidays-cn.json";
-import { nextTradingDay, previousTradingDay } from "./lib/tradingDays";
 import { loadAvailableDates, loadLatest, loadSnapshot } from "./lib/loadData";
 import type { DaySnapshot } from "./lib/schema";
 import { NewsPage } from "./pages/NewsPage";
 import { NewsDetailPage } from "./pages/NewsDetailPage";
 import { EtfPage } from "./pages/EtfPage";
 
-const holidaySet = new Set(holidays as string[]);
+function isDemoSnapshot(snap: DaySnapshot): boolean {
+  return snap.news.some((n) => n.id.startsWith("fx-"));
+}
 
-function StatusBanner({ snap }: { snap: DaySnapshot }) {
-  const cls =
-    snap.status === "ok" ? "ok" : snap.status === "partial" ? "partial" : "failed";
-  const isDemo = snap.news.some((n) => n.id.startsWith("fx-"));
-  const text =
-    snap.status === "ok"
+function neighborDate(
+  dates: string[],
+  current: string,
+  dir: -1 | 1,
+): string | null {
+  if (!dates.length) return null;
+  const sorted = [...dates].sort();
+  const idx = sorted.indexOf(current);
+  if (idx >= 0) {
+    const next = sorted[idx + dir];
+    return next || null;
+  }
+  if (dir < 0) {
+    const older = sorted.filter((d) => d < current);
+    return older.length ? older[older.length - 1] : null;
+  }
+  const newer = sorted.filter((d) => d > current);
+  return newer.length ? newer[0] : null;
+}
+
+function addDays(date: string, delta: number): string {
+  const [y, m, d] = date.split("-").map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  dt.setUTCDate(dt.getUTCDate() + delta);
+  return dt.toISOString().slice(0, 10);
+}
+
+/** Calendar strip: from (maxDate-6) through maxDate; unavailable = gray. */
+function buildWeekStrip(availableDates: string[]): string[] {
+  if (!availableDates.length) return [];
+  const max = availableDates[availableDates.length - 1];
+  const start = addDays(max, -6);
+  const out: string[] = [];
+  for (let d = start; d <= max; d = addDays(d, 1)) out.push(d);
+  return out;
+}
+
+function StatusBanner({
+  snap,
+  onGoLatest,
+}: {
+  snap: DaySnapshot;
+  onGoLatest: () => void;
+}) {
+  const demo = isDemoSnapshot(snap);
+  const softPartial = snap.status === "partial" && snap.news.length > 0;
+  const cls = demo
+    ? "partial"
+    : softPartial || snap.status === "ok"
+      ? "ok"
+      : snap.status === "partial"
+        ? "partial"
+        : "failed";
+  const text = demo
+    ? `数据日期 ${snap.tradeDate} · 演示存档`
+    : softPartial || snap.status === "ok"
       ? `数据日期 ${snap.tradeDate} · 已更新`
       : snap.status === "partial"
         ? `数据日期 ${snap.tradeDate} · 部分更新失败`
@@ -31,10 +81,12 @@ function StatusBanner({ snap }: { snap: DaySnapshot }) {
   return (
     <>
       <div className={`banner ${cls}`}>{text}</div>
-      {isDemo ? (
+      {demo ? (
         <div className="banner partial">
-          当前为演示数据。GitHub 海外服务器无法访问 iFinD；请在本机配置
-          IFIND_REFRESH_TOKEN 后执行 npm run ingest，再推送 data/。
+          该日是旧的演示存档，不是最新实盘。
+          <button type="button" className="banner-link" onClick={onGoLatest}>
+            查看最新数据
+          </button>
         </div>
       ) : null}
     </>
@@ -47,11 +99,14 @@ function Shell() {
   const location = useLocation();
   const dateParam = params.get("date");
   const [snap, setSnap] = useState<DaySnapshot | null>(null);
+  const [latestDate, setLatestDate] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [availableDates, setAvailableDates] = useState<string[]>([]);
 
   useEffect(() => {
-    loadAvailableDates().then(setAvailableDates).catch(() => setAvailableDates([]));
+    loadAvailableDates()
+      .then((d) => setAvailableDates([...d].sort()))
+      .catch(() => setAvailableDates([]));
   }, []);
 
   useEffect(() => {
@@ -59,8 +114,36 @@ function Shell() {
     (async () => {
       try {
         setError(null);
-        const data = dateParam ? await loadSnapshot(dateParam) : await loadLatest();
-        if (!cancelled) setSnap(data);
+        const latest = await loadLatest();
+        if (cancelled) return;
+        setLatestDate(latest.tradeDate);
+
+        if (!dateParam) {
+          setSnap(latest);
+          const next = new URLSearchParams(params);
+          next.set("date", latest.tradeDate);
+          navigate(
+            { pathname: location.pathname, search: `?${next.toString()}` },
+            { replace: true },
+          );
+          return;
+        }
+
+        const data = await loadSnapshot(dateParam);
+        if (cancelled) return;
+
+        if (isDemoSnapshot(data) && !isDemoSnapshot(latest)) {
+          setSnap(latest);
+          const next = new URLSearchParams(params);
+          next.set("date", latest.tradeDate);
+          navigate(
+            { pathname: location.pathname, search: `?${next.toString()}` },
+            { replace: true },
+          );
+          return;
+        }
+
+        setSnap(data);
       } catch (e) {
         if (!cancelled) {
           setSnap(null);
@@ -71,14 +154,21 @@ function Shell() {
     return () => {
       cancelled = true;
     };
-  }, [dateParam]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dateParam, location.pathname]);
 
   const date = snap?.tradeDate || dateParam || "";
+  const weekStrip = useMemo(
+    () => buildWeekStrip(availableDates),
+    [availableDates],
+  );
+  const minDate = availableDates[0] || "";
+  const maxDate = availableDates[availableDates.length - 1] || "";
 
   const setDate = (d: string) => {
     if (!d) return;
     if (availableDates.length && !availableDates.includes(d)) {
-      setError(`${d} 暂无存档。有数据的日期：${availableDates.join("、")}`);
+      setError(`${d} 暂无存档`);
       return;
     }
     setError(null);
@@ -87,11 +177,19 @@ function Shell() {
     navigate({ pathname: location.pathname, search: `?${next.toString()}` });
   };
 
+  const goLatest = () => {
+    if (latestDate) setDate(latestDate);
+    else navigate({ pathname: location.pathname, search: "" });
+  };
+
   const navClass = (path: string) =>
     location.pathname === path ||
     (path === "/" && location.pathname.startsWith("/news"))
       ? "active"
       : "";
+
+  const prev = date ? neighborDate(availableDates, date, -1) : null;
+  const next = date ? neighborDate(availableDates, date, 1) : null;
 
   return (
     <div className="layout">
@@ -106,17 +204,15 @@ function Shell() {
           </Link>
         </nav>
         <div className="date-nav">
-          <button
-            type="button"
-            disabled={!date}
-            onClick={() => date && setDate(previousTradingDay(date, holidaySet))}
-          >
+          <button type="button" disabled={!prev} onClick={() => prev && setDate(prev)}>
             ‹ 前一日
           </button>
           <input
             type="date"
             className="date-input"
             value={date}
+            min={minDate || undefined}
+            max={maxDate || undefined}
             onChange={(e) => setDate(e.target.value)}
             list="available-dates"
           />
@@ -125,24 +221,44 @@ function Shell() {
               <option key={d} value={d} />
             ))}
           </datalist>
-          <button
-            type="button"
-            disabled={!date}
-            onClick={() => date && setDate(nextTradingDay(date, holidaySet))}
-          >
+          <button type="button" disabled={!next} onClick={() => next && setDate(next)}>
             后一日 ›
           </button>
         </div>
       </header>
+
+      {weekStrip.length ? (
+        <div className="date-chips" aria-label="近一周日期">
+          {weekStrip.map((d) => {
+            const ok = availableDates.includes(d);
+            const active = d === date;
+            return (
+              <button
+                key={d}
+                type="button"
+                className={`date-chip${active ? " active" : ""}${ok ? "" : " disabled"}`}
+                disabled={!ok}
+                onClick={() => ok && setDate(d)}
+                title={ok ? d : `${d} 无数据`}
+              >
+                <span className="date-chip-md">{d.slice(5)}</span>
+              </button>
+            );
+          })}
+        </div>
+      ) : null}
+
       {error ? <div className="banner failed">{error}</div> : null}
-      {snap ? <StatusBanner snap={snap} /> : null}
+      {snap ? <StatusBanner snap={snap} onGoLatest={goLatest} /> : null}
       {snap ? (
         <Routes>
           <Route path="/" element={<NewsPage snap={snap} />} />
           <Route path="/news/:id" element={<NewsDetailPage snap={snap} />} />
           <Route
             path="/etf"
-            element={<EtfPage snap={snap} availableDates={availableDates} asOfDate={date} />}
+            element={
+              <EtfPage snap={snap} availableDates={availableDates} asOfDate={date} />
+            }
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
