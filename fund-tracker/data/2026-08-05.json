@@ -1,9 +1,10 @@
 {
   "tradeDate": "2026-08-05",
-  "updatedAt": "2026-08-05T01:06:04.933Z",
-  "status": "ok",
+  "updatedAt": "2026-08-05T01:43:40.066Z",
+  "status": "partial",
   "errors": [
-    "ifind-news: report_query failed: no data."
+    "ifind-news: get_access_token network: fetch failed cause=AggregateError（若在 GitHub Actions：海外节点常无法访问 quantapi.51ifind.com，请本机拉数后推送 data/）",
+    "ifind-etf: get_access_token network: fetch failed cause=AggregateError（若在 GitHub Actions：海外节点常无法访问 quantapi.51ifind.com，请本机拉数后推送 data/）"
   ],
   "news": [
     {
@@ -14,7 +15,7 @@
       "category": "other",
       "source": "wechat",
       "publishedAt": "2026-07-31T07:55:52.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32KbRXZxdzMlX8pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aP8iFO_LxoUTb-OlA85yg6_xbkzbxRmQc1KzY5rVqkCzTDHAm3iELShPVcIEgNpw4jW481iorezRQ6jJ1WBTIwnUkWNLALlVo7FvbDCh4EUN_bP4i9P7zLFS6t2rFt2rnA..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FA1F1DE351248FEDF9FFA1BBA6CFB6E8F9ABFF3C6A728C6C"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32nns8vNrywwr8pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aP8iFO_LxoUTb-OlA85yg6_xbkzbxRmQc6OpiHlxOudgO_KMId6eiNyLdK4Zd_IdMEV21M1OgUnzoknaKmDsHOGfIev91fiW-cw37Dr4Ma9noFP5r_zRER0CYioxHkzTmA..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FA5267763A937AD4EDE8B6AC0D2266DDEEE5C7236A72951D"
     },
     {
       "id": "wx-sg-efunds-1-2026-08-05",
@@ -24,263 +25,125 @@
       "category": "other",
       "source": "wechat",
       "publishedAt": "2026-07-30T06:41:30.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32KbRXZxdzMlX8pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aIQv66I6KLWpt4QBfyYAzj-XqCHT054hQw-8rho-TDB5qf_3Pk65i7vEqyzFq0LAGg4xhZL-TKWLfSisbkqMs0kZ_BeTfobBIW77KYnbOn6lQ19I05dGLhQ89kyxDwoXvg..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FA1F1DE351248FEDF9FFA1BBA6CFB6E8F9ABFF3C6A728C6C"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32nns8vNrywwr8pqs6ydegaVqXa8Fplpd9GOPodcXeCDEvYgvGe__jBSLvqqa-M0fMyCslm9tklFS8IT7k7UL_aIQv66I6KLWpt4QBfyYAzj-XqCHT054hQ6yjgPUDRGeUNufhnR53oAogoAnL8CRhBx1RT1ZvXgOj7wTW1ZptQTw6qi6OQNDifwbjWmivmMbA1gHv4xozsg7Yl_Q5RRZQjg..&type=2&query=%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91&token=FA5267763A937AD4EDE8B6AC0D2266DDEEE5C7236A72951D"
     },
     {
-      "id": "wx-sg-szse-0-2026-08-05",
+      "id": "wx-sg-szse-1-2026-08-05",
       "title": "深交所与广东省签署全面战略合作框架协议 助力广东实现疫情防控和经济社会发展“双胜利”",
       "summary": "7月6日,深圳证券交易所与广东省人民政府签署全面战略合作框架协议,广东省省长、深交所主要负责同志等见证签约,并共同为深交...",
       "institution": "szse",
       "category": "exchange",
       "source": "wechat",
       "publishedAt": "2026-08-04T01:43:52.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32mHZjJhk6YQn8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGQx_WuprOIXXrKx1W3fzjs8vI4jaZzJE5M8Xf0EejtWVDlbkNN3HhaqA-zuTAsQgW7iWg3I-QWUrZZQvb9Vd4x3_ppEHFDEpSvJ-qnza1JPPyDpznp0qNwGjotuuiAmOIg..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA1F67FD2154FE9C898FD1CAD67E3D7189FBCEAF6A728C79"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32HWEaJ4hV3in8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGQx_WuprOIXXrKx1W3fzjs8vI4jaZzJE5D_2kCGW7c7np2gpWr6f1VtV6hL8R_Q4v4MI_zzAo5pL5I7BoZ4N-JTHpx_TDjBzTciisYOQimuirJ8tNpndR3iAFV_3u-a3OQ..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA5331368F21CB655B5D041EB9E098035CC4734D6A72953D"
     },
     {
-      "id": "wx-sg-szse-1-2026-08-05",
-      "title": "深交所举办2021年技术大会 开启行业数智赋能新征程",
-      "summary": "12月28日至29日,为贯彻落实党中央关于数字经济发展决策部署和国家“十四五”规划要求,深交所以“线上+线下”方式举办了主题...",
-      "institution": "szse",
-      "category": "exchange",
-      "source": "wechat",
-      "publishedAt": "2026-08-04T01:25:55.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32mHZjJhk6YQn8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGea3sP2FahSvEntYQbg1GJqGwHugvP7us3iZ-HIAjB1novMD9hqml3Lzi3pGtVNGadU4ooU3wdzqj_Oj0pnQQ_ppTJV86ZwiWdghRTMyGkLphQNTrq9ME5vwdVqCwyPdzA..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA1F67FD2154FE9C898FD1CAD67E3D7189FBCEAF6A728C79"
-    },
-    {
-      "id": "wx-sg-szse-2-2026-08-05",
+      "id": "wx-sg-szse-4-2026-08-05",
       "title": "深交所联合举办首届中日资本市场论坛",
       "summary": "深交所创新创业投融资服务平台(V-Next平台)覆盖多家日本科技创新项目.下一步,深交所将与日本资本市场各方继续保持密切沟通...",
       "institution": "szse",
       "category": "exchange",
       "source": "wechat",
       "publishedAt": "2026-08-04T01:31:33.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32uDP5ARkiTAj8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGcoNrd2Xiv3lnNy81mWzV4D0lnAbCCCOWzHsXt_q5Lk5v79zwxmtRiTpNU6J_K7aud5cA-_FYGHWfdA2VKXMyr2Y-32BMI3Lxf3N_vIPwBCWEDf6MGpeRjwCn9lOoZLP2Q..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA1F6D3B0670DBBAADA8F6ECCEABA175AE8997F06A728C7A"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32HWEaJ4hV3in8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGcoNrd2Xiv3lnNy81mWzV4D0lnAbCCCOW6DJ7-vaXeVFP_lDGsfQQWQO6PlKz9ECsa0aWe57uVFfmNI-Mj1XJb6WKM8e7Fn_Rqxd3_VVmBOspO8fBm7ZP8D0OK9DLfgmPA..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA5331368F21CB655B5D041EB9E098035CC4734D6A72953D"
     },
     {
-      "id": "wx-sg-szse-1-2026-08-05",
+      "id": "wx-sg-szse-2-2026-08-05",
       "title": "深交所与日本交易所集团深化合作 中日ETF互通再结硕果",
       "summary": "深交所总经理沙雁在“市场结构改革以及资本市场合作的展望”圆桌论坛发言.本届论坛由中日两国证券业协会主办,来自中日两国证...",
       "institution": "szse",
       "category": "exchange",
       "source": "wechat",
       "publishedAt": "2026-08-04T01:27:58.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32uDP5ARkiTAj8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGVCeAA0R_yOBKULoa7ImVFx0joHpcaUtvU_52vBn1gAF9563FpvEhJ7e74s9tqI4z_-FUzW3QAbec8ZoL22uWBkg9LgyEgP3No7KVZLsyU4FZ-Hb-Z5bGl5flztgI7RZ1g..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA1F6D3B0670DBBAADA8F6ECCEABA175AE8997F06A728C7A"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32HWEaJ4hV3in8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGVCeAA0R_yOBKULoa7ImVFx0joHpcaUtvV15hcv5bNdrdi-Tb3Q_Ur_c7drR-jO9hc-BwUZNQhLs-KfTvMHAQybRbQAIi09fX5jq7XTvFKntyzqmmraWXmqjotuuiAmOIg..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA5331368F21CB655B5D041EB9E098035CC4734D6A72953D"
     },
     {
       "id": "wx-sg-szse-0-2026-08-05",
+      "title": "深交所举办2021年技术大会 开启行业数智赋能新征程",
+      "summary": "12月28日至29日,为贯彻落实党中央关于数字经济发展决策部署和国家“十四五”规划要求,深交所以“线上+线下”方式举办了主题...",
+      "institution": "szse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-04T01:25:55.000Z",
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32HWEaJ4hV3in8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGea3sP2FahSvEntYQbg1GJqGwHugvP7usw4ozU5OULungC2-wGhc1tjtcJQ4mbLnw17tB-D5d-TyT1PUuc0bn80DIeP_j0uwvlPUc-awIGRr0cMZwKj45HwHpHkoPMgL3A..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA5331368F21CB655B5D041EB9E098035CC4734D6A72953D"
+    },
+    {
+      "id": "wx-sg-szse-3-2026-08-05",
       "title": "深交所投教 | 期权入市手册(十三):做市商制度",
       "summary": "为帮助投资者系统了解期权产品特征、理性参与期权交易、有效提升风险管理能力,深交所联合市场机构推出“期权入市手册”系列连...",
       "institution": "szse",
       "category": "exchange",
       "source": "wechat",
       "publishedAt": "2026-08-04T01:18:20.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32uDP5ARkiTAj8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGVNQIcRhv8FMIxxBTtxKPvogM-izx7TiekdcwagbFGgzwg4V2SPjdAGahvnfVKyj-QBkaezz_HMCkR4F3HFmKNySErmbC6CxiGABX97UQ8HmDCsIelsAFW1OJBjQH7pCxQ..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA1F6D3B0670DBBAADA8F6ECCEABA175AE8997F06A728C7A"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32HWEaJ4hV3in8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGVNQIcRhv8FMIxxBTtxKPvogM-izx7Tiejlq4gTqF1zr9CDQLhEmLLKu5DdRQAn8xxDiEiWloMykHROKPN2mL7o6eR2-7ESBZXMCrIlWczyY5Xgyt4suDBkSYTqT4eyLmA..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA5331368F21CB655B5D041EB9E098035CC4734D6A72953D"
     },
     {
-      "id": "wx-sg-szse-3-2026-08-05",
+      "id": "wx-sg-szse-5-2026-08-05",
       "title": "深交所科技成果与知识产权交易中心正式揭牌",
       "summary": "2022年11月8日,“深圳创投日”启动大会暨深交所科技成果与知识产权交易中心(以下称科交中心)揭牌仪式成功举行.中国证监会...",
       "institution": "szse",
       "category": "exchange",
       "source": "wechat",
       "publishedAt": "2026-08-04T01:18:20.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32uDP5ARkiTAj8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGfaETVg_7ERDM9waAX1Q0-R7sDY7KR_QNBPWa5p9csd3rXJRK3r2n-4uRS1IeIj5VuNVxEwNUGnwG_wJz_orLMXlSb6UyDaiBxYdAuk7xtfnrSYoj4vibAJj3x9Nw6p-Fg..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA1F6D3B0670DBBAADA8F6ECCEABA175AE8997F06A728C7A"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32HWEaJ4hV3in8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGfaETVg_7ERDM9waAX1Q0-R7sDY7KR_QNEijVO5nMQT0XdtvNZJRqtUnwYA_1tEaMeeA8AqxCq1LlpbG3ALPNtflnskwGapkW-ZUllb_28RGTebJCKF7Q_fRtmyIGw2VAg..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA5331368F21CB655B5D041EB9E098035CC4734D6A72953D"
     },
     {
-      "id": "wx-sg-szse-4-2026-08-05",
-      "title": "陈华平理事长在“深圳创投日”启动大会暨深交所科交中心揭牌仪式上的致辞",
-      "summary": "深交所以汇聚创新资本、激发成长动力为使命,正全力打造以优质创新资本中心为特色的世界一流交易所,致力推动科技、资本和实体...",
+      "id": "wx-sg-szse-6-2026-08-05",
+      "title": "深交所“踔厉奋发新征程 投教服务再出发”主体活动走进浙江",
+      "summary": "深交所“踔厉奋发新征程 投教服务再出发”主题活动走进浙江.深交所联合浙江证监局采用线上线下相结合方式,举办走进上市公司、...",
       "institution": "szse",
       "category": "exchange",
       "source": "wechat",
       "publishedAt": "2026-08-04T01:18:20.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32uDP5ARkiTAj8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGd7_Xb_yrsLVhM1Qg7eY17ubxDKUmu7pvcUbrp1Lriu907_OI6SHZMZdmfAMOZxhCUr9GxOLb6S-pbhrZ0D6rfQ2_ygu7ZN7b_fE2nyaqiI-Ue8lpKmQHMkO8fIRwtipOg..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA1F6D3B0670DBBAADA8F6ECCEABA175AE8997F06A728C7A"
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32HWEaJ4hV3in8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGa5I4nsaQsDTcApKVJMzJ37P4ttdjD9-l5HU6aRmkVEyLMgJVPN-DMfFui8va0UNqtRdD1nOF-J4U1wIlmQse8172_YZGMMrkMpX4OPJlMmPjWNDPlTzMjGfxjh3za6jWA..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA5331368F21CB655B5D041EB9E098035CC4734D6A72953D"
+    },
+    {
+      "id": "wx-sg-szse-0-2026-08-05",
+      "title": "深交所召开2019年会员大会",
+      "summary": "4月22日,深交所以非现场方式组织召开2019年会员大会.本次大会会期五天,主要审议深交所理事会、总经理、监事会工作报告,及...",
+      "institution": "szse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-04T01:31:33.000Z",
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32F98h5yHa8xb8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGR0ZaVd4mBLNoQRDnjJcc5fB_c3fNwgAim8x1lRgBd4WdJTeCSVLVwThKuJ4BZqnMPz6tFJ1P3CIM75WwBWbSFuJQmkuO3Q9w_Vz5EDvUH9eQVpebfZ-u1ktPujwwRB2Pw..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA533BB32C856FC0F9FFA1BA1D2EABA8F92A1E186A72953F"
+    },
+    {
+      "id": "wx-sg-szse-0-2026-08-05",
+      "title": "嘉立创在深交所上市",
+      "summary": "上市仪式2026年8月4日,嘉立创(证券代码:001232)在深交所举行上市仪式.▼公司简介嘉立创本次公开发行股票5,556万股,其中...",
+      "institution": "szse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-04T08:26:58.000Z",
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32at-LoPzcyKn8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGfjiSfsTHhge3E6tYJbNzOioVjwCkdvmYaHY4qEc33L7aHNOM49WZPLLUDb1SH7xWgQCMETQKoR-zJZ1dM5owTsPqMxlePW1Of4n8P44nYqhRVJqdl1JV9Xm0CtGSSkZQQ..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA53475354FD17B97F86D83D9A6F83DF804CF6FE6A729541"
+    },
+    {
+      "id": "wx-sg-szse-0-2026-08-05",
+      "title": "深交所投教丨互动易一周统计(2019年4月15日-21日)",
+      "summary": "深交所投教丨互动易一周统计(2019年4月15日-21日)",
+      "institution": "szse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-04T01:31:33.000Z",
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32WjO-R9M74Vf8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGemWSPv6WSlPSa5WeH3ij8_q0GXUyXcZ-56Xv_T-Dh05rt7NeeP-VdV99NUJ-OGL8jHbfq_vIFMys4Ryydz9uTZFc-CIEWhezbm_cUig5rn9knyisc63_4889kyxDwoXvg..&type=2&query=%E6%B7%B1%E4%BA%A4%E6%89%80&token=FA5351C59B32D8694F49080DA946D070501412016A729542"
+    },
+    {
+      "id": "wx-sg-szse-0-2026-08-05",
+      "title": "深圳证券交易所2021年度专业人员招聘启事",
+      "summary": "深圳证券交易所(以下简称“深交所”)于1990年12月1日开始营业,是经国务院批准设立的全国性证券交易所,为证券集中交易提供...",
+      "institution": "szse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-04T01:25:55.000Z",
+      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS_Iueh__Ak32JtU1X1H3scX8pqs6ydegaVqXa8Fplpd9VkcF1zh3Wyx00I3L8ibIizmWWEa0sOsF44xokH6zUy9D2xIrf0BRGTWMEF9GmVv7zOPWJ1ca7Ra4yatuIS9UysfnfWKF-UfuUwS20GT-xowbHBoojyxx67za5TXCaZA9nwnchWbZCn5H3S-fcWoWfslncYVMMx1g39D8JIAfynv0OK9DLfgmPA..&type=2&query=%E6%B7%B1%E5%9C%B3%E8%AF%81%E5%88%B8%E4%BA%A4%E6%98%93%E6%89%80&token=FA536BE059F319B78D8BD5CF68C9B07D8EAB70056A729546"
     }
   ],
   "etf": {
-    "indices": [
-      {
-        "code": "000300",
-        "name": "沪深300",
-        "last": 0,
-        "changePct": 0
-      },
-      {
-        "code": "000905",
-        "name": "中证500",
-        "last": 0,
-        "changePct": 0
-      }
-    ],
+    "indices": [],
     "sectors": [],
-    "hotInflow": [
-      {
-        "code": "510050",
-        "name": "上证50ETF",
-        "institution": "huaxia",
-        "value": 0,
-        "unit": "yi"
-      },
-      {
-        "code": "159919",
-        "name": "沪深300ETF",
-        "institution": "huaxia",
-        "value": 0,
-        "unit": "yi"
-      },
-      {
-        "code": "510310",
-        "name": "沪深300ETF易方达",
-        "institution": "efunds",
-        "value": 0,
-        "unit": "yi"
-      },
-      {
-        "code": "159915",
-        "name": "创业板ETF",
-        "institution": "efunds",
-        "value": 0,
-        "unit": "yi"
-      },
-      {
-        "code": "510300",
-        "name": "沪深300ETF",
-        "institution": "huatai",
-        "value": 0,
-        "unit": "yi"
-      }
-    ],
-    "hotGainers": [
-      {
-        "code": "510050",
-        "name": "上证50ETF",
-        "institution": "huaxia",
-        "value": 0,
-        "unit": "pct"
-      },
-      {
-        "code": "159919",
-        "name": "沪深300ETF",
-        "institution": "huaxia",
-        "value": 0,
-        "unit": "pct"
-      },
-      {
-        "code": "510310",
-        "name": "沪深300ETF易方达",
-        "institution": "efunds",
-        "value": 0,
-        "unit": "pct"
-      },
-      {
-        "code": "159915",
-        "name": "创业板ETF",
-        "institution": "efunds",
-        "value": 0,
-        "unit": "pct"
-      },
-      {
-        "code": "510300",
-        "name": "沪深300ETF",
-        "institution": "huatai",
-        "value": 0,
-        "unit": "pct"
-      }
-    ],
-    "hotTurnover": [
-      {
-        "code": "510050",
-        "name": "上证50ETF",
-        "institution": "huaxia",
-        "value": 0,
-        "unit": "yi_amount"
-      },
-      {
-        "code": "159919",
-        "name": "沪深300ETF",
-        "institution": "huaxia",
-        "value": 0,
-        "unit": "yi_amount"
-      },
-      {
-        "code": "510310",
-        "name": "沪深300ETF易方达",
-        "institution": "efunds",
-        "value": 0,
-        "unit": "yi_amount"
-      },
-      {
-        "code": "159915",
-        "name": "创业板ETF",
-        "institution": "efunds",
-        "value": 0,
-        "unit": "yi_amount"
-      },
-      {
-        "code": "510300",
-        "name": "沪深300ETF",
-        "institution": "huatai",
-        "value": 0,
-        "unit": "yi_amount"
-      }
-    ],
-    "productsByFirm": {
-      "huaxia": [
-        {
-          "code": "510050",
-          "name": "上证50ETF",
-          "changePct": 0,
-          "amount": 0
-        },
-        {
-          "code": "159919",
-          "name": "沪深300ETF",
-          "changePct": 0,
-          "amount": 0
-        }
-      ],
-      "efunds": [
-        {
-          "code": "510310",
-          "name": "沪深300ETF易方达",
-          "changePct": 0,
-          "amount": 0
-        },
-        {
-          "code": "159915",
-          "name": "创业板ETF",
-          "changePct": 0,
-          "amount": 0
-        }
-      ],
-      "guotai": [
-        {
-          "code": "159901",
-          "name": "深证100ETF",
-          "changePct": 0,
-          "amount": 0
-        }
-      ],
-      "huatai": [
-        {
-          "code": "510300",
-          "name": "沪深300ETF",
-          "changePct": 0,
-          "amount": 0
-        },
-        {
-          "code": "510300",
-          "name": "沪深300ETF",
-          "changePct": 0,
-          "amount": 0
-        },
-        {
-          "code": "512760",
-          "name": "芯片ETF",
-          "changePct": 0,
-          "amount": 0
-        }
-      ]
-    }
+    "hotInflow": [],
+    "hotGainers": [],
+    "hotTurnover": [],
+    "productsByFirm": {}
   }
 }
