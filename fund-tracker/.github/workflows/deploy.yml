@@ -5,7 +5,7 @@ name: Deploy fund-tracker to Pages
 # 直接把已提交的 data/ 打包部署到 GitHub Pages。
 on:
   push:
-    branches: [feature/fund-tracker]
+    branches: [main]
   workflow_dispatch:
 
 permissions:

@@ -5,8 +5,6 @@ import {
   Route,
   Routes,
   useLocation,
-  useNavigate,
-  useSearchParams,
 } from "react-router-dom";
 import { loadAvailableDates, loadLatest, loadSnapshot } from "./lib/loadData";
 import type { DaySnapshot } from "./lib/schema";
@@ -55,20 +53,49 @@ function buildWeekStrip(availableDates: string[]): string[] {
   return out;
 }
 
+/**
+ * 直接从 location.hash 解析 ?date=，避免 HashRouter 下 useSearchParams
+ * 解析 hash 内 search 不稳定（曾导致 dateParam 恒为空、始终显示最新快照）。
+ */
+function readDateFromHash(): string | null {
+  const h = typeof window !== "undefined" ? window.location.hash : "";
+  const i = h.indexOf("?");
+  const q = i >= 0 ? h.slice(i + 1) : "";
+  return new URLSearchParams(q).get("date");
+}
+
+/** 把选中日期写回 hash（保留 path 部分，如 #/etf），触发 hashchange 同步。 */
+function writeDateToHash(d: string) {
+  const h = typeof window !== "undefined" ? window.location.hash || "#/" : "#/";
+  const i = h.indexOf("?");
+  const path = i >= 0 ? h.slice(0, i) : h;
+  const sp = new URLSearchParams(i >= 0 ? h.slice(i + 1) : "");
+  sp.set("date", d);
+  window.location.hash = `${path}?${sp.toString()}`;
+}
+
 function Shell() {
-  const [params] = useSearchParams();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const dateParam = params.get("date");
   const [snap, setSnap] = useState<DaySnapshot | null>(null);
   const [latestDate, setLatestDate] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [availableDates, setAvailableDates] = useState<string[]>([]);
+  const [dateParam, setDateParam] = useState<string | null>(() =>
+    readDateFromHash(),
+  );
+
+  const location = useLocation();
 
   useEffect(() => {
     loadAvailableDates()
       .then((d) => setAvailableDates([...d].sort()))
       .catch(() => setAvailableDates([]));
+  }, []);
+
+  // 监听 hash 变化同步 dateParam（替代 useSearchParams，规避 HashRouter 不稳定）
+  useEffect(() => {
+    const onHash = () => setDateParam(readDateFromHash());
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
   }, []);
 
   useEffect(() => {
@@ -81,13 +108,9 @@ function Shell() {
         setLatestDate(latest.tradeDate);
 
         if (!dateParam) {
+          // 无日期参数：直接展示 latest 并把日期写入 hash（保证 URL 可分享/可刷新）
           setSnap(latest);
-          const next = new URLSearchParams(params);
-          next.set("date", latest.tradeDate);
-          navigate(
-            { pathname: location.pathname, search: `?${next.toString()}` },
-            { replace: true },
-          );
+          if (latest.tradeDate) writeDateToHash(latest.tradeDate);
           return;
         }
 
@@ -96,12 +119,7 @@ function Shell() {
 
         if (isDemoSnapshot(data) && !isDemoSnapshot(latest)) {
           setSnap(latest);
-          const next = new URLSearchParams(params);
-          next.set("date", latest.tradeDate);
-          navigate(
-            { pathname: location.pathname, search: `?${next.toString()}` },
-            { replace: true },
-          );
+          if (latest.tradeDate) writeDateToHash(latest.tradeDate);
           return;
         }
 
@@ -117,7 +135,7 @@ function Shell() {
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dateParam, location.pathname]);
+  }, [dateParam]);
 
   const date = snap?.tradeDate || dateParam || "";
   const weekStrip = useMemo(
@@ -134,9 +152,7 @@ function Shell() {
       return;
     }
     setError(null);
-    const next = new URLSearchParams(params);
-    next.set("date", d);
-    navigate({ pathname: location.pathname, search: `?${next.toString()}` });
+    writeDateToHash(d);
   };
 
   const navClass = (path: string) =>
