@@ -8,8 +8,8 @@ export function NewsPage({ snap }: { snap: DaySnapshot }) {
   const [institution, setInstitution] = useState<Institution | "all">("all");
   const [category, setCategory] = useState<NewsCategory | "all">("all");
   const items = useMemo(
-    () => filterNews(snap.news, { institution, category }),
-    [snap.news, institution, category],
+    () => filterNews(snap.news, { institution, category, tradeDate: snap.tradeDate }),
+    [snap.news, institution, category, snap.tradeDate],
   );
   const q = `?date=${snap.tradeDate}`;
 
