@@ -10,6 +10,15 @@ function isEmptyFailed(snapshot: DaySnapshot): boolean {
   );
 }
 
+function isEmptyEtf(snapshot: DaySnapshot): boolean {
+  const e = snapshot.etf;
+  if (!e) return true;
+  if (e.indices && e.indices.length > 0) return false;
+  const firms = e.productsByFirm || {};
+  if (Object.values(firms).some((arr) => arr && arr.length > 0)) return false;
+  return true;
+}
+
 function rewriteDates(dataDir: string): void {
   const dates = readdirSync(dataDir)
     .filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))
@@ -30,6 +39,20 @@ export function writeSnapshot(dataDir: string, snapshot: DaySnapshot): void {
       const old = JSON.parse(readFileSync(dayFile, "utf8")) as DaySnapshot;
       if (old.news && old.news.length > 0) {
         parsed.news = old.news;
+        if (parsed.status === "failed") parsed.status = "ok";
+      }
+    } catch {
+      /* ignore corrupt old file */
+    }
+  }
+
+  // news-only 回跑 / iFinD 超时会导致本次 ETF 行情为空。
+  // 若旧文件已有 ETF 行情，保留旧行情，避免回跑时静默清空某日 ETF 看板。
+  if (isEmptyEtf(parsed) && existsSync(dayFile)) {
+    try {
+      const old = JSON.parse(readFileSync(dayFile, "utf8")) as DaySnapshot;
+      if (old.etf && !isEmptyEtf(old)) {
+        parsed.etf = old.etf;
         if (parsed.status === "failed") parsed.status = "ok";
       }
     } catch {
