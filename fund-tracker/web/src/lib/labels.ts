@@ -21,5 +21,6 @@ export const CATEGORY_LABEL: Record<NewsCategory, string> = {
 export const SOURCE_LABEL = {
   ifind: "iFind",
   wechat: "微信",
-  exchange_web: "官网",
+  exchange_web: "交易所官网",
+  company_web: "基金公司官网",
 } as const;

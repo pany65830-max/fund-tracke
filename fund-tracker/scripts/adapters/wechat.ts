@@ -10,6 +10,9 @@ export type WechatAccount = {
   name: string;
   /** Allowed publisher display names on Sogou (`span.all-time-y2`). */
   publishers?: string[];
+  /** Core brand tokens; any publisher whose name contains one is accepted.
+   *  This captures sub-accounts (微理财/微资讯/客服) without enumerating each. */
+  brands?: string[];
   accountId?: string;
   feedUrl?: string;
 };
@@ -90,12 +93,16 @@ function publisherAllowed(
   publisher: string,
   accountName: string,
   publishers?: string[],
+  brands?: string[],
 ): boolean {
   const p = publisher.trim();
   if (!p) return false;
-  const allow = (publishers?.length ? publishers : [accountName]).map((x) =>
-    x.trim(),
-  );
+  const allow = [
+    ...(publishers?.length ? publishers : [accountName]),
+    ...(brands || []),
+  ]
+    .map((x) => x.trim())
+    .filter(Boolean);
   return allow.some((a) => a && (p === a || p.includes(a) || a.includes(p)));
 }
 
@@ -147,6 +154,7 @@ export function parseSogouNewsList(
   opts: {
     limit?: number;
     publishers?: string[];
+    brands?: string[];
     maxAgeDays?: number;
     sameDayOnly?: boolean;
   } = {},
@@ -177,7 +185,10 @@ export function parseSogouNewsList(
       htmlBlock.match(/class=["']all-time-y2["'][^>]*>([\s\S]*?)<\/span>/i)?.[1] ||
       "";
     const publisher = stripTags(publisherRaw);
-    if (!publisherAllowed(publisher, accountName, opts.publishers)) continue;
+    if (
+      !publisherAllowed(publisher, accountName, opts.publishers, opts.brands)
+    )
+      continue;
 
     const info = htmlBlock.match(/class=["']txt-info["'][^>]*>([\s\S]*?)<\/p>/i);
     const summary = info ? stripTags(info[1]) : title;
@@ -228,16 +239,36 @@ async function fetchText(
   url: string,
   fetchImpl: typeof fetch,
 ): Promise<string> {
-  const res = await fetchImpl(url, {
-    headers: {
-      "User-Agent": UA,
-      Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-      "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-      Referer: "https://weixin.sogou.com/",
-    },
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.text();
+  const maxTries = 3;
+  let lastErr: unknown;
+  for (let attempt = 0; attempt < maxTries; attempt++) {
+    try {
+      const res = await fetchImpl(url, {
+        headers: {
+          "User-Agent": UA,
+          Accept:
+            "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+          "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+          Referer: "https://weixin.sogou.com/",
+        },
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const text = await res.text();
+      // Sogou throws a captcha/anti-spider wall under load — retry with backoff.
+      if (/验证码|antispider|请输入验证|captcha/i.test(text)) {
+        if (attempt < maxTries - 1) {
+          await sleep(2000 * (attempt + 1));
+          continue;
+        }
+        throw new Error("sogou captcha / anti-spider");
+      }
+      return text;
+    } catch (e) {
+      lastErr = e;
+      if (attempt < maxTries - 1) await sleep(1500 * (attempt + 1));
+    }
+  }
+  throw lastErr instanceof Error ? lastErr : new Error(String(lastErr));
 }
 
 export function createWechatAdapter(
@@ -267,9 +298,14 @@ export function createWechatAdapter(
             const xml = await fetchText(acc.feedUrl, fetchImpl);
             out.push(...parseRssItems(xml, acc.institution, tradeDate));
           } else if (acc.name) {
-            // Search each publisher name for better hit rate, then dedupe by URL.
+            // Search the account name AND its core brand token; the brand search
+            // surfaces every sub-account (微理财/微资讯/客服) in one query.
             const queries = Array.from(
-              new Set([acc.name, ...(acc.publishers || [])].filter(Boolean)),
+              new Set(
+                [acc.name, ...(acc.brands || []), ...(acc.publishers || [])].filter(
+                  Boolean,
+                ),
+              ),
             );
             const seen = new Set<string>();
             for (const q of queries) {
@@ -296,6 +332,7 @@ export function createWechatAdapter(
                   tradeDate,
                   {
                     publishers: acc.publishers || [acc.name],
+                    brands: acc.brands || [acc.name],
                     maxAgeDays,
                     sameDayOnly,
                     limit: 30,

@@ -48,8 +48,15 @@ describe("ifind mappers", () => {
       },
       wl,
     );
-    expect(dash.productsByFirm.huatai.some((p) => p.code === "512760")).toBe(
+    // 512760 = 芯片ETF国泰（管理人：国泰基金），按真实白名单应归入 guotai
+    expect(dash.productsByFirm.guotai.some((p) => p.code === "512760")).toBe(
       true,
     );
+    // 非白名单产品应被过滤掉
+    expect(
+      Object.values(dash.productsByFirm).every(
+        (arr) => !arr.some((p) => p.code === "999999"),
+      ),
+    ).toBe(true);
   });
 });

@@ -27,7 +27,7 @@ export const NewsItemSchema = z.object({
   body: z.string().optional(),
   institution: InstitutionSchema,
   category: NewsCategorySchema,
-  source: z.enum(["ifind", "wechat", "exchange_web"]),
+  source: z.enum(["ifind", "wechat", "exchange_web", "company_web"]),
   publishedAt: z.string(),
   sourceUrl: z.string(),
   coverUrl: z.string().optional(),

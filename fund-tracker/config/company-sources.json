@@ -1,0 +1,37 @@
+[
+  {
+    "institution": "huaxia",
+    "name": "华夏基金",
+    "listUrl": "https://www.chinaamc.com/hxdt/hxxw/"
+  },
+  {
+    "institution": "huaxia",
+    "name": "华夏基金-信息披露",
+    "listUrl": "https://www.chinaamc.com/guanyu/gonggao/"
+  },
+  {
+    "institution": "efunds",
+    "name": "易方达-信息披露",
+    "listUrl": "https://www.efunds.com.cn/lm/xxpl/"
+  },
+  {
+    "institution": "guotai",
+    "name": "国泰基金-公司公告",
+    "listUrl": "https://www.gtfund.com/Etrade/Report/companyreport"
+  },
+  {
+    "institution": "huatai",
+    "name": "华泰柏瑞-资讯中心",
+    "listUrl": "http://www.huatai-pb.com/news/index.html"
+  },
+  {
+    "institution": "huatai",
+    "name": "华泰柏瑞-新闻速递",
+    "listUrl": "http://www.huatai-pb.com/news/newsd/index.html"
+  },
+  {
+    "institution": "huatai",
+    "name": "华泰柏瑞-公司动态",
+    "listUrl": "http://www.huatai-pb.com/news/companyNews/index.html"
+  }
+]

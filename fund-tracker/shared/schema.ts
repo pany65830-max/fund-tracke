@@ -20,7 +20,7 @@ export const NewsCategorySchema = z.enum([
 ]);
 export type NewsCategory = z.infer<typeof NewsCategorySchema>;
 
-export const NewsSourceSchema = z.enum(["ifind", "wechat", "exchange_web"]);
+export const NewsSourceSchema = z.enum(["ifind", "wechat", "exchange_web", "company_web"]);
 export type NewsSource = z.infer<typeof NewsSourceSchema>;
 
 export const NewsItemSchema = z.object({

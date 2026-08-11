@@ -13,6 +13,7 @@ import {
 } from "../shared/schema.js";
 import { createFixtureEtfAdapter, createFixtureNewsAdapter } from "./adapters/fixtures.js";
 import { createExchangeWebAdapter } from "./adapters/exchange-web.js";
+import { createCompanyWebAdapter } from "./adapters/company-web.js";
 import { createWechatAdapter } from "./adapters/wechat.js";
 import { createIfindNewsAdapter } from "./adapters/ifind-news.js";
 import { createIfindEtfAdapter } from "./adapters/ifind-etf.js";
@@ -74,6 +75,7 @@ export async function runIngest(opts: {
     : hasIfind
       ? [
           createIfindNewsAdapter(),
+          createCompanyWebAdapter(fetch),
           createWechatAdapter(fetch, {
             sameDayOnly: false,
             maxAgeDays: 7,
@@ -82,6 +84,7 @@ export async function runIngest(opts: {
           }),
         ]
       : [
+          createCompanyWebAdapter(fetch),
           createWechatAdapter(fetch, {
             sameDayOnly: false,
             maxAgeDays: 7,
@@ -127,7 +130,8 @@ export async function runIngest(opts: {
   const hardErrors = errors.filter(
     (e) =>
       !/report_query failed:\s*no data/i.test(e) &&
-      !/^exchange-web:/i.test(e),
+      !/^exchange-web:/i.test(e) &&
+      !/^company-web:/i.test(e),
   );
 
   let status: DaySnapshot["status"] = "ok";
