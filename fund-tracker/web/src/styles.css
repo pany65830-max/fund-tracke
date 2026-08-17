@@ -293,3 +293,44 @@ a:hover { text-decoration: underline; }
 @media (max-width: 768px) {
   .date-nav { width: 100%; margin-left: 0; }
 }
+
+/* 数据设置：网页填 iFinD API 拉取最新数据 */
+.settings-wrap { position: relative; margin-left: 12px; }
+.gear-btn {
+  border: 1px solid var(--border); background: #fff; color: #374151;
+  border-radius: 8px; padding: 6px 10px; font-size: 0.85rem; cursor: pointer;
+}
+.gear-btn:hover { background: #f1f5f9; }
+.settings-panel {
+  position: absolute; right: 0; top: 44px; z-index: 50;
+  width: 320px; background: #fff; border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  text-align: left;
+}
+.settings-title { font-weight: 600; margin-bottom: 12px; }
+.settings-field { display: block; margin-bottom: 12px; font-size: 0.82rem; color: #475569; }
+.settings-field > span { display: block; margin-bottom: 4px; }
+.settings-field input {
+  width: 100%; box-sizing: border-box; padding: 8px 10px;
+  border: 1px solid var(--border); border-radius: 8px; font-size: 0.85rem;
+}
+.token-row { display: flex; gap: 6px; }
+.token-row input { flex: 1; }
+.mini {
+  border: 1px solid var(--border); background: #f8fafc; border-radius: 8px;
+  padding: 0 10px; font-size: 0.8rem; cursor: pointer;
+}
+.settings-actions { display: flex; gap: 8px; margin-bottom: 4px; }
+.settings-actions button, .refresh-btn {
+  border: 1px solid var(--border); background: #f8fafc; border-radius: 8px;
+  padding: 8px 12px; font-size: 0.85rem; cursor: pointer;
+}
+.settings-actions .ghost { color: #b91c1c; }
+.refresh-btn {
+  width: 100%; background: #185fa5; color: #fff; border-color: #185fa5;
+  font-weight: 500; margin-top: 4px;
+}
+.refresh-btn:disabled { opacity: 0.6; cursor: default; }
+.settings-msg { margin-top: 10px; font-size: 0.82rem; color: #0f6e56; }
+.settings-hint { margin-top: 8px; font-size: 0.72rem; color: #94a3b8; line-height: 1.4; }
+.settings-panel hr { border: none; border-top: 1px solid var(--border); margin: 12px 0; }

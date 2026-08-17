@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import {
   Link,
   Navigate,
@@ -12,6 +12,14 @@ import type { DaySnapshot } from "./lib/schema";
 import { NewsPage } from "./pages/NewsPage";
 import { NewsDetailPage } from "./pages/NewsDetailPage";
 import { EtfPage } from "./pages/EtfPage";
+import { SettingsPanel } from "./components/SettingsPanel";
+import {
+  loadSettings,
+  saveSettings,
+  clearSettings,
+  fetchLive,
+  type LiveSettings,
+} from "./lib/liveApi";
 
 function isDemoSnapshot(snap: DaySnapshot): boolean {
   return snap.news.some((n) => n.id.startsWith("fx-"));
@@ -44,6 +52,14 @@ function addDays(date: string, delta: number): string {
   return dt.toISOString().slice(0, 10);
 }
 
+/** 北京时区当日 yyyy-mm-dd（用于刷新时同步 URL 日期）。 */
+function todayStr(): string {
+  const now = new Date();
+  const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+  const bj = new Date(utc + 8 * 3600000);
+  return bj.toISOString().slice(0, 10);
+}
+
 /** Calendar strip: from (maxDate-6) through maxDate; unavailable = gray. */
 function buildWeekStrip(availableDates: string[]): string[] {
   if (!availableDates.length) return [];
@@ -66,6 +82,41 @@ function Shell() {
   const [error, setError] = useState<string | null>(null);
   const [availableDates, setAvailableDates] = useState<string[]>([]);
 
+  // 网页填 API 拉数据：设置（localStorage）、刷新状态、跳过下次载入的标记
+  const [settings, setSettings] = useState<LiveSettings>(loadSettings());
+  const [liveMsg, setLiveMsg] = useState<string | null>(null);
+  const [refreshing, setRefreshing] = useState(false);
+  const skipLoadRef = useRef(false);
+
+  const handleSave = () => {
+    saveSettings(settings);
+    setLiveMsg("已保存设置");
+  };
+  const handleClear = () => {
+    clearSettings();
+    setSettings({ workerUrl: "", token: "" });
+    setLiveMsg("已清除 token");
+  };
+  const handleRefresh = async () => {
+    if (!settings.workerUrl || !settings.token) {
+      setLiveMsg("请先填写 Worker 地址和 iFinD token 并保存");
+      return;
+    }
+    setRefreshing(true);
+    setLiveMsg("正在拉取最新数据…");
+    try {
+      const live = await fetchLive(settings);
+      skipLoadRef.current = true;
+      setSearchParams({ date: live.tradeDate });
+      setSnap(live);
+      setLiveMsg(`已更新于 ${new Date().toLocaleTimeString()}`);
+    } catch (e) {
+      setLiveMsg("刷新失败：" + (e instanceof Error ? e.message : String(e)));
+    } finally {
+      setRefreshing(false);
+    }
+  };
+
   const location = useLocation();
 
   useEffect(() => {
@@ -75,6 +126,11 @@ function Shell() {
   }, []);
 
   useEffect(() => {
+    // 刚手动刷新过：保留 live 覆盖，跳过这次（因 setSearchParams 触发的）重新载入
+    if (skipLoadRef.current) {
+      skipLoadRef.current = false;
+      return;
+    }
     let cancelled = false;
     (async () => {
       try {
@@ -183,6 +239,15 @@ function Shell() {
             后一日 ›
           </button>
         </div>
+        <SettingsPanel
+          settings={settings}
+          onChange={setSettings}
+          onSave={handleSave}
+          onClear={handleClear}
+          onRefresh={handleRefresh}
+          refreshing={refreshing}
+          message={liveMsg}
+        />
       </header>
 
       {weekStrip.length ? (

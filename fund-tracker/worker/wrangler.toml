@@ -1,0 +1,7 @@
+name = "fund-tracker-ifind-proxy"
+main = "index.js"
+compatibility_date = "2024-09-23"
+
+# 部署：在本目录运行 `wrangler login` 然后 `wrangler deploy`
+# 部署后 Worker 地址形如 https://fund-tracker-ifind-proxy.<你的子域>.workers.dev
+# 把该地址填进网站「⚙ 数据」面板的 Worker 地址输入框即可。
