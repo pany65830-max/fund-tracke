@@ -5,6 +5,7 @@ import {
   Route,
   Routes,
   useLocation,
+  useSearchParams,
 } from "react-router-dom";
 import { loadAvailableDates, loadLatest, loadSnapshot } from "./lib/loadData";
 import type { DaySnapshot } from "./lib/schema";
@@ -53,35 +54,17 @@ function buildWeekStrip(availableDates: string[]): string[] {
   return out;
 }
 
-/**
- * 直接从 location.hash 解析 ?date=，避免 HashRouter 下 useSearchParams
- * 解析 hash 内 search 不稳定（曾导致 dateParam 恒为空、始终显示最新快照）。
- */
-function readDateFromHash(): string | null {
-  const h = typeof window !== "undefined" ? window.location.hash : "";
-  const i = h.indexOf("?");
-  const q = i >= 0 ? h.slice(i + 1) : "";
-  return new URLSearchParams(q).get("date");
-}
-
-/** 把选中日期写回 hash（保留 path 部分，如 #/etf），触发 hashchange 同步。 */
-function writeDateToHash(d: string) {
-  const h = typeof window !== "undefined" ? window.location.hash || "#/" : "#/";
-  const i = h.indexOf("?");
-  const path = i >= 0 ? h.slice(0, i) : h;
-  const sp = new URLSearchParams(i >= 0 ? h.slice(i + 1) : "");
-  sp.set("date", d);
-  window.location.hash = `${path}?${sp.toString()}`;
-}
-
 function Shell() {
+  // 用 react-router 的 useSearchParams 统一管理 URL 中的 ?date=。
+  // 之前直接写 window.location.hash 会绕过 HashRouter 的历史记录
+  // （它只监听 popstate/pushState，不监听 hashchange），导致路由内部状态
+  // 与实际 URL 脱节、日期切换时好时坏、甚至卡在某个日期上。
+  const [searchParams, setSearchParams] = useSearchParams();
+  const dateParam = searchParams.get("date");
+
   const [snap, setSnap] = useState<DaySnapshot | null>(null);
-  const [latestDate, setLatestDate] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [availableDates, setAvailableDates] = useState<string[]>([]);
-  const [dateParam, setDateParam] = useState<string | null>(() =>
-    readDateFromHash(),
-  );
 
   const location = useLocation();
 
@@ -91,36 +74,37 @@ function Shell() {
       .catch(() => setAvailableDates([]));
   }, []);
 
-  // 监听 hash 变化同步 dateParam（替代 useSearchParams，规避 HashRouter 不稳定）
-  useEffect(() => {
-    const onHash = () => setDateParam(readDateFromHash());
-    window.addEventListener("hashchange", onHash);
-    return () => window.removeEventListener("hashchange", onHash);
-  }, []);
-
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
         setError(null);
-        const latest = await loadLatest();
-        if (cancelled) return;
-        setLatestDate(latest.tradeDate);
 
         if (!dateParam) {
-          // 无日期参数：直接展示 latest 并把日期写入 hash（保证 URL 可分享/可刷新）
+          // 无日期参数：展示最新快照，并把日期回填到 URL（replace 不污染历史）
+          const latest = await loadLatest();
+          if (cancelled) return;
           setSnap(latest);
-          if (latest.tradeDate) writeDateToHash(latest.tradeDate);
+          if (latest.tradeDate) {
+            setSearchParams({ date: latest.tradeDate }, { replace: true });
+          }
           return;
         }
 
         const data = await loadSnapshot(dateParam);
         if (cancelled) return;
 
-        if (isDemoSnapshot(data) && !isDemoSnapshot(latest)) {
-          setSnap(latest);
-          if (latest.tradeDate) writeDateToHash(latest.tradeDate);
-          return;
+        // 若该日仍是演示(fx-)占位数据、而 latest 已真实，则回退到 latest
+        if (isDemoSnapshot(data)) {
+          const latest = await loadLatest();
+          if (cancelled) return;
+          if (!isDemoSnapshot(latest)) {
+            setSnap(latest);
+            if (latest.tradeDate) {
+              setSearchParams({ date: latest.tradeDate }, { replace: true });
+            }
+            return;
+          }
         }
 
         setSnap(data);
@@ -137,7 +121,8 @@ function Shell() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dateParam]);
 
-  const date = snap?.tradeDate || dateParam || "";
+  // 以「请求的日期」为准；仅在无 dateParam 时回退到已加载快照的日期。
+  const date = dateParam || snap?.tradeDate || "";
   const weekStrip = useMemo(
     () => buildWeekStrip(availableDates),
     [availableDates],
@@ -152,7 +137,7 @@ function Shell() {
       return;
     }
     setError(null);
-    writeDateToHash(d);
+    setSearchParams({ date: d });
   };
 
   const navClass = (path: string) =>
