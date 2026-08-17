@@ -31,6 +31,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const dataDir = join(ROOT, "data");
 
+// .env is loaded automatically by ifind-shared (imported above).
+
+
 const INDEX_LIST = [
   { code: "000300", ths: "000300.SH", name: "沪深300" },
   { code: "000905", ths: "000905.SH", name: "中证500" },
