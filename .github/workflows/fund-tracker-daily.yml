@@ -1,82 +1,55 @@
 name: fund-tracker-daily
+
+# 数据由本机定时任务（FundTrackerDailyIngest，每日 08:30 北京时间）拉取 iFinD
+# 并 push 到 main；本工作流【只负责构建 + 部署】，不再在 GitHub Actions 里重新
+# ingest（海外节点连不上 iFinD，且重跑会覆盖本机已提交的干净数据）。
 on:
   push:
     branches: [main]
     paths:
       - "fund-tracker/**"
       - ".github/workflows/fund-tracker-daily.yml"
-  schedule:
-    - cron: "30 0 * * 1-5"
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
-  ingest-and-build:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: npm
           cache-dependency-path: fund-tracker/package-lock.json
-      - name: Install pipeline deps
+
+      - name: Install deps
         working-directory: fund-tracker
-        run: npm ci
-      - name: Ingest
-        working-directory: fund-tracker
-        env:
-          IFIND_REFRESH_TOKEN: ${{ secrets.IFIND_REFRESH_TOKEN }}
-          IFIND_BASE_URL: ${{ secrets.IFIND_BASE_URL }}
-          IFIND_USE_FIXTURE: ${{ secrets.IFIND_USE_FIXTURE }}
         run: |
-          npm run ingest
-          node -e "
-            const fs=require('fs');
-            const p='data/latest.json';
-            if(!fs.existsSync(p)) process.exit(0);
-            const j=JSON.parse(fs.readFileSync(p,'utf8'));
-            console.log('latest', j.tradeDate, j.status, 'news='+(j.news||[]).length);
-            if(j.status==='failed' && !(j.news||[]).length) {
-              console.warn('WARNING: empty failed snapshot; prefer local ingest in China network');
-            }
-          "
-      - name: Commit data if changed
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add fund-tracker/data
-          if git diff --staged --quiet; then
-            echo "No data changes"
-            exit 0
-          fi
-          EMPTY=$(node -e "const j=require('./fund-tracker/data/latest.json'); const empty=j.status==='failed'&&!(j.news||[]).length&&!((j.etf&&j.etf.indices)||[]).length; process.stdout.write(empty?'1':'0')")
-          if [ "$EMPTY" = "1" ]; then
-            git reset HEAD fund-tracker/data
-            echo "Skipped commit: empty failed latest"
-            exit 0
-          fi
-          git commit -m "data: update fund-tracker snapshot"
-          git push
+          npm ci
+          npm ci --prefix web
+
+      # vite build 时 copyDataPlugin 会把 fund-tracker/data/*.json 拷进 web/dist/data
       - name: Build web
         working-directory: fund-tracker
-        run: |
-          npm install --prefix web
-          npm run build --prefix web
-      - uses: actions/upload-pages-artifact@v3
+        run: npm run build --prefix web
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: fund-tracker/web/dist
 
   deploy:
-    needs: ingest-and-build
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
