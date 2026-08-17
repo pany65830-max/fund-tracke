@@ -6,28 +6,7 @@
     "ifind-news: report_query failed: no data.",
     "ifind-etf: get_access_token network: fetch failed cause=ConnectTimeoutError: Connect Timeout Error (attempted addresses: 221.194.164.104:443, timeout: 10000ms)（若在 GitHub Actions：海外节点常无法访问 quantapi.51ifind.com，请本机拉数后推送 data/）"
   ],
-  "news": [
-    {
-      "id": "wx-sg-sse-0-2026-08-10",
-      "title": "华泰三峡新能源REIT(508059.SH)今日在上交所上市",
-      "summary": "上市仪式2026年8月7日,华泰三峡新能源REIT(基金代码:508059)在我所上市.产品简介华泰三峡新能源REIT基金份额5亿份,发...",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "wechat",
-      "publishedAt": "2026-08-07T08:33:28.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgSz6TryvqL7IJf0mnKMxSzt2-KiElGL2n2FqXa8Fplpd9wdZC7N0TmDkWXQotnTB-Mo_JFF27ocJcct8GqTopnbv5mYZ7D2sL2sthlUdkKAWFSQgvfUrUsYYenIawg1peGD_YgURDQzZ6tX1UVeULmQ4yHsdbdJTJpIum6et0GtQxzNwlfWWorDLYqMAS69qjNCqsJt_3kiub6ufwf1bf1g7FcvUoAZZH7Q..&type=2&query=%E4%B8%8A%E4%BA%A4%E6%89%80%E5%8F%91%E5%B8%83&token=233C556F4DED128D898ED02373E40C7889C239F06A79676D"
-    },
-    {
-      "id": "wx-sg-szse-0-2026-08-10",
-      "title": "深圳证券交易所2021年度专业人员招聘启事",
-      "summary": "深圳证券交易所(以下简称“深交所”)于1990年12月1日开始营业,是经国务院批准设立的全国性证券交易所,为证券集中交易提供...",
-      "institution": "szse",
-      "category": "exchange",
-      "source": "wechat",
-      "publishedAt": "2026-08-04T01:25:55.000Z",
-      "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgSz6TryvqL7IJAxZadIF9dXm-KiElGL2n2FqXa8Fplpd9MrpNc4IFlnwEkiL3Sxo4swtj4FVEo71HxBsu7cuu_LO8X_5bnlGTnN9YAPnEy9svQ7KTMPIXRD6vMJUkKlo2RpbZV1MDu_ipOrn-HtAbI1eaA3fl4dp3PxjwY6HhzEtK1SnGueWkrbd-q-CraB3PN1yeoYMipMHXa5bjEtKOjUqFW6cwuUnkdA..&type=2&query=%E6%B7%B1%E5%9C%B3%E8%AF%81%E5%88%B8%E4%BA%A4%E6%98%93%E6%89%80&token=233C944DE647B82722247A89D83D191B23D2B1126A796779"
-    }
-  ],
+  "news": [],
   "etf": {
     "indices": [],
     "sectors": [],

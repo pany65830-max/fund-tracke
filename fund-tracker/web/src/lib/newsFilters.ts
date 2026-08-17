@@ -11,7 +11,7 @@ function beijingDate(iso: string): string {
     day: "2-digit",
   }).formatToParts(d);
   const pick = (t: string) => parts.find((p) => p.type === t)?.value ?? "";
-  return `${pick("year")}-${pick("month")}-${pick("day")}`;
+  return `${pick("year")}-${pick("month").padStart(2, "0")}-${pick("day").padStart(2, "0")}`;
 }
 
 export function filterNews(
