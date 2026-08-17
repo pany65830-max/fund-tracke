@@ -117,7 +117,7 @@ export function createExchangeWebAdapter(
         }
       }
       if (!items.length && errors.length) {
-        throw new Error(errors.join("; "));
+        throw new Error(`exchange-web: ${errors.join("; ")}`);
       }
       return items;
     },

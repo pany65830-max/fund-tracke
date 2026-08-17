@@ -97,7 +97,6 @@ export function EtfPage({
       .slice(0, 4);
   }, [allProducts]);
 
-  const highlightInflow = etf.hotInflow.slice(0, 4);
   const highlightTurnover = etf.hotTurnover.slice(0, 4);
   const highlightAmplitude = useMemo(
     () =>

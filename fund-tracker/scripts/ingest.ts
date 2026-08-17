@@ -92,6 +92,7 @@ export async function runIngest(opts: {
             pages: 5,
             delayMs: 1200,
           }),
+          createExchangeWebAdapter(fetch),
         ]
       : [
           createCompanyWebAdapter(fetch),
@@ -101,6 +102,7 @@ export async function runIngest(opts: {
             pages: 5,
             delayMs: 1200,
           }),
+          createExchangeWebAdapter(fetch),
         ];
 
   for (const adapter of newsAdapters) {
