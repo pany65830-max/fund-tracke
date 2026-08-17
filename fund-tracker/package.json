@@ -7,6 +7,7 @@
     "test:watch": "vitest",
     "ingest": "tsx scripts/ingest.ts",
     "backfill:week": "tsx scripts/backfill-week.ts",
+    "backfill:etf": "tsx scripts/backfill-etf.ts",
     "build:web": "npm run build --prefix web"
   },
   "devDependencies": {

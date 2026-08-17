@@ -4,92 +4,72 @@ import { fileURLToPath } from "node:url";
 import type { Institution, NewsItem } from "../../shared/schema.js";
 import type { NewsAdapter } from "./types.js";
 
-type SourceCfg = {
-  institution: Institution;
-  name: string;
-  listUrl: string;
-};
-
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const NAV_JUNK =
-  /^(English|APP下载?|微博微信?|简中|一网通办|投资者服务|首页|登录|注册|更多|返回|下载|关于我们|联系我们|网站地图|隐私|声明)/i;
+type CninfoCfg = {
+  /** 巨潮全文检索接口（沪深交易所联合官方披露平台） */
+  endpoint: string;
+  /** 检索关键词，多个关键词各自检索后合并 */
+  keywords: string[];
+  /** 单次每关键词拉取条数 */
+  pageSize: number;
+  /** 只保留最近 N 天内的公告（与 tradeDate 对齐） */
+  maxAgeDays: number;
+};
 
-function loadSources(): SourceCfg[] {
+function loadCfg(): CninfoCfg {
   const path = join(__dirname, "../../config/exchange-sources.json");
-  return JSON.parse(readFileSync(path, "utf8")) as SourceCfg[];
+  return JSON.parse(readFileSync(path, "utf8")) as CninfoCfg;
 }
 
-function absolutize(href: string, base: string): string | null {
-  try {
-    return new URL(href, base).toString();
-  } catch {
-    return null;
-  }
+/** ETF 代码前缀判断归属市场：51/56/58 开头=上交所，15/16 开头=深交所 */
+export function exchangeOf(code: string): Institution {
+  if (/^(51|56|58)/.test(code)) return "sse";
+  if (/^(15|16)/.test(code)) return "szse";
+  return "sse";
 }
 
-/** Keep announcement-like links; drop homepage nav chrome. */
-export function isLikelyNewsLink(title: string, url: string): boolean {
-  const t = title.replace(/\s+/g, " ").trim();
-  if (t.length < 8) return false;
-  if (NAV_JUNK.test(t)) return false;
-  if (/简中\s*EN/i.test(t)) return false;
-
-  let path = "";
-  try {
-    const u = new URL(url);
-    path = u.pathname.replace(/\/+$/, "");
-    if (!path || path === "") return false;
-  } catch {
-    return false;
-  }
-
-  const blob = `${path} ${t}`.toLowerCase();
-  if (
-    /disclosure|announc|bulletin|notice|news|info|通告|公告|通知|资讯|监管|披露/.test(
-      blob,
-    )
-  ) {
-    return true;
-  }
-
-  // Require a deeper path + enough Chinese for a real headline
-  const depth = path.split("/").filter(Boolean).length;
-  const cn = (t.match(/[\u4e00-\u9fff]/g) || []).length;
-  return depth >= 2 && cn >= 10;
+function stripTags(s: string): string {
+  return s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
 }
 
-/** Extract <a href> pairs; demo-friendly regex parser. */
-export function parseAnchorLinks(
-  html: string,
-  baseUrl: string,
-  institution: Institution,
-  tradeDate: string,
-): NewsItem[] {
-  const re = /<a\s+[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
-  const out: NewsItem[] = [];
-  const seen = new Set<string>();
-  let m: RegExpExecArray | null;
-  while ((m = re.exec(html)) && out.length < 20) {
-    const href = m[1];
-    const title = m[2].replace(/<[^>]+>/g, "").trim();
-    if (!title) continue;
-    const url = absolutize(href, baseUrl);
-    if (!url || seen.has(url)) continue;
-    if (!isLikelyNewsLink(title, url)) continue;
-    seen.add(url);
-    out.push({
-      id: `ex-${institution}-${out.length}-${tradeDate}`,
-      title,
-      summary: title,
-      institution,
-      category: "exchange",
-      source: "exchange_web",
-      publishedAt: `${tradeDate}T08:00:00+08:00`,
-      sourceUrl: url,
-    });
-  }
-  return out;
+function classifyCninfo(title: string): NewsItem["category"] {
+  if (/(认购|申购|赎回|上市|发行|募集|成立)/.test(title)) return "new_product";
+  if (/(停牌|复牌|风险|警示|异常|暂停)/.test(title)) return "active_etf";
+  if (/(公告|披露|报告|通知|决议)/.test(title)) return "disclosure";
+  return "exchange";
+}
+
+type CninfoAnnouncement = {
+  secCode: string;
+  secName: string;
+  announcementTitle: string;
+  announcementTime: number;
+  adjunctUrl: string;
+  announcementId: string;
+};
+
+/** 把巨潮返回的公告映射成统一的 NewsItem（source=exchange_web） */
+export function mapCninfoAnnouncement(a: CninfoAnnouncement): NewsItem {
+  const ts = a.announcementTime;
+  const d = new Date(ts);
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  const publishedAt = `${y}-${m}-${day}T08:00:00+08:00`;
+  const title = stripTags(a.announcementTitle);
+  const inst = exchangeOf(a.secCode);
+  const url = `https://static.cninfo.com.cn/${a.adjunctUrl}`;
+  return {
+    id: `ex-${a.announcementId}-${a.secCode}`,
+    title,
+    summary: title,
+    institution: inst,
+    category: classifyCninfo(title),
+    source: "exchange_web",
+    publishedAt,
+    sourceUrl: url,
+  };
 }
 
 export function createExchangeWebAdapter(
@@ -98,24 +78,44 @@ export function createExchangeWebAdapter(
   return {
     name: "exchange-web",
     async fetchNews(tradeDate: string): Promise<NewsItem[]> {
+      const cfg = loadCfg();
       const items: NewsItem[] = [];
       const errors: string[] = [];
-      for (const src of loadSources()) {
+
+      // 以 tradeDate 为锚点，取 [tradeDate - maxAgeDays, tradeDate] 区间公告
+      const trade = new Date(`${tradeDate}T00:00:00+08:00`).getTime();
+      const dayMs = 86400000;
+      const cutoff = trade - cfg.maxAgeDays * dayMs;
+      const endOfDay = trade + dayMs;
+
+      for (const kw of cfg.keywords) {
         try {
-          const res = await fetchImpl(src.listUrl);
+          const res = await fetchImpl(cfg.endpoint, {
+            method: "POST",
+            headers: {
+              "User-Agent": "Mozilla/5.0",
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `searchkey=${encodeURIComponent(kw)}&pageNum=1&pageSize=${cfg.pageSize}&sortName=pubdate&sortType=desc`,
+          });
           if (!res.ok) {
-            errors.push(`${src.institution} HTTP ${res.status}`);
+            errors.push(`cninfo HTTP ${res.status}`);
             continue;
           }
-          const html = await res.text();
-          items.push(
-            ...parseAnchorLinks(html, src.listUrl, src.institution, tradeDate),
-          );
+          const data = (await res.json()) as {
+            announcements?: CninfoAnnouncement[];
+          };
+          for (const a of data.announcements ?? []) {
+            const ts = a.announcementTime;
+            if (ts < cutoff || ts > endOfDay) continue;
+            items.push(mapCninfoAnnouncement(a));
+          }
         } catch (e) {
           const msg = e instanceof Error ? e.message : String(e);
-          errors.push(`${src.institution} ${msg}`);
+          errors.push(`cninfo ${kw} ${msg}`);
         }
       }
+
       if (!items.length && errors.length) {
         throw new Error(`exchange-web: ${errors.join("; ")}`);
       }

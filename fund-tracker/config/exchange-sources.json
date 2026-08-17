@@ -1,16 +1,6 @@
-[
-  {
-    "institution": "sse",
-    "name": "上交所",
-    "listUrl": "https://www.sse.com.cn/",
-    "linkSelector": "a",
-    "titleFrom": "text"
-  },
-  {
-    "institution": "szse",
-    "name": "深交所",
-    "listUrl": "https://www.szse.cn/",
-    "linkSelector": "a",
-    "titleFrom": "text"
-  }
-]
+{
+  "endpoint": "https://www.cninfo.com.cn/new/fulltextSearch/full",
+  "keywords": ["ETF"],
+  "pageSize": 30,
+  "maxAgeDays": 7
+}
