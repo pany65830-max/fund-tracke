@@ -1,5 +1,3 @@
-import type { NewsItem } from "../schema";
-
 export type ProductPoint = {
   code: string;
   name: string;
@@ -42,8 +40,4 @@ export function flattenProducts(
     }
   }
   return out;
-}
-
-export function filterNewsByDateHint(items: NewsItem[], _date: string): NewsItem[] {
-  return items;
 }

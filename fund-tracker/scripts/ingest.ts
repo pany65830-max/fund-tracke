@@ -52,6 +52,16 @@ function shanghaiToday(): string {
   return fmt.format(new Date()); // YYYY-MM-DD
 }
 
+/** 取某条资讯 publishedAt 对应的北京时间日期（YYYY-MM-DD），用于按日归类。 */
+function beijingDate(iso: string): string {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date(iso));
+}
+
 export async function runIngest(opts: {
   tradeDate: string;
   dataDir: string;
@@ -111,6 +121,10 @@ export async function runIngest(opts: {
     }),
   }));
   news = dedupeNews(news);
+
+  // 严格按北京时间归日：微信/官网适配器会带回近 7 天的文章，
+  // 若都写进当天文件会导致各日新闻混在一起。这里只保留「发布日期=当日」的资讯。
+  news = news.filter((n) => beijingDate(n.publishedAt) === opts.tradeDate);
 
   if (opts.useFixture) {
     try {
