@@ -126,6 +126,22 @@ export async function runIngest(opts: {
   // 若都写进当天文件会导致各日新闻混在一起。这里只保留「发布日期=当日」的资讯。
   news = news.filter((n) => beijingDate(n.publishedAt) === opts.tradeDate);
 
+  // 保证每条资讯 id 唯一：微信搜狗分页/多搜索词会让每条 id 的序号从 0 重算，
+  // 产生重复 id（同一 id 对应不同文章）。重复 id 会让前端 React 按 key 渲染
+  // 列表时错乱——切换日期时旧卡片残留在列表顶部。这里给重复 id 追加后缀。
+  {
+    const seenIds = new Set<string>();
+    news = news.map((n) => {
+      let id = n.id;
+      let k = 1;
+      while (seenIds.has(id)) {
+        id = `${n.id}#${k++}`;
+      }
+      seenIds.add(id);
+      return { ...n, id };
+    });
+  }
+
   if (opts.useFixture) {
     try {
       etf = await createFixtureEtfAdapter().fetchEtf(opts.tradeDate);

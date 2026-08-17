@@ -39,8 +39,10 @@ export function NewsPage({ snap }: { snap: DaySnapshot }) {
           ))}
         </select>
       </div>
-      {items.map((n) => (
-        <article key={n.id} className="card">
+      {items.map((n, idx) => (
+        // 用 id+序号 作为 React key：历史数据里微信资讯存在重复 id，
+        // 纯按 id 作 key 会导致切换日期时旧卡片残留（React 按 key 复用出错）
+        <article key={`${n.id}:${idx}`} className="card">
           <div>
             <span className="tag">{INSTITUTION_LABEL[n.institution]}</span>
             <span className="tag type">{CATEGORY_LABEL[n.category]}</span>
