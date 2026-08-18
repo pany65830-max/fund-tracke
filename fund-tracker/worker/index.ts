@@ -62,20 +62,13 @@ const COMPANY_SOURCES = [
   { institution: "huatai" as const, name: "华泰柏瑞-公司动态", listUrl: "http://www.huatai-pb.com/news/companyNews/index.html" },
 ];
 
-// 内联微信配置（与 config/wechat-accounts.json 一致）
+// 内联微信配置（Worker 内精简版）：只跑 4 家基金公司主号，避免海外 IP 被搜狗限流/超时。
+// 交易所公众号近 30 天几乎无更新，且 Cloudflare 海外节点抓搜狗更慢，故不在 Worker 内跑。
 const WECHAT_ACCOUNTS = [
   { institution: "huaxia" as const, name: "华夏基金", brands: ["华夏基金", "华夏财富"], publishers: ["华夏基金", "华夏基金微资讯", "华夏基金客服", "华夏财富", "华夏基金微理财"] },
   { institution: "efunds" as const, name: "易方达微资讯", brands: ["易方达"], publishers: ["易方达微资讯", "易方达基金", "易方达投资者教育", "易方达微理财"] },
   { institution: "guotai" as const, name: "国泰基金", brands: ["国泰基金"], publishers: ["国泰基金", "国泰基金微资讯", "国泰基金微理财"] },
   { institution: "huatai" as const, name: "华泰柏瑞微理财", brands: ["华泰柏瑞"], publishers: ["华泰柏瑞微理财", "华泰柏瑞基金", "华泰柏瑞", "华泰柏瑞微资讯"] },
-  { institution: "sse" as const, name: "上交所发布", brands: ["上交所", "上海证券交易所"], publishers: ["上交所发布"] },
-  { institution: "sse" as const, name: "上交所投服", brands: ["上交所", "上海证券交易所"], publishers: ["上交所投服"] },
-  { institution: "sse" as const, name: "上交所投教", brands: ["上交所", "上海证券交易所"], publishers: ["上交所投教"] },
-  { institution: "szse" as const, name: "深交所", brands: ["深交所", "深圳证券交易所"], publishers: ["深交所"] },
-  { institution: "szse" as const, name: "深交所投服", brands: ["深交所", "深圳证券交易所"], publishers: ["深交所投服"] },
-  { institution: "szse" as const, name: "深交所投教", brands: ["深交所", "深圳证券交易所"], publishers: ["深交所投教"] },
-  { institution: "szse" as const, name: "深交所上市通", brands: ["深交所", "深圳证券交易所"], publishers: ["深交所上市通"] },
-  { institution: "szse" as const, name: "深市基金", brands: ["深交所", "深圳证券交易所"], publishers: ["深市基金"] },
 ];
 
 // 内联交易所配置（与 config/exchange-sources.json 一致）
@@ -403,7 +396,7 @@ async function handleIngest({ token, tradeDate }: { token: string; tradeDate: st
       accounts: WECHAT_ACCOUNTS,
       sameDayOnly: false,
       maxAgeDays: 7,
-      pages: 5,
+      pages: 1,
       delayMs: 1200,
     }),
     createExchangeWebAdapter(fetch, CNINFO_CFG),
@@ -411,7 +404,14 @@ async function handleIngest({ token, tradeDate }: { token: string; tradeDate: st
   ];
 
   const newsBatches = await Promise.allSettled(
-    adapters.map((adapter) => adapter.fetchNews(tradeDate)),
+    adapters.map((adapter) =>
+      Promise.race([
+        adapter.fetchNews(tradeDate),
+        new Promise<never>((_, reject) =>
+          setTimeout(() => reject(new Error("adapter timeout (20s)")), 20000)
+        ),
+      ])
+    ),
   );
 
   let news: NewsItem[] = [];
@@ -526,6 +526,12 @@ async function ghPutFile(path: string, content: string, token: string, sha: stri
 async function publishSnapshot(snapshot: DaySnapshot, githubToken: string) {
   if (!githubToken) {
     throw new Error("Worker 未配置 GITHUB_TOKEN，请用 `wrangler secret put GITHUB_TOKEN` 配置（需 repo 写权限）");
+  }
+  // 质量守卫：行情完全为空时不发布，避免用坏数据覆盖已有数据
+  const hasProducts = snapshot.etf && Object.values(snapshot.etf.productsByFirm || {}).some((arr) => (arr as unknown[]).length > 0);
+  const hasIndices = snapshot.etf?.indices && snapshot.etf.indices.length > 0;
+  if (!hasProducts && !hasIndices) {
+    throw new Error("发布被拒绝：ETF 行情数据为空，可能 iFinD 接口暂时无返回，请重试");
   }
   const date = snapshot.tradeDate;
   const json = JSON.stringify(snapshot, null, 2);
