@@ -152,6 +152,39 @@ export function parseCompanyLinks(
 const UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36";
 
+const FETCH_TIMEOUT_MS = 8000;
+
+async function fetchCompanySource(
+  src: SourceCfg,
+  tradeDate: string,
+  fetchImpl: typeof fetch,
+): Promise<NewsItem[]> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+  try {
+    const res = await fetchImpl(src.listUrl, {
+      signal: controller.signal,
+      headers: {
+        "User-Agent": UA,
+        Accept: "text/html,application/xhtml+xml,*/*;q=0.8",
+        "Accept-Language": "zh-CN,zh;q=0.9",
+      },
+    });
+    clearTimeout(timer);
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status}`);
+    }
+    const html = await res.text();
+    return parseCompanyLinks(html, src.listUrl, src.institution, tradeDate, {
+      maxAgeDays: 14,
+      limit: 12,
+    });
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : String(e);
+    throw new Error(`${src.name} ${msg}`);
+  }
+}
+
 export function createCompanyWebAdapter(
   fetchImpl: typeof fetch = fetch,
   sources?: SourceCfg[],
@@ -161,31 +194,17 @@ export function createCompanyWebAdapter(
     name: "company-web",
     async fetchNews(tradeDate: string): Promise<NewsItem[]> {
       const cfg = sources ?? (await sourcesPromise!);
+      const batches = await Promise.allSettled(
+        cfg.map((src) => fetchCompanySource(src, tradeDate, fetchImpl)),
+      );
       const items: NewsItem[] = [];
       const errors: string[] = [];
-      for (const src of cfg) {
-        try {
-          const res = await fetchImpl(src.listUrl, {
-            headers: {
-              "User-Agent": UA,
-              Accept: "text/html,application/xhtml+xml,*/*;q=0.8",
-              "Accept-Language": "zh-CN,zh;q=0.9",
-            },
-          });
-          if (!res.ok) {
-            errors.push(`${src.institution} HTTP ${res.status}`);
-            continue;
-          }
-          const html = await res.text();
-          items.push(
-            ...parseCompanyLinks(html, src.listUrl, src.institution, tradeDate, {
-              maxAgeDays: 14,
-              limit: 12,
-            }),
-          );
-        } catch (e) {
-          const msg = e instanceof Error ? e.message : String(e);
-          errors.push(`${src.institution} ${msg}`);
+      for (let i = 0; i < cfg.length; i++) {
+        const res = batches[i];
+        if (res.status === "fulfilled") {
+          items.push(...res.value);
+        } else {
+          errors.push(res.reason && res.reason.message ? res.reason.message : String(res.reason));
         }
       }
       if (!items.length && errors.length) {
