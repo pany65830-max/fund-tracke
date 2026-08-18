@@ -1,6 +1,7 @@
 name = "fund-tracker-ifind-proxy"
-main = "index.js"
+main = "index.ts"
 compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
 
 # 部署：在本目录运行 `wrangler login` 然后 `wrangler deploy`
 # 部署后 Worker 地址形如 https://fund-tracker-ifind-proxy.<你的子域>.workers.dev

@@ -12,6 +12,11 @@ type SourceCfg = {
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+function loadSources(): SourceCfg[] {
+  const path = join(__dirname, "../../config/company-sources.json");
+  return JSON.parse(readFileSync(path, "utf8")) as SourceCfg[];
+}
+
 // Nav chrome / boilerplate that should never be treated as a news article.
 const NAV_JUNK =
   /^(English|APP下载?|微博微信?|简中|一网通办|投资者服务|首页|登录|注册|更多|返回|下载|关于我们|联系我们|网站地图|隐私|声明|企业年金|基金经理|基中基|养老目标|风险揭示|适当性|隐私政策|反洗钱|应急处理|销售机构|你好|客服|搜索|English)/i;
@@ -22,11 +27,6 @@ const BOILERPLATE =
 
 const POS_KW =
   /公告|披露|新闻|资讯|风险|溢价|ETF|基金|报告|提示|上市|募集|成立|分红|清算|终止|暂停|恢复|招募|发售|发行|净值|评级|分红|中报|年报|季报/;
-
-function loadSources(): SourceCfg[] {
-  const path = join(__dirname, "../../config/company-sources.json");
-  return JSON.parse(readFileSync(path, "utf8")) as SourceCfg[];
-}
 
 function absolutize(href: string, base: string): string | null {
   try {
@@ -144,13 +144,14 @@ const UA =
 
 export function createCompanyWebAdapter(
   fetchImpl: typeof fetch = fetch,
+  sources?: SourceCfg[],
 ): NewsAdapter {
   return {
     name: "company-web",
     async fetchNews(tradeDate: string): Promise<NewsItem[]> {
       const items: NewsItem[] = [];
       const errors: string[] = [];
-      for (const src of loadSources()) {
+      for (const src of sources ?? loadSources()) {
         try {
           const res = await fetchImpl(src.listUrl, {
             headers: {

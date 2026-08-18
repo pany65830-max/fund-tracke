@@ -9,15 +9,16 @@
 token 只存在你浏览器，并经中间人转发，**不进任何代码、不进 GitHub**。
 
 ### 两个按钮的区别
-- **「立即刷新（仅本机预览）」**：拉数据只显示在你当前浏览器，刷新网页就没了；别人打开网站看不到。适合临时看当天行情。
-- **「更新并发布（写线上）」**：拉 iFinD 数据后，让 Worker 把 `data/{日期}.json` + `latest.json` + `dates.json` **写回 GitHub 仓库**，自动触发 Pages 重新部署，**线上所有人都能看到最新数据**。相当于"点一下就更新线上"，彻底摆脱对本机定时任务的依赖。
+- **「立即刷新（仅本机预览）」**：只拉 iFinD 行情 + iFinD 资讯(`report_query`)，只显示在你当前浏览器，刷新网页就没了；别人打开网站看不到。适合临时看当天行情。
+- **「一键全量更新并发布（写线上）」**：Worker 拉取 **ETF 行情 + 全部资讯源**（基金公司官网、微信搜狗、巨潮深交所、上交所基金网搜索、iFinD 资讯），去重过滤后把 `data/{日期}.json` + `latest.json` + `dates.json` **写回 GitHub 仓库**，自动触发 Pages 重新部署，**线上所有人都能看到最新数据**。相当于"点一下就更新线上"，彻底摆脱对本机定时任务的依赖。
   - 前提：Worker 配置了 `GITHUB_TOKEN`（见下方第 0 步）。
   - 发布后 GitHub Pages 重新部署约需 1–2 分钟，耐心等一下再强刷网站。
+  - 注意：云端 Worker 的出口 IP 是海外机房，**微信搜狗、部分基金公司官网可能被反爬/限流**，导致资讯比本机定时任务少。若发现资讯缺失，可仍用本机 `npm run ingest` 补数据。
 
 ---
 
-## 第 0 步（仅「更新并发布」需要）：给 Worker 配 GitHub 写权限
-「更新并发布」要往你的仓库写文件，所以需要创建一个 **GitHub Personal Access Token (PAT)**：
+## 第 0 步（仅「一键全量更新并发布」需要）：给 Worker 配 GitHub 写权限
+「一键全量更新并发布」要往你的仓库写文件，所以需要创建一个 **GitHub Personal Access Token (PAT)**：
 
 1. 打开 https://github.com/settings/tokens （或 头像 → Settings → Developer settings → Personal access tokens → Tokens (classic)）
 2. 点 **Generate new token (classic)**
@@ -50,7 +51,7 @@ token 只存在你浏览器，并经中间人转发，**不进任何代码、不
    ```
    cd worker
    ```
-   （即 `fund-tracker/worker`，里面已有 `index.js` / `products.js` / `wrangler.toml`）
+   （即 `fund-tracker/worker`，里面已有 `index.ts` / `products.js` / `wrangler.toml`）
 3. 登录 Cloudflare：
    ```
    wrangler login
@@ -80,7 +81,7 @@ token 只存在你浏览器，并经中间人转发，**不进任何代码、不
 4. iFinD token：粘贴你的 iFinD `refresh_token`
 5. 点「保存」
 6. 点「立即刷新」→ 看到「已更新于 xx:xx」即成功，看板变成最新数据（仅本机预览）
-   或点「更新并发布」→ 看到"已写入 2026-xx-xx 并触发部署"即成功（线上所有人可见）
+   或点「一键全量更新并发布」→ 看到"已全量更新 2026-xx-xx 并触发部署"即成功（线上所有人可见）
 
 ---
 
@@ -88,7 +89,8 @@ token 只存在你浏览器，并经中间人转发，**不进任何代码、不
 - **刷新失败：`get_access_token failed`** → token 不对或没权限，检查 token 是否完整粘贴。
 - **刷新失败：网络错误 / fetch failed** → Worker URL 填错，或 Cloudflare 端网络问题。
 - **行情正常、资讯 0 条** → 你的 iFinD 账号可能没开「资讯查询(report_query)」接口权限，这是账号权限问题，不是代码问题。
-- **点「更新并发布」提示 `Worker 未配置 GITHUB_TOKEN`** → 没做第 0 步，或 wrangler deploy 前没 put secret；重跑 `wrangler secret put GITHUB_TOKEN` 再 `wrangler deploy`。
+- **点「一键全量更新并发布」资讯比本机少** → 云端 Worker 的海外 IP 可能被微信搜狗/基金公司官网反爬，这是信息源对机房 IP 的限制，不是代码问题。可改天再试或在本机 `npm run ingest` 补数据。
+- **点「一键全量更新并发布」提示 `Worker 未配置 GITHUB_TOKEN`** → 没做第 0 步，或 wrangler deploy 前没 put secret；重跑 `wrangler secret put GITHUB_TOKEN` 再 `wrangler deploy`。
 - **发布报错 `GitHub 写入 ... 失败: 401`** → PAT 无效或没勾 `repo` 权限；去 GitHub 重新生成带 repo 权限的 token 并 wrangler secret put。
 - **想换 token** → 再点「⚙ 数据」改完保存即可；「清除」会删掉浏览器里存的设置。
 

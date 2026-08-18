@@ -7,7 +7,7 @@ export function SettingsPanel({
   onSave,
   onClear,
   onRefresh,
-  onPublish,
+  onIngest,
   refreshing,
   publishing,
   message,
@@ -17,7 +17,7 @@ export function SettingsPanel({
   onSave: () => void;
   onClear: () => void;
   onRefresh: () => void;
-  onPublish: () => void;
+  onIngest: () => void;
   refreshing: boolean;
   publishing: boolean;
   message: string | null;
@@ -92,16 +92,16 @@ export function SettingsPanel({
             type="button"
             className="publish-btn"
             disabled={publishing}
-            onClick={onPublish}
-            title="拉取 iFinD 数据并写回 GitHub，触发网站重新部署，线上所有人可见"
+            onClick={onIngest}
+            title="拉取 ETF 行情 + 全部资讯源并写回 GitHub，触发网站重新部署，线上所有人可见"
           >
-            {publishing ? "发布中…" : "更新并发布（写线上）"}
+            {publishing ? "全量更新中…" : "一键全量更新并发布"}
           </button>
 
           {message ? <div className="settings-msg">{message}</div> : null}
           <div className="settings-hint">
             token 只存在你浏览器，并经中间人转发，不进任何代码。
-            「更新并发布」会经 Worker 把当日数据写回仓库并重新部署网站。
+            「一键全量更新」会经 Worker 拉取行情+全部资讯后写回仓库并重新部署。
           </div>
         </div>
       ) : null}

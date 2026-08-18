@@ -81,3 +81,29 @@ export async function publishLive(
   }
   return data as DaySnapshot & { published?: PublishResult };
 }
+
+/**
+ * 全量云端 ingest：Worker 拉取 ETF 实时行情 + 基金公司官网/微信搜狗/巨潮/上交所搜索等全部资讯，
+ * 写回 GitHub 触发 Pages 部署。这是给同事用的「一键更新」主入口。
+ */
+export async function ingestAndPublish(
+  s: LiveSettings,
+): Promise<DaySnapshot & { published?: PublishResult }> {
+  const base = s.workerUrl.replace(/\/+$/, "");
+  const res = await fetch(`${base}/ingest`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token: s.token, publish: true }),
+  });
+  let data: unknown;
+  try {
+    data = await res.json();
+  } catch {
+    throw new Error("中间人返回的不是 JSON");
+  }
+  if (!res.ok) {
+    const err = (data as { error?: string })?.error || `HTTP ${res.status}`;
+    throw new Error(err);
+  }
+  return data as DaySnapshot & { published?: PublishResult };
+}

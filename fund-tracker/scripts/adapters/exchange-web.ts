@@ -22,6 +22,13 @@ function loadCfg(): CninfoCfg {
   return JSON.parse(readFileSync(path, "utf8")) as CninfoCfg;
 }
 
+const DEFAULT_CNINFO_CFG: CninfoCfg = {
+  endpoint: "https://www.cninfo.com.cn/new/fulltextSearch/full",
+  keywords: ["ETF"],
+  pageSize: 30,
+  maxAgeDays: 7,
+};
+
 /** ETF 代码前缀判断归属市场：51/56/58 开头=上交所，15/16 开头=深交所 */
 export function exchangeOf(code: string): Institution {
   if (/^(51|56|58)/.test(code)) return "sse";
@@ -74,29 +81,30 @@ export function mapCninfoAnnouncement(a: CninfoAnnouncement): NewsItem {
 
 export function createExchangeWebAdapter(
   fetchImpl: typeof fetch = fetch,
+  cfg?: CninfoCfg,
 ): NewsAdapter {
   return {
     name: "exchange-web",
     async fetchNews(tradeDate: string): Promise<NewsItem[]> {
-      const cfg = loadCfg();
+      const config = cfg ?? loadCfg();
       const items: NewsItem[] = [];
       const errors: string[] = [];
 
       // 以 tradeDate 为锚点，取 [tradeDate - maxAgeDays, tradeDate] 区间公告
       const trade = new Date(`${tradeDate}T00:00:00+08:00`).getTime();
       const dayMs = 86400000;
-      const cutoff = trade - cfg.maxAgeDays * dayMs;
+      const cutoff = trade - config.maxAgeDays * dayMs;
       const endOfDay = trade + dayMs;
 
-      for (const kw of cfg.keywords) {
+      for (const kw of config.keywords) {
         try {
-          const res = await fetchImpl(cfg.endpoint, {
+          const res = await fetchImpl(config.endpoint, {
             method: "POST",
             headers: {
               "User-Agent": "Mozilla/5.0",
               "Content-Type": "application/x-www-form-urlencoded",
             },
-            body: `searchkey=${encodeURIComponent(kw)}&pageNum=1&pageSize=${cfg.pageSize}&sortName=pubdate&sortType=desc`,
+            body: `searchkey=${encodeURIComponent(kw)}&pageNum=1&pageSize=${config.pageSize}&sortName=pubdate&sortType=desc`,
           });
           if (!res.ok) {
             errors.push(`cninfo HTTP ${res.status}`);

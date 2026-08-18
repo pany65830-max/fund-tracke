@@ -19,13 +19,13 @@ export type WechatAccount = {
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const UA =
-  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36";
-
 function loadAccounts(): WechatAccount[] {
   const path = join(__dirname, "../../config/wechat-accounts.json");
   return JSON.parse(readFileSync(path, "utf8")) as WechatAccount[];
 }
+
+const UA =
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36";
 
 export function decodeHtmlEntities(s: string): string {
   return s
