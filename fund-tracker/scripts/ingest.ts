@@ -13,6 +13,7 @@ import {
 } from "../shared/schema.js";
 import { createFixtureEtfAdapter, createFixtureNewsAdapter } from "./adapters/fixtures.js";
 import { createExchangeWebAdapter } from "./adapters/exchange-web.js";
+import { createSseSearchAdapter } from "./adapters/sse-search.js";
 import { createCompanyWebAdapter } from "./adapters/company-web.js";
 import { createWechatAdapter } from "./adapters/wechat.js";
 import { createIfindNewsAdapter } from "./adapters/ifind-news.js";
@@ -93,6 +94,7 @@ export async function runIngest(opts: {
             delayMs: 1200,
           }),
           createExchangeWebAdapter(fetch),
+          createSseSearchAdapter(fetch),
         ]
       : [
           createCompanyWebAdapter(fetch),
@@ -103,6 +105,7 @@ export async function runIngest(opts: {
             delayMs: 1200,
           }),
           createExchangeWebAdapter(fetch),
+          createSseSearchAdapter(fetch),
         ];
 
   for (const adapter of newsAdapters) {
