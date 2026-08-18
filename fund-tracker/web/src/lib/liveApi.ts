@@ -50,3 +50,34 @@ export async function fetchLive(s: LiveSettings): Promise<DaySnapshot> {
   }
   return data as DaySnapshot;
 }
+
+export interface PublishResult {
+  date: string;
+  files: string[];
+}
+
+/**
+ * 同 fetchLive，但额外让 Worker 把数据写回 GitHub 仓库（data/*.json + latest.json + dates.json），
+ * 从而触发 Pages 重新部署，使线上所有人都能看到最新数据。
+ */
+export async function publishLive(
+  s: LiveSettings,
+): Promise<DaySnapshot & { published?: PublishResult }> {
+  const base = s.workerUrl.replace(/\/+$/, "");
+  const res = await fetch(`${base}/refresh`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token: s.token, publish: true }),
+  });
+  let data: unknown;
+  try {
+    data = await res.json();
+  } catch {
+    throw new Error("中间人返回的不是 JSON");
+  }
+  if (!res.ok) {
+    const err = (data as { error?: string })?.error || `HTTP ${res.status}`;
+    throw new Error(err);
+  }
+  return data as DaySnapshot & { published?: PublishResult };
+}

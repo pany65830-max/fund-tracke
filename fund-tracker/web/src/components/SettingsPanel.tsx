@@ -7,7 +7,9 @@ export function SettingsPanel({
   onSave,
   onClear,
   onRefresh,
+  onPublish,
   refreshing,
+  publishing,
   message,
 }: {
   settings: LiveSettings;
@@ -15,7 +17,9 @@ export function SettingsPanel({
   onSave: () => void;
   onClear: () => void;
   onRefresh: () => void;
+  onPublish: () => void;
   refreshing: boolean;
+  publishing: boolean;
   message: string | null;
 }) {
   const [open, setOpen] = useState(false);
@@ -81,12 +85,23 @@ export function SettingsPanel({
             disabled={refreshing}
             onClick={onRefresh}
           >
-            {refreshing ? "拉取中…" : "立即刷新（拉最新数据）"}
+            {refreshing ? "拉取中…" : "立即刷新（仅本机预览）"}
+          </button>
+
+          <button
+            type="button"
+            className="publish-btn"
+            disabled={publishing}
+            onClick={onPublish}
+            title="拉取 iFinD 数据并写回 GitHub，触发网站重新部署，线上所有人可见"
+          >
+            {publishing ? "发布中…" : "更新并发布（写线上）"}
           </button>
 
           {message ? <div className="settings-msg">{message}</div> : null}
           <div className="settings-hint">
             token 只存在你浏览器，并经中间人转发，不进任何代码。
+            「更新并发布」会经 Worker 把当日数据写回仓库并重新部署网站。
           </div>
         </div>
       ) : null}

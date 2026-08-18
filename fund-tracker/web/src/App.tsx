@@ -18,6 +18,7 @@ import {
   saveSettings,
   clearSettings,
   fetchLive,
+  publishLive,
   type LiveSettings,
 } from "./lib/liveApi";
 
@@ -86,6 +87,7 @@ function Shell() {
   const [settings, setSettings] = useState<LiveSettings>(loadSettings());
   const [liveMsg, setLiveMsg] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState(false);
+  const [publishing, setPublishing] = useState(false);
   const skipLoadRef = useRef(false);
 
   const handleSave = () => {
@@ -114,6 +116,31 @@ function Shell() {
       setLiveMsg("刷新失败：" + (e instanceof Error ? e.message : String(e)));
     } finally {
       setRefreshing(false);
+    }
+  };
+
+  const handlePublish = async () => {
+    if (!settings.workerUrl || !settings.token) {
+      setLiveMsg("请先填写 Worker 地址和 iFinD token 并保存");
+      return;
+    }
+    setPublishing(true);
+    setLiveMsg("正在拉取 iFinD 并写回 GitHub（部署约需 1–2 分钟）…");
+    try {
+      const live = await publishLive(settings);
+      skipLoadRef.current = true;
+      setSearchParams({ date: live.tradeDate });
+      setSnap(live);
+      const pub = live.published;
+      setLiveMsg(
+        pub
+          ? `已写入 ${pub.date} 并触发部署，稍后刷新网站即可见（GitHub Pages 约 1–2 分钟）`
+          : `已拉取 ${live.tradeDate}，但 Worker 未配置 GITHUB_TOKEN，未发布`,
+      );
+    } catch (e) {
+      setLiveMsg("发布失败：" + (e instanceof Error ? e.message : String(e)));
+    } finally {
+      setPublishing(false);
     }
   };
 
@@ -245,7 +272,9 @@ function Shell() {
           onSave={handleSave}
           onClear={handleClear}
           onRefresh={handleRefresh}
+          onPublish={handlePublish}
           refreshing={refreshing}
+          publishing={publishing}
           message={liveMsg}
         />
       </header>

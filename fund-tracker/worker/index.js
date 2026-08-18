@@ -10,6 +10,12 @@ import { PRODUCTS } from "./products.js";
 
 const BASE = "https://quantapi.51ifind.com/api/v1";
 
+// —— GitHub 发布配置（Worker 把快照写回仓库，触发 Pages 重新部署）——
+// 注意：仓库名少了字母 r（fund-tracke），勿擅自改。
+const GH_OWNER = "pany65830-max";
+const GH_REPO = "fund-tracke";
+const GH_BRANCH = "main";
+
 const INDEX_LIST = [
   { code: "000300", ths: "000300.SH", name: "沪深300" },
   { code: "000905", ths: "000905.SH", name: "中证500" },
@@ -333,6 +339,116 @@ async function handleRefresh({ token, tradeDate }) {
   };
 }
 
+// —— GitHub Contents API：把快照写回仓库，触发 Pages 重新部署 ——
+function toBase64(str) {
+  const bytes = new TextEncoder().encode(str);
+  let bin = "";
+  bytes.forEach((b) => (bin += String.fromCharCode(b)));
+  return btoa(bin);
+}
+function fromBase64(b64) {
+  const bin = atob(b64);
+  const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return new TextDecoder().decode(bytes);
+}
+
+async function ghGetFile(path, token) {
+  const res = await fetch(
+    `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}?ref=${GH_BRANCH}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+    },
+  );
+  if (res.status === 404) return null;
+  if (!res.ok) {
+    const t = await res.text();
+    throw new Error(`GitHub 读取 ${path} 失败: ${res.status} ${t.slice(0, 200)}`);
+  }
+  return res.json();
+}
+
+async function ghPutFile(path, content, token, sha, message) {
+  const body = { message, content: toBase64(content), branch: GH_BRANCH };
+  if (sha) body.sha = sha;
+  const res = await fetch(
+    `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}`,
+    {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/vnd.github+json",
+        "Content-Type": "application/json",
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+      body: JSON.stringify(body),
+    },
+  );
+  if (!res.ok) {
+    const t = await res.text();
+    throw new Error(`GitHub 写入 ${path} 失败: ${res.status} ${t.slice(0, 200)}`);
+  }
+  return res.json();
+}
+
+/**
+ * 把完整 DaySnapshot 写回仓库三个文件：
+ *   data/{tradeDate}.json, data/latest.json, data/dates.json
+ * 写 main 分支会自动触发 Pages 部署（deploy.yml on push main）。
+ */
+async function publishSnapshot(snapshot, githubToken) {
+  if (!githubToken) {
+    throw new Error("Worker 未配置 GITHUB_TOKEN，请用 `wrangler secret put GITHUB_TOKEN` 配置（需 repo 写权限）");
+  }
+  const date = snapshot.tradeDate;
+  const json = JSON.stringify(snapshot, null, 2);
+
+  const dayPath = `data/${date}.json`;
+  const dayExisting = await ghGetFile(dayPath, githubToken);
+  await ghPutFile(
+    dayPath,
+    json,
+    githubToken,
+    dayExisting && dayExisting.sha,
+    `data: ${date}（iFinD 实时，经 Worker 发布）`,
+  );
+
+  const latestExisting = await ghGetFile("data/latest.json", githubToken);
+  await ghPutFile(
+    "data/latest.json",
+    json,
+    githubToken,
+    latestExisting && latestExisting.sha,
+    `data: latest -> ${date}`,
+  );
+
+  const datesExisting = await ghGetFile("data/dates.json", githubToken);
+  let dates = [];
+  if (datesExisting && datesExisting.content) {
+    try {
+      const parsed = JSON.parse(fromBase64(datesExisting.content));
+      if (Array.isArray(parsed)) dates = parsed;
+    } catch {
+      dates = [];
+    }
+  }
+  if (!dates.includes(date)) dates.push(date);
+  dates.sort();
+  await ghPutFile(
+    "data/dates.json",
+    JSON.stringify(dates, null, 2),
+    githubToken,
+    datesExisting && datesExisting.sha,
+    `data: 更新 dates.json`,
+  );
+
+  return { date, files: [dayPath, "data/latest.json", "data/dates.json"] };
+}
+
 function corsHeaders() {
   return {
     "Access-Control-Allow-Origin": "*",
@@ -350,7 +466,7 @@ function json(data, status, headers) {
 }
 
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
     const url = new URL(request.url);
     if (request.method === "OPTIONS") {
       return new Response(null, { status: 204, headers: corsHeaders() });
@@ -365,8 +481,13 @@ export default {
       const token = body.token || "";
       if (!token) return json({ error: "missing token (iFinD refresh_token)" }, 400, corsHeaders());
       const tradeDate = body.tradeDate || beijingToday();
+      const publish = !!body.publish;
       try {
         const result = await handleRefresh({ token, tradeDate });
+        if (publish) {
+          const gh = await publishSnapshot(result, env && env.GITHUB_TOKEN);
+          result.published = gh;
+        }
         return json(result, 200, corsHeaders());
       } catch (e) {
         return json({ error: String((e && e.message) || e) }, 502, corsHeaders());
