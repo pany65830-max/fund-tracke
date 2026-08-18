@@ -21,6 +21,22 @@ function productKey(firm: string, code: string) {
   return `${firm}::${code}`;
 }
 
+/** 把快照的 updatedAt(ISO UTC) 转成北京时间 HH:MM，用于显示「截止时分」。 */
+function formatAsOf(iso: string | undefined): string {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "";
+  const parts = new Intl.DateTimeFormat("zh-CN", {
+    timeZone: "Asia/Shanghai",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).formatToParts(d);
+  const hh = parts.find((p) => p.type === "hour")?.value ?? "00";
+  const mm = parts.find((p) => p.type === "minute")?.value ?? "00";
+  return `${hh}:${mm}`;
+}
+
 export function EtfPage({
   snap,
   availableDates,
@@ -166,12 +182,17 @@ export function EtfPage({
     .sort((a, b) => b.changePct - a.changePct)
     .slice(0, 4);
 
+  const asOf = formatAsOf(snap.updatedAt);
+
   return (
     <div className="etf-page">
       <section className="card highlight-card">
         <div className="section-head">
           <h2>当日亮眼数据</h2>
-          <span className="muted">截至 {snap.tradeDate}</span>
+          <span className="muted">
+            截至 {snap.tradeDate}
+            {asOf ? ` ${asOf}（北京时间）` : ""}
+          </span>
         </div>
 
         <div className="hl-stack">

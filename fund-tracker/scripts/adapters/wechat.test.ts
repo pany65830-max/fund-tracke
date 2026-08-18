@@ -84,6 +84,35 @@ describe("wechat", () => {
     ).toThrow(/captcha/i);
   });
 
+  it("drops junk news (cinema/recruitment) and keeps real fund news", () => {
+    const html = `
+<ul class="news-list">
+  <li id="sogou_vr_11002601_box_0">
+    <div class="txt-box">
+      <h3><a href="/link?url=a">腾冲艺景华夏影城映前广告招商中</a></h3>
+      <p class="txt-info">影城会员卡优惠特惠</p>
+      <div class="s-p"><span class="all-time-y2">腾冲艺景华夏影城</span>
+      <script>document.write(timeConvert('1785801600'))</script></div>
+    </div>
+  </li>
+  <li id="sogou_vr_11002601_box_1">
+    <div class="txt-box">
+      <h3><a href="/link?url=b">华夏基金关于旗下ETF分红公告</a></h3>
+      <p class="txt-info">基金分红提示</p>
+      <div class="s-p"><span class="all-time-y2">华夏基金微理财</span>
+      <script>document.write(timeConvert('1785801600'))</script></div>
+    </div>
+  </li>
+</ul>`;
+    const items = parseSogouNewsList(html, "huaxia", "华夏基金", "2026-08-04", {
+      publishers: ["华夏基金微理财", "华夏基金"],
+      brands: ["华夏基金", "华夏财富"],
+      maxAgeDays: 14,
+    });
+    expect(items.length).toBe(1);
+    expect(items[0].title).toContain("分红");
+  });
+
   it("isRecentEnough window", () => {
     expect(isRecentEnough(null, "2026-08-04")).toBe(true);
     const day = Math.floor(Date.UTC(2026, 7, 4) / 1000);

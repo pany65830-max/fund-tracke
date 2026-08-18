@@ -45,6 +45,18 @@ function stripTags(s: string): string {
   return decodeHtmlEntities(s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim());
 }
 
+// 明显非基金/ETF 类的垃圾关键词：命中即丢弃，防止无关公众号（影院/招聘/彩票等）混入资讯。
+// 注意：不要加「优惠/招商/广告」等词——基金公告常含「费率优惠」「招商基金」等。
+const JUNK_KEYWORDS = [
+  "影城", "影院", "影讯", "电影", "彩票", "招聘", "求职",
+  "交友", "代购", "微商", "加盟", "会员卡", "影厅", "映前",
+];
+
+function isJunkNews(title: string, summary: string): boolean {
+  const text = `${title}\n${summary || ""}`;
+  return JUNK_KEYWORDS.some((k) => text.includes(k));
+}
+
 function absolutizeSogou(href: string): string {
   const h = decodeHtmlEntities(href.trim());
   if (!h) return h;
@@ -127,6 +139,8 @@ export function parseRssItems(
     const t = (title?.[1] || title?.[2] || "").trim();
     const url = (link?.[1] || "").trim();
     if (!t || !url) continue;
+    const summaryRss = (desc?.[1] || desc?.[2] || t).replace(/<[^>]+>/g, "").trim();
+    if (isJunkNews(t, summaryRss)) continue;
     items.push({
       id: `wx-${institution}-${i++}-${tradeDate}`,
       title: t,
@@ -192,6 +206,8 @@ export function parseSogouNewsList(
 
     const info = htmlBlock.match(/class=["']txt-info["'][^>]*>([\s\S]*?)<\/p>/i);
     const summary = info ? stripTags(info[1]) : title;
+
+    if (isJunkNews(title, summary)) continue;
 
     const timeConvert = htmlBlock.match(/timeConvert\('(\d+)'\)/);
     const tAttr = htmlBlock.match(/\bt=["']?(\d{9,13})["']?/i);
