@@ -1,12 +1,7 @@
-import { readFileSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
 import type { Institution, NewsItem } from "../../shared/schema.js";
 import type { NewsAdapter } from "./types.js";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-type CninfoCfg = {
+export type CninfoCfg = {
   /** 巨潮全文检索接口（沪深交易所联合官方披露平台） */
   endpoint: string;
   /** 检索关键词，多个关键词各自检索后合并 */
@@ -17,7 +12,22 @@ type CninfoCfg = {
   maxAgeDays: number;
 };
 
-function loadCfg(): CninfoCfg {
+/** 默认从本地 config/exchange-sources.json 加载；在 Cloudflare Worker 等无 import.meta.url
+ *  的环境，必须由调用方显式传入 cfg。 */
+async function loadCfg(): Promise<CninfoCfg> {
+  const url = typeof import.meta.url === "string" ? import.meta.url : undefined;
+  if (!url) {
+    throw new Error(
+      "exchange-web adapter: import.meta.url unavailable. Pass cfg explicitly.",
+    );
+  }
+  const [{ readFileSync }, { dirname, join }, { fileURLToPath }] =
+    await Promise.all([
+      import("node:fs"),
+      import("node:path"),
+      import("node:url"),
+    ]);
+  const __dirname = dirname(fileURLToPath(url));
   const path = join(__dirname, "../../config/exchange-sources.json");
   return JSON.parse(readFileSync(path, "utf8")) as CninfoCfg;
 }
@@ -83,10 +93,11 @@ export function createExchangeWebAdapter(
   fetchImpl: typeof fetch = fetch,
   cfg?: CninfoCfg,
 ): NewsAdapter {
+  const cfgPromise = cfg ? undefined : loadCfg();
   return {
     name: "exchange-web",
     async fetchNews(tradeDate: string): Promise<NewsItem[]> {
-      const config = cfg ?? loadCfg();
+      const config = cfg ?? (await cfgPromise!);
       const items: NewsItem[] = [];
       const errors: string[] = [];
 

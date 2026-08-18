@@ -1,6 +1,3 @@
-import { readFileSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
 import type { Institution, NewsItem } from "../../shared/schema.js";
 import type { NewsAdapter } from "./types.js";
 
@@ -17,9 +14,22 @@ export type WechatAccount = {
   feedUrl?: string;
 };
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-function loadAccounts(): WechatAccount[] {
+/** 默认从本地 config/wechat-accounts.json 加载；在 Cloudflare Worker 等无 import.meta.url
+ *  的环境，必须由调用方显式传入 accounts。 */
+async function loadAccounts(): Promise<WechatAccount[]> {
+  const url = typeof import.meta.url === "string" ? import.meta.url : undefined;
+  if (!url) {
+    throw new Error(
+      "wechat adapter: import.meta.url unavailable. Pass accounts explicitly.",
+    );
+  }
+  const [{ readFileSync }, { dirname, join }, { fileURLToPath }] =
+    await Promise.all([
+      import("node:fs"),
+      import("node:path"),
+      import("node:url"),
+    ]);
+  const __dirname = dirname(fileURLToPath(url));
   const path = join(__dirname, "../../config/wechat-accounts.json");
   return JSON.parse(readFileSync(path, "utf8")) as WechatAccount[];
 }
@@ -307,10 +317,11 @@ export function createWechatAdapter(
   const maxAgeDays = opts.maxAgeDays ?? 30;
   const sameDayOnly = opts.sameDayOnly ?? false;
   const pages = Math.max(1, opts.pages ?? 1);
+  const accountsPromise = opts.accounts ? undefined : loadAccounts();
   return {
     name: "wechat",
     async fetchNews(tradeDate: string): Promise<NewsItem[]> {
-      const accounts = opts.accounts || loadAccounts();
+      const accounts = opts.accounts ?? (await accountsPromise!);
       const out: NewsItem[] = [];
       const errors: string[] = [];
       // 跨号全局去重：同一篇文章可能被多个号(如上交所发布/上交所投服)同时命中

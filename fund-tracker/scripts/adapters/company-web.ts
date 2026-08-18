@@ -1,18 +1,28 @@
-import { readFileSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
 import type { Institution, NewsItem } from "../../shared/schema.js";
 import type { NewsAdapter } from "./types.js";
 
-type SourceCfg = {
+export type SourceCfg = {
   institution: Institution;
   name: string;
   listUrl: string;
 };
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-function loadSources(): SourceCfg[] {
+/** 默认从本地 config/company-sources.json 加载；在 Cloudflare Worker 等无 import.meta.url
+ *  的环境，必须由调用方显式传入 sources。 */
+async function loadSources(): Promise<SourceCfg[]> {
+  const url = typeof import.meta.url === "string" ? import.meta.url : undefined;
+  if (!url) {
+    throw new Error(
+      "company-web adapter: import.meta.url unavailable. Pass sources explicitly.",
+    );
+  }
+  const [{ readFileSync }, { dirname, join }, { fileURLToPath }] =
+    await Promise.all([
+      import("node:fs"),
+      import("node:path"),
+      import("node:url"),
+    ]);
+  const __dirname = dirname(fileURLToPath(url));
   const path = join(__dirname, "../../config/company-sources.json");
   return JSON.parse(readFileSync(path, "utf8")) as SourceCfg[];
 }
@@ -146,12 +156,14 @@ export function createCompanyWebAdapter(
   fetchImpl: typeof fetch = fetch,
   sources?: SourceCfg[],
 ): NewsAdapter {
+  const sourcesPromise = sources ? undefined : loadSources();
   return {
     name: "company-web",
     async fetchNews(tradeDate: string): Promise<NewsItem[]> {
+      const cfg = sources ?? (await sourcesPromise!);
       const items: NewsItem[] = [];
       const errors: string[] = [];
-      for (const src of sources ?? loadSources()) {
+      for (const src of cfg) {
         try {
           const res = await fetchImpl(src.listUrl, {
             headers: {

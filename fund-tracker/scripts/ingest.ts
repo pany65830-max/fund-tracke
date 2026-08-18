@@ -32,6 +32,10 @@ function loadHolidays(): Set<string> {
   return new Set(raw);
 }
 
+function loadJson<T>(relPath: string): T {
+  return JSON.parse(readFileSync(join(ROOT, relPath), "utf8")) as T;
+}
+
 function emptyEtf(): EtfDashboard {
   return {
     indices: [],
@@ -81,30 +85,52 @@ export async function runIngest(opts: {
     !!(process.env.IFIND_REFRESH_TOKEN || process.env.IFIND_TOKEN) &&
     !opts.useFixture;
 
+  const companySources = loadJson<
+    Array<{ institution: string; name: string; listUrl: string }>
+  >("config/company-sources.json");
+  const wechatAccounts = loadJson<
+    Array<{
+      institution: string;
+      name: string;
+      publishers?: string[];
+      brands?: string[];
+      accountId?: string;
+      feedUrl?: string;
+    }>
+  >("config/wechat-accounts.json");
+  const cninfoCfg = loadJson<{
+    endpoint: string;
+    keywords: string[];
+    pageSize: number;
+    maxAgeDays: number;
+  }>("config/exchange-sources.json");
+
   const newsAdapters = opts.useFixture
     ? [createFixtureNewsAdapter()]
     : hasIfind
       ? [
           createIfindNewsAdapter(),
-          createCompanyWebAdapter(fetch),
+          createCompanyWebAdapter(fetch, companySources as any),
           createWechatAdapter(fetch, {
+            accounts: wechatAccounts as any,
             sameDayOnly: false,
             maxAgeDays: 7,
             pages: 5,
             delayMs: 1200,
           }),
-          createExchangeWebAdapter(fetch),
+          createExchangeWebAdapter(fetch, cninfoCfg as any),
           createSseSearchAdapter(fetch),
         ]
       : [
-          createCompanyWebAdapter(fetch),
+          createCompanyWebAdapter(fetch, companySources as any),
           createWechatAdapter(fetch, {
+            accounts: wechatAccounts as any,
             sameDayOnly: false,
             maxAgeDays: 7,
             pages: 5,
             delayMs: 1200,
           }),
-          createExchangeWebAdapter(fetch),
+          createExchangeWebAdapter(fetch, cninfoCfg as any),
           createSseSearchAdapter(fetch),
         ];
 
