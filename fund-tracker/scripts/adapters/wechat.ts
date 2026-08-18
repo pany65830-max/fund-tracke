@@ -255,7 +255,7 @@ async function fetchText(
   url: string,
   fetchImpl: typeof fetch,
 ): Promise<string> {
-  const maxTries = 3;
+  const maxTries = 5;
   let lastErr: unknown;
   for (let attempt = 0; attempt < maxTries; attempt++) {
     try {
@@ -268,12 +268,16 @@ async function fetchText(
           Referer: "https://weixin.sogou.com/",
         },
       });
+      // 403/429 = 搜狗限流，按可重试处理（退避后重试）
+      if (res.status === 403 || res.status === 429) {
+        throw new Error(`HTTP ${res.status}`);
+      }
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const text = await res.text();
       // Sogou throws a captcha/anti-spider wall under load — retry with backoff.
       if (/验证码|antispider|请输入验证|captcha/i.test(text)) {
         if (attempt < maxTries - 1) {
-          await sleep(2000 * (attempt + 1));
+          await sleep(2000 * (attempt + 1) + Math.random() * 1500);
           continue;
         }
         throw new Error("sogou captcha / anti-spider");
@@ -281,7 +285,9 @@ async function fetchText(
       return text;
     } catch (e) {
       lastErr = e;
-      if (attempt < maxTries - 1) await sleep(1500 * (attempt + 1));
+      if (attempt < maxTries - 1) {
+        await sleep(1800 * (attempt + 1) + Math.random() * 1500);
+      }
     }
   }
   throw lastErr instanceof Error ? lastErr : new Error(String(lastErr));
@@ -307,6 +313,8 @@ export function createWechatAdapter(
       const accounts = opts.accounts || loadAccounts();
       const out: NewsItem[] = [];
       const errors: string[] = [];
+      // 跨号全局去重：同一篇文章可能被多个号(如上交所发布/上交所投服)同时命中
+      const seenGlobal = new Set<string>();
 
       for (const acc of accounts) {
         try {
@@ -314,15 +322,9 @@ export function createWechatAdapter(
             const xml = await fetchText(acc.feedUrl, fetchImpl);
             out.push(...parseRssItems(xml, acc.institution, tradeDate));
           } else if (acc.name) {
-            // Search the account name AND its core brand token; the brand search
-            // surfaces every sub-account (微理财/微资讯/客服) in one query.
-            const queries = Array.from(
-              new Set(
-                [acc.name, ...(acc.brands || []), ...(acc.publishers || [])].filter(
-                  Boolean,
-                ),
-              ),
-            );
+            // 只搜精确号名（一个号一次请求），避免品牌大词(如上交所/深交所)召回海量
+            // 券商/媒体噪音、还容易触发搜狗限流。子号(微理财/微资讯/投教)由 brand 匹配兜底。
+            const queries = [acc.name].filter(Boolean);
             const seen = new Set<string>();
             for (const q of queries) {
               for (let page = 1; page <= pages; page++) {
@@ -356,8 +358,10 @@ export function createWechatAdapter(
                 );
                 if (!batch.length && page > 1) break;
                 for (const item of batch) {
-                  if (seen.has(item.sourceUrl)) continue;
+                  if (seen.has(item.sourceUrl) || seenGlobal.has(item.sourceUrl))
+                    continue;
                   seen.add(item.sourceUrl);
+                  seenGlobal.add(item.sourceUrl);
                   out.push(item);
                 }
                 if (delayMs > 0) await sleep(delayMs);
