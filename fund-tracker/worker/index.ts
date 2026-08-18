@@ -536,14 +536,15 @@ async function publishSnapshot(snapshot: DaySnapshot, githubToken: string) {
   const date = snapshot.tradeDate;
   const json = JSON.stringify(snapshot, null, 2);
 
-  const dayPath = `data/${date}.json`;
+  // 注意：Pages 构建时 copyDataPlugin 读的是 fund-tracker/data/，不是根目录 data/
+  const dayPath = `fund-tracker/data/${date}.json`;
   const dayExisting = await ghGetFile(dayPath, githubToken);
   await ghPutFile(dayPath, json, githubToken, dayExisting && dayExisting.sha, `data: ${date}（云端一键更新）`);
 
-  const latestExisting = await ghGetFile("data/latest.json", githubToken);
-  await ghPutFile("data/latest.json", json, githubToken, latestExisting && latestExisting.sha, `data: latest -> ${date}`);
+  const latestExisting = await ghGetFile("fund-tracker/data/latest.json", githubToken);
+  await ghPutFile("fund-tracker/data/latest.json", json, githubToken, latestExisting && latestExisting.sha, `data: latest -> ${date}`);
 
-  const datesExisting = await ghGetFile("data/dates.json", githubToken);
+  const datesExisting = await ghGetFile("fund-tracker/data/dates.json", githubToken);
   let dates: string[] = [];
   if (datesExisting && datesExisting.content) {
     try {
@@ -555,9 +556,9 @@ async function publishSnapshot(snapshot: DaySnapshot, githubToken: string) {
   }
   if (!dates.includes(date)) dates.push(date);
   dates.sort();
-  await ghPutFile("data/dates.json", JSON.stringify(dates, null, 2), githubToken, datesExisting && datesExisting.sha, `data: 更新 dates.json`);
+  await ghPutFile("fund-tracker/data/dates.json", JSON.stringify(dates, null, 2), githubToken, datesExisting && datesExisting.sha, `data: 更新 dates.json`);
 
-  return { date, files: [dayPath, "data/latest.json", "data/dates.json"] };
+  return { date, files: [dayPath, "fund-tracker/data/latest.json", "fund-tracker/data/dates.json"] };
 }
 
 function corsHeaders() {
