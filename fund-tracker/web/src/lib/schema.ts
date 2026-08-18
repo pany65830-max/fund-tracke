@@ -61,6 +61,7 @@ export const DaySnapshotSchema = z.object({
           changePct: z.number(),
           amount: z.number().optional(),
           nav: z.number().optional(),
+          amplitude: z.number().optional(),
           volume: z.number().optional(),
           shares: z.number().optional(),
         }),

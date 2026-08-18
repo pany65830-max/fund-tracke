@@ -49,6 +49,7 @@ export function EtfPage({
   const [startSnap, setStartSnap] = useState<DaySnapshot | null>(null);
   const [endSnap, setEndSnap] = useState<DaySnapshot | null>(null);
   const [rangeError, setRangeError] = useState<string | null>(null);
+  const [sortDir, setSortDir] = useState<"asc" | "desc" | null>(null);
 
   useEffect(() => {
     setRangeStart(asOfDate);
@@ -134,6 +135,22 @@ export function EtfPage({
       const pct = rangeReturnPct(startMap.get(key), endMap.get(key), sameDay);
       return { ...p, rangePct: pct };
     });
+
+  // 按 当日涨跌/区间涨幅 排序；null 值始终排最后
+  const sortedRows = useMemo(() => {
+    if (!sortDir) return resultRows;
+    return [...resultRows].sort((a, b) => {
+      const av = a.rangePct;
+      const bv = b.rangePct;
+      if (av == null && bv == null) return 0;
+      if (av == null) return 1;
+      if (bv == null) return -1;
+      return sortDir === "desc" ? bv - av : av - bv;
+    });
+  }, [resultRows, sortDir]);
+
+  const toggleSort = () =>
+    setSortDir((d) => (d === null ? "desc" : d === "desc" ? "asc" : null));
 
   const onRangeChange = (which: "start" | "end", value: string) => {
     if (!value) return;
@@ -322,13 +339,25 @@ export function EtfPage({
                 <th>公司</th>
                 <th>代码</th>
                 <th>名称</th>
-                <th className="num">{sameDay ? "当日涨跌(%)" : "区间涨跌(%)"}</th>
+                <th className="num">
+                  <button
+                    type="button"
+                    className="th-sort"
+                    onClick={toggleSort}
+                    title="点击切换 升序/降序/默认"
+                  >
+                    {sameDay ? "当日涨跌(%)" : "区间涨跌(%)"}
+                    <span className="sort-ind">
+                      {sortDir === "desc" ? "▼" : sortDir === "asc" ? "▲" : "⇅"}
+                    </span>
+                  </button>
+                </th>
                 <th className="num">最新净值(元)</th>
                 <th className="num">成交额(亿元)</th>
               </tr>
             </thead>
             <tbody>
-              {resultRows.map((p) => (
+              {sortedRows.map((p) => (
                 <tr key={productKey(p.firm, p.code)}>
                   <td>{INSTITUTION_LABEL[p.firm]}</td>
                   <td className="mono">{p.code}</td>
@@ -346,7 +375,7 @@ export function EtfPage({
                   </td>
                 </tr>
               ))}
-              {!resultRows.length ? (
+              {!sortedRows.length ? (
                 <tr>
                   <td colSpan={6} className="muted">
                     没有匹配的产品，试试换公司或代码

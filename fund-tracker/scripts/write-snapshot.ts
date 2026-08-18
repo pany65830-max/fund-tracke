@@ -73,6 +73,20 @@ export function writeSnapshot(dataDir: string, snapshot: DaySnapshot): void {
   const file = join(dataDir, `${parsed.tradeDate}.json`);
   const json = JSON.stringify(parsed, null, 2);
   writeFileSync(file, json, "utf8");
-  writeFileSync(latestPath, json, "utf8");
+
+  // 仅当本次快照日期 >= 现有 latest 日期时才更新 latest.json，
+  // 避免回补/backfill 旧日期把 latest.json 回退成旧快照（落地页会停在旧日期）。
+  let shouldUpdateLatest = true;
+  if (existsSync(latestPath)) {
+    try {
+      const cur = JSON.parse(readFileSync(latestPath, "utf8")) as DaySnapshot;
+      if (cur.tradeDate && parsed.tradeDate < cur.tradeDate) {
+        shouldUpdateLatest = false;
+      }
+    } catch {
+      /* ignore corrupt latest.json */
+    }
+  }
+  if (shouldUpdateLatest) writeFileSync(latestPath, json, "utf8");
   rewriteDates(dataDir);
 }

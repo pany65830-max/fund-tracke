@@ -285,6 +285,17 @@ a:hover { text-decoration: underline; }
 .data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
 .data-table.compact th, .data-table.compact td { padding: 8px 8px; }
 
+/* 可点击排序的表头按钮：继承表头样式，整格可点 */
+.th-sort {
+  all: unset;
+  display: inline-flex; align-items: center; gap: 4px;
+  width: 100%; justify-content: flex-end;
+  font-weight: 600; color: #374151; cursor: pointer;
+  font-size: inherit; padding: 0;
+}
+.th-sort:hover { color: #111827; }
+.th-sort .sort-ind { font-size: 0.72rem; color: #9ca3af; min-width: 0.8em; line-height: 1; }
+
 .article-body { white-space: pre-wrap; margin-top: 16px; }
 
 @media (max-width: 900px) {
