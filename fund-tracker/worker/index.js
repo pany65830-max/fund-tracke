@@ -353,15 +353,20 @@ function fromBase64(b64) {
   return new TextDecoder().decode(bytes);
 }
 
+async function ghHeaders(token) {
+  return {
+    Authorization: `Bearer ${token}`,
+    Accept: "application/vnd.github+json",
+    "User-Agent": "fund-tracker-worker",
+    "X-GitHub-Api-Version": "2022-11-28",
+  };
+}
+
 async function ghGetFile(path, token) {
   const res = await fetch(
     `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}?ref=${GH_BRANCH}`,
     {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28",
-      },
+      headers: await ghHeaders(token),
     },
   );
   if (res.status === 404) return null;
@@ -380,10 +385,8 @@ async function ghPutFile(path, content, token, sha, message) {
     {
       method: "PUT",
       headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: "application/vnd.github+json",
+        ...(await ghHeaders(token)),
         "Content-Type": "application/json",
-        "X-GitHub-Api-Version": "2022-11-28",
       },
       body: JSON.stringify(body),
     },
