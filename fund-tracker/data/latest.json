@@ -1,81 +1,151 @@
 {
   "tradeDate": "2026-08-19",
-  "updatedAt": "2026-08-19T02:08:06.831Z",
+  "updatedAt": "2026-08-19T02:45:09.846Z",
   "status": "partial",
   "errors": [
-    "company-web: adapter timeout (20s)",
     "ifind-news: report_query failed: no data."
   ],
-  "news": [],
+  "news": [
+    {
+      "id": "cw-huaxia-0-2026-08-19",
+      "title": "华夏基金连续五年发布ESG投资白皮书！一图读懂报告要点",
+      "summary": "华夏基金连续五年发布ESG投资白皮书！一图读懂报告要点",
+      "institution": "huaxia",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://mp.weixin.qq.com/s/z513szAl2UtP9XfywUlTvw"
+    },
+    {
+      "id": "cw-huaxia-1-2026-08-19",
+      "title": "因热爱而生，为突破加冕！十二年同行，华夏基金以“坚持”赴2025北马之约",
+      "summary": "因热爱而生，为突破加冕！十二年同行，华夏基金以“坚持”赴2025北马之约",
+      "institution": "huaxia",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://mp.weixin.qq.com/s/sS3vwksp9PPYkgxN_GTR_A"
+    },
+    {
+      "id": "cw-huaxia-2-2026-08-19",
+      "title": "久久公益节&#32;|&#32;华夏基金邀你“益”起行动，让爱更长“久”",
+      "summary": "久久公益节&#32;|&#32;华夏基金邀你“益”起行动，让爱更长“久”",
+      "institution": "huaxia",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://mp.weixin.qq.com/s/Ow3qzeO_54YEfObI_CKd6g"
+    },
+    {
+      "id": "cw-huaxia-3-2026-08-19",
+      "title": "华夏基金连续第四年发布《中国ESG投资发展创新白皮书》！2024年ESG投资精华全梳理",
+      "summary": "华夏基金连续第四年发布《中国ESG投资发展创新白皮书》！2024年ESG投资精华全梳理",
+      "institution": "huaxia",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://mp.weixin.qq.com/s/FdtN27XmYJRl48BJMS4_ZA"
+    },
+    {
+      "id": "cw-huaxia-4-2026-08-19",
+      "title": "基金行业首批参与HarmonyOS&#32;NEXT！华夏基金拥抱鸿蒙生态",
+      "summary": "基金行业首批参与HarmonyOS&#32;NEXT！华夏基金拥抱鸿蒙生态",
+      "institution": "huaxia",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://mp.weixin.qq.com/s/3C0r2veBwIdXuM7XZOECcA"
+    },
+    {
+      "id": "cw-huaxia-5-2026-08-19",
+      "title": "华夏基金再获两项明星基金奖，海外投资实力绽放！",
+      "summary": "华夏基金再获两项明星基金奖，海外投资实力绽放！",
+      "institution": "huaxia",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://mp.weixin.qq.com/s/rNMM5pu-s2-KC9o9yONYPA"
+    },
+    {
+      "id": "cw-huaxia-6-2026-08-19",
+      "title": "华夏基金携手三联书店！线下读书分享会北京首站",
+      "summary": "华夏基金携手三联书店！线下读书分享会北京首站",
+      "institution": "huaxia",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://mp.weixin.qq.com/s/9QAWk4-uVFSSm6X-qgPWkw"
+    }
+  ],
   "etf": {
     "indices": [
       {
         "code": "000300",
         "name": "沪深300",
-        "last": 4644.67,
-        "changePct": -1.72
+        "last": 4615.49,
+        "changePct": -2.33
       },
       {
         "code": "000905",
         "name": "中证500",
-        "last": 7964.76,
-        "changePct": -2.6
+        "last": 7900.91,
+        "changePct": -3.38
       },
       {
         "code": "399006",
         "name": "创业板指",
-        "last": 3580.7541,
-        "changePct": -3.37
+        "last": 3533.7949,
+        "changePct": -4.64
       },
       {
         "code": "000688",
         "name": "科创50",
-        "last": 1718.1,
-        "changePct": -4.06
+        "last": 1691.92,
+        "changePct": -5.53
       },
       {
         "code": "000016",
         "name": "上证50",
-        "last": 2902.46,
-        "changePct": -1.3
+        "last": 2888.82,
+        "changePct": -1.76
       }
     ],
     "sectors": [
       {
         "name": "宽基ETF",
-        "changePct": -2.48
+        "changePct": -3.37
       },
       {
         "name": "港股/中概",
-        "changePct": -0.9
+        "changePct": -0.71
       },
       {
         "name": "军工",
-        "changePct": -3.68
+        "changePct": -4.02
       },
       {
         "name": "半导体",
-        "changePct": -4.49
+        "changePct": -6.32
       },
       {
         "name": "新能源",
-        "changePct": -1.78
+        "changePct": -1.96
       },
       {
         "name": "通信",
-        "changePct": -4.23
+        "changePct": -6.06
       },
       {
         "name": "红利",
-        "changePct": 0.84
+        "changePct": 0.72
       },
       {
         "name": "创业板",
-        "changePct": -3.28
+        "changePct": -4.54
       },
       {
         "name": "深证100",
-        "changePct": -2.36
+        "changePct": -3.23
       }
     ],
     "hotInflow": [],
@@ -84,7 +154,7 @@
         "code": "560670",
         "name": "560670",
         "institution": "huatai",
-        "value": 1.06,
+        "value": 1.16,
         "unit": "pct"
       },
       {
@@ -95,10 +165,17 @@
         "unit": "pct"
       },
       {
-        "code": "560730",
-        "name": "560730",
-        "institution": "guotai",
-        "value": 0.98,
+        "code": "512890",
+        "name": "512890",
+        "institution": "huatai",
+        "value": 0.95,
+        "unit": "pct"
+      },
+      {
+        "code": "515020",
+        "name": "515020",
+        "institution": "huaxia",
+        "value": 0.93,
         "unit": "pct"
       },
       {
@@ -107,49 +184,42 @@
         "institution": "huaxia",
         "value": 0.93,
         "unit": "pct"
-      },
-      {
-        "code": "520930",
-        "name": "520930",
-        "institution": "guotai",
-        "value": 0.93,
-        "unit": "pct"
       }
     ],
     "hotTurnover": [
       {
-        "code": "517170",
-        "name": "517170",
-        "institution": "huaxia",
-        "value": 808.8,
-        "unit": "yi_amount"
-      },
-      {
         "code": "551500",
         "name": "551500",
         "institution": "efunds",
-        "value": 113.78,
-        "unit": "yi_amount"
-      },
-      {
-        "code": "159915",
-        "name": "159915",
-        "institution": "efunds",
-        "value": 29.27,
+        "value": 116.24,
         "unit": "yi_amount"
       },
       {
         "code": "588000",
         "name": "588000",
         "institution": "huaxia",
-        "value": 26.95,
+        "value": 50.64,
+        "unit": "yi_amount"
+      },
+      {
+        "code": "511260",
+        "name": "511260",
+        "institution": "guotai",
+        "value": 50.25,
+        "unit": "yi_amount"
+      },
+      {
+        "code": "159915",
+        "name": "159915",
+        "institution": "efunds",
+        "value": 46.87,
         "unit": "yi_amount"
       },
       {
         "code": "588170",
         "name": "588170",
         "institution": "huaxia",
-        "value": 24.35,
+        "value": 45.02,
         "unit": "yi_amount"
       }
     ],
@@ -158,73 +228,73 @@
         {
           "code": "510050",
           "name": "510050",
-          "changePct": -1.25,
-          "amount": 5.1,
-          "nav": 3.009,
-          "amplitude": 0.7220216606498129
+          "changePct": -1.67,
+          "amount": 7.78,
+          "nav": 2.996,
+          "amplitude": 1.2471283229405912
         },
         {
           "code": "510140",
           "name": "510140",
-          "changePct": -1.25,
-          "amount": 0.02,
-          "nav": 1.024,
-          "amplitude": 1.1571841851494709
+          "changePct": -1.64,
+          "amount": 0.03,
+          "nav": 1.02,
+          "amplitude": 1.6393442622950727
         },
         {
           "code": "510330",
           "name": "510330",
-          "changePct": -1.68,
-          "amount": 1.1,
-          "nav": 4.907,
-          "amplitude": 0.8815868563414064
+          "changePct": -2.26,
+          "amount": 2.03,
+          "nav": 4.878,
+          "amplitude": 1.5227409336806177
         },
         {
           "code": "510630",
           "name": "510630",
-          "changePct": 0,
-          "amount": 0.12,
-          "nav": 0.821,
+          "changePct": -0.12,
+          "amount": 0.19,
+          "nav": 0.82,
           "amplitude": 1.2180267965895262
         },
         {
           "code": "510650",
           "name": "510650",
           "changePct": 0.99,
-          "amount": 0,
+          "amount": 0.01,
           "nav": 2.85,
           "amplitude": 0.8858965272856099
         },
         {
           "code": "510660",
           "name": "510660",
-          "changePct": -0.3,
-          "amount": 0.06,
-          "nav": 2.615,
-          "amplitude": 1.2962256957681968
+          "changePct": -1.03,
+          "amount": 0.07,
+          "nav": 2.596,
+          "amplitude": 1.6012199771254219
         },
         {
           "code": "510670",
           "name": "510670",
-          "changePct": -1.19,
-          "amount": 0,
-          "nav": 0.999,
-          "amplitude": 0.4945598417408511
+          "changePct": -1.29,
+          "amount": 0.01,
+          "nav": 0.998,
+          "amplitude": 0.890207715133532
         },
         {
           "code": "511100",
           "name": "511100",
-          "changePct": 0.01,
-          "amount": 0.59,
-          "nav": 110.903,
-          "amplitude": 0.07394715483813495
+          "changePct": -0.03,
+          "amount": 40.37,
+          "nav": 110.857,
+          "amplitude": 0.0856704842636837
         },
         {
           "code": "511200",
           "name": "511200",
-          "changePct": 0.03,
-          "amount": 7.65,
-          "nav": 103.255,
+          "changePct": 0.04,
+          "amount": 27.52,
+          "nav": 103.257,
           "amplitude": 0.03293935283860301
         },
         {
@@ -238,553 +308,554 @@
         {
           "code": "512050",
           "name": "512050",
-          "changePct": -2,
-          "amount": 4.95,
-          "nav": 1.228,
-          "amplitude": 0.9577015163607351
+          "changePct": -2.55,
+          "amount": 9.26,
+          "nav": 1.221,
+          "amplitude": 1.5961691939345588
         },
         {
           "code": "512370",
           "name": "512370",
-          "changePct": -1.13,
+          "changePct": -1.94,
           "amount": 0.01,
-          "nav": 1.221,
-          "amplitude": 0.8097165991902842
+          "nav": 1.211,
+          "amplitude": 1.5384615384615488
         },
         {
           "code": "512460",
           "name": "512460",
-          "changePct": -2.01,
-          "amount": 0.05,
-          "nav": 0.879,
-          "amplitude": 1.3377926421404693
+          "changePct": -2.12,
+          "amount": 0.09,
+          "nav": 0.878,
+          "amplitude": 1.7837235228539594
         },
         {
           "code": "512500",
           "name": "512500",
-          "changePct": -2.48,
-          "amount": 1.18,
-          "nav": 4.516,
-          "amplitude": 1.1444612394731146
+          "changePct": -3.24,
+          "amount": 2.37,
+          "nav": 4.481,
+          "amplitude": 2.0513927877348253
         },
         {
           "code": "512770",
           "name": "512770",
-          "changePct": -3.35,
-          "amount": 0.02,
-          "nav": 2.681,
-          "amplitude": 1.1175198269646769
+          "changePct": -4.87,
+          "amount": 0.04,
+          "nav": 2.639,
+          "amplitude": 2.703677000720987
         },
         {
           "code": "512950",
           "name": "512950",
-          "changePct": -1.5,
-          "amount": 0.01,
-          "nav": 1.514,
-          "amplitude": 0.9759271307742438
+          "changePct": -1.95,
+          "amount": 0.02,
+          "nav": 1.507,
+          "amplitude": 1.4313597918022134
         },
         {
           "code": "512990",
           "name": "512990",
-          "changePct": -1.34,
-          "amount": 0.04,
-          "nav": 2.061,
-          "amplitude": 0.5744375299186218
+          "changePct": -1.91,
+          "amount": 0.07,
+          "nav": 2.049,
+          "amplitude": 1.1488750598372437
         },
         {
           "code": "513180",
           "name": "513180",
-          "changePct": -1.67,
-          "amount": 6.42,
-          "nav": 0.589,
-          "amplitude": 0.6677796327212027
+          "changePct": -1.34,
+          "amount": 9.47,
+          "nav": 0.591,
+          "amplitude": 1.0016694490818039
         },
         {
           "code": "513190",
           "name": "513190",
-          "changePct": 0.34,
-          "amount": 1.62,
-          "nav": 1.754,
-          "amplitude": 0.9153318077803212
+          "changePct": 0.51,
+          "amount": 2.54,
+          "nav": 1.757,
+          "amplitude": 1.3157894736842055
         },
         {
           "code": "513230",
           "name": "513230",
-          "changePct": -0.23,
-          "amount": 0.02,
-          "nav": 0.871,
-          "amplitude": 0.45819014891179877
+          "changePct": 0.11,
+          "amount": 0.04,
+          "nav": 0.874,
+          "amplitude": 0.6872852233676982
         },
         {
           "code": "513300",
           "name": "513300",
-          "changePct": -1.8,
-          "amount": 1.25,
-          "nav": 2.67,
-          "amplitude": 0.698786318499453
+          "changePct": -1.99,
+          "amount": 1.76,
+          "nav": 2.665,
+          "amplitude": 0.9194556822361131
         },
         {
           "code": "513330",
           "name": "513330",
-          "changePct": -1.56,
-          "amount": 4.79,
-          "nav": 0.379,
-          "amplitude": 0.5194805194805199
+          "changePct": -1.04,
+          "amount": 8.42,
+          "nav": 0.381,
+          "amplitude": 1.2987012987012998
         },
         {
           "code": "513520",
           "name": "513520",
-          "changePct": -2.87,
-          "amount": 1.01,
-          "nav": 2.271,
-          "amplitude": 0.9409751924721897
+          "changePct": -3.04,
+          "amount": 1.45,
+          "nav": 2.267,
+          "amplitude": 1.1976047904191627
         },
         {
           "code": "513660",
           "name": "513660",
-          "changePct": -0.46,
-          "amount": 0.28,
-          "nav": 1.502,
-          "amplitude": 0.5301524188203967
+          "changePct": -0.13,
+          "amount": 0.38,
+          "nav": 1.507,
+          "amplitude": 0.9277667329357052
         },
         {
           "code": "513810",
           "name": "513810",
-          "changePct": -0.63,
-          "amount": 0.04,
-          "nav": 1.725,
+          "changePct": -0.52,
+          "amount": 0.14,
+          "nav": 1.727,
           "amplitude": 1.152073732718895
         },
         {
           "code": "513910",
           "name": "513910",
-          "changePct": -0.07,
-          "amount": 0.27,
-          "nav": 1.536,
-          "amplitude": 0.5855562784645346
+          "changePct": 0.13,
+          "amount": 0.47,
+          "nav": 1.539,
+          "amplitude": 0.8458035133376643
         },
         {
           "code": "515010",
           "name": "515010",
-          "changePct": -0.65,
-          "amount": 0.19,
-          "nav": 1.232,
-          "amplitude": 1.1290322580645171
+          "changePct": -0.97,
+          "amount": 0.3,
+          "nav": 1.228,
+          "amplitude": 1.4516129032258078
         },
         {
           "code": "515020",
           "name": "515020",
-          "changePct": 0.87,
-          "amount": 0.49,
-          "nav": 1.733,
+          "changePct": 0.93,
+          "amount": 0.78,
+          "nav": 1.734,
           "amplitude": 0.8149010477299193
         },
         {
           "code": "515030",
           "name": "515030",
-          "changePct": -1.78,
-          "amount": 0.45,
-          "nav": 1.654,
-          "amplitude": 1.306413301662709
+          "changePct": -1.96,
+          "amount": 0.72,
+          "nav": 1.651,
+          "amplitude": 1.5439429928741109
         },
         {
           "code": "515040",
           "name": "515040",
-          "changePct": -2.29,
-          "amount": 0.01,
-          "nav": 1.068,
-          "amplitude": 1.4638609332113461
+          "changePct": -3.02,
+          "amount": 0.02,
+          "nav": 1.06,
+          "amplitude": 1.7383348581884839
         },
         {
           "code": "515050",
           "name": "515050",
-          "changePct": -4.45,
-          "amount": 5.34,
-          "nav": 1.052,
-          "amplitude": 2.0890099909173396
+          "changePct": -6.18,
+          "amount": 9.52,
+          "nav": 1.033,
+          "amplitude": 3.9055404178019915
         },
         {
           "code": "515060",
           "name": "515060",
-          "changePct": -1.52,
-          "amount": 0.15,
-          "nav": 0.584,
-          "amplitude": 1.8549747048903897
+          "changePct": -1.18,
+          "amount": 0.24,
+          "nav": 0.586,
+          "amplitude": 2.023608768971334
         },
         {
           "code": "515070",
           "name": "515070",
-          "changePct": -4.46,
-          "amount": 0.96,
-          "nav": 1.135,
-          "amplitude": 3.114478114478108
+          "changePct": -5.64,
+          "amount": 1.4,
+          "nav": 1.121,
+          "amplitude": 4.292929292929287
         },
         {
           "code": "515170",
           "name": "515170",
           "changePct": -1.06,
-          "amount": 0.33,
+          "amount": 0.45,
           "nav": 0.467,
-          "amplitude": 1.4830508474576167
+          "amplitude": 1.694915254237278
         },
         {
           "code": "515370",
           "name": "515370",
-          "changePct": -3.18,
-          "amount": 0.06,
-          "nav": 0.823,
-          "amplitude": 3.411764705882356
+          "changePct": -3.41,
+          "amount": 0.07,
+          "nav": 0.821,
+          "amplitude": 3.882352941176474
         },
         {
           "code": "515640",
           "name": "515640",
-          "changePct": -1.34,
+          "changePct": -1.55,
           "amount": 0,
-          "nav": 0.955,
-          "amplitude": 1.3429752066115714
+          "nav": 0.953,
+          "amplitude": 1.6528925619834725
         },
         {
           "code": "515760",
           "name": "515760",
-          "changePct": -1.02,
+          "changePct": -1.38,
           "amount": 0.02,
-          "nav": 1.36,
-          "amplitude": 0.7278020378457065
+          "nav": 1.355,
+          "amplitude": 1.1644832605531306
         },
         {
           "code": "515970",
           "name": "515970",
-          "changePct": -2.3,
-          "amount": 0.18,
-          "nav": 0.85,
-          "amplitude": 1.7241379310344844
+          "changePct": -2.64,
+          "amount": 0.4,
+          "nav": 0.847,
+          "amplitude": 2.413793103448278
         },
         {
           "code": "516000",
           "name": "516000",
-          "changePct": -4.12,
-          "amount": 0.12,
-          "nav": 0.954,
-          "amplitude": 2.6130653266331683
+          "changePct": -4.22,
+          "amount": 0.17,
+          "nav": 0.953,
+          "amplitude": 3.2160804020100535
         },
         {
           "code": "516100",
           "name": "516100",
-          "changePct": -3.26,
-          "amount": 0.18,
-          "nav": 1.008,
-          "amplitude": 2.975047984644927
+          "changePct": -2.69,
+          "amount": 0.23,
+          "nav": 1.014,
+          "amplitude": 3.0710172744721715
         },
         {
           "code": "516190",
           "name": "516190",
-          "changePct": -2.78,
-          "amount": 0.08,
-          "nav": 0.98,
-          "amplitude": 2.1825396825396846
+          "changePct": -2.28,
+          "amount": 0.1,
+          "nav": 0.985,
+          "amplitude": 2.4801587301587324
         },
         {
           "code": "516260",
           "name": "516260",
-          "changePct": -3.71,
+          "changePct": -4.9,
           "amount": 0,
-          "nav": 1.376,
-          "amplitude": 1.679496151154655
+          "nav": 1.359,
+          "amplitude": 2.869139258222528
         },
         {
           "code": "516320",
           "name": "516320",
-          "changePct": -2.35,
-          "amount": 0.01,
-          "nav": 0.957,
-          "amplitude": 2.9591836734693904
+          "changePct": -2.55,
+          "amount": 0.03,
+          "nav": 0.955,
+          "amplitude": 3.4693877551020442
         },
         {
           "code": "516500",
           "name": "516500",
-          "changePct": -0.59,
-          "amount": 0.04,
-          "nav": 0.669,
-          "amplitude": 1.040118870728084
+          "changePct": -1.63,
+          "amount": 0.06,
+          "nav": 0.662,
+          "amplitude": 2.22882615156018
         },
         {
           "code": "516630",
           "name": "516630",
-          "changePct": -3.94,
-          "amount": 0.19,
-          "nav": 1.659,
-          "amplitude": 1.852924145917778
+          "changePct": -4.28,
+          "amount": 0.35,
+          "nav": 1.653,
+          "amplitude": 2.5477707006369448
         },
         {
           "code": "516650",
           "name": "516650",
           "changePct": -1.75,
-          "amount": 0.71,
+          "amount": 1.17,
           "nav": 1.849,
-          "amplitude": 1.168969181721574
+          "amplitude": 1.381509032943678
         },
         {
           "code": "516710",
           "name": "516710",
-          "changePct": -2.48,
-          "amount": 0.01,
-          "nav": 0.785,
-          "amplitude": 0.9937888198757773
+          "changePct": -3.23,
+          "amount": 0.02,
+          "nav": 0.779,
+          "amplitude": 2.236024844720499
         },
         {
           "code": "516810",
           "name": "516810",
-          "changePct": -0.92,
-          "amount": 0.33,
-          "nav": 0.757,
-          "amplitude": 1.3089005235602107
+          "changePct": -1.44,
+          "amount": 0.48,
+          "nav": 0.753,
+          "amplitude": 1.5706806282722525
         },
         {
           "code": "516850",
           "name": "516850",
-          "changePct": -2.18,
-          "amount": 0.05,
-          "nav": 0.943,
-          "amplitude": 1.2448132780082999
+          "changePct": -2.49,
+          "amount": 0.09,
+          "nav": 0.94,
+          "amplitude": 1.8672199170124384
         },
         {
           "code": "517170",
           "name": "517170",
-          "changePct": -0.98,
-          "amount": 808.8,
-          "nav": 1.011
+          "changePct": -1.18,
+          "amount": 0,
+          "nav": 1.009,
+          "amplitude": 0.29382957884425975
         },
         {
           "code": "518850",
           "name": "518850",
           "changePct": -0.91,
-          "amount": 0.83,
+          "amount": 1.32,
           "nav": 9.086,
-          "amplitude": 0.41443996073726963
+          "amplitude": 0.4689715345184975
         },
         {
           "code": "520510",
           "name": "520510",
-          "changePct": 0.21,
-          "amount": 1.01,
-          "nav": 0.958,
+          "changePct": -0.63,
+          "amount": 1.73,
+          "nav": 0.95,
           "amplitude": 1.8828451882845205
         },
         {
           "code": "520910",
           "name": "520910",
-          "changePct": -0.61,
-          "amount": 0.1,
-          "nav": 0.648,
-          "amplitude": 0.7668711656441725
+          "changePct": 0.15,
+          "amount": 0.16,
+          "nav": 0.653,
+          "amplitude": 1.6871165644171793
         },
         {
           "code": "526000",
           "name": "526000",
-          "changePct": -3.09,
-          "amount": 1.28,
-          "nav": 1.19,
-          "amplitude": 1.3029315960912062
+          "changePct": -3.66,
+          "amount": 2.46,
+          "nav": 1.183,
+          "amplitude": 2.035830618892501
         },
         {
           "code": "530530",
           "name": "530530",
-          "changePct": -3.01,
+          "changePct": -4.1,
           "amount": 0.01,
-          "nav": 1.159,
-          "amplitude": 2.0083682008368218
+          "nav": 1.146,
+          "amplitude": 3.096234309623443
         },
         {
           "code": "551550",
           "name": "551550",
-          "changePct": 0.03,
-          "amount": 0.67,
-          "nav": 101.771,
+          "changePct": 0.04,
+          "amount": 0.86,
+          "nav": 101.778,
           "amplitude": 0.03735157662971899
         },
         {
           "code": "560120",
           "name": "560120",
-          "changePct": -0.25,
-          "amount": 0.12,
-          "nav": 1.217,
-          "amplitude": 0.4918032786885251
+          "changePct": -0.08,
+          "amount": 0.17,
+          "nav": 1.219,
+          "amplitude": 0.5737704918032701
         },
         {
           "code": "560830",
           "name": "560830",
-          "changePct": -0.56,
-          "amount": 0.03,
-          "nav": 0.893,
-          "amplitude": 0.6681514476614705
+          "changePct": -0.67,
+          "amount": 0.09,
+          "nav": 0.892,
+          "amplitude": 0.8908685968819607
         },
         {
           "code": "562500",
           "name": "562500",
-          "changePct": -5.98,
-          "amount": 6.32,
-          "nav": 0.975,
-          "amplitude": 4.435872709739627
+          "changePct": -6.17,
+          "amount": 8.09,
+          "nav": 0.973,
+          "amplitude": 4.91803278688524
         },
         {
           "code": "562510",
           "name": "562510",
           "changePct": -1.06,
-          "amount": 0.09,
+          "amount": 0.11,
           "nav": 0.562,
           "amplitude": 1.408450704225334
         },
         {
           "code": "562520",
           "name": "562520",
-          "changePct": -3.03,
-          "amount": 0.06,
-          "nav": 1.378,
-          "amplitude": 1.6185784658691156
+          "changePct": -3.38,
+          "amount": 0.08,
+          "nav": 1.373,
+          "amplitude": 2.2519352568613673
         },
         {
           "code": "562530",
           "name": "562530",
           "changePct": -0.95,
-          "amount": 0.05,
+          "amount": 0.07,
           "nav": 1.253,
-          "amplitude": 0.5533596837944756
+          "amplitude": 0.7905138339920956
         },
         {
           "code": "562550",
           "name": "562550",
-          "changePct": -0.53,
-          "amount": 0.26,
-          "nav": 1.125,
-          "amplitude": 0.7073386383731021
+          "changePct": -0.44,
+          "amount": 0.46,
+          "nav": 1.126,
+          "amplitude": 0.8841732979663826
         },
         {
           "code": "562560",
           "name": "562560",
-          "changePct": -3.8,
+          "changePct": -5.57,
           "amount": 0,
-          "nav": 2.33,
-          "amplitude": 5.697770437654845
+          "nav": 2.287,
+          "amplitude": 7.2667217175887755
         },
         {
           "code": "562570",
           "name": "562570",
-          "changePct": -3.5,
-          "amount": 0.07,
-          "nav": 1.377,
-          "amplitude": 3.433777154870352
+          "changePct": -3.78,
+          "amount": 0.1,
+          "nav": 1.373,
+          "amplitude": 4.134548002803079
         },
         {
           "code": "562580",
           "name": "562580",
-          "changePct": -1.47,
-          "amount": 0.01,
-          "nav": 1.07,
-          "amplitude": 0.7366482504604058
+          "changePct": -1.57,
+          "amount": 0.03,
+          "nav": 1.069,
+          "amplitude": 0.9208103130755072
         },
         {
           "code": "562590",
           "name": "562590",
-          "changePct": -3.9,
-          "amount": 2.3,
-          "nav": 1.083,
-          "amplitude": 2.0408163265306043
+          "changePct": -6.03,
+          "amount": 4.36,
+          "nav": 1.059,
+          "amplitude": 4.7914818101153545
         },
         {
           "code": "562600",
           "name": "562600",
-          "changePct": -1.52,
-          "amount": 0.06,
-          "nav": 0.778,
-          "amplitude": 1.3924050632911404
+          "changePct": -1.77,
+          "amount": 0.11,
+          "nav": 0.776,
+          "amplitude": 1.645569620253166
         },
         {
           "code": "562660",
           "name": "562660",
-          "changePct": -3.01,
-          "amount": 0.11,
-          "nav": 1.868,
-          "amplitude": 3.0114226375908646
+          "changePct": -3.37,
+          "amount": 0.2,
+          "nav": 1.861,
+          "amplitude": 3.582554517133954
         },
         {
           "code": "562700",
           "name": "562700",
-          "changePct": -3.91,
-          "amount": 0.06,
-          "nav": 1.204,
-          "amplitude": 3.990422984836397
+          "changePct": -4.15,
+          "amount": 0.1,
+          "nav": 1.201,
+          "amplitude": 4.389465283320027
         },
         {
           "code": "588000",
           "name": "588000",
-          "changePct": -3.87,
-          "amount": 26.95,
-          "nav": 1.815,
-          "amplitude": 1.6949152542372898
+          "changePct": -5.35,
+          "amount": 50.64,
+          "nav": 1.787,
+          "amplitude": 3.49576271186441
         },
         {
           "code": "588130",
           "name": "588130",
-          "changePct": -0.75,
-          "amount": 0.27,
-          "nav": 1.064,
-          "amplitude": 1.5858208955223791
+          "changePct": -1.77,
+          "amount": 0.55,
+          "nav": 1.053,
+          "amplitude": 2.4253731343283604
         },
         {
           "code": "588170",
           "name": "588170",
-          "changePct": -3.71,
-          "amount": 24.35,
-          "nav": 1.063,
-          "amplitude": 2.083333333333345
+          "changePct": -5.89,
+          "amount": 45.02,
+          "nav": 1.039,
+          "amplitude": 4.710144927536235
         },
         {
           "code": "588510",
           "name": "588510",
-          "changePct": -4.16,
-          "amount": 0.06,
-          "nav": 0.875,
-          "amplitude": 3.9430449069003317
+          "changePct": -5.37,
+          "amount": 0.09,
+          "nav": 0.864,
+          "amplitude": 5.257393209200443
         },
         {
           "code": "588800",
           "name": "588800",
-          "changePct": -4.09,
-          "amount": 1.03,
-          "nav": 1.829,
-          "amplitude": 2.1499737808075587
+          "changePct": -5.4,
+          "amount": 1.61,
+          "nav": 1.804,
+          "amplitude": 3.880440482433144
         },
         {
           "code": "588820",
           "name": "588820",
-          "changePct": -4.34,
-          "amount": 0.07,
-          "nav": 1.963,
-          "amplitude": 3.4113060428849824
+          "changePct": -5.6,
+          "amount": 0.19,
+          "nav": 1.937,
+          "amplitude": 5.019493177387913
         },
         {
           "code": "589000",
           "name": "589000",
-          "changePct": -4.02,
-          "amount": 0.4,
-          "nav": 1.624,
-          "amplitude": 2.1867612293144165
+          "changePct": -5.38,
+          "amount": 0.58,
+          "nav": 1.601,
+          "amplitude": 3.9007092198581463
         },
         {
           "code": "589010",
           "name": "589010",
-          "changePct": -4.46,
-          "amount": 0.56,
-          "nav": 1.435,
-          "amplitude": 3.19573901464714
+          "changePct": -5.46,
+          "amount": 0.83,
+          "nav": 1.42,
+          "amplitude": 4.3275632490013285
         },
         {
           "code": "589550",
           "name": "589550",
-          "changePct": -2.03,
-          "amount": 0,
-          "nav": 1.352,
-          "amplitude": 1.8115942028985446
+          "changePct": -2.75,
+          "amount": 0.01,
+          "nav": 1.342,
+          "amplitude": 2.5362318840579654
         },
         {
           "code": "159021",
@@ -797,1420 +868,1420 @@
         {
           "code": "159030",
           "name": "159030",
-          "changePct": -0.56,
-          "amount": 0.44,
-          "nav": 0.895,
+          "changePct": -0.89,
+          "amount": 0.49,
+          "nav": 0.892,
           "amplitude": 3.66666666666667
         },
         {
           "code": "159053",
           "name": "159053",
-          "changePct": -2.83,
-          "amount": 0.06,
-          "nav": 0.927,
-          "amplitude": 1.4675052410901364
+          "changePct": -3.25,
+          "amount": 0.11,
+          "nav": 0.923,
+          "amplitude": 2.2012578616352108
         },
         {
           "code": "159068",
           "name": "159068",
-          "changePct": -3.28,
-          "amount": 0.02,
-          "nav": 1.003,
-          "amplitude": 3.182256509161055
+          "changePct": -2.6,
+          "amount": 0.03,
+          "nav": 1.01,
+          "amplitude": 3.471552555448412
         },
         {
           "code": "159075",
           "name": "159075",
-          "changePct": -3.74,
-          "amount": 0.01,
-          "nav": 0.926,
-          "amplitude": 2.3908523908523818
+          "changePct": -4.68,
+          "amount": 0.02,
+          "nav": 0.917,
+          "amplitude": 3.4303534303534224
         },
         {
           "code": "159100",
           "name": "159100",
-          "changePct": -0.77,
-          "amount": 0.12,
-          "nav": 1.037,
+          "changePct": -0.67,
+          "amount": 0.14,
+          "nav": 1.038,
           "amplitude": 0.4784688995215422
         },
         {
           "code": "159101",
           "name": "159101",
-          "changePct": -0.53,
-          "amount": 0.33,
-          "nav": 0.756,
-          "amplitude": 1.0526315789473693
+          "changePct": -0.26,
+          "amount": 0.68,
+          "nav": 0.758,
+          "amplitude": 1.3157894736842117
         },
         {
           "code": "159118",
           "name": "159118",
-          "changePct": -0.42,
-          "amount": 0,
-          "nav": 0.953,
+          "changePct": 0,
+          "amount": 0.01,
+          "nav": 0.957,
           "amplitude": 1.4629049111807746
         },
         {
           "code": "159151",
           "name": "159151",
-          "changePct": -1.17,
-          "amount": 0.05,
-          "nav": 0.933,
-          "amplitude": 1.0593220338982943
+          "changePct": -1.48,
+          "amount": 0.08,
+          "nav": 0.93,
+          "amplitude": 1.2711864406779556
         },
         {
           "code": "159189",
           "name": "159189",
-          "changePct": 0.22,
-          "amount": 0.03,
-          "nav": 0.905,
+          "changePct": 0.11,
+          "amount": 0.09,
+          "nav": 0.904,
           "amplitude": 1.5503875968992262
         },
         {
           "code": "159201",
           "name": "159201",
-          "changePct": -0.34,
-          "amount": 0.49,
-          "nav": 1.181,
-          "amplitude": 0.421940928270052
+          "changePct": -0.51,
+          "amount": 0.84,
+          "nav": 1.179,
+          "amplitude": 0.5063291139240511
         },
         {
           "code": "159227",
           "name": "159227",
-          "changePct": -3.76,
-          "amount": 2.16,
-          "nav": 0.997,
-          "amplitude": 5.40540540540541
+          "changePct": -4.05,
+          "amount": 2.65,
+          "nav": 0.994,
+          "amplitude": 5.791505791505797
         },
         {
           "code": "159230",
           "name": "159230",
-          "changePct": -3.35,
-          "amount": 0.06,
-          "nav": 0.952,
-          "amplitude": 4.263959390862948
+          "changePct": -3.65,
+          "amount": 0.07,
+          "nav": 0.949,
+          "amplitude": 4.670050761421324
         },
         {
           "code": "159256",
           "name": "159256",
-          "changePct": -3.96,
-          "amount": 0.39,
-          "nav": 0.824,
-          "amplitude": 2.7972027972027997
+          "changePct": -3.85,
+          "amount": 0.65,
+          "nav": 0.825,
+          "amplitude": 3.379953379953383
         },
         {
           "code": "159301",
           "name": "159301",
-          "changePct": -0.21,
-          "amount": 0.02,
-          "nav": 0.961,
-          "amplitude": 0.5192107995846318
+          "changePct": -0.1,
+          "amount": 0.05,
+          "nav": 0.962,
+          "amplitude": 0.7268951194184845
         },
         {
           "code": "159323",
           "name": "159323",
-          "changePct": -1.68,
-          "amount": 0.47,
-          "nav": 1.056,
+          "changePct": -1.77,
+          "amount": 1.22,
+          "nav": 1.055,
           "amplitude": 1.1173184357541908
         },
         {
           "code": "159326",
           "name": "159326",
-          "changePct": -3.03,
-          "amount": 2.73,
-          "nav": 1.696,
-          "amplitude": 1.6580903373356153
+          "changePct": -3.6,
+          "amount": 4.1,
+          "nav": 1.686,
+          "amplitude": 2.344196683819321
         },
         {
           "code": "159367",
           "name": "159367",
-          "changePct": -3.42,
-          "amount": 0.08,
-          "nav": 1.78,
-          "amplitude": 1.6277807921866536
+          "changePct": -4.56,
+          "amount": 0.13,
+          "nav": 1.759,
+          "amplitude": 2.984264785675538
         },
         {
           "code": "159368",
           "name": "159368",
-          "changePct": -3.12,
-          "amount": 0.61,
-          "nav": 0.684,
-          "amplitude": 2.9745042492917717
+          "changePct": -3.4,
+          "amount": 1.1,
+          "nav": 0.682,
+          "amplitude": 3.5410764872521123
         },
         {
           "code": "159381",
           "name": "159381",
-          "changePct": -4.23,
-          "amount": 1.83,
-          "nav": 1.199,
-          "amplitude": 2.47603833865814
+          "changePct": -5.59,
+          "amount": 3.03,
+          "nav": 1.182,
+          "amplitude": 3.913738019169324
         },
         {
           "code": "159510",
           "name": "159510",
-          "changePct": -0.4,
-          "amount": 0.01,
-          "nav": 1.257,
-          "amplitude": 0.15847860538827271
+          "changePct": -0.48,
+          "amount": 0.02,
+          "nav": 1.256,
+          "amplitude": 0.31695721077654543
         },
         {
           "code": "159523",
           "name": "159523",
-          "changePct": -2.28,
-          "amount": 0.03,
-          "nav": 1.288,
-          "amplitude": 1.2898330804248788
+          "changePct": -3.11,
+          "amount": 0.08,
+          "nav": 1.277,
+          "amplitude": 2.124430955993932
         },
         {
           "code": "159547",
           "name": "159547",
           "changePct": 0.93,
-          "amount": 0.3,
+          "amount": 0.55,
           "nav": 1.197,
           "amplitude": 0.9274873524451854
         },
         {
           "code": "159562",
           "name": "159562",
-          "changePct": -0.04,
-          "amount": 0.71,
-          "nav": 2.261,
-          "amplitude": 3.315649867373994
+          "changePct": 0.53,
+          "amount": 1.32,
+          "nav": 2.274,
+          "amplitude": 3.9787798408487998
         },
         {
           "code": "159563",
           "name": "159563",
-          "changePct": -3.09,
-          "amount": 0.01,
-          "nav": 1.852,
-          "amplitude": 3.2443746729461043
+          "changePct": -3.77,
+          "amount": 0.02,
+          "nav": 1.839,
+          "amplitude": 4.081632653061228
         },
         {
           "code": "159573",
           "name": "159573",
-          "changePct": -3.96,
-          "amount": 0.07,
-          "nav": 1.457,
-          "amplitude": 3.1641397495055914
+          "changePct": -4.48,
+          "amount": 0.13,
+          "nav": 1.449,
+          "amplitude": 3.8233355306525927
         },
         {
           "code": "159601",
           "name": "159601",
-          "changePct": -1.56,
-          "amount": 0.19,
-          "nav": 1.137,
-          "amplitude": 1.125541125541117
+          "changePct": -2.08,
+          "amount": 0.35,
+          "nav": 1.131,
+          "amplitude": 1.731601731601733
         },
         {
           "code": "159617",
           "name": "159617",
-          "changePct": -0.15,
-          "amount": 0.01,
-          "nav": 1.367,
-          "amplitude": 0.3652300949598169
+          "changePct": -0.07,
+          "amount": 0.02,
+          "nav": 1.368,
+          "amplitude": 0.5113221329437468
         },
         {
           "code": "159620",
           "name": "159620",
-          "changePct": -2.1,
-          "amount": 0.02,
-          "nav": 1.305,
-          "amplitude": 0.9002250562640668
+          "changePct": -2.7,
+          "amount": 0.07,
+          "nav": 1.297,
+          "amplitude": 1.8004501125281336
         },
         {
           "code": "159627",
           "name": "159627",
-          "changePct": -1.79,
-          "amount": 0.01,
-          "nav": 1.319,
-          "amplitude": 1.0424422933730464
+          "changePct": -2.38,
+          "amount": 0.03,
+          "nav": 1.311,
+          "amplitude": 1.63812360387193
         },
         {
           "code": "159635",
           "name": "159635",
           "changePct": -1.59,
-          "amount": 0.09,
+          "amount": 0.18,
           "nav": 0.988,
-          "amplitude": 1.3944223107569733
+          "amplitude": 1.5936254980079694
         },
         {
           "code": "159655",
           "name": "159655",
-          "changePct": -2.18,
-          "amount": 0.76,
-          "nav": 1.973,
-          "amplitude": 1.4873574615766003
+          "changePct": -1.78,
+          "amount": 1.68,
+          "nav": 1.981,
+          "amplitude": 1.8344075359444685
         },
         {
           "code": "159663",
           "name": "159663",
-          "changePct": -5.55,
-          "amount": 0.31,
-          "nav": 1.021,
-          "amplitude": 3.7002775208140646
+          "changePct": -6.48,
+          "amount": 0.44,
+          "nav": 1.011,
+          "amplitude": 4.995374653098987
         },
         {
           "code": "159666",
           "name": "159666",
-          "changePct": 0.21,
-          "amount": 0.04,
-          "nav": 0.976,
-          "amplitude": 0.6160164271047234
+          "changePct": 0.41,
+          "amount": 0.06,
+          "nav": 0.978,
+          "amplitude": 0.7186858316221773
         },
         {
           "code": "159711",
           "name": "159711",
-          "changePct": -0.6,
-          "amount": 0.13,
-          "nav": 1.333,
+          "changePct": -0.3,
+          "amount": 0.44,
+          "nav": 1.337,
           "amplitude": 0.9694258016405592
         },
         {
           "code": "159726",
           "name": "159726",
-          "changePct": -0.3,
-          "amount": 0.02,
-          "nav": 1.351,
+          "changePct": -0.07,
+          "amount": 0.03,
+          "nav": 1.354,
           "amplitude": 0.8856088560885618
         },
         {
           "code": "159731",
           "name": "159731",
-          "changePct": 0.21,
-          "amount": 0.19,
-          "nav": 0.952,
+          "changePct": -0.11,
+          "amount": 0.33,
+          "nav": 0.949,
           "amplitude": 1.6842105263157912
         },
         {
           "code": "159732",
           "name": "159732",
-          "changePct": -4.29,
-          "amount": 1.31,
-          "nav": 1.405,
-          "amplitude": 1.9754768392370665
+          "changePct": -5.65,
+          "amount": 2.19,
+          "nav": 1.385,
+          "amplitude": 3.6103542234332533
         },
         {
           "code": "159758",
           "name": "159758",
-          "changePct": -1.04,
-          "amount": 0.07,
-          "nav": 1.14,
-          "amplitude": 1.1284722222222137
+          "changePct": -1.22,
+          "amount": 0.15,
+          "nav": 1.138,
+          "amplitude": 1.3888888888888902
         },
         {
           "code": "159783",
           "name": "159783",
-          "changePct": -3.71,
-          "amount": 1.01,
-          "nav": 1.141,
-          "amplitude": 1.2658227848101369
+          "changePct": -5.23,
+          "amount": 1.53,
+          "nav": 1.123,
+          "amplitude": 2.9535864978902886
         },
         {
           "code": "159790",
           "name": "159790",
-          "changePct": -1.23,
-          "amount": 0.29,
-          "nav": 0.724,
-          "amplitude": 1.091405184174626
+          "changePct": -1.36,
+          "amount": 0.38,
+          "nav": 0.723,
+          "amplitude": 1.3642564802182824
         },
         {
           "code": "159791",
           "name": "159791",
-          "changePct": -1.15,
-          "amount": 0,
-          "nav": 1.118,
-          "amplitude": 0.7957559681697719
+          "changePct": -1.95,
+          "amount": 0.01,
+          "nav": 1.109,
+          "amplitude": 1.326259946949613
         },
         {
           "code": "159845",
           "name": "159845",
-          "changePct": -3.36,
-          "amount": 6.28,
-          "nav": 3.196,
-          "amplitude": 1.9352887813728472
+          "changePct": -3.93,
+          "amount": 10.93,
+          "nav": 3.177,
+          "amplitude": 2.6912609615966123
         },
         {
           "code": "159850",
           "name": "159850",
-          "changePct": -0.37,
-          "amount": 0.02,
-          "nav": 0.815,
-          "amplitude": 0.7334963325183246
+          "changePct": 0,
+          "amount": 0.23,
+          "nav": 0.818,
+          "amplitude": 0.8557457212713809
         },
         {
           "code": "159869",
           "name": "159869",
-          "changePct": -2.25,
-          "amount": 1.66,
-          "nav": 1.084,
-          "amplitude": 1.7132551848512287
+          "changePct": -1.71,
+          "amount": 2.72,
+          "nav": 1.09,
+          "amplitude": 1.9837691614066744
         },
         {
           "code": "159888",
           "name": "159888",
-          "changePct": -3.75,
-          "amount": 0.05,
-          "nav": 1.028,
-          "amplitude": 2.9962546816479425
+          "changePct": -4.12,
+          "amount": 0.06,
+          "nav": 1.024,
+          "amplitude": 3.5580524344569318
         },
         {
           "code": "159892",
           "name": "159892",
-          "changePct": 0.5,
-          "amount": 3.7,
-          "nav": 0.797,
+          "changePct": 0,
+          "amount": 4.6,
+          "nav": 0.793,
           "amplitude": 2.1437578814628013
         },
         {
           "code": "159902",
           "name": "159902",
-          "changePct": -2.42,
-          "amount": 0.03,
-          "nav": 4.68,
-          "amplitude": 3.1276063386155206
+          "changePct": -3.25,
+          "amount": 0.11,
+          "nav": 4.64,
+          "amplitude": 4.107589658048375
         },
         {
           "code": "159920",
           "name": "159920",
-          "changePct": -0.53,
-          "amount": 0.57,
-          "nav": 1.492,
-          "amplitude": 0.5333333333333339
+          "changePct": -0.2,
+          "amount": 0.97,
+          "nav": 1.497,
+          "amplitude": 0.9999999999999934
         },
         {
           "code": "159957",
           "name": "159957",
-          "changePct": -3.36,
-          "amount": 0.78,
-          "nav": 2.358,
-          "amplitude": 1.7213114754098284
+          "changePct": -4.63,
+          "amount": 1.36,
+          "nav": 2.327,
+          "amplitude": 3.073770491803268
         },
         {
           "code": "159966",
           "name": "159966",
-          "changePct": -2.8,
-          "amount": 0.04,
-          "nav": 0.555,
-          "amplitude": 2.626970227670736
+          "changePct": -3.68,
+          "amount": 0.05,
+          "nav": 0.55,
+          "amplitude": 3.3274956217162712
         },
         {
           "code": "159967",
           "name": "159967",
-          "changePct": -3.74,
-          "amount": 2.62,
-          "nav": 0.824,
-          "amplitude": 1.6355140186915904
+          "changePct": -5.49,
+          "amount": 4.85,
+          "nav": 0.809,
+          "amplitude": 3.1542056074766256
         },
         {
           "code": "159985",
           "name": "159985",
-          "changePct": 0.68,
-          "amount": 2.74,
-          "nav": 2.22,
-          "amplitude": 1.1337868480725584
+          "changePct": 0.45,
+          "amount": 3.79,
+          "nav": 2.215,
+          "amplitude": 1.541950113378676
         },
         {
           "code": "159995",
           "name": "159995",
-          "changePct": -4.67,
-          "amount": 4.01,
-          "nav": 1.205,
-          "amplitude": 1.8987341772151916
+          "changePct": -6.49,
+          "amount": 7.19,
+          "nav": 1.182,
+          "amplitude": 4.1139240506329156
         }
       ],
       "efunds": [
         {
           "code": "510100",
           "name": "510100",
-          "changePct": -1.3,
-          "amount": 0.67,
-          "nav": 2.963,
-          "amplitude": 0.6662225183211199
+          "changePct": -1.73,
+          "amount": 1.38,
+          "nav": 2.95,
+          "amplitude": 1.1658894070619634
         },
         {
           "code": "510130",
           "name": "510130",
-          "changePct": -0.99,
-          "amount": 0.01,
-          "nav": 7.389,
-          "amplitude": 0.46898030282728315
+          "changePct": -1.37,
+          "amount": 0.02,
+          "nav": 7.361,
+          "amplitude": 0.8307651078654733
         },
         {
           "code": "510310",
           "name": "510310",
-          "changePct": -1.66,
-          "amount": 2.31,
-          "nav": 4.569,
-          "amplitude": 0.9900990099009959
+          "changePct": -2.2,
+          "amount": 3.64,
+          "nav": 4.544,
+          "amplitude": 1.6142918639690096
         },
         {
           "code": "510580",
           "name": "510580",
-          "changePct": -2.46,
-          "amount": 0.66,
-          "nav": 4.195,
-          "amplitude": 1.1857707509881459
+          "changePct": -3.21,
+          "amount": 1.05,
+          "nav": 4.163,
+          "amplitude": 2.092536619390857
         },
         {
           "code": "510900",
           "name": "510900",
-          "changePct": -0.29,
-          "amount": 0.33,
-          "nav": 1.042,
-          "amplitude": 0.5741626794258379
+          "changePct": 0.1,
+          "amount": 0.51,
+          "nav": 1.046,
+          "amplitude": 1.1483253588516757
         },
         {
           "code": "511110",
           "name": "511110",
           "changePct": 0.03,
-          "amount": 0.24,
-          "nav": 103.191,
+          "amount": 0.81,
+          "nav": 103.184,
           "amplitude": 0.04265384466245
         },
         {
           "code": "511800",
           "name": "511800",
           "changePct": 0,
-          "amount": 0,
+          "amount": 0.01,
           "nav": 100.001,
-          "amplitude": 0.007999600019994566
+          "amplitude": 0.008999550022499216
         },
         {
           "code": "512010",
           "name": "512010",
-          "changePct": -0.5,
-          "amount": 1.5,
-          "nav": 0.399,
+          "changePct": -1,
+          "amount": 2.44,
+          "nav": 0.397,
           "amplitude": 1.4962593516209488
         },
         {
           "code": "512030",
           "name": "512030",
-          "changePct": -0.78,
+          "changePct": -1.21,
           "amount": 0,
-          "nav": 1.145,
-          "amplitude": 0.25996533795493
+          "nav": 1.14,
+          "amplitude": 0.6932409012131723
         },
         {
           "code": "512070",
           "name": "512070",
-          "changePct": -0.51,
-          "amount": 1.15,
-          "nav": 0.773,
-          "amplitude": 0.9009009009009016
+          "changePct": -0.77,
+          "amount": 1.91,
+          "nav": 0.771,
+          "amplitude": 1.1583011583011593
         },
         {
           "code": "512090",
           "name": "512090",
-          "changePct": -1.61,
-          "amount": 0.09,
-          "nav": 2.013,
-          "amplitude": 1.270772238514186
+          "changePct": -2.1,
+          "amount": 0.34,
+          "nav": 2.003,
+          "amplitude": 1.8572825024438053
         },
         {
           "code": "512560",
           "name": "512560",
-          "changePct": -3.53,
-          "amount": 0.24,
-          "nav": 0.71,
-          "amplitude": 4.076086956521743
+          "changePct": -4.08,
+          "amount": 0.43,
+          "nav": 0.706,
+          "amplitude": 4.619565217391308
         },
         {
           "code": "512570",
           "name": "512570",
-          "changePct": -0.65,
-          "amount": 0.77,
-          "nav": 1.078,
-          "amplitude": 1.0138248847926379
+          "changePct": -1.11,
+          "amount": 1.12,
+          "nav": 1.073,
+          "amplitude": 1.3824884792626844
         },
         {
           "code": "513000",
           "name": "513000",
-          "changePct": -2.87,
-          "amount": 0.55,
-          "nav": 2.271,
-          "amplitude": 1.0265183917878538
+          "changePct": -2.91,
+          "amount": 0.76,
+          "nav": 2.27,
+          "amplitude": 1.15483319076134
         },
         {
           "code": "513010",
           "name": "513010",
-          "changePct": -1.78,
-          "amount": 1.95,
-          "nav": 0.607,
-          "amplitude": 0.80906148867314
+          "changePct": -1.46,
+          "amount": 3.01,
+          "nav": 0.609,
+          "amplitude": 0.9708737864077679
         },
         {
           "code": "513040",
           "name": "513040",
-          "changePct": -0.84,
-          "amount": 1.68,
-          "nav": 0.948,
-          "amplitude": 0.7322175732217581
+          "changePct": 0,
+          "amount": 2.85,
+          "nav": 0.956,
+          "amplitude": 1.6736401673640184
         },
         {
           "code": "513050",
           "name": "513050",
-          "changePct": -0.99,
-          "amount": 5.28,
-          "nav": 1.105,
-          "amplitude": 0.8064516129032364
+          "changePct": -0.18,
+          "amount": 10.14,
+          "nav": 1.114,
+          "amplitude": 1.702508960573488
         },
         {
           "code": "513070",
           "name": "513070",
-          "changePct": -0.18,
-          "amount": 0.53,
-          "nav": 1.108,
+          "changePct": 0.09,
+          "amount": 0.71,
+          "nav": 1.111,
           "amplitude": 0.9909909909909818
         },
         {
           "code": "513090",
           "name": "513090",
-          "changePct": -0.39,
-          "amount": 4.92,
-          "nav": 1.811,
+          "changePct": -0.44,
+          "amount": 9.45,
+          "nav": 1.81,
           "amplitude": 0.6600660066006606
         },
         {
           "code": "513200",
           "name": "513200",
-          "changePct": 0.56,
-          "amount": 0.77,
-          "nav": 1.077,
+          "changePct": -0.09,
+          "amount": 0.99,
+          "nav": 1.07,
           "amplitude": 2.054154995331468
         },
         {
           "code": "513210",
           "name": "513210",
-          "changePct": -0.6,
-          "amount": 0.01,
-          "nav": 1.503,
-          "amplitude": 0.5952380952380885
+          "changePct": -0.13,
+          "amount": 0.02,
+          "nav": 1.51,
+          "amplitude": 0.7936507936507943
         },
         {
           "code": "513320",
           "name": "513320",
-          "changePct": -0.27,
-          "amount": 0.03,
-          "nav": 1.101,
-          "amplitude": 0.724637681159421
+          "changePct": 0,
+          "amount": 0.09,
+          "nav": 1.104,
+          "amplitude": 1.0869565217391313
         },
         {
           "code": "513850",
           "name": "513850",
           "changePct": -1.74,
-          "amount": 0.34,
+          "amount": 0.47,
           "nav": 1.804,
-          "amplitude": 1.4161220043572997
+          "amplitude": 1.4705882352941249
         },
         {
           "code": "515110",
           "name": "515110",
-          "changePct": -0.6,
-          "amount": 0,
-          "nav": 1.643,
-          "amplitude": 0.8469449485783431
+          "changePct": -0.73,
+          "amount": 0.05,
+          "nav": 1.641,
+          "amplitude": 0.9074410163339458
         },
         {
           "code": "515180",
           "name": "515180",
-          "changePct": 0.56,
-          "amount": 1.03,
-          "nav": 1.428,
+          "changePct": 0.7,
+          "amount": 2.07,
+          "nav": 1.43,
           "amplitude": 0.7042253521126767
         },
         {
           "code": "515810",
           "name": "515810",
-          "changePct": -1.76,
-          "amount": 0.06,
-          "nav": 1.731,
-          "amplitude": 0.8513053348467594
+          "changePct": -2.44,
+          "amount": 0.07,
+          "nav": 1.719,
+          "amplitude": 1.6458569807037409
         },
         {
           "code": "516070",
           "name": "516070",
-          "changePct": -1.16,
-          "amount": 0.01,
-          "nav": 0.596,
-          "amplitude": 0.9950248756218913
+          "changePct": -1.33,
+          "amount": 0.02,
+          "nav": 0.595,
+          "amplitude": 1.4925373134328372
         },
         {
           "code": "516080",
           "name": "516080",
-          "changePct": -0.27,
-          "amount": 0.74,
-          "nav": 0.73,
-          "amplitude": 1.366120218579236
+          "changePct": -1.64,
+          "amount": 1.31,
+          "nav": 0.72,
+          "amplitude": 2.322404371584702
         },
         {
           "code": "516090",
           "name": "516090",
-          "changePct": -1.93,
-          "amount": 0.09,
-          "nav": 0.509,
-          "amplitude": 1.3487475915221592
+          "changePct": -2.31,
+          "amount": 0.22,
+          "nav": 0.507,
+          "amplitude": 1.9267822736030844
         },
         {
           "code": "516310",
           "name": "516310",
-          "changePct": 0.75,
-          "amount": 0.65,
-          "nav": 1.338,
+          "changePct": 0.9,
+          "amount": 1.27,
+          "nav": 1.34,
           "amplitude": 0.9789156626506116
         },
         {
           "code": "516350",
           "name": "516350",
-          "changePct": -4.63,
-          "amount": 1.14,
-          "nav": 1.711,
-          "amplitude": 1.950947603121524
+          "changePct": -6.47,
+          "amount": 1.7,
+          "nav": 1.678,
+          "amplitude": 4.236343366778153
         },
         {
           "code": "516510",
           "name": "516510",
-          "changePct": -4.19,
-          "amount": 1,
-          "nav": 1.694,
-          "amplitude": 2.432126696832575
+          "changePct": -4.36,
+          "amount": 1.41,
+          "nav": 1.691,
+          "amplitude": 2.884615384615381
         },
         {
           "code": "516570",
           "name": "516570",
-          "changePct": 0.58,
-          "amount": 0.12,
-          "nav": 1.041,
+          "changePct": 0.19,
+          "amount": 0.18,
+          "nav": 1.037,
           "amplitude": 1.3526570048309192
         },
         {
           "code": "516590",
           "name": "516590",
-          "changePct": -2.36,
-          "amount": 0,
-          "nav": 1.117,
-          "amplitude": 1.3986013986014
+          "changePct": -2.8,
+          "amount": 0.01,
+          "nav": 1.112,
+          "amplitude": 1.8356643356643276
         },
         {
           "code": "517010",
           "name": "517010",
-          "changePct": -1.31,
-          "amount": 0,
-          "nav": 1.129,
-          "amplitude": 0.34965034965035
+          "changePct": -1.22,
+          "amount": 0.01,
+          "nav": 1.13,
+          "amplitude": 0.524475524475525
         },
         {
           "code": "517030",
           "name": "517030",
-          "changePct": -1.12,
+          "changePct": -1.81,
           "amount": 0,
-          "nav": 1.145,
-          "amplitude": 0.08635578583764163
+          "nav": 1.137,
+          "amplitude": 0.7772020725388512
         },
         {
           "code": "517330",
           "name": "517330",
-          "changePct": -1.3,
-          "amount": 0,
-          "nav": 0.987,
-          "amplitude": 0.30000000000000027
+          "changePct": -1.8,
+          "amount": 0.01,
+          "nav": 0.982,
+          "amplitude": 0.8000000000000007
         },
         {
           "code": "520810",
           "name": "520810",
-          "changePct": -0.1,
-          "amount": 0.01,
-          "nav": 1.027,
+          "changePct": 0.1,
+          "amount": 0.02,
+          "nav": 1.029,
           "amplitude": 1.5564202334630364
         },
         {
           "code": "520850",
           "name": "520850",
-          "changePct": 0.44,
-          "amount": 0.26,
-          "nav": 0.907,
+          "changePct": -0.22,
+          "amount": 0.38,
+          "nav": 0.901,
           "amplitude": 2.104097452934664
         },
         {
           "code": "520870",
           "name": "520870",
-          "changePct": -0.67,
-          "amount": 0.16,
-          "nav": 1.036,
-          "amplitude": 0.38350910834132346
+          "changePct": -0.86,
+          "amount": 0.22,
+          "nav": 1.034,
+          "amplitude": 0.4793863854266437
         },
         {
           "code": "530060",
           "name": "530060",
-          "changePct": -1.19,
-          "amount": 0.19,
-          "nav": 0.997,
-          "amplitude": 0.6937561942517351
+          "changePct": -1.59,
+          "amount": 0.36,
+          "nav": 0.993,
+          "amplitude": 1.2884043607532223
         },
         {
           "code": "530100",
           "name": "530100",
-          "changePct": -3,
-          "amount": 0.01,
-          "nav": 1.165,
-          "amplitude": 2.9975020815986704
+          "changePct": -4,
+          "amount": 0.02,
+          "nav": 1.153,
+          "amplitude": 4.079933388842644
         },
         {
           "code": "530180",
           "name": "530180",
-          "changePct": -1.23,
-          "amount": 0.01,
-          "nav": 1.206,
-          "amplitude": 0.40950040950041894
+          "changePct": -1.56,
+          "amount": 0.05,
+          "nav": 1.202,
+          "amplitude": 0.8190008190008197
         },
         {
           "code": "530380",
           "name": "530380",
-          "changePct": -1.66,
-          "amount": 0.01,
-          "nav": 1.127,
-          "amplitude": 0.6980802792321124
+          "changePct": -2.36,
+          "amount": 0.02,
+          "nav": 1.119,
+          "amplitude": 1.570680628272253
         },
         {
           "code": "551500",
           "name": "551500",
-          "changePct": 0.03,
-          "amount": 113.78,
-          "nav": 102.215,
+          "changePct": 0.02,
+          "amount": 116.24,
+          "nav": 102.213,
           "amplitude": 0.028379066035147338
         },
         {
           "code": "560160",
           "name": "560160",
           "changePct": -1.26,
-          "amount": 0.01,
+          "amount": 0.04,
           "nav": 0.938,
-          "amplitude": 1.0526315789473695
+          "amplitude": 1.2631578947368316
         },
         {
           "code": "560370",
           "name": "560370",
-          "changePct": -0.55,
-          "amount": 0,
-          "nav": 0.902,
-          "amplitude": 0.3307607497243663
+          "changePct": -0.33,
+          "amount": 0.02,
+          "nav": 0.904,
+          "amplitude": 0.44101433296582176
         },
         {
           "code": "560390",
           "name": "560390",
-          "changePct": -3.26,
-          "amount": 0.4,
-          "nav": 0.89,
-          "amplitude": 1.8478260869565233
+          "changePct": -3.7,
+          "amount": 0.68,
+          "nav": 0.886,
+          "amplitude": 2.6086956521739153
         },
         {
           "code": "560470",
           "name": "560470",
-          "changePct": -1.74,
-          "amount": 0.02,
-          "nav": 0.904,
+          "changePct": -1.63,
+          "amount": 0.05,
+          "nav": 0.905,
           "amplitude": 2.1739130434782625
         },
         {
           "code": "560930",
           "name": "560930",
-          "changePct": -0.57,
-          "amount": 0.02,
-          "nav": 0.875,
-          "amplitude": 0.7954545454545462
+          "changePct": -0.68,
+          "amount": 0.04,
+          "nav": 0.874,
+          "amplitude": 1.0227272727272736
         },
         {
           "code": "561050",
           "name": "561050",
-          "changePct": -2.72,
-          "amount": 0.16,
-          "nav": 0.893,
-          "amplitude": 1.4161220043572997
+          "changePct": -3.05,
+          "amount": 0.18,
+          "nav": 0.89,
+          "amplitude": 2.0697167755991304
         },
         {
           "code": "561890",
           "name": "561890",
-          "changePct": -1.92,
-          "amount": 0.02,
-          "nav": 1.02,
-          "amplitude": 1.0576923076923193
+          "changePct": -2.69,
+          "amount": 0.03,
+          "nav": 1.012,
+          "amplitude": 1.7307692307692322
         },
         {
           "code": "562900",
           "name": "562900",
-          "changePct": -1.42,
-          "amount": 0.12,
-          "nav": 0.693,
-          "amplitude": 1.7069701280227612
+          "changePct": -1.99,
+          "amount": 0.17,
+          "nav": 0.689,
+          "amplitude": 2.1337126600284515
         },
         {
           "code": "562910",
           "name": "562910",
-          "changePct": -2.39,
-          "amount": 0.04,
-          "nav": 0.856,
-          "amplitude": 1.5963511972633995
+          "changePct": -2.62,
+          "amount": 0.06,
+          "nav": 0.854,
+          "amplitude": 2.1664766248574705
         },
         {
           "code": "562920",
           "name": "562920",
-          "changePct": -4.27,
-          "amount": 0.01,
-          "nav": 0.92,
-          "amplitude": 3.329864724245569
+          "changePct": -4.06,
+          "amount": 0.02,
+          "nav": 0.922,
+          "amplitude": 3.7460978147762667
         },
         {
           "code": "562930",
           "name": "562930",
-          "changePct": -3.52,
-          "amount": 0.33,
-          "nav": 0.713,
-          "amplitude": 2.4357239512855235
+          "changePct": -2.84,
+          "amount": 0.61,
+          "nav": 0.718,
+          "amplitude": 2.7063599458728036
         },
         {
           "code": "562950",
           "name": "562950",
-          "changePct": -4.5,
-          "amount": 0.43,
-          "nav": 1.591,
-          "amplitude": 1.980792316926766
+          "changePct": -6,
+          "amount": 0.75,
+          "nav": 1.566,
+          "amplitude": 3.7214885954381787
         },
         {
           "code": "562960",
           "name": "562960",
-          "changePct": -0.53,
-          "amount": 0.07,
-          "nav": 1.128,
-          "amplitude": 0.7936507936507846
+          "changePct": -0.44,
+          "amount": 0.17,
+          "nav": 1.129,
+          "amplitude": 0.8818342151675493
         },
         {
           "code": "562970",
           "name": "562970",
-          "changePct": -3.27,
-          "amount": 0.07,
-          "nav": 1.007,
-          "amplitude": 3.6503362151777172
+          "changePct": -3.55,
+          "amount": 0.09,
+          "nav": 1.004,
+          "amplitude": 4.3227665706051805
         },
         {
           "code": "562990",
           "name": "562990",
           "changePct": -1.21,
-          "amount": 0.01,
+          "amount": 0.02,
           "nav": 0.979,
           "amplitude": 1.0090817356205861
         },
         {
           "code": "563000",
           "name": "563000",
-          "changePct": -1.47,
-          "amount": 0.08,
-          "nav": 1.142,
-          "amplitude": 1.380500431406386
+          "changePct": -2.07,
+          "amount": 0.1,
+          "nav": 1.135,
+          "amplitude": 1.9844693701466705
         },
         {
           "code": "563010",
           "name": "563010",
-          "changePct": -2.9,
-          "amount": 0.04,
-          "nav": 2.173,
-          "amplitude": 2.1894548704200147
+          "changePct": -3.66,
+          "amount": 0.09,
+          "nav": 2.156,
+          "amplitude": 2.949061662198384
         },
         {
           "code": "563020",
           "name": "563020",
-          "changePct": 0.69,
-          "amount": 0.84,
-          "nav": 1.163,
+          "changePct": 0.78,
+          "amount": 1.46,
+          "nav": 1.164,
           "amplitude": 0.7792207792207896
         },
         {
           "code": "563030",
           "name": "563030",
-          "changePct": -1.83,
-          "amount": 0.02,
-          "nav": 1.609,
-          "amplitude": 1.0372178157413
+          "changePct": -2.26,
+          "amount": 0.03,
+          "nav": 1.602,
+          "amplitude": 1.5253203172666205
         },
         {
           "code": "563050",
           "name": "563050",
-          "changePct": -3.72,
-          "amount": 0.03,
-          "nav": 1.346,
-          "amplitude": 1.7167381974248945
+          "changePct": -4.65,
+          "amount": 0.06,
+          "nav": 1.333,
+          "amplitude": 3.004291845493565
         },
         {
           "code": "563060",
           "name": "563060",
-          "changePct": -0.82,
+          "changePct": -1.1,
           "amount": 0,
-          "nav": 1.083,
-          "amplitude": 1.831501831501833
+          "nav": 1.08,
+          "amplitude": 2.1978021978021998
         },
         {
           "code": "563080",
           "name": "563080",
-          "changePct": -1.27,
-          "amount": 0.12,
-          "nav": 1.394,
-          "amplitude": 0.7790368271954761
+          "changePct": -1.77,
+          "amount": 0.18,
+          "nav": 1.387,
+          "amplitude": 1.274787535410766
         },
         {
           "code": "563090",
           "name": "563090",
-          "changePct": -1.11,
-          "amount": 0.02,
-          "nav": 1.426,
-          "amplitude": 1.040221914008315
+          "changePct": -1.66,
+          "amount": 0.04,
+          "nav": 1.418,
+          "amplitude": 1.456310679611644
         },
         {
           "code": "563510",
           "name": "563510",
-          "changePct": 0.91,
+          "changePct": 0.7,
           "amount": 0.04,
-          "nav": 1.002,
+          "nav": 1,
           "amplitude": 1.0070493454179263
         },
         {
           "code": "563530",
           "name": "563530",
-          "changePct": -4.96,
-          "amount": 1.35,
-          "nav": 1.131,
-          "amplitude": 8.319327731092436
+          "changePct": -5.46,
+          "amount": 1.65,
+          "nav": 1.125,
+          "amplitude": 8.99159663865546
         },
         {
           "code": "563600",
           "name": "563600",
-          "changePct": -1.49,
-          "amount": 0,
-          "nav": 1.058,
-          "amplitude": 0.9310986964618257
+          "changePct": -2.05,
+          "amount": 0.01,
+          "nav": 1.052,
+          "amplitude": 1.6759776536312863
         },
         {
           "code": "563700",
           "name": "563700",
           "changePct": 0.67,
-          "amount": 0.02,
+          "amount": 0.05,
           "nav": 1.053,
           "amplitude": 0.8604206500955924
         },
         {
           "code": "588020",
           "name": "588020",
-          "changePct": -4.31,
-          "amount": 1.42,
-          "nav": 0.887,
-          "amplitude": 1.6181229773462795
+          "changePct": -5.93,
+          "amount": 2.25,
+          "nav": 0.872,
+          "amplitude": 3.667745415318234
         },
         {
           "code": "588080",
           "name": "588080",
-          "changePct": -3.98,
-          "amount": 7.21,
-          "nav": 1.759,
-          "amplitude": 2.0196506550218296
+          "changePct": -5.4,
+          "amount": 12.61,
+          "nav": 1.733,
+          "amplitude": 3.820960698689947
         },
         {
           "code": "588210",
           "name": "588210",
-          "changePct": -4.07,
-          "amount": 0.12,
-          "nav": 1.86,
-          "amplitude": 2.320783909231559
+          "changePct": -5.36,
+          "amount": 0.16,
+          "nav": 1.835,
+          "amplitude": 4.022692109334712
         },
         {
           "code": "588270",
           "name": "588270",
-          "changePct": -4.18,
-          "amount": 0.1,
-          "nav": 1.718,
-          "amplitude": 3.0674846625766836
+          "changePct": -5.52,
+          "amount": 0.21,
+          "nav": 1.694,
+          "amplitude": 4.68488566648075
         },
         {
           "code": "588500",
           "name": "588500",
-          "changePct": -4.17,
-          "amount": 0.08,
-          "nav": 2.665,
-          "amplitude": 2.8766630708378305
+          "changePct": -5.65,
+          "amount": 0.11,
+          "nav": 2.624,
+          "amplitude": 4.530744336569575
         },
         {
           "code": "588550",
           "name": "588550",
-          "changePct": -3.57,
-          "amount": 0.02,
-          "nav": 1.405,
-          "amplitude": 2.196293754289638
+          "changePct": -5.01,
+          "amount": 0.05,
+          "nav": 1.384,
+          "amplitude": 4.186684969114631
         },
         {
           "code": "588730",
           "name": "588730",
-          "changePct": -4.41,
-          "amount": 0.52,
-          "nav": 1.516,
-          "amplitude": 2.5851197982345475
+          "changePct": -5.49,
+          "amount": 0.77,
+          "nav": 1.499,
+          "amplitude": 3.783102143757871
         },
         {
           "code": "589030",
           "name": "589030",
-          "changePct": -4.89,
-          "amount": 0.86,
-          "nav": 1.166,
-          "amplitude": 2.854812398042426
+          "changePct": -6.53,
+          "amount": 1.31,
+          "nav": 1.146,
+          "amplitude": 4.812398042414369
         },
         {
           "code": "589130",
           "name": "589130",
-          "changePct": -4.35,
-          "amount": 0.95,
-          "nav": 1.45,
-          "amplitude": 1.9788918205804769
+          "changePct": -6.2,
+          "amount": 1.87,
+          "nav": 1.422,
+          "amplitude": 4.221635883905018
         },
         {
           "code": "589800",
           "name": "589800",
-          "changePct": -3.88,
-          "amount": 0.2,
-          "nav": 1.635,
-          "amplitude": 1.9400352733686017
+          "changePct": -5.17,
+          "amount": 0.43,
+          "nav": 1.613,
+          "amplitude": 3.644914756025857
         },
         {
           "code": "589960",
           "name": "589960",
-          "changePct": -3.33,
-          "amount": 0.14,
-          "nav": 0.901,
+          "changePct": -3.86,
+          "amount": 0.24,
+          "nav": 0.896,
           "amplitude": 5.364806866952794
         },
         {
           "code": "159001",
           "name": "159001",
           "changePct": 0,
-          "amount": 1.96,
-          "nav": 100,
+          "amount": 2.4,
+          "nav": 100.001,
           "amplitude": 0.0020000000000095497
         },
         {
           "code": "159009",
           "name": "159009",
-          "changePct": -3.02,
+          "changePct": -3.34,
           "amount": 0.01,
-          "nav": 0.9,
-          "amplitude": 2.801724137931037
+          "nav": 0.897,
+          "amplitude": 3.3405172413793127
         },
         {
           "code": "159020",
           "name": "159020",
-          "changePct": -1.52,
-          "amount": 0.03,
-          "nav": 0.907,
-          "amplitude": 1.8458197611292089
+          "changePct": -1.95,
+          "amount": 0.05,
+          "nav": 0.903,
+          "amplitude": 2.1715526601520105
         },
         {
           "code": "159032",
           "name": "159032",
-          "changePct": -2.6,
-          "amount": 0.03,
-          "nav": 0.898,
-          "amplitude": 1.4099783080260315
+          "changePct": -2.82,
+          "amount": 0.05,
+          "nav": 0.896,
+          "amplitude": 1.5184381778741878
         },
         {
           "code": "159038",
           "name": "159038",
-          "changePct": -0.31,
-          "amount": 0.41,
-          "nav": 0.96,
+          "changePct": -0.83,
+          "amount": 0.51,
+          "nav": 0.955,
           "amplitude": 3.530633437175496
         },
         {
           "code": "159051",
           "name": "159051",
-          "changePct": -1.73,
+          "changePct": -1.92,
           "amount": 0.01,
-          "nav": 1.021,
-          "amplitude": 2.7911453320500614
+          "nav": 1.019,
+          "amplitude": 3.0798845043310905
         },
         {
           "code": "159091",
           "name": "159091",
-          "changePct": 0.19,
-          "amount": 0.01,
-          "nav": 1.037,
-          "amplitude": 0.8695652173912944
+          "changePct": 0.29,
+          "amount": 0.02,
+          "nav": 1.038,
+          "amplitude": 0.966183574879228
         },
         {
           "code": "159105",
           "name": "159105",
-          "changePct": 0.64,
-          "amount": 0.78,
-          "nav": 0.941,
+          "changePct": 0.11,
+          "amount": 0.95,
+          "nav": 0.936,
           "amplitude": 2.032085561497316
         },
         {
           "code": "159121",
           "name": "159121",
-          "changePct": -1.19,
-          "amount": 0.05,
-          "nav": 0.75,
+          "changePct": -1.32,
+          "amount": 0.07,
+          "nav": 0.749,
           "amplitude": 0.7905138339920955
         },
         {
           "code": "159138",
           "name": "159138",
-          "changePct": -2.47,
+          "changePct": -2.57,
           "amount": 0.01,
-          "nav": 0.91,
-          "amplitude": 2.0364415862808163
+          "nav": 0.909,
+          "amplitude": 2.4651661307609882
         },
         {
           "code": "159140",
           "name": "159140",
-          "changePct": -4.53,
-          "amount": 0.29,
-          "nav": 1.285,
-          "amplitude": 2.0059435364041542
+          "changePct": -5.94,
+          "amount": 0.48,
+          "nav": 1.266,
+          "amplitude": 3.491827637444274
         },
         {
           "code": "159150",
           "name": "159150",
-          "changePct": -2.32,
-          "amount": 0.03,
-          "nav": 1.644,
-          "amplitude": 2.3172905525846788
+          "changePct": -3.15,
+          "amount": 0.05,
+          "nav": 1.63,
+          "amplitude": 3.1491384432561
         },
         {
           "code": "159175",
           "name": "159175",
-          "changePct": -2.08,
-          "amount": 0.04,
-          "nav": 0.94,
-          "amplitude": 1.6666666666666683
+          "changePct": -2.4,
+          "amount": 0.11,
+          "nav": 0.937,
+          "amplitude": 1.9791666666666567
         },
         {
           "code": "159181",
           "name": "159181",
           "changePct": 0.11,
-          "amount": 0.02,
+          "amount": 0.05,
           "nav": 0.9,
-          "amplitude": 0.8898776418242499
+          "amplitude": 1.0011123470522811
         },
         {
           "code": "159191",
           "name": "159191",
-          "changePct": -0.32,
-          "amount": 0.01,
-          "nav": 0.94,
-          "amplitude": 0.9544008483562988
+          "changePct": -0.11,
+          "amount": 0.02,
+          "nav": 0.942,
+          "amplitude": 1.272534464475069
         },
         {
           "code": "159196",
           "name": "159196",
-          "changePct": -2.98,
-          "amount": 0.65,
-          "nav": 1.236,
-          "amplitude": 1.4913657770800555
+          "changePct": -3.45,
+          "amount": 1.02,
+          "nav": 1.23,
+          "amplitude": 2.040816326530614
         },
         {
           "code": "159222",
           "name": "159222",
-          "changePct": -0.32,
-          "amount": 0.35,
-          "nav": 1.265,
+          "changePct": -0.39,
+          "amount": 0.61,
+          "nav": 1.264,
           "amplitude": 0.472813238770686
         },
         {
           "code": "159255",
           "name": "159255",
-          "changePct": -4.07,
-          "amount": 0.01,
-          "nav": 0.849,
-          "amplitude": 4.632768361581925
+          "changePct": -4.18,
+          "amount": 0.02,
+          "nav": 0.848,
+          "amplitude": 5.084745762711869
         },
         {
           "code": "159259",
           "name": "159259",
-          "changePct": -3.93,
-          "amount": 2.22,
-          "nav": 1.369,
-          "amplitude": 1.4736842105263093
+          "changePct": -5.4,
+          "amount": 3.71,
+          "nav": 1.348,
+          "amplitude": 3.2280701754385994
         },
         {
           "code": "159263",
           "name": "159263",
-          "changePct": 0.44,
-          "amount": 0.47,
-          "nav": 1.146,
+          "changePct": 0.26,
+          "amount": 0.75,
+          "nav": 1.144,
           "amplitude": 0.6134969325153476
         },
         {
           "code": "159299",
           "name": "159299",
-          "changePct": -3.13,
-          "amount": 0.04,
-          "nav": 0.68,
-          "amplitude": 2.136752136752123
+          "changePct": -2.71,
+          "amount": 0.09,
+          "nav": 0.683,
+          "amplitude": 2.564102564102551
         },
         {
           "code": "159311",
           "name": "159311",
-          "changePct": -4.2,
-          "amount": 0,
-          "nav": 1.507,
-          "amplitude": 4.640813731722834
+          "changePct": -5.34,
+          "amount": 0.01,
+          "nav": 1.489,
+          "amplitude": 6.42085187539733
         },
         {
           "code": "159316",
           "name": "159316",
-          "changePct": 0.52,
-          "amount": 3.43,
-          "nav": 1.153,
+          "changePct": 0.09,
+          "amount": 4.59,
+          "nav": 1.148,
           "amplitude": 2.092414995640804
         },
         {
           "code": "159328",
           "name": "159328",
-          "changePct": -1.7,
+          "changePct": -1.98,
           "amount": 0.01,
-          "nav": 1.041,
-          "amplitude": 0.6610009442870743
+          "nav": 1.038,
+          "amplitude": 1.038715769593968
         },
         {
           "code": "159361",
           "name": "159361",
-          "changePct": -2.02,
-          "amount": 2.74,
-          "nav": 1.258,
-          "amplitude": 0.9345794392523372
+          "changePct": -2.65,
+          "amount": 7.6,
+          "nav": 1.25,
+          "amplitude": 1.713395638629285
         },
         {
           "code": "159369",
           "name": "159369",
-          "changePct": -3.53,
-          "amount": 0.17,
-          "nav": 1.447,
-          "amplitude": 2.1333333333333355
+          "changePct": -4.87,
+          "amount": 0.29,
+          "nav": 1.427,
+          "amplitude": 3.600000000000003
         },
         {
           "code": "159530",
           "name": "159530",
-          "changePct": -6.87,
-          "amount": 7.58,
-          "nav": 1.37,
-          "amplitude": 5.370496261046904
+          "changePct": -7.14,
+          "amount": 10.7,
+          "nav": 1.366,
+          "amplitude": 5.9143439836845655
         },
         {
           "code": "159532",
           "name": "159532",
-          "changePct": -3.21,
-          "amount": 0.17,
-          "nav": 1.628,
-          "amplitude": 2.318668252080865
+          "changePct": -3.69,
+          "amount": 0.47,
+          "nav": 1.62,
+          "amplitude": 3.2699167657550503
         },
         {
           "code": "159540",
           "name": "159540",
-          "changePct": -4.9,
-          "amount": 0.07,
-          "nav": 1.961,
-          "amplitude": 3.006789524733272
+          "changePct": -6.16,
+          "amount": 0.13,
+          "nav": 1.935,
+          "amplitude": 4.6556741028128075
         },
         {
           "code": "159545",
           "name": "159545",
-          "changePct": -0.31,
-          "amount": 0.22,
-          "nav": 1.305,
-          "amplitude": 0.6111535523300236
+          "changePct": -0.15,
+          "amount": 0.3,
+          "nav": 1.307,
+          "amplitude": 0.7639419404125294
         },
         {
           "code": "159558",
           "name": "159558",
-          "changePct": -3.84,
-          "amount": 7.07,
-          "nav": 1.201,
-          "amplitude": 2.00160128102483
+          "changePct": -5.92,
+          "amount": 12.77,
+          "nav": 1.175,
+          "amplitude": 4.7237790232185874
         },
         {
           "code": "159565",
           "name": "159565",
-          "changePct": -3.98,
-          "amount": 0.12,
-          "nav": 1.304,
-          "amplitude": 3.166421207658332
+          "changePct": -4.27,
+          "amount": 0.18,
+          "nav": 1.3,
+          "amplitude": 3.608247422680424
         },
         {
           "code": "159566",
           "name": "159566",
-          "changePct": -3.09,
-          "amount": 1.57,
-          "nav": 1.88,
-          "amplitude": 2.1649484536082495
+          "changePct": -3.45,
+          "amount": 2.15,
+          "nav": 1.873,
+          "amplitude": 2.886597938144321
         },
         {
           "code": "159572",
           "name": "159572",
-          "changePct": -4.22,
-          "amount": 0.03,
-          "nav": 1.451,
-          "amplitude": 2.7062706270627017
+          "changePct": -4.95,
+          "amount": 0.09,
+          "nav": 1.44,
+          "amplitude": 3.4323432343234357
         },
         {
           "code": "159597",
           "name": "159597",
-          "changePct": -3.49,
-          "amount": 0.18,
-          "nav": 0.829,
-          "amplitude": 1.746216530849827
+          "changePct": -4.89,
+          "amount": 0.26,
+          "nav": 0.817,
+          "amplitude": 3.1431897555296886
         },
         {
           "code": "159606",
           "name": "159606",
-          "changePct": -1.65,
-          "amount": 0.02,
-          "nav": 1.375,
-          "amplitude": 1.1444921316165961
+          "changePct": -2.15,
+          "amount": 0.05,
+          "nav": 1.368,
+          "amplitude": 2.0028612303290436
         },
         {
           "code": "159633",
           "name": "159633",
-          "changePct": -3.18,
-          "amount": 2.73,
-          "nav": 3.285,
-          "amplitude": 1.9451812555260917
+          "changePct": -3.83,
+          "amount": 5.89,
+          "nav": 3.263,
+          "amplitude": 2.7409372236958567
         },
         {
           "code": "159686",
           "name": "159686",
-          "changePct": -1.58,
-          "amount": 0.05,
-          "nav": 1.304,
-          "amplitude": 1.811320754716983
+          "changePct": -2.19,
+          "amount": 0.07,
+          "nav": 1.296,
+          "amplitude": 2.641509433962275
         },
         {
           "code": "159696",
           "name": "159696",
-          "changePct": -1.56,
-          "amount": 0.32,
-          "nav": 2.025,
-          "amplitude": 0.4375303840544432
+          "changePct": -1.8,
+          "amount": 0.54,
+          "nav": 2.02,
+          "amplitude": 0.7292173067574198
         },
         {
           "code": "159715",
           "name": "159715",
-          "changePct": -2.26,
-          "amount": 0.15,
-          "nav": 1.209,
-          "amplitude": 1.2934518997574787
+          "changePct": -2.51,
+          "amount": 0.3,
+          "nav": 1.206,
+          "amplitude": 1.8593371059013846
         },
         {
           "code": "159781",
           "name": "159781",
-          "changePct": -3.9,
-          "amount": 2.05,
-          "nav": 1.134,
-          "amplitude": 1.6101694915254157
+          "changePct": -5.42,
+          "amount": 3.28,
+          "nav": 1.116,
+          "amplitude": 3.2203389830508313
         },
         {
           "code": "159787",
@@ -2218,319 +2289,320 @@
           "changePct": -0.5,
           "amount": 0.01,
           "nav": 0.594,
-          "amplitude": 0.8375209380234514
+          "amplitude": 1.172529313232832
         },
         {
           "code": "159788",
           "name": "159788",
-          "changePct": -0.16,
-          "amount": 0.03,
-          "nav": 1.222,
-          "amplitude": 0.40849673202613507
+          "changePct": 0.08,
+          "amount": 0.05,
+          "nav": 1.225,
+          "amplitude": 0.8986928104575082
         },
         {
           "code": "159798",
           "name": "159798",
           "changePct": -0.23,
-          "amount": 0.03,
+          "amount": 0.06,
           "nav": 0.851,
-          "amplitude": 0.8206330597889808
+          "amplitude": 0.9378663540445494
         },
         {
           "code": "159807",
           "name": "159807",
-          "changePct": -3.36,
-          "amount": 0.15,
-          "nav": 0.948,
-          "amplitude": 1.325178389398574
+          "changePct": -4.49,
+          "amount": 0.24,
+          "nav": 0.937,
+          "amplitude": 2.5484199796126314
         },
         {
           "code": "159819",
           "name": "159819",
-          "changePct": -4.48,
-          "amount": 2.45,
-          "nav": 1.793,
-          "amplitude": 2.1843367075119833
+          "changePct": -5.54,
+          "amount": 3.95,
+          "nav": 1.773,
+          "amplitude": 3.409696323921154
         },
         {
           "code": "159837",
           "name": "159837",
-          "changePct": -0.57,
-          "amount": 0.12,
-          "nav": 0.522,
-          "amplitude": 1.3333333333333344
+          "changePct": -1.52,
+          "amount": 0.16,
+          "nav": 0.517,
+          "amplitude": 2.285714285714288
         },
         {
           "code": "159847",
           "name": "159847",
-          "changePct": -1.18,
-          "amount": 0.07,
-          "nav": 0.418,
-          "amplitude": 1.6548463356974008
+          "changePct": -1.65,
+          "amount": 0.12,
+          "nav": 0.416,
+          "amplitude": 2.36406619385343
         },
         {
           "code": "159895",
           "name": "159895",
-          "changePct": -4.31,
-          "amount": 0.01,
-          "nav": 1.4,
-          "amplitude": 2.32399179767601
+          "changePct": -5.19,
+          "amount": 0.02,
+          "nav": 1.387,
+          "amplitude": 3.6226930963773025
         },
         {
           "code": "159901",
           "name": "159901",
-          "changePct": -2.36,
-          "amount": 1.48,
-          "nav": 3.688,
-          "amplitude": 1.4826581943341288
+          "changePct": -3.23,
+          "amount": 2.54,
+          "nav": 3.655,
+          "amplitude": 2.382843526608416
         },
         {
           "code": "159915",
           "name": "159915",
-          "changePct": -3.28,
-          "amount": 29.27,
-          "nav": 3.601,
-          "amplitude": 1.4773032500671426
+          "changePct": -4.54,
+          "amount": 46.87,
+          "nav": 3.554,
+          "amplitude": 2.7934461455815107
         },
         {
           "code": "159934",
           "name": "159934",
-          "changePct": -0.9,
-          "amount": 1.93,
-          "nav": 9.398,
-          "amplitude": 0.48507856163662505
+          "changePct": -0.91,
+          "amount": 2.87,
+          "nav": 9.397,
+          "amplitude": 0.5694400506168962
         }
       ],
       "guotai": [
         {
           "code": "510230",
           "name": "510230",
-          "changePct": 0.39,
-          "amount": 0.14,
-          "nav": 1.294,
+          "changePct": 0.31,
+          "amount": 0.23,
+          "nav": 1.293,
           "amplitude": 0.6982156710628314
         },
         {
           "code": "510720",
           "name": "510720",
-          "changePct": 0.67,
-          "amount": 0.71,
-          "nav": 1.058,
+          "changePct": 0.57,
+          "amount": 0.9,
+          "nav": 1.057,
           "amplitude": 1.046622264510002
         },
         {
           "code": "510760",
           "name": "510760",
-          "changePct": -1.26,
-          "amount": 0.61,
-          "nav": 1.334,
-          "amplitude": 0.814211695040703
+          "changePct": -1.7,
+          "amount": 1.3,
+          "nav": 1.328,
+          "amplitude": 1.4063656550703114
         },
         {
           "code": "511010",
           "name": "511010",
-          "changePct": 0,
-          "amount": 0.8,
-          "nav": 141.283,
-          "amplitude": 0.033266564271707884
+          "changePct": -0.02,
+          "amount": 1.57,
+          "nav": 141.253,
+          "amplitude": 0.04459135210887947
         },
         {
           "code": "511260",
           "name": "511260",
-          "changePct": 0.02,
-          "amount": 1.66,
-          "nav": 135.902,
+          "changePct": 0.01,
+          "amount": 50.25,
+          "nav": 135.88,
           "amplitude": 0.04121556476362371
         },
         {
           "code": "511620",
           "name": "511620",
           "changePct": 0,
-          "amount": 0.02,
-          "nav": 100.005,
-          "amplitude": 0.001999900004995089
+          "amount": 0.05,
+          "nav": 100.006,
+          "amplitude": 0.0029998500074997388
         },
         {
           "code": "512290",
           "name": "512290",
-          "changePct": -0.28,
-          "amount": 0.37,
-          "nav": 1.081,
-          "amplitude": 1.2915129151291525
+          "changePct": -1.29,
+          "amount": 0.55,
+          "nav": 1.07,
+          "amplitude": 1.8450184501845033
         },
         {
           "code": "512660",
           "name": "512660",
-          "changePct": -3.68,
-          "amount": 1.83,
-          "nav": 1.126,
-          "amplitude": 3.849443969204442
+          "changePct": -4.02,
+          "amount": 3.38,
+          "nav": 1.122,
+          "amplitude": 4.277159965782705
         },
         {
           "code": "512720",
           "name": "512720",
-          "changePct": -4.15,
-          "amount": 0.1,
-          "nav": 1.178,
-          "amplitude": 2.847843775427188
+          "changePct": -4.23,
+          "amount": 0.2,
+          "nav": 1.177,
+          "amplitude": 3.336045565500419
         },
         {
           "code": "512760",
           "name": "512760",
-          "changePct": -4.49,
-          "amount": 1.83,
-          "nav": 1.148,
-          "amplitude": 2.0798668885191276
+          "changePct": -6.32,
+          "amount": 3.32,
+          "nav": 1.126,
+          "amplitude": 4.242928452579029
         },
         {
           "code": "512880",
           "name": "512880",
-          "changePct": -0.65,
-          "amount": 5.66,
-          "nav": 1.07,
-          "amplitude": 1.0213556174558867
+          "changePct": -1.02,
+          "amount": 9.71,
+          "nav": 1.066,
+          "amplitude": 1.4856081708449411
         },
         {
           "code": "513020",
           "name": "513020",
-          "changePct": -1.12,
-          "amount": 0.23,
-          "nav": 0.967,
+          "changePct": -1.02,
+          "amount": 0.4,
+          "nav": 0.968,
           "amplitude": 0.8179959100204507
         },
         {
           "code": "513100",
           "name": "513100",
-          "changePct": 0,
-          "amount": 0,
-          "nav": 2.239
+          "changePct": -2.19,
+          "amount": 1.06,
+          "nav": 2.19,
+          "amplitude": 0.6699419383653472
         },
         {
           "code": "513720",
           "name": "513720",
-          "changePct": -0.59,
-          "amount": 0.04,
-          "nav": 0.669,
-          "amplitude": 1.040118870728084
+          "changePct": 0.15,
+          "amount": 0.11,
+          "nav": 0.674,
+          "amplitude": 1.931649331352156
         },
         {
           "code": "515210",
           "name": "515210",
           "changePct": -1.62,
-          "amount": 0.19,
+          "amount": 0.34,
           "nav": 1.156,
-          "amplitude": 1.3617021276595758
+          "amplitude": 1.7021276595744694
         },
         {
           "code": "515220",
           "name": "515220",
-          "changePct": 0.79,
-          "amount": 4.09,
-          "nav": 1.279,
+          "changePct": 0.71,
+          "amount": 5.14,
+          "nav": 1.278,
           "amplitude": 2.0488573680063062
         },
         {
           "code": "515230",
           "name": "515230",
-          "changePct": -3.34,
-          "amount": 1.14,
-          "nav": 0.694,
-          "amplitude": 2.2284122562674114
+          "changePct": -2.65,
+          "amount": 1.72,
+          "nav": 0.699,
+          "amplitude": 2.506963788300838
         },
         {
           "code": "515880",
           "name": "515880",
-          "changePct": -4.23,
-          "amount": 14.14,
-          "nav": 0.679,
-          "amplitude": 2.2566995768688156
+          "changePct": -6.06,
+          "amount": 23.58,
+          "nav": 0.666,
+          "amplitude": 4.0902679830747415
         },
         {
           "code": "516010",
           "name": "516010",
-          "changePct": -2.36,
-          "amount": 0.32,
-          "nav": 1.074,
-          "amplitude": 1.7272727272727186
+          "changePct": -1.73,
+          "amount": 0.56,
+          "nav": 1.081,
+          "amplitude": 2.0000000000000018
         },
         {
           "code": "516110",
           "name": "516110",
           "changePct": -1.59,
-          "amount": 0.06,
+          "amount": 0.09,
           "nav": 1.112,
-          "amplitude": 1.4159292035398243
+          "amplitude": 1.5044247787610536
         },
         {
           "code": "516220",
           "name": "516220",
-          "changePct": -0.11,
-          "amount": 0.03,
-          "nav": 0.914,
+          "changePct": -0.55,
+          "amount": 0.04,
+          "nav": 0.91,
           "amplitude": 1.8579234972677612
         },
         {
           "code": "516620",
           "name": "516620",
-          "changePct": -2.65,
-          "amount": 0.09,
-          "nav": 0.808,
-          "amplitude": 2.048192771084326
+          "changePct": -2.29,
+          "amount": 0.11,
+          "nav": 0.811,
+          "amplitude": 2.168674698795169
         },
         {
           "code": "516960",
           "name": "516960",
-          "changePct": -1.83,
+          "changePct": -2.59,
           "amount": 0,
-          "nav": 0.911,
-          "amplitude": 1.185344827586208
+          "nav": 0.904,
+          "amplitude": 2.0474137931034497
         },
         {
           "code": "517090",
           "name": "517090",
-          "changePct": -0.44,
+          "changePct": -0.38,
           "amount": 0.01,
-          "nav": 1.582,
-          "amplitude": 0.4405286343612409
+          "nav": 1.583,
+          "amplitude": 0.5034612964128388
         },
         {
           "code": "517110",
           "name": "517110",
-          "changePct": 0.37,
-          "amount": 0.14,
-          "nav": 0.816,
-          "amplitude": 1.9680196801967902
+          "changePct": -0.74,
+          "amount": 0.23,
+          "nav": 0.807,
+          "amplitude": 2.3370233702336907
         },
         {
           "code": "517400",
           "name": "517400",
-          "changePct": -0.06,
-          "amount": 0.29,
-          "nav": 1.641,
-          "amplitude": 3.5322777101096126
+          "changePct": 0.49,
+          "amount": 0.51,
+          "nav": 1.65,
+          "amplitude": 4.202192448233858
         },
         {
           "code": "518800",
           "name": "518800",
-          "changePct": -0.89,
-          "amount": 1.26,
-          "nav": 9.431,
-          "amplitude": 0.5884825556956617
+          "changePct": -0.9,
+          "amount": 1.81,
+          "nav": 9.43,
+          "amplitude": 0.6830601092896122
         },
         {
           "code": "520720",
           "name": "520720",
-          "changePct": -1.56,
+          "changePct": -1.69,
           "amount": 0.04,
-          "nav": 0.757,
+          "nav": 0.756,
           "amplitude": 1.1703511053316005
         },
         {
           "code": "520930",
           "name": "520930",
-          "changePct": 0.93,
-          "amount": 0.21,
-          "nav": 0.979,
+          "changePct": 0.31,
+          "amount": 0.3,
+          "nav": 0.973,
           "amplitude": 2.371134020618559
         },
         {
@@ -2538,425 +2610,425 @@
           "name": "551800",
           "changePct": 0.03,
           "amount": 0.01,
-          "nav": 101.115,
-          "amplitude": 0.03264676203478488
+          "nav": 101.108,
+          "amplitude": 0.03363605785402547
         },
         {
           "code": "560730",
           "name": "560730",
-          "changePct": 0.98,
+          "changePct": 0.78,
           "amount": 0.02,
-          "nav": 1.03,
+          "nav": 1.028,
           "amplitude": 1.274509803921559
         },
         {
           "code": "561300",
           "name": "561300",
-          "changePct": -1.74,
-          "amount": 0.07,
-          "nav": 1.071,
-          "amplitude": 1.5596330275229473
+          "changePct": -2.29,
+          "amount": 0.14,
+          "nav": 1.065,
+          "amplitude": 2.201834862385323
         },
         {
           "code": "561310",
           "name": "561310",
-          "changePct": -4.49,
-          "amount": 0.02,
-          "nav": 0.724,
-          "amplitude": 1.9788918205804769
+          "changePct": -5.94,
+          "amount": 0.04,
+          "nav": 0.713,
+          "amplitude": 3.562005277044858
         },
         {
           "code": "561320",
           "name": "561320",
-          "changePct": 0.43,
-          "amount": 0,
-          "nav": 0.944,
-          "amplitude": 1.0638297872340319
+          "changePct": 0.64,
+          "amount": 0.01,
+          "nav": 0.946,
+          "amplitude": 1.2765957446808405
         },
         {
           "code": "561330",
           "name": "561330",
           "changePct": -2.13,
-          "amount": 0.26,
+          "amount": 0.39,
           "nav": 0.964,
-          "amplitude": 1.624365482233504
+          "amplitude": 1.7258883248730978
         },
         {
           "code": "561350",
           "name": "561350",
-          "changePct": -2.47,
-          "amount": 0.09,
-          "nav": 1.266,
-          "amplitude": 1.1556240369799617
+          "changePct": -3.24,
+          "amount": 0.16,
+          "nav": 1.256,
+          "amplitude": 2.003081664098615
         },
         {
           "code": "561360",
           "name": "561360",
-          "changePct": 0.41,
-          "amount": 0.15,
-          "nav": 1.486,
-          "amplitude": 0.9459459459459468
+          "changePct": 0.34,
+          "amount": 0.24,
+          "nav": 1.485,
+          "amplitude": 1.148648648648642
         },
         {
           "code": "561370",
           "name": "561370",
-          "changePct": -3.16,
-          "amount": 0.01,
-          "nav": 1.408,
-          "amplitude": 2.6822558459422385
+          "changePct": -3.65,
+          "amount": 0.02,
+          "nav": 1.401,
+          "amplitude": 3.438789546079783
         },
         {
           "code": "561380",
           "name": "561380",
-          "changePct": -3.59,
-          "amount": 0.28,
-          "nav": 0.752,
-          "amplitude": 2.1794871794871815
+          "changePct": -4.1,
+          "amount": 0.46,
+          "nav": 0.748,
+          "amplitude": 2.820512820512823
         },
         {
           "code": "588120",
           "name": "588120",
-          "changePct": -4.19,
-          "amount": 0.29,
-          "nav": 0.938,
-          "amplitude": 3.2686414708886535
+          "changePct": -5.62,
+          "amount": 0.46,
+          "nav": 0.924,
+          "amplitude": 4.902962206332986
         },
         {
           "code": "588360",
           "name": "588360",
-          "changePct": -3.8,
-          "amount": 0.14,
-          "nav": 1.242,
-          "amplitude": 2.711076684740505
+          "changePct": -5.27,
+          "amount": 0.23,
+          "nav": 1.223,
+          "amplitude": 4.337722695584822
         },
         {
           "code": "589100",
           "name": "589100",
-          "changePct": -4.35,
-          "amount": 0.26,
-          "nav": 0.945,
-          "amplitude": 2.0242914979757103
+          "changePct": -6.17,
+          "amount": 0.4,
+          "nav": 0.927,
+          "amplitude": 4.25101214574898
         },
         {
           "code": "589110",
           "name": "589110",
-          "changePct": -4.56,
-          "amount": 0.03,
-          "nav": 0.942,
-          "amplitude": 2.8368794326241162
+          "changePct": -5.57,
+          "amount": 0.05,
+          "nav": 0.932,
+          "amplitude": 4.154002026342445
         },
         {
           "code": "589220",
           "name": "589220",
-          "changePct": -4.35,
-          "amount": 0.1,
-          "nav": 1.033,
-          "amplitude": 2.9629629629629655
+          "changePct": -5.65,
+          "amount": 0.14,
+          "nav": 1.019,
+          "amplitude": 4.629629629629633
         },
         {
           "code": "589260",
           "name": "589260",
-          "changePct": -4.8,
-          "amount": 0.02,
-          "nav": 1.27,
-          "amplitude": 3.823088455772109
+          "changePct": -6.52,
+          "amount": 0.03,
+          "nav": 1.247,
+          "amplitude": 5.697151424287844
         },
         {
           "code": "589360",
           "name": "589360",
-          "changePct": -3.9,
-          "amount": 0.17,
-          "nav": 0.888,
-          "amplitude": 1.8398268398268414
+          "changePct": -5.3,
+          "amount": 0.43,
+          "nav": 0.875,
+          "amplitude": 3.6796536796536827
         },
         {
           "code": "589630",
           "name": "589630",
-          "changePct": -4.16,
-          "amount": 0.06,
-          "nav": 0.807,
-          "amplitude": 2.7315914489311055
+          "changePct": -5.34,
+          "amount": 0.13,
+          "nav": 0.797,
+          "amplitude": 4.156769596199516
         },
         {
           "code": "589720",
           "name": "589720",
-          "changePct": -0.21,
-          "amount": 2.67,
-          "nav": 0.971,
-          "amplitude": 1.6443987667009263
+          "changePct": -1.64,
+          "amount": 4.95,
+          "nav": 0.957,
+          "amplitude": 2.8776978417266212
         },
         {
           "code": "159033",
           "name": "159033",
-          "changePct": -0.29,
-          "amount": 0.25,
-          "nav": 1.015,
+          "changePct": -0.98,
+          "amount": 0.36,
+          "nav": 1.008,
           "amplitude": 3.438113948919442
         },
         {
           "code": "159226",
           "name": "159226",
-          "changePct": -2.19,
-          "amount": 0.04,
-          "nav": 1.293,
-          "amplitude": 2.1180030257186098
+          "changePct": -2.8,
+          "amount": 0.09,
+          "nav": 1.285,
+          "amplitude": 2.8744326777609706
         },
         {
           "code": "159331",
           "name": "159331",
-          "changePct": -0.15,
-          "amount": 0.01,
-          "nav": 1.298,
-          "amplitude": 0.6153846153846159
+          "changePct": 0,
+          "amount": 0.03,
+          "nav": 1.3,
+          "amplitude": 0.9230769230769239
         },
         {
           "code": "159338",
           "name": "159338",
-          "changePct": -1.99,
-          "amount": 6.86,
-          "nav": 1.233,
-          "amplitude": 1.0333863275039668
+          "changePct": -2.7,
+          "amount": 16.65,
+          "nav": 1.224,
+          "amplitude": 1.748807631160574
         },
         {
           "code": "159375",
           "name": "159375",
-          "changePct": -3.32,
-          "amount": 0.05,
-          "nav": 0.758,
-          "amplitude": 1.403061224489797
+          "changePct": -4.85,
+          "amount": 0.1,
+          "nav": 0.746,
+          "amplitude": 2.678571428571431
         },
         {
           "code": "159377",
           "name": "159377",
-          "changePct": -1.74,
-          "amount": 0.05,
-          "nav": 1.018,
-          "amplitude": 2.123552123552125
+          "changePct": -2.41,
+          "amount": 0.1,
+          "nav": 1.011,
+          "amplitude": 2.7992277992278125
         },
         {
           "code": "159387",
           "name": "159387",
-          "changePct": -3.08,
-          "amount": 1.13,
-          "nav": 0.755,
-          "amplitude": 1.9255455712451877
+          "changePct": -3.47,
+          "amount": 2.02,
+          "nav": 0.752,
+          "amplitude": 2.3106546854942254
         },
         {
           "code": "159388",
           "name": "159388",
-          "changePct": -4.34,
-          "amount": 0.53,
-          "nav": 1.036,
-          "amplitude": 2.123730378578036
+          "changePct": -5.54,
+          "amount": 0.99,
+          "nav": 1.023,
+          "amplitude": 3.5087719298245648
         },
         {
           "code": "159399",
           "name": "159399",
-          "changePct": -0.1,
-          "amount": 0.3,
-          "nav": 1.008,
+          "changePct": -0.3,
+          "amount": 0.54,
+          "nav": 1.006,
           "amplitude": 0.49554013875125036
         },
         {
           "code": "159516",
           "name": "159516",
-          "changePct": -3.77,
-          "amount": 15.72,
-          "nav": 0.765,
-          "amplitude": 1.8867924528301903
+          "changePct": -6.04,
+          "amount": 28.18,
+          "nav": 0.747,
+          "amplitude": 4.528301886792456
         },
         {
           "code": "159519",
           "name": "159519",
           "changePct": -0.51,
-          "amount": 0.18,
+          "amount": 0.29,
           "nav": 1.758,
           "amplitude": 0.7357102433503058
         },
         {
           "code": "159537",
           "name": "159537",
-          "changePct": -4.97,
-          "amount": 0.03,
-          "nav": 0.917,
-          "amplitude": 2.694300518134706
+          "changePct": -6.22,
+          "amount": 0.06,
+          "nav": 0.905,
+          "amplitude": 4.352331606217609
         },
         {
           "code": "159546",
           "name": "159546",
-          "changePct": -4.89,
-          "amount": 0.2,
-          "nav": 0.797,
-          "amplitude": 2.8639618138424714
+          "changePct": -6.68,
+          "amount": 0.34,
+          "nav": 0.782,
+          "amplitude": 4.773269689737461
         },
         {
           "code": "159551",
           "name": "159551",
-          "changePct": -5.99,
-          "amount": 0.13,
-          "nav": 1.271,
-          "amplitude": 5.103550295858001
+          "changePct": -6.29,
+          "amount": 0.18,
+          "nav": 1.267,
+          "amplitude": 5.695266272189362
         },
         {
           "code": "159612",
           "name": "159612",
-          "changePct": -1.3,
-          "amount": 0.19,
-          "nav": 2.044,
-          "amplitude": 0.9174311926605566
+          "changePct": -1.35,
+          "amount": 0.27,
+          "nav": 2.043,
+          "amplitude": 1.5934331240946575
         },
         {
           "code": "159619",
           "name": "159619",
-          "changePct": -1.17,
+          "changePct": -1.27,
           "amount": 0.01,
-          "nav": 0.932,
-          "amplitude": 0.848356309650042
+          "nav": 0.931,
+          "amplitude": 1.1664899257688122
         },
         {
           "code": "159621",
           "name": "159621",
-          "changePct": -1.02,
-          "amount": 0.01,
-          "nav": 1.17,
-          "amplitude": 0.42301184433165107
+          "changePct": -1.52,
+          "amount": 0.03,
+          "nav": 1.164,
+          "amplitude": 1.0152284263959401
         },
         {
           "code": "159643",
           "name": "159643",
-          "changePct": -1.38,
-          "amount": 0.02,
-          "nav": 0.573,
-          "amplitude": 1.376936316695354
+          "changePct": -2.24,
+          "amount": 0.05,
+          "nav": 0.568,
+          "amplitude": 2.40963855421687
         },
         {
           "code": "159667",
           "name": "159667",
-          "changePct": -5.54,
-          "amount": 0.83,
-          "nav": 0.682,
-          "amplitude": 3.8781163434902926
+          "changePct": -6.65,
+          "amount": 1.22,
+          "nav": 0.674,
+          "amplitude": 5.124653739612177
         },
         {
           "code": "159669",
           "name": "159669",
-          "changePct": -0.63,
+          "changePct": -0.45,
           "amount": 0.01,
-          "nav": 1.099,
-          "amplitude": 1.0849909584086808
+          "nav": 1.101,
+          "amplitude": 1.1754068716094142
         },
         {
           "code": "159679",
           "name": "159679",
-          "changePct": -3.38,
-          "amount": 0.02,
-          "nav": 1.287,
-          "amplitude": 2.4024024024024047
+          "changePct": -4.05,
+          "amount": 0.04,
+          "nav": 1.278,
+          "amplitude": 3.3033033033033057
         },
         {
           "code": "159712",
           "name": "159712",
-          "changePct": -0.32,
-          "amount": 0.04,
-          "nav": 1.239,
-          "amplitude": 1.4481094127111838
+          "changePct": 0.08,
+          "amount": 0.09,
+          "nav": 1.244,
+          "amplitude": 2.011263073209986
         },
         {
           "code": "159745",
           "name": "159745",
-          "changePct": -0.74,
-          "amount": 0.06,
-          "nav": 0.535,
-          "amplitude": 1.113172541743971
+          "changePct": -0.37,
+          "amount": 0.37,
+          "nav": 0.537,
+          "amplitude": 1.4842300556586283
         },
         {
           "code": "159761",
           "name": "159761",
-          "changePct": -3.02,
-          "amount": 0.01,
-          "nav": 0.835,
-          "amplitude": 3.135888501742163
+          "changePct": -3.83,
+          "amount": 0.03,
+          "nav": 0.828,
+          "amplitude": 3.716608594657379
         },
         {
           "code": "159806",
           "name": "159806",
-          "changePct": -1.63,
-          "amount": 0.04,
-          "nav": 0.725,
-          "amplitude": 1.8995929443690656
+          "changePct": -2.17,
+          "amount": 0.07,
+          "nav": 0.721,
+          "amplitude": 2.170963364993218
         },
         {
           "code": "159828",
           "name": "159828",
-          "changePct": -1.36,
-          "amount": 0.22,
-          "nav": 0.434,
-          "amplitude": 1.3636363636363649
+          "changePct": -1.82,
+          "amount": 0.39,
+          "nav": 0.432,
+          "amplitude": 2.045454545454547
         },
         {
           "code": "159861",
           "name": "159861",
-          "changePct": -1.67,
+          "changePct": -1.86,
           "amount": 0,
-          "nav": 1.06,
-          "amplitude": 0.7421150278293142
+          "nav": 1.058,
+          "amplitude": 1.113172541743971
         },
         {
           "code": "159864",
           "name": "159864",
-          "changePct": -3.44,
-          "amount": 0.05,
-          "nav": 0.562,
-          "amplitude": 2.4054982817869246
+          "changePct": -3.61,
+          "amount": 0.09,
+          "nav": 0.561,
+          "amplitude": 2.9209621993126986
         },
         {
           "code": "159865",
           "name": "159865",
-          "changePct": -1.46,
-          "amount": 1.16,
-          "nav": 0.54,
-          "amplitude": 1.642335766423359
+          "changePct": -2.37,
+          "amount": 1.74,
+          "nav": 0.535,
+          "amplitude": 2.189781021897812
         },
         {
           "code": "159881",
           "name": "159881",
           "changePct": -1.81,
-          "amount": 0.03,
+          "amount": 0.06,
           "nav": 0.923,
-          "amplitude": 1.2765957446808522
+          "amplitude": 1.3829787234042565
         },
         {
           "code": "159889",
           "name": "159889",
-          "changePct": -3.58,
-          "amount": 0,
-          "nav": 0.889,
-          "amplitude": 2.7114967462039066
+          "changePct": -4.12,
+          "amount": 0.01,
+          "nav": 0.884,
+          "amplitude": 3.1453362255965316
         },
         {
           "code": "159996",
           "name": "159996",
-          "changePct": -1.73,
-          "amount": 0.36,
-          "nav": 1.418,
-          "amplitude": 1.3167013167013255
+          "changePct": -1.8,
+          "amount": 0.93,
+          "nav": 1.417,
+          "amplitude": 1.6632016632016646
         }
       ],
       "huatai": [
         {
           "code": "510300",
           "name": "510300",
-          "changePct": -1.65,
-          "amount": 10.13,
-          "nav": 4.708,
-          "amplitude": 0.8564863171088255
+          "changePct": -2.3,
+          "amount": 19.15,
+          "nav": 4.677,
+          "amplitude": 1.5876331731773476
         },
         {
           "code": "510880",
           "name": "510880",
-          "changePct": 0.84,
-          "amount": 3.14,
-          "nav": 3.368,
+          "changePct": 0.72,
+          "amount": 4.72,
+          "nav": 3.364,
           "amplitude": 0.7485029940119734
         },
         {
@@ -2969,513 +3041,514 @@
         {
           "code": "512430",
           "name": "512430",
-          "changePct": -1.2,
-          "amount": 0.01,
-          "nav": 0.902,
-          "amplitude": 0.4381161007667035
+          "changePct": -1.42,
+          "amount": 0.02,
+          "nav": 0.9,
+          "amplitude": 0.6571741511500554
         },
         {
           "code": "512510",
           "name": "512510",
-          "changePct": -2.37,
-          "amount": 0.03,
-          "nav": 2.392,
-          "amplitude": 1.3061224489795928
+          "changePct": -3.14,
+          "amount": 0.08,
+          "nav": 2.373,
+          "amplitude": 2.204081632653054
         },
         {
           "code": "512520",
           "name": "512520",
-          "changePct": -1.53,
-          "amount": 0,
-          "nav": 1.483,
-          "amplitude": 0.5976095617529812
+          "changePct": -1.99,
+          "amount": 0.01,
+          "nav": 1.476,
+          "amplitude": 1.0624169986719798
         },
         {
           "code": "512890",
           "name": "512890",
-          "changePct": 0.86,
-          "amount": 2.28,
-          "nav": 1.171,
+          "changePct": 0.95,
+          "amount": 4.17,
+          "nav": 1.172,
           "amplitude": 0.6890611541774339
         },
         {
           "code": "513110",
           "name": "513110",
-          "changePct": -1.87,
-          "amount": 0.74,
-          "nav": 2.463,
-          "amplitude": 0.7968127490039849
+          "changePct": -2.11,
+          "amount": 1.12,
+          "nav": 2.457,
+          "amplitude": 1.075697211155384
         },
         {
           "code": "513130",
           "name": "513130",
           "changePct": -1.52,
-          "amount": 5.95,
+          "amount": 9.97,
           "nav": 0.582,
-          "amplitude": 0.6768189509306267
+          "amplitude": 0.8460236886632835
         },
         {
           "code": "513140",
           "name": "513140",
-          "changePct": -0.06,
-          "amount": 0.06,
-          "nav": 1.661,
-          "amplitude": 0.7220216606498201
+          "changePct": 0.12,
+          "amount": 0.13,
+          "nav": 1.664,
+          "amplitude": 0.8423586040914569
         },
         {
           "code": "513150",
           "name": "513150",
-          "changePct": -0.91,
-          "amount": 0.11,
-          "nav": 0.979,
+          "changePct": -0.81,
+          "amount": 0.24,
+          "nav": 0.98,
           "amplitude": 1.0121457489878551
         },
         {
           "code": "513310",
           "name": "513310",
-          "changePct": 0,
-          "amount": 0,
-          "nav": 5.054
+          "changePct": -5.7,
+          "amount": 15,
+          "nav": 4.766,
+          "amplitude": 0.9101701622477297
         },
         {
           "code": "513530",
           "name": "513530",
-          "changePct": 0.06,
-          "amount": 1.13,
-          "nav": 1.594,
-          "amplitude": 0.7532956685499065
+          "changePct": 0.19,
+          "amount": 1.47,
+          "nav": 1.596,
+          "amplitude": 0.8788449466415577
         },
         {
           "code": "513550",
           "name": "513550",
-          "changePct": -0.44,
-          "amount": 0.15,
-          "nav": 1.124,
-          "amplitude": 0.7085916740478305
+          "changePct": 0,
+          "amount": 0.24,
+          "nav": 1.129,
+          "amplitude": 0.9743135518157573
         },
         {
           "code": "513730",
           "name": "513730",
           "changePct": -0.77,
-          "amount": 0.03,
+          "amount": 0.04,
           "nav": 1.158,
           "amplitude": 0.4284490145672573
         },
         {
           "code": "513930",
           "name": "513930",
-          "changePct": 0.86,
-          "amount": 0.29,
-          "nav": 1.05,
+          "changePct": 0.19,
+          "amount": 0.41,
+          "nav": 1.043,
           "amplitude": 2.2094140249759975
         },
         {
           "code": "515580",
           "name": "515580",
-          "changePct": -2.41,
+          "changePct": -3.09,
           "amount": 0.02,
-          "nav": 1.42,
-          "amplitude": 1.4432989690721738
+          "nav": 1.41,
+          "amplitude": 2.474226804123713
         },
         {
           "code": "515790",
           "name": "515790",
-          "changePct": -3.26,
-          "amount": 0.79,
-          "nav": 0.861,
-          "amplitude": 2.247191011235957
+          "changePct": -3.48,
+          "amount": 1.18,
+          "nav": 0.859,
+          "amplitude": 2.8089887640449462
         },
         {
           "code": "516300",
           "name": "516300",
-          "changePct": -3.09,
-          "amount": 0.05,
-          "nav": 3.229,
-          "amplitude": 2.160864345738297
+          "changePct": -3.69,
+          "amount": 0.1,
+          "nav": 3.209,
+          "amplitude": 2.9411764705882315
         },
         {
           "code": "516330",
           "name": "516330",
-          "changePct": -3.63,
+          "changePct": -5.02,
           "amount": 0,
-          "nav": 1.592,
-          "amplitude": 2.6634382566585844
+          "nav": 1.569,
+          "amplitude": 4.055690072639222
         },
         {
           "code": "516520",
           "name": "516520",
-          "changePct": -3.39,
-          "amount": 0.11,
-          "nav": 1.055,
-          "amplitude": 2.2893772893772812
+          "changePct": -3.85,
+          "amount": 0.59,
+          "nav": 1.05,
+          "amplitude": 2.930402930402933
         },
         {
           "code": "516770",
           "name": "516770",
-          "changePct": -2.4,
-          "amount": 0.14,
-          "nav": 1.137,
-          "amplitude": 2.2317596566523625
+          "changePct": -1.8,
+          "amount": 0.23,
+          "nav": 1.144,
+          "amplitude": 2.5751072961373414
         },
         {
           "code": "516780",
           "name": "516780",
-          "changePct": -2.23,
-          "amount": 0.27,
-          "nav": 0.876,
-          "amplitude": 1.5625000000000013
+          "changePct": -2.34,
+          "amount": 0.43,
+          "nav": 0.875,
+          "amplitude": 2.120535714285716
         },
         {
           "code": "516790",
           "name": "516790",
-          "changePct": -1.71,
-          "amount": 0.01,
-          "nav": 0.517,
-          "amplitude": 1.901140684410648
+          "changePct": -1.9,
+          "amount": 0.02,
+          "nav": 0.516,
+          "amplitude": 2.2813688212927774
         },
         {
           "code": "517050",
           "name": "517050",
-          "changePct": -1.31,
-          "amount": 0,
-          "nav": 0.676,
+          "changePct": -0.88,
+          "amount": 0.01,
+          "nav": 0.679,
           "amplitude": 1.021897810218979
         },
         {
           "code": "517120",
           "name": "517120",
-          "changePct": 0.26,
-          "amount": 0.09,
-          "nav": 0.783,
-          "amplitude": 1.7925736235595406
+          "changePct": -0.51,
+          "amount": 0.14,
+          "nav": 0.777,
+          "amplitude": 1.9206145966709363
         },
         {
           "code": "517880",
           "name": "517880",
-          "changePct": -0.53,
+          "changePct": -0.26,
           "amount": 0.01,
-          "nav": 0.751,
+          "nav": 0.753,
           "amplitude": 1.0596026490066235
         },
         {
           "code": "520500",
           "name": "520500",
-          "changePct": 0.14,
-          "amount": 6,
-          "nav": 1.416,
+          "changePct": -0.21,
+          "amount": 7.88,
+          "nav": 1.411,
           "amplitude": 2.333804809052328
         },
         {
           "code": "520520",
           "name": "520520",
-          "changePct": -0.21,
+          "changePct": -0.1,
           "amount": 0,
-          "nav": 0.958,
-          "amplitude": 0.4166666666666671
+          "nav": 0.959,
+          "amplitude": 0.6250000000000006
         },
         {
           "code": "520830",
           "name": "520830",
-          "changePct": 0.11,
-          "amount": 0.03,
-          "nav": 0.895,
-          "amplitude": 0.335570469798658
+          "changePct": 0,
+          "amount": 0.07,
+          "nav": 0.894,
+          "amplitude": 0.4474272930648774
         },
         {
           "code": "520890",
           "name": "520890",
-          "changePct": -0.3,
-          "amount": 0.07,
-          "nav": 1.326,
-          "amplitude": 0.5263157894736763
+          "changePct": 0,
+          "amount": 0.11,
+          "nav": 1.33,
+          "amplitude": 0.7518796992481209
         },
         {
           "code": "530300",
           "name": "530300",
-          "changePct": -1.35,
-          "amount": 0.01,
-          "nav": 1.243,
-          "amplitude": 0.6349206349206178
+          "changePct": -1.75,
+          "amount": 0.03,
+          "nav": 1.238,
+          "amplitude": 1.0317460317460239
         },
         {
           "code": "551510",
           "name": "551510",
-          "changePct": 0.02,
-          "amount": 1.07,
-          "nav": 102.37,
-          "amplitude": 0.024425511958722324
+          "changePct": 0.03,
+          "amount": 1.14,
+          "nav": 102.38,
+          "amplitude": 0.034195716742219585
         },
         {
           "code": "560400",
           "name": "560400",
-          "changePct": -0.72,
-          "amount": 0.04,
-          "nav": 0.971,
-          "amplitude": 1.3292433537832322
+          "changePct": -1.12,
+          "amount": 0.11,
+          "nav": 0.967,
+          "amplitude": 1.6359918200409014
         },
         {
           "code": "560490",
           "name": "560490",
-          "changePct": -2.23,
-          "amount": 0.02,
-          "nav": 0.966,
-          "amplitude": 1.923076923076925
+          "changePct": -2.33,
+          "amount": 0.04,
+          "nav": 0.965,
+          "amplitude": 2.125506072874496
         },
         {
           "code": "560670",
           "name": "560670",
-          "changePct": 1.06,
-          "amount": 0.08,
-          "nav": 1.047,
+          "changePct": 1.16,
+          "amount": 0.13,
+          "nav": 1.048,
           "amplitude": 0.9652509652509661
         },
         {
           "code": "560910",
           "name": "560910",
-          "changePct": -2.12,
-          "amount": 0,
-          "nav": 0.786,
-          "amplitude": 2.864259028642593
+          "changePct": -2.74,
+          "amount": 0.02,
+          "nav": 0.781,
+          "amplitude": 3.237858032378583
         },
         {
           "code": "561030",
           "name": "561030",
-          "changePct": -2.33,
-          "amount": 0.01,
-          "nav": 0.882,
-          "amplitude": 1.328903654485051
+          "changePct": -2.44,
+          "amount": 0.02,
+          "nav": 0.881,
+          "amplitude": 1.6611295681063138
         },
         {
           "code": "561450",
           "name": "561450",
           "changePct": 0.52,
-          "amount": 0,
+          "amount": 0.01,
           "nav": 0.962,
           "amplitude": 0.7314524555903873
         },
         {
           "code": "561500",
           "name": "561500",
-          "changePct": -1.81,
+          "changePct": -2.29,
           "amount": 0,
-          "nav": 0.816,
-          "amplitude": 0.8423586040914569
+          "nav": 0.812,
+          "amplitude": 1.3237063778579903
         },
         {
           "code": "561510",
           "name": "561510",
-          "changePct": 0,
+          "changePct": -0.42,
           "amount": 0.02,
-          "nav": 0.963,
-          "amplitude": 0.830737279335411
+          "nav": 0.959,
+          "amplitude": 1.0384215991692636
         },
         {
           "code": "561550",
           "name": "561550",
-          "changePct": -2.44,
-          "amount": 0.17,
-          "nav": 1.442,
-          "amplitude": 1.0148849797023087
+          "changePct": -3.32,
+          "amount": 0.4,
+          "nav": 1.429,
+          "amplitude": 2.1650879566982426
         },
         {
           "code": "561560",
           "name": "561560",
           "changePct": -0.48,
-          "amount": 0.16,
+          "amount": 0.28,
           "nav": 1.255,
-          "amplitude": 0.7930214115781135
+          "amplitude": 0.9516256938937361
         },
         {
           "code": "561570",
           "name": "561570",
-          "changePct": 0.57,
-          "amount": 0.04,
-          "nav": 1.402,
-          "amplitude": 0.7890961262553731
+          "changePct": 0.65,
+          "amount": 0.08,
+          "nav": 1.403,
+          "amplitude": 0.9325681492108969
         },
         {
           "code": "561580",
           "name": "561580",
-          "changePct": 0.49,
-          "amount": 0.32,
-          "nav": 1.241,
+          "changePct": 0.4,
+          "amount": 0.5,
+          "nav": 1.24,
           "amplitude": 0.5668016194331899
         },
         {
           "code": "561590",
           "name": "561590",
-          "changePct": -2.7,
-          "amount": 0.02,
-          "nav": 1.513,
-          "amplitude": 1.6720257234726703
+          "changePct": -3.34,
+          "amount": 0.04,
+          "nav": 1.503,
+          "amplitude": 2.572347266881017
         },
         {
           "code": "561620",
           "name": "561620",
-          "changePct": 0.19,
+          "changePct": -0.57,
           "amount": 0.01,
-          "nav": 1.048,
+          "nav": 1.04,
           "amplitude": 1.3384321223709381
         },
         {
           "code": "561630",
           "name": "561630",
-          "changePct": -0.38,
-          "amount": 0,
-          "nav": 1.041,
-          "amplitude": 0.3827751196172252
+          "changePct": -0.29,
+          "amount": 0.01,
+          "nav": 1.042,
+          "amplitude": 0.4784688995215422
         },
         {
           "code": "561810",
           "name": "561810",
-          "changePct": -1.38,
-          "amount": 0.01,
-          "nav": 1.004,
-          "amplitude": 1.4734774066797764
+          "changePct": -1.47,
+          "amount": 0.03,
+          "nav": 1.003,
+          "amplitude": 1.8664047151277028
         },
         {
           "code": "563300",
           "name": "563300",
-          "changePct": -3.22,
-          "amount": 3.14,
-          "nav": 1.414,
-          "amplitude": 2.395619438740583
+          "changePct": -3.63,
+          "amount": 5.7,
+          "nav": 1.408,
+          "amplitude": 3.0800821355236088
         },
         {
           "code": "563320",
           "name": "563320",
-          "changePct": -4.09,
-          "amount": 0.07,
-          "nav": 0.844,
-          "amplitude": 6.136363636363642
+          "changePct": -4.43,
+          "amount": 0.17,
+          "nav": 0.841,
+          "amplitude": 6.477272727272733
         },
         {
           "code": "563330",
           "name": "563330",
-          "changePct": -2.31,
-          "amount": 0.12,
-          "nav": 4.229,
-          "amplitude": 0.970200970200966
+          "changePct": -3.03,
+          "amount": 0.24,
+          "nav": 4.198,
+          "amplitude": 1.732501732501737
         },
         {
           "code": "563350",
           "name": "563350",
-          "changePct": -1.1,
-          "amount": 0.05,
-          "nav": 1.432,
-          "amplitude": 0.8287292817679567
+          "changePct": -1.59,
+          "amount": 0.11,
+          "nav": 1.425,
+          "amplitude": 1.381215469613261
         },
         {
           "code": "563360",
           "name": "563360",
-          "changePct": -2.03,
-          "amount": 9.33,
-          "nav": 1.302,
-          "amplitude": 0.8276899924755379
+          "changePct": -2.63,
+          "amount": 21.21,
+          "nav": 1.294,
+          "amplitude": 1.58013544018058
         },
         {
           "code": "563380",
           "name": "563380",
-          "changePct": -3.31,
-          "amount": 0.38,
-          "nav": 0.934,
-          "amplitude": 5.383022774327116
+          "changePct": -3.62,
+          "amount": 0.46,
+          "nav": 0.931,
+          "amplitude": 5.797101449275356
         },
         {
           "code": "563390",
           "name": "563390",
-          "changePct": -0.33,
-          "amount": 0.26,
-          "nav": 1.223,
-          "amplitude": 0.48899755501222536
+          "changePct": -0.41,
+          "amount": 0.47,
+          "nav": 1.222,
+          "amplitude": 0.5704971475142719
         },
         {
           "code": "588090",
           "name": "588090",
-          "changePct": -3.97,
-          "amount": 0.58,
-          "nav": 1.768,
-          "amplitude": 2.715915263443783
+          "changePct": -5.49,
+          "amount": 1.23,
+          "nav": 1.74,
+          "amplitude": 4.562737642585556
         },
         {
           "code": "588230",
           "name": "588230",
-          "changePct": -4.39,
-          "amount": 0.6,
-          "nav": 1.829,
-          "amplitude": 3.1887088342916856
+          "changePct": -5.65,
+          "amount": 1.01,
+          "nav": 1.805,
+          "amplitude": 4.809200209095666
         },
         {
           "code": "588710",
           "name": "588710",
-          "changePct": -3.68,
-          "amount": 5.51,
-          "nav": 1.098,
-          "amplitude": 2.017543859649135
+          "changePct": -5.88,
+          "amount": 9.59,
+          "nav": 1.073,
+          "amplitude": 4.8245614035087865
         },
         {
           "code": "588880",
           "name": "588880",
-          "changePct": -4.13,
-          "amount": 0.04,
-          "nav": 1.833,
-          "amplitude": 3.242677824267785
+          "changePct": -5.39,
+          "amount": 0.05,
+          "nav": 1.809,
+          "amplitude": 4.968619246861924
         },
         {
           "code": "589990",
           "name": "589990",
-          "changePct": -3.74,
-          "amount": 0.02,
-          "nav": 1.699,
-          "amplitude": 2.88951841359773
+          "changePct": -5.21,
+          "amount": 0.05,
+          "nav": 1.673,
+          "amplitude": 4.70254957507082
         },
         {
           "code": "159007",
           "name": "159007",
-          "changePct": -1.46,
-          "amount": 0.04,
-          "nav": 0.877,
-          "amplitude": 1.3483146067415743
+          "changePct": -2.02,
+          "amount": 0.06,
+          "nav": 0.872,
+          "amplitude": 1.7977528089887655
         },
         {
           "code": "159069",
           "name": "159069",
-          "changePct": -3.23,
-          "amount": 0.02,
-          "nav": 1.048,
-          "amplitude": 3.2317636195752466
+          "changePct": -3.6,
+          "amount": 0.07,
+          "nav": 1.044,
+          "amplitude": 3.785780240073862
         },
         {
           "code": "159139",
           "name": "159139",
-          "changePct": -4.27,
-          "amount": 0.08,
-          "nav": 1.279,
-          "amplitude": 2.619760479041927
+          "changePct": -5.69,
+          "amount": 0.5,
+          "nav": 1.26,
+          "amplitude": 4.191616766467069
         },
         {
           "code": "159383",
           "name": "159383",
-          "changePct": -3.34,
-          "amount": 0.04,
-          "nav": 1.765,
-          "amplitude": 2.5739320920043895
+          "changePct": -4.6,
+          "amount": 0.06,
+          "nav": 1.742,
+          "amplitude": 3.833515881708656
         },
         {
           "code": "159738",
           "name": "159738",
-          "changePct": -3.5,
-          "amount": 0.09,
-          "nav": 2.065,
-          "amplitude": 2.6635514018691557
+          "changePct": -3.88,
+          "amount": 0.13,
+          "nav": 2.057,
+          "amplitude": 3.3177570093457813
         },
         {
           "code": "159773",
           "name": "159773",
-          "changePct": -3.3,
-          "amount": 0.02,
-          "nav": 1.346,
-          "amplitude": 2.370689655172408
+          "changePct": -4.45,
+          "amount": 0.04,
+          "nav": 1.33,
+          "amplitude": 3.6637931034482714
         }
       ]
     }
