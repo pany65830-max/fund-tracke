@@ -1,6 +1,6 @@
 {
   "tradeDate": "2026-08-19",
-  "updatedAt": "2026-08-19T09:02:20.972Z",
+  "updatedAt": "2026-08-19T09:31:06.286Z",
   "status": "partial",
   "errors": [
     "wewe-rss: WEWE_RSS_URL empty",
@@ -8,6 +8,36 @@
     "ifind-news: report_query failed: no data."
   ],
   "news": [
+    {
+      "id": "cw-guotai-0-2026-08-19",
+      "title": "国泰基金管理有限公司关于纳斯达克100交易型开放式指数证券投资基金二级市场交易价格溢价风险提示及临时停牌公告",
+      "summary": "国泰基金管理有限公司关于纳斯达克100交易型开放式指数证券投资基金二级市场交易价格溢价风险提示及临时停牌公告",
+      "institution": "guotai",
+      "category": "disclosure",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://st.gtfund.com//GSGG/2026/08/19/840419118493.PDF"
+    },
+    {
+      "id": "cw-guotai-1-2026-08-19",
+      "title": "国泰基金管理有限公司关于国泰标普500交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告",
+      "summary": "国泰基金管理有限公司关于国泰标普500交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告",
+      "institution": "guotai",
+      "category": "disclosure",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://st.gtfund.com//GSGG/2026/08/19/840398032648.PDF"
+    },
+    {
+      "id": "cw-guotai-2-2026-08-19",
+      "title": "国泰基金管理有限公司关于旗下部分证券投资基金投资关联方承销证券的公告",
+      "summary": "国泰基金管理有限公司关于旗下部分证券投资基金投资关联方承销证券的公告",
+      "institution": "guotai",
+      "category": "disclosure",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://st.gtfund.com//GSGG/2026/08/19/840398014305.PDF"
+    },
     {
       "id": "cw-efunds-0-2026-08-19",
       "title": "易方达奥明日经225交易型开放式指数证券投资基金（QDII）午间收盘溢价风险提示公告",
@@ -69,34 +99,134 @@
       "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260819/%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91%E7%AE%A1%E7%90%86%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%E6%97%97%E4%B8%8B%E9%83%A8%E5%88%86ETF%E5%A2%9E%E5%8A%A0%E8%B4%A2%E9%80%9A%E8%AF%81%E5%88%B8%E4%B8%BA%E4%B8%80%E7%BA%A7%E4%BA%A4%E6%98%93%E5%95%86%E7%9A%84%E5%85%AC%E5%91%8A.pdf"
     },
     {
-      "id": "cw-guotai-0-2026-08-19",
-      "title": "国泰基金管理有限公司关于纳斯达克100交易型开放式指数证券投资基金二级市场交易价格溢价风险提示及临时停牌公告",
-      "summary": "国泰基金管理有限公司关于纳斯达克100交易型开放式指数证券投资基金二级市场交易价格溢价风险提示及临时停牌公告",
-      "institution": "guotai",
+      "id": "cw-efunds-0-2026-08-19#1",
+      "title": "易方达稳裕120天滚动持有债券型证券投资基金调整大额申购及大额转换转入业务限制的公告 2026-08-19810441",
+      "summary": "易方达稳裕120天滚动持有债券型证券投资基金调整大额申购及大额转换转入业务限制的公告 2026-08-19810441",
+      "institution": "efunds",
       "category": "disclosure",
       "source": "company_web",
       "publishedAt": "2026-08-19T08:00:00+08:00",
-      "sourceUrl": "https://st.gtfund.com//GSGG/2026/08/19/840419118493.PDF"
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260819/%E6%98%93%E6%96%B9%E8%BE%BE%E7%A8%B3%E8%A3%95120%E5%A4%A9%E6%BB%9A%E5%8A%A8%E6%8C%81%E6%9C%89%E5%80%BA%E5%88%B8%E5%9E%8B%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E8%B0%83%E6%95%B4%E5%A4%A7%E9%A2%9D%E7%94%B3%E8%B4%AD%E5%8F%8A%E5%A4%A7%E9%A2%9D%E8%BD%AC%E6%8D%A2%E8%BD%AC%E5%85%A5%E4%B8%9A%E5%8A%A1%E9%99%90%E5%88%B6%E7%9A%84%E5%85%AC%E5%91%8A.pdf"
     },
     {
-      "id": "cw-guotai-1-2026-08-19",
-      "title": "国泰基金管理有限公司关于国泰标普500交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告",
-      "summary": "国泰基金管理有限公司关于国泰标普500交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告",
-      "institution": "guotai",
+      "id": "cw-efunds-1-2026-08-19#1",
+      "title": "易方达奥明日经225交易型开放式指数证券投资基金（QDII）午间收盘溢价风险提示公告 2026-08-19810411",
+      "summary": "易方达奥明日经225交易型开放式指数证券投资基金（QDII）午间收盘溢价风险提示公告 2026-08-19810411",
+      "institution": "efunds",
       "category": "disclosure",
       "source": "company_web",
       "publishedAt": "2026-08-19T08:00:00+08:00",
-      "sourceUrl": "https://st.gtfund.com//GSGG/2026/08/19/840398032648.PDF"
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260819/%E6%98%93%E6%96%B9%E8%BE%BE%E5%A5%A5%E6%98%8E%E6%97%A5%E7%BB%8F225%E4%BA%A4%E6%98%93%E5%9E%8B%E5%BC%80%E6%94%BE%E5%BC%8F%E6%8C%87%E6%95%B0%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%EF%BC%88QDII%EF%BC%89%E5%8D%88%E9%97%B4%E6%94%B6%E7%9B%98%E6%BA%A2%E4%BB%B7%E9%A3%8E%E9%99%A9%E6%8F%90%E7%A4%BA%E5%85%AC%E5%91%8A.pdf"
     },
     {
-      "id": "cw-guotai-2-2026-08-19",
-      "title": "国泰基金管理有限公司关于旗下部分证券投资基金投资关联方承销证券的公告",
-      "summary": "国泰基金管理有限公司关于旗下部分证券投资基金投资关联方承销证券的公告",
-      "institution": "guotai",
+      "id": "cw-efunds-2-2026-08-19#1",
+      "title": "易方达MSCI美国50交易型开放式指数证券投资基金（QDII）午间收盘溢价风险提示公告 2026-08-19810410",
+      "summary": "易方达MSCI美国50交易型开放式指数证券投资基金（QDII）午间收盘溢价风险提示公告 2026-08-19810410",
+      "institution": "efunds",
       "category": "disclosure",
       "source": "company_web",
       "publishedAt": "2026-08-19T08:00:00+08:00",
-      "sourceUrl": "https://st.gtfund.com//GSGG/2026/08/19/840398014305.PDF"
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260819/%E6%98%93%E6%96%B9%E8%BE%BEMSCI%E7%BE%8E%E5%9B%BD50%E4%BA%A4%E6%98%93%E5%9E%8B%E5%BC%80%E6%94%BE%E5%BC%8F%E6%8C%87%E6%95%B0%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%EF%BC%88QDII%EF%BC%89%E5%8D%88%E9%97%B4%E6%94%B6%E7%9B%98%E6%BA%A2%E4%BB%B7%E9%A3%8E%E9%99%A9%E6%8F%90%E7%A4%BA%E5%85%AC%E5%91%8A.pdf"
+    },
+    {
+      "id": "cw-efunds-3-2026-08-19#1",
+      "title": "易方达纳斯达克100交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告 2026-08-19810406",
+      "summary": "易方达纳斯达克100交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告 2026-08-19810406",
+      "institution": "efunds",
+      "category": "disclosure",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260819/%E6%98%93%E6%96%B9%E8%BE%BE%E7%BA%B3%E6%96%AF%E8%BE%BE%E5%85%8B100%E4%BA%A4%E6%98%93%E5%9E%8B%E5%BC%80%E6%94%BE%E5%BC%8F%E6%8C%87%E6%95%B0%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%EF%BC%88QDII%EF%BC%89%E4%BA%8C%E7%BA%A7%E5%B8%82%E5%9C%BA%E4%BA%A4%E6%98%93%E4%BB%B7%E6%A0%BC%E6%BA%A2%E4%BB%B7%E9%A3%8E%E9%99%A9%E6%8F%90%E7%A4%BA%E5%85%AC%E5%91%8A.pdf"
+    },
+    {
+      "id": "cw-efunds-4-2026-08-19#1",
+      "title": "易方达智享混合型证券投资基金基金合同生效公告 2026-08-19810405",
+      "summary": "易方达智享混合型证券投资基金基金合同生效公告 2026-08-19810405",
+      "institution": "efunds",
+      "category": "disclosure",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260819/%E6%98%93%E6%96%B9%E8%BE%BE%E6%99%BA%E4%BA%AB%E6%B7%B7%E5%90%88%E5%9E%8B%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E5%9F%BA%E9%87%91%E5%90%88%E5%90%8C%E7%94%9F%E6%95%88%E5%85%AC%E5%91%8A.pdf"
+    },
+    {
+      "id": "cw-efunds-5-2026-08-19#1",
+      "title": "易方达中证工业有色金属主题交易型开放式指数证券投资基金发起式联接基金（易方达中证工业有色金属主题ETF联接发起式C）基金产品资料概要更新 2026-08-19810404",
+      "summary": "易方达中证工业有色金属主题交易型开放式指数证券投资基金发起式联接基金（易方达中证工业有色金属主题ETF联接发起式C）基金产品资料概要更新 2026-08-19810404",
+      "institution": "efunds",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260819/%E6%98%93%E6%96%B9%E8%BE%BE%E4%B8%AD%E8%AF%81%E5%B7%A5%E4%B8%9A%E6%9C%89%E8%89%B2%E9%87%91%E5%B1%9E%E4%B8%BB%E9%A2%98%E4%BA%A4%E6%98%93%E5%9E%8B%E5%BC%80%E6%94%BE%E5%BC%8F%E6%8C%87%E6%95%B0%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E5%8F%91%E8%B5%B7%E5%BC%8F%E8%81%94%E6%8E%A5%E5%9F%BA%E9%87%91%EF%BC%88%E6%98%93%E6%96%B9%E8%BE%BE%E4%B8%AD%E8%AF%81%E5%B7%A5%E4%B8%9A%E6%9C%89%E8%89%B2%E9%87%91%E5%B1%9E%E4%B8%BB%E9%A2%98ETF%E8%81%94%E6%8E%A5%E5%8F%91%E8%B5%B7%E5%BC%8FC%EF%BC%89%E5%9F%BA%E9%87%91%E4%BA%A7%E5%93%81%E8%B5%84%E6%96%99%E6%A6%82%E8%A6%81%E6%9B%B4%E6%96%B0.pdf"
+    },
+    {
+      "id": "cw-efunds-6-2026-08-19",
+      "title": "易方达中证工业有色金属主题交易型开放式指数证券投资基金发起式联接基金（易方达中证工业有色金属主题ETF联接发起式A）基金产品资料概要更新 2026-08-19810403",
+      "summary": "易方达中证工业有色金属主题交易型开放式指数证券投资基金发起式联接基金（易方达中证工业有色金属主题ETF联接发起式A）基金产品资料概要更新 2026-08-19810403",
+      "institution": "efunds",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260819/%E6%98%93%E6%96%B9%E8%BE%BE%E4%B8%AD%E8%AF%81%E5%B7%A5%E4%B8%9A%E6%9C%89%E8%89%B2%E9%87%91%E5%B1%9E%E4%B8%BB%E9%A2%98%E4%BA%A4%E6%98%93%E5%9E%8B%E5%BC%80%E6%94%BE%E5%BC%8F%E6%8C%87%E6%95%B0%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E5%8F%91%E8%B5%B7%E5%BC%8F%E8%81%94%E6%8E%A5%E5%9F%BA%E9%87%91%EF%BC%88%E6%98%93%E6%96%B9%E8%BE%BE%E4%B8%AD%E8%AF%81%E5%B7%A5%E4%B8%9A%E6%9C%89%E8%89%B2%E9%87%91%E5%B1%9E%E4%B8%BB%E9%A2%98ETF%E8%81%94%E6%8E%A5%E5%8F%91%E8%B5%B7%E5%BC%8FA%EF%BC%89%E5%9F%BA%E9%87%91%E4%BA%A7%E5%93%81%E8%B5%84%E6%96%99%E6%A6%82%E8%A6%81%E6%9B%B4%E6%96%B0.pdf"
+    },
+    {
+      "id": "cw-efunds-7-2026-08-19",
+      "title": "易方达基金管理有限公司关于聘任基金经理助理的公告 2026-08-19810402",
+      "summary": "易方达基金管理有限公司关于聘任基金经理助理的公告 2026-08-19810402",
+      "institution": "efunds",
+      "category": "disclosure",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260819/%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91%E7%AE%A1%E7%90%86%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%E5%85%B3%E4%BA%8E%E8%81%98%E4%BB%BB%E5%9F%BA%E9%87%91%E7%BB%8F%E7%90%86%E5%8A%A9%E7%90%86%E7%9A%84%E5%85%AC%E5%91%8A.pdf"
+    },
+    {
+      "id": "cw-efunds-8-2026-08-19",
+      "title": "易方达基金管理有限公司旗下部分ETF增加财通证券为一级交易商的公告 2026-08-19810401",
+      "summary": "易方达基金管理有限公司旗下部分ETF增加财通证券为一级交易商的公告 2026-08-19810401",
+      "institution": "efunds",
+      "category": "disclosure",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260819/%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91%E7%AE%A1%E7%90%86%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%E6%97%97%E4%B8%8B%E9%83%A8%E5%88%86ETF%E5%A2%9E%E5%8A%A0%E8%B4%A2%E9%80%9A%E8%AF%81%E5%88%B8%E4%B8%BA%E4%B8%80%E7%BA%A7%E4%BA%A4%E6%98%93%E5%95%86%E7%9A%84%E5%85%AC%E5%91%8A.pdf"
+    },
+    {
+      "id": "cw-efunds-9-2026-08-19",
+      "title": "易方达上证科创板新材料交易型开放式指数证券投资基金招募说明书 2026-08-19810400",
+      "summary": "易方达上证科创板新材料交易型开放式指数证券投资基金招募说明书 2026-08-19810400",
+      "institution": "efunds",
+      "category": "disclosure",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260819/%E6%98%93%E6%96%B9%E8%BE%BE%E4%B8%8A%E8%AF%81%E7%A7%91%E5%88%9B%E6%9D%BF%E6%96%B0%E6%9D%90%E6%96%99%E4%BA%A4%E6%98%93%E5%9E%8B%E5%BC%80%E6%94%BE%E5%BC%8F%E6%8C%87%E6%95%B0%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E6%8B%9B%E5%8B%9F%E8%AF%B4%E6%98%8E%E4%B9%A6.pdf"
+    },
+    {
+      "id": "cw-efunds-10-2026-08-19",
+      "title": "易方达上证科创板新材料交易型开放式指数证券投资基金托管协议 2026-08-19810399",
+      "summary": "易方达上证科创板新材料交易型开放式指数证券投资基金托管协议 2026-08-19810399",
+      "institution": "efunds",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260819/%E6%98%93%E6%96%B9%E8%BE%BE%E4%B8%8A%E8%AF%81%E7%A7%91%E5%88%9B%E6%9D%BF%E6%96%B0%E6%9D%90%E6%96%99%E4%BA%A4%E6%98%93%E5%9E%8B%E5%BC%80%E6%94%BE%E5%BC%8F%E6%8C%87%E6%95%B0%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E6%89%98%E7%AE%A1%E5%8D%8F%E8%AE%AE.pdf"
+    },
+    {
+      "id": "cw-efunds-11-2026-08-19",
+      "title": "易方达上证科创板新材料交易型开放式指数证券投资基金基金合同 2026-08-19810398",
+      "summary": "易方达上证科创板新材料交易型开放式指数证券投资基金基金合同 2026-08-19810398",
+      "institution": "efunds",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260819/%E6%98%93%E6%96%B9%E8%BE%BE%E4%B8%8A%E8%AF%81%E7%A7%91%E5%88%9B%E6%9D%BF%E6%96%B0%E6%9D%90%E6%96%99%E4%BA%A4%E6%98%93%E5%9E%8B%E5%BC%80%E6%94%BE%E5%BC%8F%E6%8C%87%E6%95%B0%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E5%9F%BA%E9%87%91%E5%90%88%E5%90%8C.pdf"
+    },
+    {
+      "id": "cw-efunds-0-2026-08-19#1#1",
+      "title": "易方达稳裕120天滚动持有债券型证券投资基金调整大额申购及大额转换转入业务限制的公告",
+      "summary": "易方达稳裕120天滚动持有债券型证券投资基金调整大额申购及大额转换转入业务限制的公告",
+      "institution": "efunds",
+      "category": "disclosure",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260819/%E6%98%93%E6%96%B9%E8%BE%BE%E7%A8%B3%E8%A3%95120%E5%A4%A9%E6%BB%9A%E5%8A%A8%E6%8C%81%E6%9C%89%E5%80%BA%E5%88%B8%E5%9E%8B%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E8%B0%83%E6%95%B4%E5%A4%A7%E9%A2%9D%E7%94%B3%E8%B4%AD%E5%8F%8A%E5%A4%A7%E9%A2%9D%E8%BD%AC%E6%8D%A2%E8%BD%AC%E5%85%A5%E4%B8%9A%E5%8A%A1%E9%99%90%E5%88%B6%E7%9A%84%E5%85%AC%E5%91%8A.pdf"
     }
   ],
   "etf": {
