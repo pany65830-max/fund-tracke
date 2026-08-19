@@ -1,121 +1,43 @@
 {
-  "tradeDate": "2026-08-18",
-  "updatedAt": "2026-08-18T09:20:29.750Z",
+  "tradeDate": "2026-08-19",
+  "updatedAt": "2026-08-19T09:13:43.960Z",
   "status": "partial",
   "errors": [
-    "company-web: adapter timeout (20s)",
-    "ifind-news: report_query failed: no data."
+    "ifind-token: get_access_token invalid JSON: error code: 520\n",
+    "wewe-rss: WEWE_RSS_URL empty",
+    "sse-fund-site: sse-fund-site HTTP 520",
+    "etf: 本次 iFinD 不可用，已保留上次行情"
   ],
   "news": [
     {
-      "id": "ex-1225479630-159513",
-      "title": "纳斯达克100ETF大成：大成纳斯达克100交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告",
-      "summary": "纳斯达克100ETF大成：大成纳斯达克100交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告",
-      "institution": "szse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-18T08:00:00+08:00",
-      "sourceUrl": "https://static.cninfo.com.cn/finalpage/2026-08-19/1225479630.PDF"
+      "id": "cw-guotai-0-2026-08-19",
+      "title": "国泰基金管理有限公司关于纳斯达克100交易型开放式指数证券投资基金二级市场交易价格溢价风险提示及临时停牌公告",
+      "summary": "国泰基金管理有限公司关于纳斯达克100交易型开放式指数证券投资基金二级市场交易价格溢价风险提示及临时停牌公告",
+      "institution": "guotai",
+      "category": "disclosure",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://st.gtfund.com//GSGG/2026/08/19/840419118493.PDF"
     },
     {
-      "id": "ex-1225479623-159632",
-      "title": "纳斯达克ETF华安：华安基金管理有限公司关于华安纳斯达克100交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告",
-      "summary": "纳斯达克ETF华安：华安基金管理有限公司关于华安纳斯达克100交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告",
-      "institution": "szse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-18T08:00:00+08:00",
-      "sourceUrl": "https://static.cninfo.com.cn/finalpage/2026-08-19/1225479623.PDF"
+      "id": "cw-guotai-1-2026-08-19",
+      "title": "国泰基金管理有限公司关于国泰标普500交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告",
+      "summary": "国泰基金管理有限公司关于国泰标普500交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告",
+      "institution": "guotai",
+      "category": "disclosure",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://st.gtfund.com//GSGG/2026/08/19/840398032648.PDF"
     },
     {
-      "id": "ex-1225479628-159941",
-      "title": "纳指ETF广发：广发纳斯达克100交易型开放式指数证券投资基金二级市场交易价格溢价风险提示公告",
-      "summary": "纳指ETF广发：广发纳斯达克100交易型开放式指数证券投资基金二级市场交易价格溢价风险提示公告",
-      "institution": "szse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-18T08:00:00+08:00",
-      "sourceUrl": "https://static.cninfo.com.cn/finalpage/2026-08-19/1225479628.PDF"
-    },
-    {
-      "id": "ex-1225479621-159043",
-      "title": "食品ETF华安：华安中证全指食品交易型开放式指数证券投资基金上市交易公告书",
-      "summary": "食品ETF华安：华安中证全指食品交易型开放式指数证券投资基金上市交易公告书",
-      "institution": "szse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-18T08:00:00+08:00",
-      "sourceUrl": "https://static.cninfo.com.cn/finalpage/2026-08-19/1225479621.PDF"
-    },
-    {
-      "id": "ex-1225479629-159696",
-      "title": "纳指ETF易方达：易方达纳斯达克100交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告",
-      "summary": "纳指ETF易方达：易方达纳斯达克100交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告",
-      "institution": "szse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-18T08:00:00+08:00",
-      "sourceUrl": "https://static.cninfo.com.cn/finalpage/2026-08-19/1225479629.PDF"
-    },
-    {
-      "id": "ex-1225479622-159043",
-      "title": "食品ETF华安：华安中证全指食品交易型开放式指数证券投资基金开放日常申购与赎回业务的公告",
-      "summary": "食品ETF华安：华安中证全指食品交易型开放式指数证券投资基金开放日常申购与赎回业务的公告",
-      "institution": "szse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-18T08:00:00+08:00",
-      "sourceUrl": "https://static.cninfo.com.cn/finalpage/2026-08-19/1225479622.PDF"
-    },
-    {
-      "id": "ex-1225479624-158005",
-      "title": "工程机械ETF博时：博时中证工程机械主题交易型开放式指数证券投资基金上市交易公告书",
-      "summary": "工程机械ETF博时：博时中证工程机械主题交易型开放式指数证券投资基金上市交易公告书",
-      "institution": "szse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-18T08:00:00+08:00",
-      "sourceUrl": "https://static.cninfo.com.cn/finalpage/2026-08-19/1225479624.PDF"
-    },
-    {
-      "id": "ex-1225479626-159509",
-      "title": "纳指科技ETF景顺：景顺长城纳斯达克科技市值加权交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示及停复牌公告",
-      "summary": "纳指科技ETF景顺：景顺长城纳斯达克科技市值加权交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示及停复牌公告",
-      "institution": "szse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-18T08:00:00+08:00",
-      "sourceUrl": "https://static.cninfo.com.cn/finalpage/2026-08-19/1225479626.PDF"
-    },
-    {
-      "id": "ex-1225479625-158005",
-      "title": "工程机械ETF博时：博时中证工程机械主题交易型开放式指数证券投资基金开放日常申购、赎回业务的公告",
-      "summary": "工程机械ETF博时：博时中证工程机械主题交易型开放式指数证券投资基金开放日常申购、赎回业务的公告",
-      "institution": "szse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-18T08:00:00+08:00",
-      "sourceUrl": "https://static.cninfo.com.cn/finalpage/2026-08-19/1225479625.PDF"
-    },
-    {
-      "id": "ex-1225479612-159022",
-      "title": "科创创业人工智能ETF富国：关于富国中证科创创业人工智能交易型开放式指数证券投资基金流动性服务商终止的公告",
-      "summary": "科创创业人工智能ETF富国：关于富国中证科创创业人工智能交易型开放式指数证券投资基金流动性服务商终止的公告",
-      "institution": "szse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-18T08:00:00+08:00",
-      "sourceUrl": "https://static.cninfo.com.cn/finalpage/2026-08-19/1225479612.PDF"
-    },
-    {
-      "id": "ex-1225479619-159660",
-      "title": "纳指ETF汇添富：汇添富纳斯达克100交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告",
-      "summary": "纳指ETF汇添富：汇添富纳斯达克100交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告",
-      "institution": "szse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-18T08:00:00+08:00",
-      "sourceUrl": "https://static.cninfo.com.cn/finalpage/2026-08-19/1225479619.PDF"
+      "id": "cw-guotai-2-2026-08-19",
+      "title": "国泰基金管理有限公司关于旗下部分证券投资基金投资关联方承销证券的公告",
+      "summary": "国泰基金管理有限公司关于旗下部分证券投资基金投资关联方承销证券的公告",
+      "institution": "guotai",
+      "category": "disclosure",
+      "source": "company_web",
+      "publishedAt": "2026-08-19T08:00:00+08:00",
+      "sourceUrl": "https://st.gtfund.com//GSGG/2026/08/19/840398014305.PDF"
     }
   ],
   "etf": {
