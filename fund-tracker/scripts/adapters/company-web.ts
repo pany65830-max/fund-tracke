@@ -38,6 +38,15 @@ const BOILERPLATE =
 const POS_KW =
   /公告|披露|新闻|资讯|风险|溢价|ETF|基金|报告|提示|上市|募集|成立|分红|清算|终止|暂停|恢复|招募|发售|发行|净值|评级|分红|中报|年报|季报/;
 
+function stripTags(s: string): string {
+  return s
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&#32;/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function absolutize(href: string, base: string): string | null {
   try {
     return new URL(href, base).toString();
@@ -122,19 +131,18 @@ export function parseCompanyLinks(
     const url = absolutize(href, baseUrl);
     if (!url || seen.has(url)) continue;
     if (!isLikelyCompanyNews(title, url)) continue;
-    seen.add(url);
 
-    const dt = extractDate(title, url);
-    if (dt) {
-      const ageDays =
-        (Date.parse(`${tradeDate}T23:59:59+08:00`) -
-          Date.parse(`${dt}T23:59:59+08:00`)) /
-        86400000;
-      if (ageDays < -1 || ageDays > maxAgeDays) continue;
-    }
-    const publishedAt = dt
-      ? `${dt}T08:00:00+08:00`
-      : `${tradeDate}T08:00:00+08:00`;
+    // 日期可能在标题/URL 里，也可能在链接后的列表上下文（如华夏新闻的 2025.12.17）。
+    const ctx = stripTags(html.slice(m.index, m.index + 700));
+    const dt = extractDate(`${title} ${ctx}`, url);
+    if (!dt) continue;
+    seen.add(url);
+    const ageDays =
+      (Date.parse(`${tradeDate}T23:59:59+08:00`) -
+        Date.parse(`${dt}T23:59:59+08:00`)) /
+      86400000;
+    if (ageDays < -1 || ageDays > maxAgeDays) continue;
+    const publishedAt = `${dt}T08:00:00+08:00`;
     out.push({
       id: `cw-${institution}-${seq++}-${tradeDate}`,
       title,

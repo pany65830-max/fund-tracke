@@ -1,0 +1,19 @@
+[
+  { "institution": "huaxia", "name": "华夏基金", "feedId": "" },
+  { "institution": "efunds", "name": "易方达微资讯", "feedId": "" },
+  { "institution": "efunds", "name": "易方达微理财", "feedId": "" },
+  { "institution": "efunds", "name": "易方达基金", "feedId": "" },
+  { "institution": "efunds", "name": "易方达财富微理财", "feedId": "" },
+  { "institution": "guotai", "name": "国泰基金", "feedId": "" },
+  { "institution": "guotai", "name": "国泰基金微幸福", "feedId": "" },
+  { "institution": "huatai", "name": "华泰柏瑞微理财", "feedId": "" },
+  { "institution": "huatai", "name": "华泰柏瑞基金微理财", "feedId": "" },
+  { "institution": "sse", "name": "上交所发布", "feedId": "" },
+  { "institution": "sse", "name": "上交所投服", "feedId": "" },
+  { "institution": "sse", "name": "上交所ETF之家", "feedId": "" },
+  { "institution": "szse", "name": "深交所", "feedId": "" },
+  { "institution": "szse", "name": "深交所投服", "feedId": "" },
+  { "institution": "szse", "name": "深交所投服部", "feedId": "" },
+  { "institution": "szse", "name": "深交所上市通", "feedId": "" },
+  { "institution": "szse", "name": "深市基金", "feedId": "" }
+]

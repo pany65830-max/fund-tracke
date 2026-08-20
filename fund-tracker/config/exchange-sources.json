@@ -1,6 +1,8 @@
 {
-  "endpoint": "https://www.cninfo.com.cn/new/fulltextSearch/full",
-  "keywords": ["ETF"],
+  "endpoint": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+  "keywords": ["ETF", "交易型开放式指数基金"],
   "pageSize": 30,
-  "maxAgeDays": 7
+  "maxPages": 2,
+  "maxAgeDays": 0,
+  "columns": ["szse"]
 }

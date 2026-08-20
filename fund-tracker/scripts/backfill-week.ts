@@ -1,6 +1,6 @@
 /**
- * Backfill WeChat news for a week ending at --end=YYYY-MM-DD.
- * Multi-page Sogou fetch → split by publish day (weekend rolls to next trading day).
+ * Legacy backfill via Sogou WeChat search. Daily ingest no longer calls Sogou
+ * (see wewe-rss + worker/WEWE.md). Keep this script only for old snapshots.
  */
 import { existsSync, readFileSync, unlinkSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";

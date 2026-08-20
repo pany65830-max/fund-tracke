@@ -1,10 +1,11 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { classifyNews } from "../shared/classify.js";
 import { dedupeNews } from "../shared/dedupe.js";
 import { isTradingDay } from "../shared/calendar.js";
 import { pruneOldSnapshots } from "../shared/prune.js";
+import { mergeWechatNews } from "../shared/merge-wechat.js";
 import {
   DaySnapshotSchema,
   type DaySnapshot,
@@ -12,10 +13,14 @@ import {
   type NewsItem,
 } from "../shared/schema.js";
 import { createFixtureEtfAdapter, createFixtureNewsAdapter } from "./adapters/fixtures.js";
-import { createExchangeWebAdapter } from "./adapters/exchange-web.js";
+import {
+  collectWhitelistCodes,
+  createExchangeWebAdapter,
+} from "./adapters/exchange-web.js";
 import { createSseSearchAdapter } from "./adapters/sse-search.js";
+import { createSseFundSiteAdapter } from "./adapters/sse-fund-site.js";
 import { createCompanyWebAdapter } from "./adapters/company-web.js";
-import { createWechatAdapter } from "./adapters/wechat.js";
+import { createWeweRssAdapter } from "./adapters/wewe-rss.js";
 import { createIfindNewsAdapter } from "./adapters/ifind-news.js";
 import { createIfindEtfAdapter } from "./adapters/ifind-etf.js";
 import { writeSnapshot } from "./write-snapshot.js";
@@ -88,58 +93,59 @@ export async function runIngest(opts: {
   const companySources = loadJson<
     Array<{ institution: string; name: string; listUrl: string }>
   >("config/company-sources.json");
-  const wechatAccounts = loadJson<
-    Array<{
-      institution: string;
-      name: string;
-      publishers?: string[];
-      brands?: string[];
-      accountId?: string;
-      feedUrl?: string;
-    }>
-  >("config/wechat-accounts.json");
+  const weweFeeds = loadJson<
+    Array<{ institution: string; name: string; feedId?: string }>
+  >("config/wewe-feeds.json");
   const cninfoCfg = loadJson<{
     endpoint: string;
     keywords: string[];
     pageSize: number;
+    maxPages?: number;
     maxAgeDays: number;
+    columns?: string[];
   }>("config/exchange-sources.json");
+  const whitelist = collectWhitelistCodes(
+    loadJson<Record<string, Array<{ code: string }>>>("config/etf-whitelist.json"),
+  );
 
   const newsAdapters = opts.useFixture
     ? [createFixtureNewsAdapter()]
-    : hasIfind
-      ? [
-          createIfindNewsAdapter(),
-          createCompanyWebAdapter(fetch, companySources as any),
-          createWechatAdapter(fetch, {
-            accounts: wechatAccounts as any,
-            sameDayOnly: false,
-            maxAgeDays: 7,
-            pages: 5,
-            delayMs: 1200,
-          }),
-          createExchangeWebAdapter(fetch, cninfoCfg as any),
-          createSseSearchAdapter(fetch),
-        ]
-      : [
-          createCompanyWebAdapter(fetch, companySources as any),
-          createWechatAdapter(fetch, {
-            accounts: wechatAccounts as any,
-            sameDayOnly: false,
-            maxAgeDays: 7,
-            pages: 5,
-            delayMs: 1200,
-          }),
-          createExchangeWebAdapter(fetch, cninfoCfg as any),
-          createSseSearchAdapter(fetch),
-        ];
+    : [
+        ...(hasIfind ? [createIfindNewsAdapter()] : []),
+        createCompanyWebAdapter(fetch, companySources as any),
+        createWeweRssAdapter(fetch, {
+          baseUrl: process.env.WEWE_RSS_URL || "http://127.0.0.1:4000",
+          authCode: process.env.WEWE_AUTH_CODE || "",
+          feeds: weweFeeds as any,
+        }),
+        createExchangeWebAdapter(fetch, cninfoCfg as any, whitelist),
+        createSseFundSiteAdapter(fetch),
+      ];
 
+  let wechatOkWithItems = false;
+  let sseFundCount = 0;
   for (const adapter of newsAdapters) {
     try {
       const batch = await adapter.fetchNews(opts.tradeDate);
       news.push(...batch);
+      if (adapter.name === "wewe-rss" && batch.length > 0) {
+        wechatOkWithItems = true;
+      }
+      if (adapter.name === "sse-fund-site") sseFundCount = batch.length;
     } catch (e) {
       errors.push(`${adapter.name}: ${(e as Error).message}`);
+    }
+  }
+
+  if (!opts.useFixture && sseFundCount === 0) {
+    try {
+      const fallback = await createSseSearchAdapter(fetch, {
+        maxAgeDays: 0,
+        maxPages: 2,
+      }).fetchNews(opts.tradeDate);
+      news.push(...fallback);
+    } catch (e) {
+      errors.push(`sse-search: ${(e as Error).message}`);
     }
   }
 
@@ -157,9 +163,20 @@ export async function runIngest(opts: {
   // 若都写进当天文件会导致各日新闻混在一起。这里只保留「发布日期=当日」的资讯。
   news = news.filter((n) => beijingDate(n.publishedAt) === opts.tradeDate);
 
-  // 保证每条资讯 id 唯一：微信搜狗分页/多搜索词会让每条 id 的序号从 0 重算，
-  // 产生重复 id（同一 id 对应不同文章）。重复 id 会让前端 React 按 key 渲染
-  // 列表时错乱——切换日期时旧卡片残留在列表顶部。这里给重复 id 追加后缀。
+  let previousNews: NewsItem[] = [];
+  const prevPath = join(opts.dataDir, `${opts.tradeDate}.json`);
+  if (existsSync(prevPath)) {
+    try {
+      const prev = JSON.parse(readFileSync(prevPath, "utf8")) as DaySnapshot;
+      previousNews = prev.news ?? [];
+    } catch {
+      previousNews = [];
+    }
+  }
+  news = mergeWechatNews(news, previousNews, wechatOkWithItems);
+  news = dedupeNews(news);
+
+  // 保证每条资讯 id 唯一：多源合并后同一 id 会让前端按 key 渲染错乱。
   {
     const seenIds = new Set<string>();
     news = news.map((n) => {
@@ -187,12 +204,15 @@ export async function runIngest(opts: {
     }
   }
 
-  // Soft: empty iFind news / flaky exchange should not scare users when WeChat worked.
+  // Soft: empty iFind news / flaky official sources should not scare users when other lanes worked.
   const hardErrors = errors.filter(
     (e) =>
       !/report_query failed:\s*no data/i.test(e) &&
       !/^exchange-web:/i.test(e) &&
-      !/^company-web:/i.test(e),
+      !/^company-web:/i.test(e) &&
+      !/^wewe-rss:/i.test(e) &&
+      !/^sse-fund-site:/i.test(e) &&
+      !/^sse-search:/i.test(e),
   );
 
   let status: DaySnapshot["status"] = "ok";

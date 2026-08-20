@@ -10,10 +10,11 @@ token 只存在你浏览器，并经中间人转发，**不进任何代码、不
 
 ### 两个按钮的区别
 - **「立即刷新（仅本机预览）」**：只拉 iFinD 行情 + iFinD 资讯(`report_query`)，只显示在你当前浏览器，刷新网页就没了；别人打开网站看不到。适合临时看当天行情。
-- **「一键全量更新并发布（写线上）」**：Worker 拉取 **ETF 行情 + 全部资讯源**（基金公司官网、微信搜狗、巨潮深交所、上交所基金网搜索、iFinD 资讯），去重过滤后把 `data/{日期}.json` + `latest.json` + `dates.json` **写回 GitHub 仓库**，自动触发 Pages 重新部署，**线上所有人都能看到最新数据**。相当于"点一下就更新线上"，彻底摆脱对本机定时任务的依赖。
-  - 前提：Worker 配置了 `GITHUB_TOKEN`（见下方第 0 步）。
+- **「一键全量更新并发布（写线上）」**：Worker 拉取 **ETF 行情 + 全部资讯源**（基金公司官网、巨潮白名单 ETF、上交所基金专区、WeWe 微信 RSS、iFinD 资讯），去重过滤后把 `data/{日期}.json` + `latest.json` + `dates.json` **写回 GitHub 仓库**，自动触发 Pages 重新部署，**线上所有人都能看到最新数据**。相当于"点一下就更新线上"，彻底摆脱对本机定时任务的依赖。
+  - 前提：Worker 配置了 `GITHUB_TOKEN`（见下方第 0 步）。微信另需本机 WeWe + 命名隧道，见 `WEWE.md`。
   - 发布后 GitHub Pages 重新部署约需 1–2 分钟，耐心等一下再强刷网站。
-  - 注意：云端 Worker 的出口 IP 是海外机房，**微信搜狗、部分基金公司官网可能被反爬/限流**，导致资讯比本机定时任务少。若发现资讯缺失，可仍用本机 `npm run ingest` 补数据。
+  - Worker 必须写回 `fund-tracker/data/*.json`（网站构建读这里）。只写仓库根目录 `data/` 不会更新线上看板。
+  - 注意：云端 Worker 的出口 IP 是海外机房，部分基金公司官网可能被反爬；微信不走搜狗，改走你电脑上的 WeWe。Tunnel 断开时官网和 ETF 仍更新，且不会冲掉当天已有微信条目。
 
 ---
 
@@ -35,6 +36,13 @@ token 只存在你浏览器，并经中间人转发，**不进任何代码、不
    ```
    wrangler deploy
    ```
+
+微信公众号另需两个密钥（本机 WeWe + 命名隧道就绪后再配，步骤见 `WEWE.md`）：
+
+```
+wrangler secret put WEWE_RSS_URL
+wrangler secret put WEWE_AUTH_CODE
+```
 
 > ⚠️ 安全提示：这个 PAT 有你仓库的**写权限**。它只存在 Cloudflare 的加密配置里（你自己的账号），不在前端代码、也不在你浏览器。若担心泄露，可随时在 GitHub 撤销该 token，Worker 的发布能力会立即失效，但不影响「立即刷新」预览。
 
@@ -87,9 +95,10 @@ token 只存在你浏览器，并经中间人转发，**不进任何代码、不
 
 ## 常见问题
 - **刷新失败：`get_access_token failed`** → token 不对或没权限，检查 token 是否完整粘贴。
+- **全量更新失败：`get_access_token invalid JSON: error code: 520`** → Cloudflare 机房在海外，iFinD 常拦这种访问。新版 Worker 会跳过 iFinD，继续拉官网/交易所，并保留上次 ETF 行情；请重新部署后再点一次「一键全量更新」。本机「立即刷新」仍依赖 iFinD，海外失败属正常。
 - **刷新失败：网络错误 / fetch failed** → Worker URL 填错，或 Cloudflare 端网络问题。
 - **行情正常、资讯 0 条** → 你的 iFinD 账号可能没开「资讯查询(report_query)」接口权限，这是账号权限问题，不是代码问题。
-- **点「一键全量更新并发布」资讯比本机少** → 云端 Worker 的海外 IP 可能被微信搜狗/基金公司官网反爬，这是信息源对机房 IP 的限制，不是代码问题。可改天再试或在本机 `npm run ingest` 补数据。
+- **点「一键全量更新并发布」没有微信** → 先按 `WEWE.md` 在本机跑 WeWe 和命名隧道，并把 `WEWE_RSS_URL`、`WEWE_AUTH_CODE` 写入 Worker secrets。官网和 ETF 不受影响；当天已有微信不会被冲掉。
 - **点「一键全量更新并发布」提示 `Worker 未配置 GITHUB_TOKEN`** → 没做第 0 步，或 wrangler deploy 前没 put secret；重跑 `wrangler secret put GITHUB_TOKEN` 再 `wrangler deploy`。
 - **发布报错 `GitHub 写入 ... 失败: 401`** → PAT 无效或没勾 `repo` 权限；去 GitHub 重新生成带 repo 权限的 token 并 wrangler secret put。
 - **想换 token** → 再点「⚙ 数据」改完保存即可；「清除」会删掉浏览器里存的设置。

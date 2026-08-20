@@ -8,11 +8,16 @@
 
 import { PRODUCTS } from "./products.js";
 import { createCompanyWebAdapter } from "../scripts/adapters/company-web.js";
-import { createWechatAdapter } from "../scripts/adapters/wechat.js";
-import { createExchangeWebAdapter } from "../scripts/adapters/exchange-web.js";
+import { createWeweRssAdapter } from "../scripts/adapters/wewe-rss.js";
+import {
+  collectWhitelistCodes,
+  createExchangeWebAdapter,
+} from "../scripts/adapters/exchange-web.js";
 import { createSseSearchAdapter } from "../scripts/adapters/sse-search.js";
+import { createSseFundSiteAdapter } from "../scripts/adapters/sse-fund-site.js";
 import { classifyNews } from "../shared/classify.js";
 import { dedupeNews } from "../shared/dedupe.js";
+import { keepUncoveredNews, mergeWechatNews } from "../shared/merge-wechat.js";
 import type { DaySnapshot, EtfDashboard, NewsItem } from "../shared/schema.js";
 
 const BASE = "https://quantapi.51ifind.com/api/v1";
@@ -20,6 +25,9 @@ const BASE = "https://quantapi.51ifind.com/api/v1";
 const GH_OWNER = "pany65830-max";
 const GH_REPO = "fund-tracke";
 const GH_BRANCH = "main";
+/** GitHub Pages 工作流只监听 fund-tracker/**，构建拷贝 fund-tracker/data/。根目录 data/ 不会出现在网站上。 */
+const GH_DATA_DIR = "fund-tracker/data";
+const GH_ROOT_DATA_DIR = "data";
 
 const INDEX_LIST = [
   { code: "000300", ths: "000300.SH", name: "沪深300" },
@@ -56,28 +64,47 @@ const COMPANY_SOURCES = [
   { institution: "huaxia" as const, name: "华夏基金", listUrl: "https://www.chinaamc.com/hxdt/hxxw/" },
   { institution: "huaxia" as const, name: "华夏基金-信息披露", listUrl: "https://www.chinaamc.com/guanyu/gonggao/" },
   { institution: "efunds" as const, name: "易方达-信息披露", listUrl: "https://www.efunds.com.cn/lm/xxpl/" },
+  { institution: "efunds" as const, name: "易方达-临时公告", listUrl: "https://www.efunds.com.cn/Html5/lm/xxpl/xxpllsgg/" },
   { institution: "guotai" as const, name: "国泰基金-公司公告", listUrl: "https://www.gtfund.com/Etrade/Report/companyreport" },
+  { institution: "guotai" as const, name: "国泰基金-产品公告", listUrl: "https://www.gtfund.com/Etrade/Report/fundreport/" },
   { institution: "huatai" as const, name: "华泰柏瑞-资讯中心", listUrl: "http://www.huatai-pb.com/news/index.html" },
   { institution: "huatai" as const, name: "华泰柏瑞-新闻速递", listUrl: "http://www.huatai-pb.com/news/newsd/index.html" },
   { institution: "huatai" as const, name: "华泰柏瑞-公司动态", listUrl: "http://www.huatai-pb.com/news/companyNews/index.html" },
+  { institution: "huatai" as const, name: "华泰柏瑞-临时公告", listUrl: "http://www.huatai-pb.com/news/information/tempReport/index.html" },
 ];
 
-// 内联微信配置（Worker 内精简版）：只跑 4 家基金公司主号，避免海外 IP 被搜狗限流/超时。
-// 交易所公众号近 30 天几乎无更新，且 Cloudflare 海外节点抓搜狗更慢，故不在 Worker 内跑。
-const WECHAT_ACCOUNTS = [
-  { institution: "huaxia" as const, name: "华夏基金", brands: ["华夏基金", "华夏财富"], publishers: ["华夏基金", "华夏基金微资讯", "华夏基金客服", "华夏财富", "华夏基金微理财"] },
-  { institution: "efunds" as const, name: "易方达微资讯", brands: ["易方达"], publishers: ["易方达微资讯", "易方达基金", "易方达投资者教育", "易方达微理财"] },
-  { institution: "guotai" as const, name: "国泰基金", brands: ["国泰基金"], publishers: ["国泰基金", "国泰基金微资讯", "国泰基金微理财"] },
-  { institution: "huatai" as const, name: "华泰柏瑞微理财", brands: ["华泰柏瑞"], publishers: ["华泰柏瑞微理财", "华泰柏瑞基金", "华泰柏瑞", "华泰柏瑞微资讯"] },
+// 与 config/wewe-feeds.json 一致：用 WeWe RSS 按公众号名过滤，不再走搜狗。
+const WEWE_FEEDS = [
+  { institution: "huaxia" as const, name: "华夏基金" },
+  { institution: "efunds" as const, name: "易方达微资讯" },
+  { institution: "efunds" as const, name: "易方达微理财" },
+  { institution: "efunds" as const, name: "易方达基金" },
+  { institution: "efunds" as const, name: "易方达财富微理财" },
+  { institution: "guotai" as const, name: "国泰基金" },
+  { institution: "guotai" as const, name: "国泰基金微幸福" },
+  { institution: "huatai" as const, name: "华泰柏瑞微理财" },
+  { institution: "huatai" as const, name: "华泰柏瑞基金微理财" },
+  { institution: "sse" as const, name: "上交所发布" },
+  { institution: "sse" as const, name: "上交所投服" },
+  { institution: "sse" as const, name: "上交所ETF之家" },
+  { institution: "szse" as const, name: "深交所" },
+  { institution: "szse" as const, name: "深交所投服" },
+  { institution: "szse" as const, name: "深交所投服部" },
+  { institution: "szse" as const, name: "深交所上市通" },
+  { institution: "szse" as const, name: "深市基金" },
 ];
 
 // 内联交易所配置（与 config/exchange-sources.json 一致）
 const CNINFO_CFG = {
-  endpoint: "https://www.cninfo.com.cn/new/fulltextSearch/full",
-  keywords: ["ETF"],
+  endpoint: "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+  keywords: ["ETF", "交易型开放式指数基金"],
   pageSize: 30,
-  maxAgeDays: 7,
+  maxPages: 2,
+  maxAgeDays: 0,
+  columns: ["szse"],
 };
+
+const ETF_WHITELIST = collectWhitelistCodes(PRODUCTS);
 
 // code -> firm 映射
 const CODE_FIRM = new Map<string, string>();
@@ -380,67 +407,9 @@ async function handleRefresh({ token, tradeDate }: { token: string; tradeDate: s
   };
 }
 
-// —— 全量云端 ingest（行情 + 各资讯源） ——
-async function handleIngest({ token, tradeDate }: { token: string; tradeDate: string }) {
-  const accessToken = await getAccessToken(token);
-  const errors: string[] = [];
-
-  const etfPromise = fetchEtf(accessToken).catch((e) => {
-    errors.push(`etf: ${e.message}`);
-    return emptyEtf();
-  });
-
-  const adapters = [
-    createCompanyWebAdapter(fetch, COMPANY_SOURCES),
-    createWechatAdapter(fetch, {
-      accounts: WECHAT_ACCOUNTS,
-      sameDayOnly: false,
-      maxAgeDays: 7,
-      pages: 1,
-      delayMs: 1200,
-    }),
-    createExchangeWebAdapter(fetch, CNINFO_CFG),
-    createSseSearchAdapter(fetch),
-  ];
-
-  const newsBatches = await Promise.allSettled(
-    adapters.map((adapter) =>
-      Promise.race([
-        adapter.fetchNews(tradeDate),
-        new Promise<never>((_, reject) =>
-          setTimeout(() => reject(new Error("adapter timeout (20s)")), 20000)
-        ),
-      ])
-    ),
-  );
-
-  let news: NewsItem[] = [];
-  for (let i = 0; i < adapters.length; i++) {
-    const res = newsBatches[i];
-    if (res.status === "fulfilled") {
-      news.push(...res.value);
-    } else {
-      errors.push(`${adapters[i].name}: ${res.reason && res.reason.message}`);
-    }
-  }
-
-  // iFinD 资讯作为补充
-  const ifindNewsPromise = fetchIfindNews(accessToken, tradeDate).catch((e) => {
-    errors.push(`ifind-news: ${e.message}`);
-    return [] as NewsItem[];
-  });
-  news.push(...(await ifindNewsPromise));
-
-  news = news.map((n) => ({
-    ...n,
-    category: classifyNews({ title: n.title, summary: n.summary, institution: n.institution }, CATEGORY_RULES),
-  }));
-  news = dedupeNews(news);
-  news = news.filter((n) => beijingDate(n.publishedAt) === tradeDate);
-
-  // id 唯一化
+function uniquifyNewsIds(news: NewsItem[]): NewsItem[] {
   const seenIds = new Set<string>();
-  news = news.map((n) => {
+  return news.map((n) => {
     let id = n.id;
     let k = 1;
     while (seenIds.has(id)) {
@@ -449,6 +418,106 @@ async function handleIngest({ token, tradeDate }: { token: string; tradeDate: st
     seenIds.add(id);
     return { ...n, id };
   });
+}
+
+async function runAdapter(
+  adapter: { name: string; fetchNews: (d: string) => Promise<NewsItem[]> },
+  tradeDate: string,
+): Promise<NewsItem[]> {
+  return Promise.race([
+    adapter.fetchNews(tradeDate),
+    new Promise<never>((_, reject) =>
+      setTimeout(() => reject(new Error("adapter timeout (20s)")), 20000),
+    ),
+  ]);
+}
+
+// —— 全量云端 ingest（行情 + 各资讯源） ——
+async function handleIngest({
+  token,
+  tradeDate,
+  weweBaseUrl,
+  weweAuth,
+}: {
+  token: string;
+  tradeDate: string;
+  weweBaseUrl: string;
+  weweAuth: string;
+}) {
+  const errors: string[] = [];
+  let accessToken = "";
+  try {
+    accessToken = await getAccessToken(token);
+  } catch (e) {
+    errors.push(`ifind-token: ${(e as Error).message}`);
+  }
+
+  const etfPromise = accessToken
+    ? fetchEtf(accessToken).catch((e) => {
+        errors.push(`etf: ${e.message}`);
+        return emptyEtf();
+      })
+    : Promise.resolve(emptyEtf());
+
+  const adapters = [
+    createCompanyWebAdapter(fetch, COMPANY_SOURCES),
+    createWeweRssAdapter(fetch, {
+      baseUrl: weweBaseUrl,
+      authCode: weweAuth,
+      feeds: WEWE_FEEDS,
+    }),
+    createExchangeWebAdapter(fetch, CNINFO_CFG, ETF_WHITELIST),
+    createSseFundSiteAdapter(fetch),
+  ];
+
+  const newsBatches = await Promise.allSettled(
+    adapters.map((adapter) => runAdapter(adapter, tradeDate)),
+  );
+
+  let news: NewsItem[] = [];
+  let wechatOkWithItems = false;
+  let sseFundCount = 0;
+  for (let i = 0; i < adapters.length; i++) {
+    const res = newsBatches[i];
+    if (res.status === "fulfilled") {
+      news.push(...res.value);
+      if (adapters[i].name === "wewe-rss" && res.value.length > 0) {
+        wechatOkWithItems = true;
+      }
+      if (adapters[i].name === "sse-fund-site") sseFundCount = res.value.length;
+    } else {
+      errors.push(`${adapters[i].name}: ${res.reason && res.reason.message}`);
+    }
+  }
+
+  if (sseFundCount === 0) {
+    try {
+      const fallback = await runAdapter(
+        createSseSearchAdapter(fetch, { maxAgeDays: 0, maxPages: 2 }),
+        tradeDate,
+      );
+      news.push(...fallback);
+    } catch (e) {
+      errors.push(`sse-search: ${(e as Error).message}`);
+    }
+  }
+
+  // iFinD 资讯作为补充（token 换不到时跳过，不阻断官网/交易所）
+  if (accessToken) {
+    const ifindNews = await fetchIfindNews(accessToken, tradeDate).catch((e) => {
+      errors.push(`ifind-news: ${e.message}`);
+      return [] as NewsItem[];
+    });
+    news.push(...ifindNews);
+  }
+
+  news = news.map((n) => ({
+    ...n,
+    category: classifyNews({ title: n.title, summary: n.summary, institution: n.institution }, CATEGORY_RULES),
+  }));
+  news = dedupeNews(news);
+  news = news.filter((n) => beijingDate(n.publishedAt) === tradeDate);
+  news = uniquifyNewsIds(news);
 
   const etf = await etfPromise;
   let status: DaySnapshot["status"] = "ok";
@@ -466,7 +535,8 @@ async function handleIngest({ token, tradeDate }: { token: string; tradeDate: st
     news,
     etf,
     source: "cloud-ingest",
-  } as DaySnapshot;
+    wechatOkWithItems,
+  } as DaySnapshot & { wechatOkWithItems: boolean };
 }
 
 // —— GitHub Contents API：把快照写回仓库，触发 Pages 重新部署 ——
@@ -477,10 +547,35 @@ function toBase64(str: string) {
   return btoa(bin);
 }
 function fromBase64(b64: string) {
-  const bin = atob(b64);
+  // GitHub Contents API 会把 base64 按 60 字符换行；不先去掉空白，atob 会失败。
+  const bin = atob(b64.replace(/\s/g, ""));
   const bytes = new Uint8Array(bin.length);
   for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
   return new TextDecoder().decode(bytes);
+}
+
+type GhFile = { sha: string; content?: string; download_url?: string | null };
+
+async function parseSnapshotFile(file: GhFile | null, token: string): Promise<DaySnapshot | null> {
+  if (!file) return null;
+  let text = "";
+  if (file.content) {
+    try {
+      text = fromBase64(file.content);
+    } catch {
+      text = "";
+    }
+  }
+  if (!text.trim() && file.download_url) {
+    const res = await fetch(file.download_url, { headers: ghHeaders(token) });
+    if (res.ok) text = await res.text();
+  }
+  if (!text.trim()) return null;
+  try {
+    return JSON.parse(text) as DaySnapshot;
+  } catch {
+    return null;
+  }
 }
 
 function ghHeaders(token: string) {
@@ -502,7 +597,7 @@ async function ghGetFile(path: string, token: string) {
     const t = await res.text();
     throw new Error(`GitHub 读取 ${path} 失败: ${res.status} ${t.slice(0, 200)}`);
   }
-  return res.json() as Promise<{ sha: string; content?: string }>;
+  return res.json() as Promise<GhFile>;
 }
 
 async function ghPutFile(path: string, content: string, token: string, sha: string | null | undefined, message: string) {
@@ -523,28 +618,76 @@ async function ghPutFile(path: string, content: string, token: string, sha: stri
   return res.json();
 }
 
-async function publishSnapshot(snapshot: DaySnapshot, githubToken: string) {
+async function publishSnapshot(
+  snapshot: DaySnapshot,
+  githubToken: string,
+  wechatOkWithItems = false,
+) {
   if (!githubToken) {
     throw new Error("Worker 未配置 GITHUB_TOKEN，请用 `wrangler secret put GITHUB_TOKEN` 配置（需 repo 写权限）");
   }
+  const date = snapshot.tradeDate;
+
+  const dayPath = `${GH_DATA_DIR}/${date}.json`;
+  const latestPath = `${GH_DATA_DIR}/latest.json`;
+  const datesPath = `${GH_DATA_DIR}/dates.json`;
+  const dayExisting = await ghGetFile(dayPath, githubToken);
+  const latestExisting = await ghGetFile(latestPath, githubToken);
+  const rootDayExisting = await ghGetFile(`${GH_ROOT_DATA_DIR}/${date}.json`, githubToken);
+  const rootLatestExisting = await ghGetFile(`${GH_ROOT_DATA_DIR}/latest.json`, githubToken);
+
+  const sameDayPrev = await parseSnapshotFile(dayExisting, githubToken);
+  if (dayExisting && !sameDayPrev) {
+    throw new Error("读取当天已有资讯失败，已取消发布以免覆盖");
+  }
+  const latestPrev = await parseSnapshotFile(latestExisting, githubToken);
+  const rootDayPrev = await parseSnapshotFile(rootDayExisting, githubToken);
+  const rootLatestPrev = await parseSnapshotFile(rootLatestExisting, githubToken);
+
+  const previousNews = [
+    ...(sameDayPrev?.tradeDate === date ? sameDayPrev.news ?? [] : []),
+    ...(latestPrev?.tradeDate === date ? latestPrev.news ?? [] : []),
+    ...(rootDayPrev?.tradeDate === date ? rootDayPrev.news ?? [] : []),
+    ...(rootLatestPrev?.tradeDate === date ? rootLatestPrev.news ?? [] : []),
+  ];
+  const mergedNews = uniquifyNewsIds(
+    dedupeNews(
+      keepUncoveredNews(
+        mergeWechatNews(snapshot.news, previousNews, wechatOkWithItems),
+        previousNews,
+      ),
+    ),
+  );
+  const toWrite: DaySnapshot = { ...snapshot, news: mergedNews };
+
+  const etfHasData = (etf: EtfDashboard | undefined) =>
+    !!(etf?.indices?.length) ||
+    Object.values(etf?.productsByFirm || {}).some((arr) => (arr as unknown[]).length > 0);
+
+  if (!etfHasData(toWrite.etf)) {
+    const keepEtf =
+      (sameDayPrev?.etf && etfHasData(sameDayPrev.etf) ? sameDayPrev.etf : null) ||
+      (latestPrev?.etf && etfHasData(latestPrev.etf) ? latestPrev.etf : null) ||
+      (rootDayPrev?.etf && etfHasData(rootDayPrev.etf) ? rootDayPrev.etf : null) ||
+      (rootLatestPrev?.etf && etfHasData(rootLatestPrev.etf) ? rootLatestPrev.etf : null);
+    if (keepEtf) {
+      toWrite.etf = keepEtf;
+      toWrite.errors = [...(toWrite.errors || []), "etf: 本次 iFinD 不可用，已保留上次行情"];
+      if (toWrite.status === "ok") toWrite.status = "partial";
+    }
+  }
+
   // 质量守卫：行情完全为空时不发布，避免用坏数据覆盖已有数据
-  const hasProducts = snapshot.etf && Object.values(snapshot.etf.productsByFirm || {}).some((arr) => (arr as unknown[]).length > 0);
-  const hasIndices = snapshot.etf?.indices && snapshot.etf.indices.length > 0;
-  if (!hasProducts && !hasIndices) {
+  if (!etfHasData(toWrite.etf)) {
     throw new Error("发布被拒绝：ETF 行情数据为空，可能 iFinD 接口暂时无返回，请重试");
   }
-  const date = snapshot.tradeDate;
-  const json = JSON.stringify(snapshot, null, 2);
 
-  // 注意：Pages 构建时 copyDataPlugin 读的是 fund-tracker/data/，不是根目录 data/
-  const dayPath = `fund-tracker/data/${date}.json`;
-  const dayExisting = await ghGetFile(dayPath, githubToken);
-  await ghPutFile(dayPath, json, githubToken, dayExisting && dayExisting.sha, `data: ${date}（云端一键更新）`);
+  const jsonBody = JSON.stringify(toWrite, null, 2);
 
-  const latestExisting = await ghGetFile("fund-tracker/data/latest.json", githubToken);
-  await ghPutFile("fund-tracker/data/latest.json", json, githubToken, latestExisting && latestExisting.sha, `data: latest -> ${date}`);
+  await ghPutFile(dayPath, jsonBody, githubToken, dayExisting && dayExisting.sha, `data: ${date}（云端一键更新）`);
+  await ghPutFile(latestPath, jsonBody, githubToken, latestExisting && latestExisting.sha, `data: latest -> ${date}`);
 
-  const datesExisting = await ghGetFile("fund-tracker/data/dates.json", githubToken);
+  const datesExisting = await ghGetFile(datesPath, githubToken);
   let dates: string[] = [];
   if (datesExisting && datesExisting.content) {
     try {
@@ -556,9 +699,9 @@ async function publishSnapshot(snapshot: DaySnapshot, githubToken: string) {
   }
   if (!dates.includes(date)) dates.push(date);
   dates.sort();
-  await ghPutFile("fund-tracker/data/dates.json", JSON.stringify(dates, null, 2), githubToken, datesExisting && datesExisting.sha, `data: 更新 dates.json`);
+  await ghPutFile(datesPath, JSON.stringify(dates, null, 2), githubToken, datesExisting && datesExisting.sha, `data: 更新 dates.json`);
 
-  return { date, files: [dayPath, "fund-tracker/data/latest.json", "fund-tracker/data/dates.json"] };
+  return { date, files: [dayPath, latestPath, datesPath], snapshot: toWrite };
 }
 
 function corsHeaders() {
@@ -599,7 +742,7 @@ export default {
         const result = await handleRefresh({ token, tradeDate });
         if (publish) {
           const gh = await publishSnapshot(result as DaySnapshot, env.GITHUB_TOKEN || "");
-          (result as Record<string, unknown>).published = gh;
+          return json({ ...gh.snapshot, published: { date: gh.date, files: gh.files } }, 200, corsHeaders());
         }
         return json(result, 200, corsHeaders());
       } catch (e) {
@@ -619,12 +762,18 @@ export default {
       const tradeDate = body.tradeDate || beijingToday();
       const publish = !!body.publish;
       try {
-        const result = await handleIngest({ token, tradeDate });
+        const result = await handleIngest({
+          token,
+          tradeDate,
+          weweBaseUrl: env.WEWE_RSS_URL || "",
+          weweAuth: env.WEWE_AUTH_CODE || "",
+        });
+        const { wechatOkWithItems, ...snapshot } = result;
         if (publish) {
-          const gh = await publishSnapshot(result, env.GITHUB_TOKEN || "");
-          (result as Record<string, unknown>).published = gh;
+          const gh = await publishSnapshot(snapshot, env.GITHUB_TOKEN || "", wechatOkWithItems);
+          return json({ ...gh.snapshot, published: { date: gh.date, files: gh.files } }, 200, corsHeaders());
         }
-        return json(result, 200, corsHeaders());
+        return json(snapshot, 200, corsHeaders());
       } catch (e) {
         return json({ error: String((e && (e as Error).message) || e) }, 502, corsHeaders());
       }

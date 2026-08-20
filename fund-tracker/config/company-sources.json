@@ -15,9 +15,19 @@
     "listUrl": "https://www.efunds.com.cn/lm/xxpl/"
   },
   {
+    "institution": "efunds",
+    "name": "易方达-临时公告",
+    "listUrl": "https://www.efunds.com.cn/Html5/lm/xxpl/xxpllsgg/"
+  },
+  {
     "institution": "guotai",
     "name": "国泰基金-公司公告",
     "listUrl": "https://www.gtfund.com/Etrade/Report/companyreport"
+  },
+  {
+    "institution": "guotai",
+    "name": "国泰基金-产品公告",
+    "listUrl": "https://www.gtfund.com/Etrade/Report/fundreport/"
   },
   {
     "institution": "huatai",
@@ -33,5 +43,10 @@
     "institution": "huatai",
     "name": "华泰柏瑞-公司动态",
     "listUrl": "http://www.huatai-pb.com/news/companyNews/index.html"
+  },
+  {
+    "institution": "huatai",
+    "name": "华泰柏瑞-临时公告",
+    "listUrl": "http://www.huatai-pb.com/news/information/tempReport/index.html"
   }
 ]
