@@ -1,6 +1,6 @@
 {
   "tradeDate": "2026-08-18",
-  "updatedAt": "2026-08-18T01:32:26.905Z",
+  "updatedAt": "2026-08-20T05:53:04.333Z",
   "status": "ok",
   "errors": [
     "ifind-news: report_query failed: no data."
@@ -575,6 +575,96 @@
       "source": "exchange_web",
       "publishedAt": "2026-08-18T08:00:00+08:00",
       "sourceUrl": "https://static.cninfo.com.cn/finalpage/2026-08-18/1225476970.PDF"
+    },
+    {
+      "id": "wewe-sse-0-2026-08-18",
+      "title": "主动ETF系列｜主动ETF如何选（一）",
+      "summary": "主动ETF系列｜主动ETF如何选（一）",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-18T12:24:55.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/SwYHJgVCRnzWdY2ANMyR7w"
+    },
+    {
+      "id": "wewe-sse-1-2026-08-18",
+      "title": "走近基金经理 ∣ “十五五”规划特辑（三）：如何长期配置“十五五”硬科技主线",
+      "summary": "走近基金经理 ∣ “十五五”规划特辑（三）：如何长期配置“十五五”硬科技主线",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-18T12:24:55.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/5JzPSU-7qF43TlnO22Nruw"
+    },
+    {
+      "id": "wewe-sse-2-2026-08-18",
+      "title": "投顾指南针｜多元资产配置的收益来源",
+      "summary": "投顾指南针｜多元资产配置的收益来源",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-18T12:24:55.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/aDe0lQC0V2exqsLlXw0zRw"
+    },
+    {
+      "id": "wewe-sse-3-2026-08-18",
+      "title": "每日沪市基金概况",
+      "summary": "每日沪市基金概况",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-18T12:24:55.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/Ccnay9gio6fvb_gMrheqlA"
+    },
+    {
+      "id": "wewe-sse-4-2026-08-18",
+      "title": "朱镕基同志遗体在京火化 习近平等到八宝山革命公墓送别",
+      "summary": "朱镕基同志遗体在京火化 习近平等到八宝山革命公墓送别",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-18T10:32:35.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/VCAxw3z1xaSjj6UXCaUwLw"
+    },
+    {
+      "id": "wewe-huatai-5-2026-08-18",
+      "title": "每天晒持仓，会被“抄作业”吗？| 主动ETF犀利问答①",
+      "summary": "每天晒持仓，会被“抄作业”吗？| 主动ETF犀利问答①",
+      "institution": "huatai",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-18T10:01:16.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/hlgGNyVS_BeN75M4eI_-eg"
+    },
+    {
+      "id": "wewe-sse-6-2026-08-18",
+      "title": "守护杨高南 | 2025年，中小投资者投了多少反对票？",
+      "summary": "守护杨高南 | 2025年，中小投资者投了多少反对票？",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-18T09:32:58.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/q7kFLt76D6yB2rlRgyI9WA"
+    },
+    {
+      "id": "wewe-sse-7-2026-08-18",
+      "title": "频准激光（688826.SH）今日在上交所上市",
+      "summary": "频准激光（688826.SH）今日在上交所上市",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-18T08:31:39.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/lda4JZLodzUwButGMA3opg"
+    },
+    {
+      "id": "wewe-guotai-8-2026-08-18",
+      "title": "🧧金价迎反弹，如何开启“寻宝”之旅？",
+      "summary": "🧧金价迎反弹，如何开启“寻宝”之旅？",
+      "institution": "guotai",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-18T04:29:30.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/fE5BonDurrFSx9IlziXf9A"
     }
   ],
   "etf": {

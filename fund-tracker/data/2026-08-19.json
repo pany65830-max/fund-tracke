@@ -1,6 +1,6 @@
 {
   "tradeDate": "2026-08-19",
-  "updatedAt": "2026-08-19T09:31:06.286Z",
+  "updatedAt": "2026-08-20T05:53:04.333Z",
   "status": "partial",
   "errors": [
     "wewe-rss: WEWE_RSS_URL empty",
@@ -227,6 +227,16 @@
       "source": "company_web",
       "publishedAt": "2026-08-19T08:00:00+08:00",
       "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260819/%E6%98%93%E6%96%B9%E8%BE%BE%E7%A8%B3%E8%A3%95120%E5%A4%A9%E6%BB%9A%E5%8A%A8%E6%8C%81%E6%9C%89%E5%80%BA%E5%88%B8%E5%9E%8B%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E8%B0%83%E6%95%B4%E5%A4%A7%E9%A2%9D%E7%94%B3%E8%B4%AD%E5%8F%8A%E5%A4%A7%E9%A2%9D%E8%BD%AC%E6%8D%A2%E8%BD%AC%E5%85%A5%E4%B8%9A%E5%8A%A1%E9%99%90%E5%88%B6%E7%9A%84%E5%85%AC%E5%91%8A.pdf"
+    },
+    {
+      "id": "wewe-szse-0-2026-08-19",
+      "title": "新股上市快报（2026年第31期）",
+      "summary": "新股上市快报（2026年第31期）",
+      "institution": "szse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-19T02:11:33.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/-faFbqQf02B88widOBATwQ"
     }
   ],
   "etf": {

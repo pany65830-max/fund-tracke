@@ -1,6 +1,6 @@
 {
   "tradeDate": "2026-08-17",
-  "updatedAt": "2026-08-17T03:33:07.101Z",
+  "updatedAt": "2026-08-20T05:53:04.333Z",
   "status": "ok",
   "errors": [
     "ifind-news: report_query failed: no data."
@@ -275,6 +275,86 @@
       "source": "wechat",
       "publishedAt": "2026-08-17T03:29:01.000Z",
       "sourceUrl": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS7Zn45gw4TDH4efjmlHgB0tyZ-W7ccS44VqXa8Fplpd9AUMEgY5jKpchji9Rd94f-pGQpDxoERz3ARPHd7Vs6Pysp8pejcaSJUwn1vB2gJDZLbR_9gH54JPZpngmBxc2Q4tjZvDLOAPY3lO8wqlIeyDcFaTyNR5OQ4n8lic27tR1S2auYgM_sJuGVh4xJSzQOm687rs6eRJB3kjCUiE9oIy54z_tGSZTqA..&type=2&query=%E5%8D%8E%E5%A4%8F&token=554F7C69B366796DC0C699F4102198C1C130D10B6A8280BC"
+    },
+    {
+      "id": "wewe-sse-0-2026-08-17",
+      "title": "李强主持召开国务院第十二次全体会议强调 深入贯彻落实党中央决策部署 努力完成全年经济社会发展目标任务",
+      "summary": "李强主持召开国务院第十二次全体会议强调 深入贯彻落实党中央决策部署 努力完成全年经济社会发展目标任务",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-17T13:39:47.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/3k8sKT5-We3noHbGqlUrMQ"
+    },
+    {
+      "id": "wewe-huatai-1-2026-08-17",
+      "title": "小微盘“回血”，盘盘当前",
+      "summary": "小微盘“回血”，盘盘当前",
+      "institution": "huatai",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-17T12:27:30.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/F1v00jE4V_o6ZqhBZi9gRw"
+    },
+    {
+      "id": "wewe-sse-2-2026-08-17",
+      "title": "留言有奖 | 《3小时快学ETF》第三版内容框架意见征集",
+      "summary": "留言有奖 | 《3小时快学ETF》第三版内容框架意见征集",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-17T09:13:48.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/jrGg3o_0bxWxYkLKkGdJnQ"
+    },
+    {
+      "id": "wewe-sse-3-2026-08-17",
+      "title": "走近基金经理 ∣ “十五五”规划特辑（三）：投资者应重点关注的芯片产业指标有哪些",
+      "summary": "走近基金经理 ∣ “十五五”规划特辑（三）：投资者应重点关注的芯片产业指标有哪些",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-17T09:13:48.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/1iHaR3njv7ehof3QIV1IMA"
+    },
+    {
+      "id": "wewe-sse-4-2026-08-17",
+      "title": "基金市场周报",
+      "summary": "基金市场周报",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-17T09:13:48.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/MAZDoMSlRe1Y9QXS7-aWxw"
+    },
+    {
+      "id": "wewe-sse-5-2026-08-17",
+      "title": "每日沪市基金概况",
+      "summary": "每日沪市基金概况",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-17T09:13:48.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/Q0oUsGEfrvwvFkvE0-7r0w"
+    },
+    {
+      "id": "wewe-sse-6-2026-08-17",
+      "title": "习近平：在纪念江泽民同志诞辰100周年大会上的讲话",
+      "summary": "习近平：在纪念江泽民同志诞辰100周年大会上的讲话",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-17T08:41:42.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/ppIKl-45AgKU--pV6fpeEw"
+    },
+    {
+      "id": "wewe-sse-7-2026-08-17",
+      "title": "纪念江泽民同志诞辰100周年大会在京隆重举行 习近平发表重要讲话",
+      "summary": "纪念江泽民同志诞辰100周年大会在京隆重举行 习近平发表重要讲话",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "wechat",
+      "publishedAt": "2026-08-17T08:33:37.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/HfuJ979fjB5IcmwJLcQqcA"
     }
   ],
   "etf": {
