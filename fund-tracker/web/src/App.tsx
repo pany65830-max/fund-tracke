@@ -53,6 +53,17 @@ function addDays(date: string, delta: number): string {
   return dt.toISOString().slice(0, 10);
 }
 
+/** 把 snapshot.updatedAt(ISO UTC) 格式化为北京时间日期+时分，用于全局"数据更新于"。 */
+function formatUpdatedAt(iso?: string): string {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return "";
+  const utc = d.getTime() + d.getTimezoneOffset() * 60000;
+  const bj = new Date(utc + 8 * 3600000);
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${bj.getFullYear()}-${pad(bj.getMonth() + 1)}-${pad(bj.getDate())} ${pad(bj.getHours())}:${pad(bj.getMinutes())}`;
+}
+
 /** 北京时区当日 yyyy-mm-dd（用于刷新时同步 URL 日期）。 */
 function todayStr(): string {
   const now = new Date();
@@ -277,6 +288,11 @@ function Shell() {
           publishing={publishing}
           message={liveMsg}
         />
+        {snap?.updatedAt ? (
+          <span className="updated-at muted">
+            数据更新于 {formatUpdatedAt(snap.updatedAt)}（北京时间）
+          </span>
+        ) : null}
       </header>
 
       {weekStrip.length ? (

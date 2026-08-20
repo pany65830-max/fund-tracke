@@ -433,16 +433,39 @@ async function runAdapter(
 }
 
 // —— 全量云端 ingest（行情 + 各资讯源） ——
+/** 把 fetch 包装成"经本机代理转发"，让海外 Worker 借国内 IP 抓取。proxyUrl 为空则原样返回。 */
+function makeProxyFetch(base: typeof fetch, proxyUrl?: string, token?: string): typeof fetch {
+  if (!proxyUrl) return base;
+  const root = proxyUrl.replace(/\/+$/, "");
+  return ((input: any, init?: any) => {
+    const target =
+      typeof input === "string" ? input : input instanceof URL ? input.toString() : input?.url;
+    const url = `${root}/fetch?url=${encodeURIComponent(target)}${
+      token ? `&t=${encodeURIComponent(token)}` : ""
+    }`;
+    return base(url, {
+      method: init?.method,
+      headers: init?.headers,
+      body: init?.body,
+      signal: init?.signal,
+    });
+  }) as typeof fetch;
+}
+
 async function handleIngest({
   token,
   tradeDate,
   weweBaseUrl,
   weweAuth,
+  scrapeProxyUrl,
+  scrapeProxyToken,
 }: {
   token: string;
   tradeDate: string;
   weweBaseUrl: string;
   weweAuth: string;
+  scrapeProxyUrl?: string;
+  scrapeProxyToken?: string;
 }) {
   const errors: string[] = [];
   let accessToken = "";
@@ -459,15 +482,16 @@ async function handleIngest({
       })
     : Promise.resolve(emptyEtf());
 
+  const pf = makeProxyFetch(fetch, scrapeProxyUrl, scrapeProxyToken);
   const adapters = [
-    createCompanyWebAdapter(fetch, COMPANY_SOURCES),
+    createCompanyWebAdapter(pf, COMPANY_SOURCES),
     createWeweRssAdapter(fetch, {
       baseUrl: weweBaseUrl,
       authCode: weweAuth,
       feeds: WEWE_FEEDS,
     }),
-    createExchangeWebAdapter(fetch, CNINFO_CFG, ETF_WHITELIST),
-    createSseFundSiteAdapter(fetch),
+    createExchangeWebAdapter(pf, CNINFO_CFG, ETF_WHITELIST),
+    createSseFundSiteAdapter(pf),
   ];
 
   const newsBatches = await Promise.allSettled(
@@ -493,7 +517,7 @@ async function handleIngest({
   if (sseFundCount === 0) {
     try {
       const fallback = await runAdapter(
-        createSseSearchAdapter(fetch, { maxAgeDays: 0, maxPages: 2 }),
+        createSseSearchAdapter(pf, { maxAgeDays: 0, maxPages: 2 }),
         tradeDate,
       );
       news.push(...fallback);
@@ -767,6 +791,8 @@ export default {
           tradeDate,
           weweBaseUrl: env.WEWE_RSS_URL || "",
           weweAuth: env.WEWE_AUTH_CODE || "",
+          scrapeProxyUrl: env.SCRAPE_PROXY_URL || "",
+          scrapeProxyToken: env.SCRAPE_PROXY_TOKEN || "",
         });
         const { wechatOkWithItems, ...snapshot } = result;
         if (publish) {

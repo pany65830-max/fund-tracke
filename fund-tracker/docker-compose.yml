@@ -1,0 +1,17 @@
+# WeWe RSS 本机服务（微信资讯源）
+# 用法：docker compose up -d
+# 镜像 tag 如有变动，以 WeWe RSS 官方仓库为准。
+services:
+  wewe-rss:
+    image: crawlabteam/wewe-rss-sqlite:latest
+    container_name: wewe-rss
+    ports:
+      - "4000:4000"
+    environment:
+      - DATABASE_TYPE=sqlite
+      - DATABASE_URL=/app/data/wewe-rss.db
+      - MAX_REQUEST_PER_MINUTE=60
+      - NODE_ENV=production
+    volumes:
+      - ./wewe-data:/app/data
+    restart: unless-stopped

@@ -93,6 +93,7 @@ a:hover { text-decoration: underline; }
 .up { color: var(--up); font-variant-numeric: tabular-nums; }
 .down { color: var(--down); font-variant-numeric: tabular-nums; }
 .muted { color: var(--muted); }
+.updated-at { margin-left: 12px; font-size: 0.78rem; white-space: nowrap; }
 .mono { font-variant-numeric: tabular-nums; font-family: ui-monospace, Consolas, monospace; }
 
 .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
