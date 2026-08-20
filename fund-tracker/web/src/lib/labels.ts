@@ -7,6 +7,7 @@ export const INSTITUTION_LABEL: Record<Institution, string> = {
   huatai: "华泰柏瑞",
   sse: "上交所",
   szse: "深交所",
+  media: "中国证券报",
 };
 
 export const CATEGORY_LABEL: Record<NewsCategory, string> = {

@@ -1,6 +1,6 @@
 {
   "tradeDate": "2026-08-20",
-  "updatedAt": "2026-08-20T05:53:04.333Z",
+  "updatedAt": "2026-08-20T07:24:31.111Z",
   "status": "partial",
   "errors": [
     "wewe-rss: WEWE_RSS_URL empty",
@@ -577,6 +577,196 @@
       "source": "exchange_web",
       "publishedAt": "2026-08-20T08:00:00+08:00",
       "sourceUrl": "https://static.cninfo.com.cn/finalpage/2026-08-20/1225481970.PDF"
+    },
+    {
+      "id": "wewe-media-0-2026-08-20",
+      "title": "盘中利好！2秒，直线涨停",
+      "summary": "盘中利好！2秒，直线涨停",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-20T05:36:26.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/teJxyw4uZVcjnZ8JQz-SnQ"
+    },
+    {
+      "id": "wewe-media-1-2026-08-20",
+      "title": "宇树上市第二天，王兴兴公开亮相",
+      "summary": "宇树上市第二天，王兴兴公开亮相",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-20T05:36:26.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/635daNIjtfeb9JnZm75PCQ"
+    },
+    {
+      "id": "wewe-media-2-2026-08-20",
+      "title": "上海出台楼市“沪八条”",
+      "summary": "上海出台楼市“沪八条”",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-20T05:05:27.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/CSJ6sa6GyJQ8UT7oZiQNZg"
+    },
+    {
+      "id": "wewe-media-3-2026-08-20",
+      "title": "恒大集团、恒大地产、许家印等案一审宣判",
+      "summary": "恒大集团、恒大地产、许家印等案一审宣判",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-20T04:08:23.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/aRhxtH_r-D_V__WaZ91AUw"
+    },
+    {
+      "id": "wewe-media-4-2026-08-20",
+      "title": "A股“股王”，爆发",
+      "summary": "A股“股王”，爆发",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-20T04:00:38.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/CZMKDxgkD9BHv3dJEvuoYg"
+    },
+    {
+      "id": "wewe-media-5-2026-08-20",
+      "title": "AI“换口气”，谁能来接力？银行理财产品7月榜单出炉",
+      "summary": "AI“换口气”，谁能来接力？银行理财产品7月榜单出炉",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-20T04:00:38.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/i14hBDGepJAmF0MjDQp5dA"
+    },
+    {
+      "id": "wewe-media-6-2026-08-20",
+      "title": "这只银行转债，今起停止交易",
+      "summary": "这只银行转债，今起停止交易",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-20T04:00:38.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/RgQXKdXGIrWZXyPUv7h0HQ"
+    },
+    {
+      "id": "wewe-media-7-2026-08-20",
+      "title": "交通银行原副行长侯维栋被提起公诉",
+      "summary": "交通银行原副行长侯维栋被提起公诉",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-20T03:29:57.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/r0n7FZmoQpYzBs7UN7qDwg"
+    },
+    {
+      "id": "wewe-media-8-2026-08-20",
+      "title": "刚刚，A股罕见一幕",
+      "summary": "刚刚，A股罕见一幕",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-20T02:38:42.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/pkBrXl34NxmR7Q3LxIKFMQ"
+    },
+    {
+      "id": "wewe-media-9-2026-08-20",
+      "title": "一则大消息，“20CM”涨停潮",
+      "summary": "一则大消息，“20CM”涨停潮",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-20T01:49:59.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/Xomx8baytuIBMAYoNK4Ymg"
+    },
+    {
+      "id": "wewe-media-10-2026-08-20",
+      "title": "LPR连续15个月“按兵不动”",
+      "summary": "LPR连续15个月“按兵不动”",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-20T01:49:59.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/8oz4_geV_IMo6DMzA9MR8w"
+    },
+    {
+      "id": "wewe-media-11-2026-08-20",
+      "title": "韩国股市熔断，存储芯片巨头大涨超11%",
+      "summary": "韩国股市熔断，存储芯片巨头大涨超11%",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-20T01:16:42.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/N2iE8kiI5gUA-qpNRM6mbA"
+    },
+    {
+      "id": "wewe-media-12-2026-08-20",
+      "title": "8月20日信披媒体精华摘要",
+      "summary": "8月20日信披媒体精华摘要",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-20T00:58:43.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/hBLhJ6hGawp23YfQeaTXtg"
+    },
+    {
+      "id": "wewe-media-13-2026-08-20",
+      "title": "香料龙头来了，别忘了打新",
+      "summary": "香料龙头来了，别忘了打新",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-20T00:14:41.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/3jwulsfpBZrqcY-dDjtX8w"
+    },
+    {
+      "id": "wewe-media-14-2026-08-20",
+      "title": "特朗普宣布对伊朗采取“史上最严厉经济行动”",
+      "summary": "特朗普宣布对伊朗采取“史上最严厉经济行动”",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-19T23:30:12.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/uov-n5C5hgqbXjC-Nz2gvA"
+    },
+    {
+      "id": "wewe-media-15-2026-08-20",
+      "title": "黄金、白银大涨，中国资产走强",
+      "summary": "黄金、白银大涨，中国资产走强",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-19T23:30:12.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/qVO8JJDaxSsiWKSLdmGtRQ"
+    },
+    {
+      "id": "wewe-media-16-2026-08-20",
+      "title": "A股公司，密集发布利好",
+      "summary": "A股公司，密集发布利好",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-19T22:47:52.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/NdbhAgr8BwMoRJGjGhAg6w"
+    },
+    {
+      "id": "wewe-media-17-2026-08-20",
+      "title": "市场风格轮转，基金经理“购物车”里装了什么？",
+      "summary": "市场风格轮转，基金经理“购物车”里装了什么？",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-19T22:47:52.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/WPcSxX7sjOawkTbvL8DsHA"
+    },
+    {
+      "id": "wewe-media-18-2026-08-20",
+      "title": "美伊谈判，最新消息",
+      "summary": "美伊谈判，最新消息",
+      "institution": "media",
+      "category": "other",
+      "source": "wechat",
+      "publishedAt": "2026-08-19T22:20:20.000Z",
+      "sourceUrl": "https://mp.weixin.qq.com/s/1R0bniz7yQ4k2u5PK-SQmg"
     }
   ],
   "etf": {
@@ -4054,6 +4244,5 @@
         }
       ]
     }
-  },
-  "source": "cloud-ingest"
+  }
 }

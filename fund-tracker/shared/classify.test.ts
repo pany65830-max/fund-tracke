@@ -35,6 +35,12 @@ describe("classifyNews", () => {
     );
   });
 
+  it("maps media (中国证券报) to other", () => {
+    expect(
+      classifyNews({ title: "盘中利好直线涨停", institution: "media" }),
+    ).toBe("other");
+  });
+
   it("falls back to other", () => {
     expect(
       classifyNews({ title: "你好世界", institution: "huatai" }),

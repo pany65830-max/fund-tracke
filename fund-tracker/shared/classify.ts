@@ -29,6 +29,9 @@ export function classifyNews(
   if (input.institution === "sse" || input.institution === "szse") {
     return "exchange";
   }
+  if (input.institution === "media") {
+    return "other";
+  }
   const text = `${input.title}\n${input.summary ?? ""}`;
   for (const key of ORDER) {
     for (const kw of rules[key]) {

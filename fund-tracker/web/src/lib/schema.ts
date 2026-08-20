@@ -7,6 +7,7 @@ export const InstitutionSchema = z.enum([
   "huatai",
   "sse",
   "szse",
+  "media",
 ]);
 export type Institution = z.infer<typeof InstitutionSchema>;
 

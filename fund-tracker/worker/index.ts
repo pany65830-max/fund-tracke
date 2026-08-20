@@ -75,6 +75,7 @@ const COMPANY_SOURCES = [
 
 // 与 config/wewe-feeds.json 一致：用 WeWe RSS 按公众号名过滤，不再走搜狗。
 const WEWE_FEEDS = [
+  { institution: "media" as const, name: "中国证券报" },
   { institution: "huaxia" as const, name: "华夏基金" },
   { institution: "efunds" as const, name: "易方达微资讯" },
   { institution: "efunds" as const, name: "易方达微理财" },
@@ -112,6 +113,7 @@ for (const p of PRODUCTS) CODE_FIRM.set(p.code, p.firm);
 
 function classifyNewsLocal(title: string, summary: string, institution: string) {
   if (institution === "sse" || institution === "szse") return "exchange";
+  if (institution === "media") return "other";
   const text = `${title}\n${summary || ""}`;
   for (const key of CATEGORY_ORDER) {
     for (const kw of CATEGORY_RULES[key as keyof typeof CATEGORY_RULES] || []) {

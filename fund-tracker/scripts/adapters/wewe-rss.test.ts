@@ -5,6 +5,7 @@ import type { WeweFeed } from "./wewe-rss";
 const feeds: WeweFeed[] = [
   { institution: "huaxia", name: "华夏基金" },
   { institution: "sse", name: "上交所发布" },
+  { institution: "media", name: "中国证券报" },
 ];
 
 const feedJson = {
@@ -60,6 +61,27 @@ describe("wewe-rss", () => {
     );
     expect(items[0].category).toBe("exchange");
     expect(items[0].institution).toBe("sse");
+  });
+
+  it("maps 中国证券报 to media / other", () => {
+    const items = parseWeweJsonFeed(
+      {
+        items: [
+          {
+            url: "https://mp.weixin.qq.com/s/cnstock1",
+            title: "盘中利好：直线涨停",
+            date_published: "2026-08-20T05:36:26.000Z",
+            author: { name: "中国证券报" },
+          },
+        ],
+      },
+      feeds,
+      "2026-08-20",
+    );
+    expect(items).toHaveLength(1);
+    expect(items[0].institution).toBe("media");
+    expect(items[0].category).toBe("other");
+    expect(items[0].source).toBe("wechat");
   });
 
   it("adapter parses mock JSON Feed", async () => {

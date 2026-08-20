@@ -1,4 +1,5 @@
 [
+  { "institution": "media", "name": "中国证券报", "feedId": "" },
   { "institution": "huaxia", "name": "华夏基金", "feedId": "" },
   { "institution": "efunds", "name": "易方达微资讯", "feedId": "" },
   { "institution": "efunds", "name": "易方达微理财", "feedId": "" },
