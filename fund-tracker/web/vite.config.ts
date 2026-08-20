@@ -41,6 +41,13 @@ function copyDataPlugin(): Plugin {
 export default defineConfig({
   // Relative base works reliably on GitHub project Pages
   base: "./",
+  // 工作区是盘符联接，realpath 会走到含中文的 Desktop 路径，Vite 读文件会失败
+  resolve: { preserveSymlinks: true },
+  server: {
+    host: "127.0.0.1",
+    port: 5173,
+    fs: { allow: [".."] },
+  },
   plugins: [react(), copyDataPlugin()],
   build: {
     outDir: "dist",

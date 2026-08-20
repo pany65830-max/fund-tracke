@@ -13,6 +13,7 @@ import { NewsPage } from "./pages/NewsPage";
 import { NewsDetailPage } from "./pages/NewsDetailPage";
 import { EtfPage } from "./pages/EtfPage";
 import { SettingsPanel } from "./components/SettingsPanel";
+import { TickerBar } from "./components/TickerBar";
 import {
   loadSettings,
   saveSettings,
@@ -82,7 +83,60 @@ function buildWeekStrip(availableDates: string[]): string[] {
   return out;
 }
 
+function beijingClock(): string {
+  return new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Shanghai",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).format(new Date());
+}
+
 function Shell() {
+  const [clock, setClock] = useState(beijingClock);
+  const cursorRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const id = window.setInterval(() => setClock(beijingClock()), 1000);
+    return () => window.clearInterval(id);
+  }, []);
+  useEffect(() => {
+    const el = cursorRef.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.hidden = true;
+      return;
+    }
+    let tx = 0;
+    let ty = 0;
+    let x = 0;
+    let y = 0;
+    let started = false;
+    let raf = 0;
+    const ease = 0.08;
+    const tick = () => {
+      x += (tx - x) * ease;
+      y += (ty - y) * ease;
+      el.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+      raf = requestAnimationFrame(tick);
+    };
+    const onMove = (e: MouseEvent) => {
+      tx = e.clientX;
+      ty = e.clientY;
+      if (!started) {
+        x = tx;
+        y = ty;
+        started = true;
+        raf = requestAnimationFrame(tick);
+      }
+    };
+    window.addEventListener("mousemove", onMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
   // 用 react-router 的 useSearchParams 统一管理 URL 中的 ?date=。
   // 之前直接写 window.location.hash 会绕过 HashRouter 的历史记录
   // （它只监听 popstate/pushState，不监听 hashchange），导致路由内部状态
@@ -244,6 +298,11 @@ function Shell() {
   const next = date ? neighborDate(availableDates, date, 1) : null;
 
   return (
+    <div className="app-root">
+      <div className="blob b1" />
+      <div className="blob b2" />
+      <div className="blob b3" />
+      <div ref={cursorRef} className="cursor-dot" aria-hidden="true" />
     <div className="layout">
       <header className="topbar">
         <div className="brand">基金看板</div>
@@ -254,6 +313,7 @@ function Shell() {
           <Link className={navClass("/etf")} to={date ? `/etf?date=${date}` : "/etf"}>
             ETF 看板
           </Link>
+          <span className="nav-underline" aria-hidden="true" />
         </nav>
         <div className="date-nav">
           <button type="button" disabled={!prev} onClick={() => prev && setDate(prev)}>
@@ -288,6 +348,11 @@ function Shell() {
           publishing={publishing}
           message={liveMsg}
         />
+        <div className="live-clock" title="北京时间">
+          <span className="live-dot" />
+          <span className="clock">{clock}</span>
+          <span className="clock-tz">BJT</span>
+        </div>
         {snap?.updatedAt ? (
           <span className="updated-at muted">
             数据更新于 {formatUpdatedAt(snap.updatedAt)}（北京时间）
@@ -332,6 +397,8 @@ function Shell() {
       ) : !error ? (
         <p className="muted">加载中…</p>
       ) : null}
+    </div>
+      <TickerBar snap={snap} />
     </div>
   );
 }

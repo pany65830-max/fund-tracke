@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { DaySnapshot } from "../lib/schema";
 import { INSTITUTION_LABEL } from "../lib/labels";
 import { formatPct, pctClass } from "../lib/format";
+import { SlotPct } from "../components/SlotPct";
 import { loadSnapshot } from "../lib/loadData";
 import { flattenProducts, rangeReturnPct } from "../lib/rangeReturn";
 
@@ -203,8 +204,8 @@ export function EtfPage({
                 <div key={idx.code} className="index-tile">
                   <div className="index-name">{idx.name}</div>
                   <div className="index-last">{idx.last.toFixed(2)}</div>
-                  <div className={`index-chg ${pctClass(idx.changePct)}`}>
-                    {formatPct(idx.changePct)}
+                  <div className="index-chg">
+                    <SlotPct value={idx.changePct} />
                   </div>
                 </div>
               ))}
@@ -224,8 +225,8 @@ export function EtfPage({
                       {INSTITUTION_LABEL[p.firm]} · {p.code}
                     </div>
                   </div>
-                  <div className={`hl-pct ${pctClass(p.changePct)}`}>
-                    {formatPct(p.changePct)}
+                  <div className="hl-pct">
+                    <SlotPct value={p.changePct} />
                   </div>
                 </div>
               ))}
@@ -253,8 +254,8 @@ export function EtfPage({
                   {topSectors.map((s) => (
                     <div key={s.name} className="sector-mini-row">
                       <span className="sector-mini-name">{s.name}</span>
-                      <span className={pctClass(s.changePct)}>
-                        {formatPct(s.changePct)}
+                      <span>
+                        <SlotPct value={s.changePct} />
                       </span>
                     </div>
                   ))}
