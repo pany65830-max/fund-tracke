@@ -29,8 +29,14 @@ type JsonFeedItem = {
   author?: { name?: string } | string;
 };
 
+type WeweAccount = { id: string; name: string };
+
 function stripTags(s: string): string {
   return s.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function compactName(name: string): string {
+  return name.replace(/\s+/g, "");
 }
 
 function authorName(item: JsonFeedItem): string {
@@ -44,9 +50,23 @@ function authorName(item: JsonFeedItem): string {
   return "";
 }
 
+function feedDefaultAuthor(json: unknown): string {
+  const root = json as {
+    title?: string;
+    author?: { name?: string } | string;
+  };
+  if (typeof root?.author === "string" && root.author.trim()) {
+    return root.author.trim();
+  }
+  if (root?.author && typeof root.author === "object" && root.author.name) {
+    return root.author.name.trim();
+  }
+  return String(root?.title || "").trim();
+}
+
 function matchFeed(name: string, feeds: WeweFeed[]): WeweFeed | undefined {
-  const n = name.replace(/\s+/g, "");
-  return feeds.find((f) => f.name.replace(/\s+/g, "") === n);
+  const n = compactName(name);
+  return feeds.find((f) => compactName(f.name) === n);
 }
 
 export function beijingDateFromIso(iso: string): string | null {
@@ -60,21 +80,23 @@ export function beijingDateFromIso(iso: string): string | null {
   }).format(new Date(ms));
 }
 
-/** 把 WeWe JSON Feed 收成当天、且属于配置里 10 个号的 NewsItem。 */
+/** 把 WeWe JSON Feed 收成当天、且属于配置里公众号的 NewsItem。 */
 export function parseWeweJsonFeed(
   json: unknown,
   feeds: WeweFeed[],
   tradeDate: string,
+  defaultAuthor?: string,
 ): NewsItem[] {
   const root = json as { items?: JsonFeedItem[] };
   const items = Array.isArray(root?.items) ? root.items : [];
+  const fallbackAuthor = (defaultAuthor || feedDefaultAuthor(json)).trim();
   const out: NewsItem[] = [];
   const seen = new Set<string>();
   let seq = 0;
   for (const it of items) {
     const title = stripTags(it.title || "");
     if (title.length < 2) continue;
-    const account = authorName(it);
+    const account = authorName(it) || fallbackAuthor;
     const feed = matchFeed(account, feeds);
     if (!feed) continue;
     const published = it.date_published || it.date_modified || "";
@@ -82,9 +104,8 @@ export function parseWeweJsonFeed(
     if (day !== tradeDate) continue;
     const url = it.url || it.external_url || "";
     if (!/^https?:\/\//i.test(url)) continue;
-    const key = url;
-    if (seen.has(key)) continue;
-    seen.add(key);
+    if (seen.has(url)) continue;
+    seen.add(url);
     const summary = stripTags(it.content_text || it.content_html || title).slice(
       0,
       280,
@@ -108,15 +129,67 @@ export function parseWeweJsonFeed(
   return out;
 }
 
-function feedUrl(base: string, authCode: string | undefined, limit: number): string {
-  const root = base.replace(/\/$/, "");
-  const u = new URL(`${root}/feeds/all.json`);
-  u.searchParams.set("limit", String(limit));
-  if (authCode) {
-    u.searchParams.set("code", authCode);
-    u.searchParams.set("auth_code", authCode);
-  }
+function applyAuth(u: URL, authCode: string | undefined): void {
+  if (!authCode) return;
+  u.searchParams.set("code", authCode);
+  u.searchParams.set("auth_code", authCode);
+}
+
+export function accountListUrl(base: string, authCode?: string): string {
+  const u = new URL(`${base.replace(/\/$/, "")}/feeds`);
+  applyAuth(u, authCode);
   return u.toString();
+}
+
+export function accountFeedUrl(
+  base: string,
+  feedId: string,
+  authCode: string | undefined,
+  limit: number,
+): string {
+  const u = new URL(`${base.replace(/\/$/, "")}/feeds/${feedId}.json`);
+  u.searchParams.set("limit", String(limit));
+  applyAuth(u, authCode);
+  return u.toString();
+}
+
+function allFeedUrl(
+  base: string,
+  authCode: string | undefined,
+  limit: number,
+): string {
+  const u = new URL(`${base.replace(/\/$/, "")}/feeds/all.json`);
+  u.searchParams.set("limit", String(limit));
+  applyAuth(u, authCode);
+  return u.toString();
+}
+
+export function matchAccountsToFeeds(
+  accounts: WeweAccount[],
+  feeds: WeweFeed[],
+): Array<WeweFeed & { id: string }> {
+  const out: Array<WeweFeed & { id: string }> = [];
+  const seen = new Set<string>();
+  for (const acc of accounts) {
+    const feed = matchFeed(acc.name, feeds);
+    if (!feed || !acc.id || seen.has(acc.id)) continue;
+    seen.add(acc.id);
+    out.push({ ...feed, id: acc.id });
+  }
+  return out;
+}
+
+async function readJson(
+  fetchImpl: typeof fetch,
+  url: string,
+  signal: AbortSignal,
+): Promise<unknown> {
+  const res = await fetchImpl(url, {
+    signal,
+    headers: { Accept: "application/feed+json, application/json" },
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
 }
 
 export function createWeweRssAdapter(
@@ -134,21 +207,58 @@ export function createWeweRssAdapter(
       if (!named.length) {
         throw new Error("wewe-feeds.json empty");
       }
-      const timeoutMs = cfg.timeoutMs ?? 8000;
+      const timeoutMs = cfg.timeoutMs ?? 12000;
+      const perFeedLimit = cfg.limit ?? 20;
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), timeoutMs);
       try {
-        const res = await fetchImpl(
-          feedUrl(base, cfg.authCode, cfg.limit ?? 50),
-          {
-            signal: controller.signal,
-            headers: { Accept: "application/feed+json, application/json" },
-          },
-        );
-        if (!res.ok) {
-          throw new Error(`HTTP ${res.status}`);
+        let accounts: WeweAccount[] = [];
+        try {
+          const listed = await readJson(
+            fetchImpl,
+            accountListUrl(base, cfg.authCode),
+            controller.signal,
+          );
+          if (Array.isArray(listed)) {
+            accounts = listed
+              .map((row) => {
+                const r = row as { id?: string; name?: string };
+                return { id: String(r.id || ""), name: String(r.name || "") };
+              })
+              .filter((a) => a.id && a.name);
+          }
+        } catch {
+          accounts = [];
         }
-        const json = await res.json();
+
+        const targets = matchAccountsToFeeds(accounts, named);
+        if (targets.length) {
+          const batches = await Promise.allSettled(
+            targets.map((t) =>
+              readJson(
+                fetchImpl,
+                accountFeedUrl(base, t.id, cfg.authCode, perFeedLimit),
+                controller.signal,
+              ).then((json) => parseWeweJsonFeed(json, [t], tradeDate, t.name)),
+            ),
+          );
+          const items: NewsItem[] = [];
+          const errors: string[] = [];
+          for (const b of batches) {
+            if (b.status === "fulfilled") items.push(...b.value);
+            else errors.push(String(b.reason?.message || b.reason));
+          }
+          if (!items.length && errors.length === batches.length) {
+            throw new Error(errors.slice(0, 3).join("; "));
+          }
+          return items;
+        }
+
+        const json = await readJson(
+          fetchImpl,
+          allFeedUrl(base, cfg.authCode, Math.max(perFeedLimit, 200)),
+          controller.signal,
+        );
         return parseWeweJsonFeed(json, named, tradeDate);
       } catch (e) {
         const msg = e instanceof Error ? e.message : String(e);
