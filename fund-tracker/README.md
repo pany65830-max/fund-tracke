@@ -65,12 +65,12 @@ npm run ingest
 - GitHub：Secrets 里的 `IFIND_REFRESH_TOKEN`（海外节点可能仍失败）
 - 调试演示：`IFIND_USE_FIXTURE=1`
 
-## 部署（免费）
+## 部署（免费，无代理）
 
-1. 本机工作日 **09:00** 拉数，推送到码云 `py6666654/fund-tracke`（直连，不用代理）  
-2. GitHub Actions `sync-from-gitee.yml` 把码云镜像过来，再由 `deploy.yml` 发布 Pages  
+1. 本机工作日 **09:00** 拉数，`scripts/daily.ps1` 经 **SSH:443 直连推 GitHub**（不走代理/VPN，SSH 通道 Clash 不拦）  
+2. GitHub Pages `deploy.yml` 自动重建发布  
 3. 网站：https://pany65830-max.github.io/fund-tracke/  
-4. 换电脑：按 `MIGRATE.md` 从码云 clone，重跑 `scripts/setup-local.ps1`
+4. 换电脑：按 `MIGRATE.md` 从 GitHub clone，重跑 `scripts/setup-local.ps1`（含生成 SSH 钥匙 + 登记任务）
 
 ## 页面
 

@@ -12,20 +12,46 @@ if (-not $npm) { Write-Error "Node.js missing. Install Node.js LTS and check Add
 Write-Host "git = $($git.Path)"
 Write-Host "npm = $($npm.Path)"
 
+# 读取仓库地址（默认；publish.json 可覆盖）
 $publishPath = Join-Path $proj "config\publish.json"
+$githubUrl = "https://github.com/pany65830-max/fund-tracke.git"
 $giteeUrl = "https://gitee.com/py6666654/fund-tracke.git"
 if (Test-Path $publishPath) {
   $pub = Get-Content -Raw -Encoding UTF8 $publishPath | ConvertFrom-Json
+  if ($pub.githubUrl) { $githubUrl = [string]$pub.githubUrl }
   if ($pub.giteeUrl) { $giteeUrl = [string]$pub.giteeUrl }
 }
 
+# 日常推送走 GitHub SSH:443（无代理）。确保 origin 指向 GitHub，并保留 gitee 作为可选镜像。
 $remotes = @(& $git.Path remote)
-if ($remotes -contains "gitee") {
-  & $git.Path remote set-url gitee $giteeUrl
-  Write-Host "==> updated gitee remote: $giteeUrl"
+if ($remotes -contains "origin") {
+  & $git.Path remote set-url origin $githubUrl
+  Write-Host "==> updated origin -> $githubUrl"
 } else {
+  & $git.Path remote add origin $githubUrl
+  Write-Host "==> added origin -> $githubUrl"
+}
+if ($remotes -notcontains "gitee") {
   & $git.Path remote add gitee $giteeUrl
-  Write-Host "==> added gitee remote: $giteeUrl"
+  Write-Host "==> added gitee remote (optional mirror): $giteeUrl"
+}
+
+# 生成/确认基金看板专属 SSH 钥匙（daily.ps1 走 SSH:443 直连 GitHub，无代理，不依赖翻墙）
+$key = Join-Path $env:USERPROFILE ".ssh\fund_tracker_ed25519"
+$sshDir = Split-Path $key
+if (-not (Test-Path $sshDir)) { New-Item -ItemType Directory -Path $sshDir | Out-Null }
+if (-not (Test-Path $key)) {
+  Write-Host "==> generating SSH key: $key"
+  & $git.Path show $key 2>$null | Out-Null
+  ssh-keygen -t ed25519 -f "$key" -N "" -C "fund-tracker-daily" 2>&1 | Out-Null
+  Write-Host "    SSH 公钥已生成，请把下面整段加入 GitHub deploy key："
+  Write-Host "    -----------------------------------------------------------------"
+  Write-Host (Get-Content "$key.pub" -Raw)
+  Write-Host "    -----------------------------------------------------------------"
+  Write-Host "    操作：打开 https://github.com/pany65830-max/fund-tracke/settings/keys"
+  Write-Host "    点 [Add deploy key] → Title 填 fund-tracker-daily → 粘贴公钥 → 勾选 Allow write → Add key"
+} else {
+  Write-Host "==> SSH key exists: $key"
 }
 
 Write-Host "==> npm install"
@@ -78,6 +104,8 @@ try {
 
 Write-Host ""
 Write-Host "Next:"
-Write-Host " 1) edit config/.env, set IFIND_REFRESH_TOKEN and GITEE_TOKEN"
-Write-Host " 2) WeWe: docker compose up -d then scan QR at http://127.0.0.1:4000"
-Write-Host " 3) test: powershell -File scripts/daily.ps1"
+Write-Host " 1) 把上面的 SSH 公钥加入 GitHub deploy key（必做，否则每日推送失败）"
+Write-Host " 2) edit config/.env, set IFIND_REFRESH_TOKEN (必填，iFinD 刷新令牌)"
+Write-Host " 3) GITEE_TOKEN 可选：仅当你要开 Gitee 国内镜像时才填"
+Write-Host " 4) WeWe: docker compose up -d then scan QR at http://127.0.0.1:4000"
+Write-Host " 5) test: powershell -File scripts/daily.ps1"

@@ -7,7 +7,7 @@ import net from "node:net";
 
 const PORT = Number(process.env.GITEE_HTTPS_PROXY_PORT || 18076);
 const TARGETS = String(
-  process.env.GITEE_IPS || "180.76.198.225,180.76.199.13,180.76.198.77",
+  process.env.GITEE_IPS || "180.76.198.77,180.76.199.13,180.76.198.225",
 )
   .split(",")
   .map((s) => s.trim())
@@ -23,6 +23,7 @@ function tcpConnect(ip, port, ms) {
     }, ms);
     socket.once("connect", () => {
       clearTimeout(timer);
+      socket.removeAllListeners("error");
       resolve(socket);
     });
     socket.once("error", (err) => {
@@ -36,7 +37,7 @@ async function connectGitee() {
   let lastErr;
   for (const ip of TARGETS) {
     try {
-      return await tcpConnect(ip, 443, 4000);
+      return await tcpConnect(ip, 443, 5000);
     } catch (err) {
       lastErr = err;
     }
@@ -57,20 +58,16 @@ server.on("connect", (req, clientSocket, head) => {
     clientSocket.end("HTTP/1.1 403 Forbidden\r\n\r\n");
     return;
   }
+  clientSocket.pause();
   connectGitee()
     .then((remote) => {
       clientSocket.write("HTTP/1.1 200 Connection Established\r\n\r\n");
       if (head?.length) remote.write(head);
-      clientSocket.pipe(remote);
       remote.pipe(clientSocket);
-      const close = () => {
-        clientSocket.destroy();
-        remote.destroy();
-      };
-      clientSocket.on("error", close);
-      remote.on("error", close);
-      clientSocket.on("close", close);
-      remote.on("close", close);
+      clientSocket.pipe(remote);
+      clientSocket.resume();
+      remote.on("error", () => clientSocket.destroy());
+      clientSocket.on("error", () => remote.destroy());
     })
     .catch(() => {
       try {
