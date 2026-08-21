@@ -18,6 +18,10 @@ export function CoverSplash({ onHiding, onGone }: Props) {
   onGoneRef.current = onGone;
 
   useEffect(() => {
+    document.getElementById("boot-cover")?.remove();
+  }, []);
+
+  useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       onHidingRef.current?.();
       onGoneRef.current?.();

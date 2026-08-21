@@ -13,6 +13,7 @@ import { NewsPage } from "./pages/NewsPage";
 import { NewsDetailPage } from "./pages/NewsDetailPage";
 import { EtfPage } from "./pages/EtfPage";
 import { SettingsPanel } from "./components/SettingsPanel";
+import { TickerBar } from "./components/TickerBar";
 import { CoverSplash } from "./components/CoverSplash";
 import {
   loadSettings,
@@ -95,7 +96,6 @@ function beijingClock(): string {
 
 function Shell() {
   const [clock, setClock] = useState(beijingClock);
-  const [coverStage, setCoverStage] = useState<"hold" | "reveal">("hold");
   const cursorRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const id = window.setInterval(() => setClock(beijingClock()), 1000);
@@ -299,8 +299,8 @@ function Shell() {
   const next = date ? neighborDate(availableDates, date, 1) : null;
 
   return (
-    <div className={`app-root${coverStage === "reveal" ? " revealed" : " pre-reveal"}`}>
-      <CoverSplash onHiding={() => setCoverStage("reveal")} />
+    <div className="app-root">
+      <CoverSplash />
       <div className="blob b1" />
       <div className="blob b2" />
       <div className="blob b3" />
