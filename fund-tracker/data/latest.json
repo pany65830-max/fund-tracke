@@ -1,135 +1,144 @@
 {
   "tradeDate": "2026-08-21",
-  "updatedAt": "2026-08-21T09:04:16.834Z",
-  "status": "partial",
+  "updatedAt": "2026-08-21T11:41:44.754Z",
+  "status": "ok",
   "errors": [
-    "wewe-rss: WEWE_RSS_URL empty",
-    "sse-fund-site: sse-fund-site HTTP 520",
-    "ifind-news: report_query failed: no data."
+    "ifind-news: report_query failed: no data.",
+    "wewe-rss: fetch failed"
   ],
   "news": [
     {
       "id": "cw-efunds-0-2026-08-21",
-      "title": "易方达奥明日经225交易型开放式指数证券投资基金（QDII）午间收盘溢价风险提示公告 2026-08-21810634",
-      "summary": "易方达奥明日经225交易型开放式指数证券投资基金（QDII）午间收盘溢价风险提示公告 2026-08-21810634",
+      "title": "易方达悦安一年持有期债券型证券投资基金基金合同 2026-08-21810751",
+      "summary": "易方达悦安一年持有期债券型证券投资基金基金合同 2026-08-21810751",
       "institution": "efunds",
-      "category": "disclosure",
+      "category": "other",
       "source": "company_web",
       "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E5%A5%A5%E6%98%8E%E6%97%A5%E7%BB%8F225%E4%BA%A4%E6%98%93%E5%9E%8B%E5%BC%80%E6%94%BE%E5%BC%8F%E6%8C%87%E6%95%B0%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%EF%BC%88QDII%EF%BC%89%E5%8D%88%E9%97%B4%E6%94%B6%E7%9B%98%E6%BA%A2%E4%BB%B7%E9%A3%8E%E9%99%A9%E6%8F%90%E7%A4%BA%E5%85%AC%E5%91%8A.pdf"
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E6%82%A6%E5%AE%89%E4%B8%80%E5%B9%B4%E6%8C%81%E6%9C%89%E6%9C%9F%E5%80%BA%E5%88%B8%E5%9E%8B%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E5%9F%BA%E9%87%91%E5%90%88%E5%90%8C.pdf"
     },
     {
       "id": "cw-efunds-1-2026-08-21",
-      "title": "易方达MSCI美国50交易型开放式指数证券投资基金（QDII）午间收盘溢价风险提示公告 2026-08-21810633",
-      "summary": "易方达MSCI美国50交易型开放式指数证券投资基金（QDII）午间收盘溢价风险提示公告 2026-08-21810633",
+      "title": "易方达裕华利率债3个月定期开放债券型证券投资基金基金合同 2026-08-21810750",
+      "summary": "易方达裕华利率债3个月定期开放债券型证券投资基金基金合同 2026-08-21810750",
+      "institution": "efunds",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E8%A3%95%E5%8D%8E%E5%88%A9%E7%8E%87%E5%80%BA3%E4%B8%AA%E6%9C%88%E5%AE%9A%E6%9C%9F%E5%BC%80%E6%94%BE%E5%80%BA%E5%88%B8%E5%9E%8B%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E5%9F%BA%E9%87%91%E5%90%88%E5%90%8C.pdf"
+    },
+    {
+      "id": "cw-efunds-2-2026-08-21",
+      "title": "易方达瑞智灵活配置混合型证券投资基金基金合同 2026-08-21810749",
+      "summary": "易方达瑞智灵活配置混合型证券投资基金基金合同 2026-08-21810749",
+      "institution": "efunds",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E7%91%9E%E6%99%BA%E7%81%B5%E6%B4%BB%E9%85%8D%E7%BD%AE%E6%B7%B7%E5%90%88%E5%9E%8B%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E5%9F%BA%E9%87%91%E5%90%88%E5%90%8C.pdf"
+    },
+    {
+      "id": "cw-efunds-3-2026-08-21",
+      "title": "易方达瑞财灵活配置混合型证券投资基金基金合同 2026-08-21810748",
+      "summary": "易方达瑞财灵活配置混合型证券投资基金基金合同 2026-08-21810748",
+      "institution": "efunds",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E7%91%9E%E8%B4%A2%E7%81%B5%E6%B4%BB%E9%85%8D%E7%BD%AE%E6%B7%B7%E5%90%88%E5%9E%8B%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E5%9F%BA%E9%87%91%E5%90%88%E5%90%8C.pdf"
+    },
+    {
+      "id": "cw-efunds-4-2026-08-21",
+      "title": "易方达改革红利混合型证券投资基金基金合同 2026-08-21810747",
+      "summary": "易方达改革红利混合型证券投资基金基金合同 2026-08-21810747",
+      "institution": "efunds",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E6%94%B9%E9%9D%A9%E7%BA%A2%E5%88%A9%E6%B7%B7%E5%90%88%E5%9E%8B%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E5%9F%BA%E9%87%91%E5%90%88%E5%90%8C.pdf"
+    },
+    {
+      "id": "cw-efunds-5-2026-08-21",
+      "title": "易方达悦兴一年持有期混合型证券投资基金基金合同 2026-08-21810738",
+      "summary": "易方达悦兴一年持有期混合型证券投资基金基金合同 2026-08-21810738",
+      "institution": "efunds",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E6%82%A6%E5%85%B4%E4%B8%80%E5%B9%B4%E6%8C%81%E6%9C%89%E6%9C%9F%E6%B7%B7%E5%90%88%E5%9E%8B%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E5%9F%BA%E9%87%91%E5%90%88%E5%90%8C.pdf"
+    },
+    {
+      "id": "cw-efunds-6-2026-08-21",
+      "title": "易方达裕富债券型证券投资基金基金合同 2026-08-21810737",
+      "summary": "易方达裕富债券型证券投资基金基金合同 2026-08-21810737",
+      "institution": "efunds",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E8%A3%95%E5%AF%8C%E5%80%BA%E5%88%B8%E5%9E%8B%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E5%9F%BA%E9%87%91%E5%90%88%E5%90%8C.pdf"
+    },
+    {
+      "id": "cw-efunds-7-2026-08-21",
+      "title": "易方达优势驱动一年持有期混合型基金中基金（FOF）基金合同 2026-08-21810736",
+      "summary": "易方达优势驱动一年持有期混合型基金中基金（FOF）基金合同 2026-08-21810736",
+      "institution": "efunds",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E4%BC%98%E5%8A%BF%E9%A9%B1%E5%8A%A8%E4%B8%80%E5%B9%B4%E6%8C%81%E6%9C%89%E6%9C%9F%E6%B7%B7%E5%90%88%E5%9E%8B%E5%9F%BA%E9%87%91%E4%B8%AD%E5%9F%BA%E9%87%91%EF%BC%88FOF%EF%BC%89%E5%9F%BA%E9%87%91%E5%90%88%E5%90%8C.pdf"
+    },
+    {
+      "id": "cw-efunds-8-2026-08-21",
+      "title": "易方达优势价值一年持有期混合型基金中基金（FOF）基金合同 2026-08-21810735",
+      "summary": "易方达优势价值一年持有期混合型基金中基金（FOF）基金合同 2026-08-21810735",
+      "institution": "efunds",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E4%BC%98%E5%8A%BF%E4%BB%B7%E5%80%BC%E4%B8%80%E5%B9%B4%E6%8C%81%E6%9C%89%E6%9C%9F%E6%B7%B7%E5%90%88%E5%9E%8B%E5%9F%BA%E9%87%91%E4%B8%AD%E5%9F%BA%E9%87%91%EF%BC%88FOF%EF%BC%89%E5%9F%BA%E9%87%91%E5%90%88%E5%90%8C.pdf"
+    },
+    {
+      "id": "cw-efunds-9-2026-08-21",
+      "title": "易方达优势风华六个月持有期混合型基金中基金（FOF）基金合同 2026-08-21810734",
+      "summary": "易方达优势风华六个月持有期混合型基金中基金（FOF）基金合同 2026-08-21810734",
+      "institution": "efunds",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E4%BC%98%E5%8A%BF%E9%A3%8E%E5%8D%8E%E5%85%AD%E4%B8%AA%E6%9C%88%E6%8C%81%E6%9C%89%E6%9C%9F%E6%B7%B7%E5%90%88%E5%9E%8B%E5%9F%BA%E9%87%91%E4%B8%AD%E5%9F%BA%E9%87%91%EF%BC%88FOF%EF%BC%89%E5%9F%BA%E9%87%91%E5%90%88%E5%90%8C.pdf"
+    },
+    {
+      "id": "cw-efunds-10-2026-08-21",
+      "title": "易方达鑫转招利混合型证券投资基金基金合同 2026-08-21810733",
+      "summary": "易方达鑫转招利混合型证券投资基金基金合同 2026-08-21810733",
+      "institution": "efunds",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E9%91%AB%E8%BD%AC%E6%8B%9B%E5%88%A9%E6%B7%B7%E5%90%88%E5%9E%8B%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E5%9F%BA%E9%87%91%E5%90%88%E5%90%8C.pdf"
+    },
+    {
+      "id": "cw-efunds-11-2026-08-21",
+      "title": "易方达鑫转增利混合型证券投资基金基金合同 2026-08-21810732",
+      "summary": "易方达鑫转增利混合型证券投资基金基金合同 2026-08-21810732",
+      "institution": "efunds",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E9%91%AB%E8%BD%AC%E5%A2%9E%E5%88%A9%E6%B7%B7%E5%90%88%E5%9E%8B%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E5%9F%BA%E9%87%91%E5%90%88%E5%90%8C.pdf"
+    },
+    {
+      "id": "cw-efunds-0-2026-08-21#1",
+      "title": "易方达基金管理有限公司关于旗下部分基金调整业绩比较基准并修订基金合同的公告",
+      "summary": "易方达基金管理有限公司关于旗下部分基金调整业绩比较基准并修订基金合同的公告",
       "institution": "efunds",
       "category": "disclosure",
       "source": "company_web",
       "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BEMSCI%E7%BE%8E%E5%9B%BD50%E4%BA%A4%E6%98%93%E5%9E%8B%E5%BC%80%E6%94%BE%E5%BC%8F%E6%8C%87%E6%95%B0%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%EF%BC%88QDII%EF%BC%89%E5%8D%88%E9%97%B4%E6%94%B6%E7%9B%98%E6%BA%A2%E4%BB%B7%E9%A3%8E%E9%99%A9%E6%8F%90%E7%A4%BA%E5%85%AC%E5%91%8A.pdf"
+      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E5%9F%BA%E9%87%91%E7%AE%A1%E7%90%86%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%E5%85%B3%E4%BA%8E%E6%97%97%E4%B8%8B%E9%83%A8%E5%88%86%E5%9F%BA%E9%87%91%E8%B0%83%E6%95%B4%E4%B8%9A%E7%BB%A9%E6%AF%94%E8%BE%83%E5%9F%BA%E5%87%86%E5%B9%B6%E4%BF%AE%E8%AE%A2%E5%9F%BA%E9%87%91%E5%90%88%E5%90%8C%E7%9A%84%E5%85%AC%E5%91%8A.pdf"
     },
     {
-      "id": "cw-efunds-2-2026-08-21",
-      "title": "易方达恒生科技交易型开放式指数证券投资基金联接基金（QDII）（易方达恒生科技ETF联接（QDII）A）基金产品资料概要更新 2026-08-21810620",
-      "summary": "易方达恒生科技交易型开放式指数证券投资基金联接基金（QDII）（易方达恒生科技ETF联接（QDII）A）基金产品资料概要更新 2026-08-21810620",
-      "institution": "efunds",
-      "category": "other",
-      "source": "company_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BA%A4%E6%98%93%E5%9E%8B%E5%BC%80%E6%94%BE%E5%BC%8F%E6%8C%87%E6%95%B0%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E8%81%94%E6%8E%A5%E5%9F%BA%E9%87%91%EF%BC%88QDII%EF%BC%89%EF%BC%88%E6%98%93%E6%96%B9%E8%BE%BE%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80ETF%E8%81%94%E6%8E%A5%EF%BC%88QDII%EF%BC%89A%EF%BC%89%E5%9F%BA%E9%87%91%E4%BA%A7%E5%93%81%E8%B5%84%E6%96%99%E6%A6%82%E8%A6%81%E6%9B%B4%E6%96%B0.pdf"
-    },
-    {
-      "id": "cw-efunds-3-2026-08-21",
-      "title": "易方达养老目标日期2050五年持有期混合型基金中基金（FOF）（易方达养老2050五年持有混合（FOF）A）基金产品资料概要更新 2026-08-21810619",
-      "summary": "易方达养老目标日期2050五年持有期混合型基金中基金（FOF）（易方达养老2050五年持有混合（FOF）A）基金产品资料概要更新 2026-08-21810619",
-      "institution": "efunds",
-      "category": "other",
-      "source": "company_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E5%85%BB%E8%80%81%E7%9B%AE%E6%A0%87%E6%97%A5%E6%9C%9F2050%E4%BA%94%E5%B9%B4%E6%8C%81%E6%9C%89%E6%9C%9F%E6%B7%B7%E5%90%88%E5%9E%8B%E5%9F%BA%E9%87%91%E4%B8%AD%E5%9F%BA%E9%87%91%EF%BC%88FOF%EF%BC%89%EF%BC%88%E6%98%93%E6%96%B9%E8%BE%BE%E5%85%BB%E8%80%812050%E4%BA%94%E5%B9%B4%E6%8C%81%E6%9C%89%E6%B7%B7%E5%90%88%EF%BC%88FOF%EF%BC%89A%EF%BC%89%E5%9F%BA%E9%87%91%E4%BA%A7%E5%93%81%E8%B5%84%E6%96%99%E6%A6%82%E8%A6%81%E6%9B%B4%E6%96%B0.pdf"
-    },
-    {
-      "id": "cw-efunds-4-2026-08-21",
-      "title": "易方达汇智稳健养老目标一年持有期混合型基金中基金（FOF）（易方达汇智稳健养老一年持有混合（FOF）A）基金产品资料概要更新 2026-08-21810618",
-      "summary": "易方达汇智稳健养老目标一年持有期混合型基金中基金（FOF）（易方达汇智稳健养老一年持有混合（FOF）A）基金产品资料概要更新 2026-08-21810618",
-      "institution": "efunds",
-      "category": "other",
-      "source": "company_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E6%B1%87%E6%99%BA%E7%A8%B3%E5%81%A5%E5%85%BB%E8%80%81%E7%9B%AE%E6%A0%87%E4%B8%80%E5%B9%B4%E6%8C%81%E6%9C%89%E6%9C%9F%E6%B7%B7%E5%90%88%E5%9E%8B%E5%9F%BA%E9%87%91%E4%B8%AD%E5%9F%BA%E9%87%91%EF%BC%88FOF%EF%BC%89%EF%BC%88%E6%98%93%E6%96%B9%E8%BE%BE%E6%B1%87%E6%99%BA%E7%A8%B3%E5%81%A5%E5%85%BB%E8%80%81%E4%B8%80%E5%B9%B4%E6%8C%81%E6%9C%89%E6%B7%B7%E5%90%88%EF%BC%88FOF%EF%BC%89A%EF%BC%89%E5%9F%BA%E9%87%91%E4%BA%A7%E5%93%81%E8%B5%84%E6%96%99%E6%A6%82%E8%A6%81%E6%9B%B4%E6%96%B0.pdf"
-    },
-    {
-      "id": "cw-efunds-5-2026-08-21",
-      "title": "易方达逆向投资混合型证券投资基金（易方达逆向投资混合C）基金产品资料概要更新 2026-08-21810617",
-      "summary": "易方达逆向投资混合型证券投资基金（易方达逆向投资混合C）基金产品资料概要更新 2026-08-21810617",
-      "institution": "efunds",
-      "category": "other",
-      "source": "company_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E9%80%86%E5%90%91%E6%8A%95%E8%B5%84%E6%B7%B7%E5%90%88%E5%9E%8B%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%EF%BC%88%E6%98%93%E6%96%B9%E8%BE%BE%E9%80%86%E5%90%91%E6%8A%95%E8%B5%84%E6%B7%B7%E5%90%88C%EF%BC%89%E5%9F%BA%E9%87%91%E4%BA%A7%E5%93%81%E8%B5%84%E6%96%99%E6%A6%82%E8%A6%81%E6%9B%B4%E6%96%B0.pdf"
-    },
-    {
-      "id": "cw-efunds-6-2026-08-21",
-      "title": "易方达恒信定期开放债券型发起式证券投资基金基金产品资料概要更新 2026-08-21810616",
-      "summary": "易方达恒信定期开放债券型发起式证券投资基金基金产品资料概要更新 2026-08-21810616",
-      "institution": "efunds",
-      "category": "other",
-      "source": "company_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E6%81%92%E4%BF%A1%E5%AE%9A%E6%9C%9F%E5%BC%80%E6%94%BE%E5%80%BA%E5%88%B8%E5%9E%8B%E5%8F%91%E8%B5%B7%E5%BC%8F%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E5%9F%BA%E9%87%91%E4%BA%A7%E5%93%81%E8%B5%84%E6%96%99%E6%A6%82%E8%A6%81%E6%9B%B4%E6%96%B0.pdf"
-    },
-    {
-      "id": "cw-efunds-7-2026-08-21",
-      "title": "易方达上证380交易型开放式指数证券投资基金联接基金（易方达上证380ETF联接C）基金产品资料概要更新 2026-08-21810615",
-      "summary": "易方达上证380交易型开放式指数证券投资基金联接基金（易方达上证380ETF联接C）基金产品资料概要更新 2026-08-21810615",
-      "institution": "efunds",
-      "category": "other",
-      "source": "company_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E4%B8%8A%E8%AF%81380%E4%BA%A4%E6%98%93%E5%9E%8B%E5%BC%80%E6%94%BE%E5%BC%8F%E6%8C%87%E6%95%B0%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E8%81%94%E6%8E%A5%E5%9F%BA%E9%87%91%EF%BC%88%E6%98%93%E6%96%B9%E8%BE%BE%E4%B8%8A%E8%AF%81380ETF%E8%81%94%E6%8E%A5C%EF%BC%89%E5%9F%BA%E9%87%91%E4%BA%A7%E5%93%81%E8%B5%84%E6%96%99%E6%A6%82%E8%A6%81%E6%9B%B4%E6%96%B0.pdf"
-    },
-    {
-      "id": "cw-efunds-8-2026-08-21",
-      "title": "易方达汇裕积极养老目标五年持有期混合型基金中基金（FOF）（易方达汇裕积极养老五年持有混合（FOF）Y）基金产品资料概要更新 2026-08-21810614",
-      "summary": "易方达汇裕积极养老目标五年持有期混合型基金中基金（FOF）（易方达汇裕积极养老五年持有混合（FOF）Y）基金产品资料概要更新 2026-08-21810614",
-      "institution": "efunds",
-      "category": "other",
-      "source": "company_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E6%B1%87%E8%A3%95%E7%A7%AF%E6%9E%81%E5%85%BB%E8%80%81%E7%9B%AE%E6%A0%87%E4%BA%94%E5%B9%B4%E6%8C%81%E6%9C%89%E6%9C%9F%E6%B7%B7%E5%90%88%E5%9E%8B%E5%9F%BA%E9%87%91%E4%B8%AD%E5%9F%BA%E9%87%91%EF%BC%88FOF%EF%BC%89%EF%BC%88%E6%98%93%E6%96%B9%E8%BE%BE%E6%B1%87%E8%A3%95%E7%A7%AF%E6%9E%81%E5%85%BB%E8%80%81%E4%BA%94%E5%B9%B4%E6%8C%81%E6%9C%89%E6%B7%B7%E5%90%88%EF%BC%88FOF%EF%BC%89Y%EF%BC%89%E5%9F%BA%E9%87%91%E4%BA%A7%E5%93%81%E8%B5%84%E6%96%99%E6%A6%82%E8%A6%81%E6%9B%B4%E6%96%B0.pdf"
-    },
-    {
-      "id": "cw-efunds-9-2026-08-21",
-      "title": "易方达中证新能源交易型开放式指数证券投资基金基金产品资料概要更新 2026-08-21810613",
-      "summary": "易方达中证新能源交易型开放式指数证券投资基金基金产品资料概要更新 2026-08-21810613",
-      "institution": "efunds",
-      "category": "other",
-      "source": "company_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E4%B8%AD%E8%AF%81%E6%96%B0%E8%83%BD%E6%BA%90%E4%BA%A4%E6%98%93%E5%9E%8B%E5%BC%80%E6%94%BE%E5%BC%8F%E6%8C%87%E6%95%B0%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E5%9F%BA%E9%87%91%E4%BA%A7%E5%93%81%E8%B5%84%E6%96%99%E6%A6%82%E8%A6%81%E6%9B%B4%E6%96%B0.pdf"
-    },
-    {
-      "id": "cw-efunds-10-2026-08-21",
-      "title": "易方达中债3-5年国开行债券指数证券投资基金（易方达中债3-5年国开行债券指数A）基金产品资料概要更新 2026-08-21810612",
-      "summary": "易方达中债3-5年国开行债券指数证券投资基金（易方达中债3-5年国开行债券指数A）基金产品资料概要更新 2026-08-21810612",
-      "institution": "efunds",
-      "category": "other",
-      "source": "company_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E4%B8%AD%E5%80%BA3-5%E5%B9%B4%E5%9B%BD%E5%BC%80%E8%A1%8C%E5%80%BA%E5%88%B8%E6%8C%87%E6%95%B0%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%EF%BC%88%E6%98%93%E6%96%B9%E8%BE%BE%E4%B8%AD%E5%80%BA3-5%E5%B9%B4%E5%9B%BD%E5%BC%80%E8%A1%8C%E5%80%BA%E5%88%B8%E6%8C%87%E6%95%B0A%EF%BC%89%E5%9F%BA%E9%87%91%E4%BA%A7%E5%93%81%E8%B5%84%E6%96%99%E6%A6%82%E8%A6%81%E6%9B%B4%E6%96%B0.pdf"
-    },
-    {
-      "id": "cw-efunds-11-2026-08-21",
-      "title": "易方达逆向投资混合型证券投资基金（易方达逆向投资混合A）基金产品资料概要更新 2026-08-21810611",
-      "summary": "易方达逆向投资混合型证券投资基金（易方达逆向投资混合A）基金产品资料概要更新 2026-08-21810611",
-      "institution": "efunds",
-      "category": "other",
-      "source": "company_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E9%80%86%E5%90%91%E6%8A%95%E8%B5%84%E6%B7%B7%E5%90%88%E5%9E%8B%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%EF%BC%88%E6%98%93%E6%96%B9%E8%BE%BE%E9%80%86%E5%90%91%E6%8A%95%E8%B5%84%E6%B7%B7%E5%90%88A%EF%BC%89%E5%9F%BA%E9%87%91%E4%BA%A7%E5%93%81%E8%B5%84%E6%96%99%E6%A6%82%E8%A6%81%E6%9B%B4%E6%96%B0.pdf"
-    },
-    {
-      "id": "cw-efunds-0-2026-08-21#1",
+      "id": "cw-efunds-1-2026-08-21#1",
       "title": "易方达奥明日经225交易型开放式指数证券投资基金（QDII）午间收盘溢价风险提示公告",
       "summary": "易方达奥明日经225交易型开放式指数证券投资基金（QDII）午间收盘溢价风险提示公告",
       "institution": "efunds",
@@ -139,7 +148,7 @@
       "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E5%A5%A5%E6%98%8E%E6%97%A5%E7%BB%8F225%E4%BA%A4%E6%98%93%E5%9E%8B%E5%BC%80%E6%94%BE%E5%BC%8F%E6%8C%87%E6%95%B0%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%EF%BC%88QDII%EF%BC%89%E5%8D%88%E9%97%B4%E6%94%B6%E7%9B%98%E6%BA%A2%E4%BB%B7%E9%A3%8E%E9%99%A9%E6%8F%90%E7%A4%BA%E5%85%AC%E5%91%8A.pdf"
     },
     {
-      "id": "cw-efunds-1-2026-08-21#1",
+      "id": "cw-efunds-2-2026-08-21#1",
       "title": "易方达MSCI美国50交易型开放式指数证券投资基金（QDII）午间收盘溢价风险提示公告",
       "summary": "易方达MSCI美国50交易型开放式指数证券投资基金（QDII）午间收盘溢价风险提示公告",
       "institution": "efunds",
@@ -149,7 +158,7 @@
       "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BEMSCI%E7%BE%8E%E5%9B%BD50%E4%BA%A4%E6%98%93%E5%9E%8B%E5%BC%80%E6%94%BE%E5%BC%8F%E6%8C%87%E6%95%B0%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%EF%BC%88QDII%EF%BC%89%E5%8D%88%E9%97%B4%E6%94%B6%E7%9B%98%E6%BA%A2%E4%BB%B7%E9%A3%8E%E9%99%A9%E6%8F%90%E7%A4%BA%E5%85%AC%E5%91%8A.pdf"
     },
     {
-      "id": "cw-efunds-2-2026-08-21#1",
+      "id": "cw-efunds-3-2026-08-21#1",
       "title": "易方达纳斯达克100交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告",
       "summary": "易方达纳斯达克100交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告",
       "institution": "efunds",
@@ -159,7 +168,7 @@
       "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E7%BA%B3%E6%96%AF%E8%BE%BE%E5%85%8B100%E4%BA%A4%E6%98%93%E5%9E%8B%E5%BC%80%E6%94%BE%E5%BC%8F%E6%8C%87%E6%95%B0%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%EF%BC%88QDII%EF%BC%89%E4%BA%8C%E7%BA%A7%E5%B8%82%E5%9C%BA%E4%BA%A4%E6%98%93%E4%BB%B7%E6%A0%BC%E6%BA%A2%E4%BB%B7%E9%A3%8E%E9%99%A9%E6%8F%90%E7%A4%BA%E5%85%AC%E5%91%8A.pdf"
     },
     {
-      "id": "cw-efunds-3-2026-08-21#1",
+      "id": "cw-efunds-4-2026-08-21#1",
       "title": "易方达广西北投高速公路封闭式基础设施证券投资基金关于不动产项目2026年7月主要运营数据的公告",
       "summary": "易方达广西北投高速公路封闭式基础设施证券投资基金关于不动产项目2026年7月主要运营数据的公告",
       "institution": "efunds",
@@ -169,7 +178,7 @@
       "sourceUrl": "https://cdn.efunds.com.cn/owch/data/bulletin/20260821/%E6%98%93%E6%96%B9%E8%BE%BE%E5%B9%BF%E8%A5%BF%E5%8C%97%E6%8A%95%E9%AB%98%E9%80%9F%E5%85%AC%E8%B7%AF%E5%B0%81%E9%97%AD%E5%BC%8F%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E8%AF%81%E5%88%B8%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E5%85%B3%E4%BA%8E%E4%B8%8D%E5%8A%A8%E4%BA%A7%E9%A1%B9%E7%9B%AE2026%E5%B9%B47%E6%9C%88%E4%B8%BB%E8%A6%81%E8%BF%90%E8%90%A5%E6%95%B0%E6%8D%AE%E7%9A%84%E5%85%AC%E5%91%8A.pdf"
     },
     {
-      "id": "cw-efunds-4-2026-08-21#1",
+      "id": "cw-efunds-5-2026-08-21#1",
       "title": "易方达深高速高速公路封闭式基础设施证券投资基金关于不动产项目2026年7月主要运营数据的公告",
       "summary": "易方达深高速高速公路封闭式基础设施证券投资基金关于不动产项目2026年7月主要运营数据的公告",
       "institution": "efunds",
@@ -197,6 +206,126 @@
       "source": "company_web",
       "publishedAt": "2026-08-21T08:00:00+08:00",
       "sourceUrl": "https://st.gtfund.com//GSGG/2026/08/21/840569733641.PDF"
+    },
+    {
+      "id": "cw-huatai-0-2026-08-21",
+      "title": "华泰柏瑞锦华债券型证券投资基金基金合同 2026-08-21",
+      "summary": "华泰柏瑞锦华债券型证券投资基金基金合同 2026-08-21",
+      "institution": "huatai",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "http://www.huatai-pb.com/upload/pdf/1787297701582-691-1kyd8b55emdv3.pdf"
+    },
+    {
+      "id": "cw-huatai-1-2026-08-21",
+      "title": "华泰柏瑞信用增利债券型证券投资基金基金合同 2026-08-21",
+      "summary": "华泰柏瑞信用增利债券型证券投资基金基金合同 2026-08-21",
+      "institution": "huatai",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "http://www.huatai-pb.com/upload/pdf/1787297701504-681-1kyd8b54pneen.pdf"
+    },
+    {
+      "id": "cw-huatai-2-2026-08-21",
+      "title": "华泰柏瑞战略新兴产业混合型证券投资基金基金合同 2026-08-21",
+      "summary": "华泰柏瑞战略新兴产业混合型证券投资基金基金合同 2026-08-21",
+      "institution": "huatai",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "http://www.huatai-pb.com/upload/pdf/1787297701441-673-1kyd8b545o7n3.pdf"
+    },
+    {
+      "id": "cw-huatai-3-2026-08-21",
+      "title": "华泰柏瑞激励动力灵活配置混合型证券投资基金基金合同 2026-08-21",
+      "summary": "华泰柏瑞激励动力灵活配置混合型证券投资基金基金合同 2026-08-21",
+      "institution": "huatai",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "http://www.huatai-pb.com/upload/pdf/1787297701363-665-1kyd8b53lp0vj.pdf"
+    },
+    {
+      "id": "cw-huatai-4-2026-08-21",
+      "title": "华泰柏瑞健康生活灵活配置混合型证券投资基金基金合同 2026-08-21",
+      "summary": "华泰柏瑞健康生活灵活配置混合型证券投资基金基金合同 2026-08-21",
+      "institution": "huatai",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "http://www.huatai-pb.com/upload/pdf/1787297701300-656-1kyd8b52z7xrj.pdf"
+    },
+    {
+      "id": "cw-huatai-5-2026-08-21",
+      "title": "华泰柏瑞基金关于网上直销平台业务系统维护的通知 2026-08-21",
+      "summary": "华泰柏瑞基金关于网上直销平台业务系统维护的通知 2026-08-21",
+      "institution": "huatai",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "http://www.huatai-pb.com/contents/2026/8/21-7DC9DAF607BB42979BB1F87590C8D10E.html"
+    },
+    {
+      "id": "cw-huatai-0-2026-08-21#1",
+      "title": "华泰柏瑞基金管理有限公司关于旗下部分基金调整业绩比较基准并修订基金合同等法律文件的公告 2026-08-21",
+      "summary": "华泰柏瑞基金管理有限公司关于旗下部分基金调整业绩比较基准并修订基金合同等法律文件的公告 2026-08-21",
+      "institution": "huatai",
+      "category": "disclosure",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "http://www.huatai-pb.com/upload/pdf/1787297700394-541-1kyd8b4v01m0f.pdf"
+    },
+    {
+      "id": "cw-huatai-1-2026-08-21#1",
+      "title": "华泰柏瑞基金管理有限公司关于华泰柏瑞中证韩交所中韩半导体交易型开放式指数证券投资基金(QDII）二级市场交易价格溢价... 2026-08-21",
+      "summary": "华泰柏瑞基金管理有限公司关于华泰柏瑞中证韩交所中韩半导体交易型开放式指数证券投资基金(QDII）二级市场交易价格溢价... 2026-08-21",
+      "institution": "huatai",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "http://www.huatai-pb.com/upload/pdf/1787291400102-106-1kycyzojcs59r.pdf"
+    },
+    {
+      "id": "cw-huatai-2-2026-08-21#1",
+      "title": "华泰柏瑞基金管理有限公司关于华泰柏瑞纳斯达克100交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提... 2026-08-21",
+      "summary": "华泰柏瑞基金管理有限公司关于华泰柏瑞纳斯达克100交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提... 2026-08-21",
+      "institution": "huatai",
+      "category": "other",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "http://www.huatai-pb.com/upload/pdf/1787291400008-95-1kycyzoilb9gv.pdf"
+    },
+    {
+      "id": "cw-huatai-5-2026-08-21#1",
+      "title": "华泰柏瑞基金管理有限公司关于旗下基金关联交易的公告 2026-08-21",
+      "summary": "华泰柏瑞基金管理有限公司关于旗下基金关联交易的公告 2026-08-21",
+      "institution": "huatai",
+      "category": "disclosure",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "http://www.huatai-pb.com/upload/pdf/1787217300053-264-1ky9wrbe3rovj.pdf"
+    },
+    {
+      "id": "cw-huatai-6-2026-08-21",
+      "title": "华泰柏瑞基金管理有限公司关于华泰柏瑞锦华债券型证券投资基金基金经理变更的公告 2026-08-21",
+      "summary": "华泰柏瑞基金管理有限公司关于华泰柏瑞锦华债券型证券投资基金基金经理变更的公告 2026-08-21",
+      "institution": "huatai",
+      "category": "disclosure",
+      "source": "company_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "http://www.huatai-pb.com/upload/pdf/1787188200001-106-1ky8pk2zt0b73.pdf"
+    },
+    {
+      "id": "sse-fund-2026-08-21-0",
+      "title": "华宝上证科创板200交易型开放式指数证券投资基金上市交易公告",
+      "summary": "华宝上证科创板200交易型开放式指数证券投资基金上市交易公告",
+      "institution": "sse",
+      "category": "exchange",
+      "source": "exchange_web",
+      "publishedAt": "2026-08-21T08:00:00+08:00",
+      "sourceUrl": "http://etf.sse.com.cn/disclosure/ssenotice/c/c_20260820_10829434.shtml"
     },
     {
       "id": "wewe-media-0-2026-08-21",
@@ -277,96 +406,6 @@
       "source": "wechat",
       "publishedAt": "2026-08-21T00:01:39.000Z",
       "sourceUrl": "https://mp.weixin.qq.com/s/c6ADBpMcLraaTbeEGiBuag"
-    },
-    {
-      "id": "cw-huatai-0-2026-08-21",
-      "title": "华泰柏瑞安泰稳健多元配置6个月持有期混合型基金中基金(FOF)增加广发银行股... 2026-08-21",
-      "summary": "华泰柏瑞安泰稳健多元配置6个月持有期混合型基金中基金(FOF)增加广发银行股... 2026-08-21",
-      "institution": "huatai",
-      "category": "other",
-      "source": "company_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "http://www.huatai-pb.com/upload/pdf/1787217300193-56-1ky9wrkmi99db.pdf"
-    },
-    {
-      "id": "cw-huatai-1-2026-08-21",
-      "title": "华泰柏瑞基金管理有限公司关于华泰柏瑞纳斯达克100交易型开放式指数证券投资基... 2026-08-21",
-      "summary": "华泰柏瑞基金管理有限公司关于华泰柏瑞纳斯达克100交易型开放式指数证券投资基... 2026-08-21",
-      "institution": "huatai",
-      "category": "other",
-      "source": "company_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "http://www.huatai-pb.com/upload/pdf/1787217300146-618-1ky9wrfxe4qlr.pdf"
-    },
-    {
-      "id": "cw-huatai-2-2026-08-21",
-      "title": "华泰柏瑞基金管理有限公司关于华泰柏瑞中证韩交所中韩半导体交易型开放式指数证券... 2026-08-21",
-      "summary": "华泰柏瑞基金管理有限公司关于华泰柏瑞中证韩交所中韩半导体交易型开放式指数证券... 2026-08-21",
-      "institution": "huatai",
-      "category": "other",
-      "source": "company_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "http://www.huatai-pb.com/upload/pdf/1787217300115-610-1ky9wrfwu5ju7.pdf"
-    },
-    {
-      "id": "cw-huatai-3-2026-08-21",
-      "title": "华泰柏瑞基金管理有限公司关于旗下基金关联交易的公告 2026-08-21",
-      "summary": "华泰柏瑞基金管理有限公司关于旗下基金关联交易的公告 2026-08-21",
-      "institution": "huatai",
-      "category": "disclosure",
-      "source": "company_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "http://www.huatai-pb.com/upload/pdf/1787217300053-264-1ky9wrbe3rovj.pdf"
-    },
-    {
-      "id": "cw-huatai-4-2026-08-21",
-      "title": "华泰柏瑞基金管理有限公司关于增加广发证券股份有限公司为华泰柏瑞鸿益30天滚动... 2026-08-21",
-      "summary": "华泰柏瑞基金管理有限公司关于增加广发证券股份有限公司为华泰柏瑞鸿益30天滚动... 2026-08-21",
-      "institution": "huatai",
-      "category": "other",
-      "source": "company_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "http://www.huatai-pb.com/upload/pdf/1787217300006-847-1ky9wr6qg31db.pdf"
-    },
-    {
-      "id": "cw-huatai-0-2026-08-21#1",
-      "title": "华泰柏瑞基金管理有限公司关于华泰柏瑞纳斯达克100交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提... 2026-08-21",
-      "summary": "华泰柏瑞基金管理有限公司关于华泰柏瑞纳斯达克100交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提... 2026-08-21",
-      "institution": "huatai",
-      "category": "other",
-      "source": "company_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "http://www.huatai-pb.com/upload/pdf/1787217300146-618-1ky9wrfxe4qlr.pdf"
-    },
-    {
-      "id": "cw-huatai-1-2026-08-21#1",
-      "title": "华泰柏瑞基金管理有限公司关于华泰柏瑞中证韩交所中韩半导体交易型开放式指数证券投资基金(QDII）二级市场交易价格溢价... 2026-08-21",
-      "summary": "华泰柏瑞基金管理有限公司关于华泰柏瑞中证韩交所中韩半导体交易型开放式指数证券投资基金(QDII）二级市场交易价格溢价... 2026-08-21",
-      "institution": "huatai",
-      "category": "other",
-      "source": "company_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "http://www.huatai-pb.com/upload/pdf/1787217300115-610-1ky9wrfwu5ju7.pdf"
-    },
-    {
-      "id": "cw-huatai-3-2026-08-21#1",
-      "title": "华泰柏瑞基金管理有限公司关于华泰柏瑞锦华债券型证券投资基金基金经理变更的公告 2026-08-21",
-      "summary": "华泰柏瑞基金管理有限公司关于华泰柏瑞锦华债券型证券投资基金基金经理变更的公告 2026-08-21",
-      "institution": "huatai",
-      "category": "disclosure",
-      "source": "company_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "http://www.huatai-pb.com/upload/pdf/1787188200001-106-1ky8pk2zt0b73.pdf"
-    },
-    {
-      "id": "sse-fund-2026-08-21-0",
-      "title": "华宝上证科创板200交易型开放式指数证券投资基金上市交易公告",
-      "summary": "华宝上证科创板200交易型开放式指数证券投资基金上市交易公告",
-      "institution": "sse",
-      "category": "exchange",
-      "source": "exchange_web",
-      "publishedAt": "2026-08-21T08:00:00+08:00",
-      "sourceUrl": "http://etf.sse.com.cn/disclosure/ssenotice/c/c_20260820_10829434.shtml"
     }
   ],
   "etf": {
@@ -440,39 +479,75 @@
         "changePct": 1.27
       }
     ],
-    "hotInflow": [],
+    "hotInflow": [
+      {
+        "code": "513310",
+        "name": "中韩半导体ETF华泰柏瑞",
+        "institution": "huatai",
+        "value": 136.14,
+        "unit": "yi"
+      },
+      {
+        "code": "551500",
+        "name": "科创债ETF易方达",
+        "institution": "efunds",
+        "value": 125.54,
+        "unit": "yi"
+      },
+      {
+        "code": "551550",
+        "name": "科创债ETF华夏",
+        "institution": "huaxia",
+        "value": 100.17,
+        "unit": "yi"
+      },
+      {
+        "code": "511100",
+        "name": "国债ETF华夏",
+        "institution": "huaxia",
+        "value": 84.17,
+        "unit": "yi"
+      },
+      {
+        "code": "511110",
+        "name": "公司债ETF易方达",
+        "institution": "efunds",
+        "value": 80.15,
+        "unit": "yi"
+      }
+    ],
     "hotGainers": [
       {
         "code": "517400",
-        "name": "517400",
+        "name": "黄金股ETF国泰",
         "institution": "guotai",
         "value": 4.74,
         "unit": "pct"
       },
       {
         "code": "159562",
-        "name": "159562",
+        "name": "黄金股ETF华夏",
         "institution": "huaxia",
         "value": 4.18,
         "unit": "pct"
       },
       {
         "code": "561330",
-        "name": "561330",
+        "name": "矿业ETF国泰",
         "institution": "guotai",
         "value": 3.22,
         "unit": "pct"
       },
       {
         "code": "560470",
-        "name": "560470",
+        "name": "有色ETF易方达",
         "institution": "efunds",
         "value": 2.99,
         "unit": "pct"
       },
       {
         "code": "516650",
-        "name": "516650",
+        "name": "有色金属ETF华夏",
         "institution": "huaxia",
         "value": 2.81,
         "unit": "pct"
@@ -481,35 +556,35 @@
     "hotTurnover": [
       {
         "code": "513310",
-        "name": "513310",
+        "name": "中韩半导体ETF华泰柏瑞",
         "institution": "huatai",
         "value": 136.14,
         "unit": "yi_amount"
       },
       {
         "code": "551500",
-        "name": "551500",
+        "name": "科创债ETF易方达",
         "institution": "efunds",
         "value": 125.54,
         "unit": "yi_amount"
       },
       {
         "code": "551550",
-        "name": "551550",
+        "name": "科创债ETF华夏",
         "institution": "huaxia",
         "value": 100.17,
         "unit": "yi_amount"
       },
       {
         "code": "511100",
-        "name": "511100",
+        "name": "国债ETF华夏",
         "institution": "huaxia",
         "value": 84.17,
         "unit": "yi_amount"
       },
       {
         "code": "511110",
-        "name": "511110",
+        "name": "公司债ETF易方达",
         "institution": "efunds",
         "value": 80.15,
         "unit": "yi_amount"
@@ -519,7 +594,7 @@
       "huaxia": [
         {
           "code": "510050",
-          "name": "510050",
+          "name": "上证50ETF华夏",
           "changePct": 0.17,
           "amount": 12.67,
           "nav": 2.993,
@@ -527,7 +602,7 @@
         },
         {
           "code": "510140",
-          "name": "510140",
+          "name": "上证综指ETF华夏",
           "changePct": 0.1,
           "amount": 0.06,
           "nav": 1.021,
@@ -535,7 +610,7 @@
         },
         {
           "code": "510330",
-          "name": "510330",
+          "name": "沪深300ETF华夏",
           "changePct": 0.64,
           "amount": 7.39,
           "nav": 4.881,
@@ -543,7 +618,7 @@
         },
         {
           "code": "510630",
-          "name": "510630",
+          "name": "消费ETF华夏",
           "changePct": -1.7,
           "amount": 0.28,
           "nav": 0.809,
@@ -551,7 +626,7 @@
         },
         {
           "code": "510650",
-          "name": "510650",
+          "name": "金融地产ETF华夏",
           "changePct": 0.1,
           "amount": 0.01,
           "nav": 2.869,
@@ -559,7 +634,7 @@
         },
         {
           "code": "510660",
-          "name": "510660",
+          "name": "医药ETF华夏",
           "changePct": -3.4,
           "amount": 0.11,
           "nav": 2.559,
@@ -567,7 +642,7 @@
         },
         {
           "code": "510670",
-          "name": "510670",
+          "name": "上证180ETF华夏",
           "changePct": 0.1,
           "amount": 0.01,
           "nav": 0.993,
@@ -575,7 +650,7 @@
         },
         {
           "code": "511100",
-          "name": "511100",
+          "name": "国债ETF华夏",
           "changePct": 0.03,
           "amount": 84.17,
           "nav": 110.633,
@@ -583,7 +658,7 @@
         },
         {
           "code": "511200",
-          "name": "511200",
+          "name": "信用债ETF华夏",
           "changePct": 0.01,
           "amount": 50.29,
           "nav": 103.272,
@@ -591,7 +666,7 @@
         },
         {
           "code": "511650",
-          "name": "511650",
+          "name": "货币ETF华夏",
           "changePct": 0,
           "amount": 0.04,
           "nav": 100.004,
@@ -599,7 +674,7 @@
         },
         {
           "code": "512050",
-          "name": "512050",
+          "name": "A500ETF华夏",
           "changePct": 0.66,
           "amount": 16.5,
           "nav": 1.219,
@@ -607,7 +682,7 @@
         },
         {
           "code": "512370",
-          "name": "512370",
+          "name": "A500增强ETF华夏",
           "changePct": 0.75,
           "amount": 0.04,
           "nav": 1.208,
@@ -615,7 +690,7 @@
         },
         {
           "code": "512460",
-          "name": "512460",
+          "name": "电池ETF华夏",
           "changePct": 1.52,
           "amount": 0.15,
           "nav": 0.868,
@@ -623,7 +698,7 @@
         },
         {
           "code": "512500",
-          "name": "512500",
+          "name": "中证500ETF华夏",
           "changePct": 0.04,
           "amount": 4.61,
           "nav": 4.45,
@@ -631,7 +706,7 @@
         },
         {
           "code": "512770",
-          "name": "512770",
+          "name": "战略新兴ETF华夏",
           "changePct": 1.66,
           "amount": 0.04,
           "nav": 2.639,
@@ -639,7 +714,7 @@
         },
         {
           "code": "512950",
-          "name": "512950",
+          "name": "央企改革ETF华夏",
           "changePct": 0.47,
           "amount": 0.13,
           "nav": 1.504,
@@ -647,7 +722,7 @@
         },
         {
           "code": "512990",
-          "name": "512990",
+          "name": "MSCIA股ETF华夏",
           "changePct": 0.59,
           "amount": 0.07,
           "nav": 2.048,
@@ -655,7 +730,7 @@
         },
         {
           "code": "513180",
-          "name": "513180",
+          "name": "恒生科技ETF华夏",
           "changePct": 0.17,
           "amount": 22.75,
           "nav": 0.598,
@@ -663,7 +738,7 @@
         },
         {
           "code": "513190",
-          "name": "513190",
+          "name": "港股通金融ETF华夏",
           "changePct": 1.24,
           "amount": 4.56,
           "nav": 1.8,
@@ -671,7 +746,7 @@
         },
         {
           "code": "513230",
-          "name": "513230",
+          "name": "港股通消费ETF华夏",
           "changePct": -0.9,
           "amount": 0.21,
           "nav": 0.881,
@@ -679,7 +754,7 @@
         },
         {
           "code": "513300",
-          "name": "513300",
+          "name": "纳斯达克ETF华夏",
           "changePct": -0.78,
           "amount": 3.62,
           "nav": 2.664,
@@ -687,7 +762,7 @@
         },
         {
           "code": "513330",
-          "name": "513330",
+          "name": "恒生互联网ETF华夏",
           "changePct": -0.26,
           "amount": 14.02,
           "nav": 0.384,
@@ -695,7 +770,7 @@
         },
         {
           "code": "513520",
-          "name": "513520",
+          "name": "日经ETF华夏",
           "changePct": -0.66,
           "amount": 1.99,
           "nav": 2.268,
@@ -703,7 +778,7 @@
         },
         {
           "code": "513660",
-          "name": "513660",
+          "name": "恒生ETF华夏",
           "changePct": 0.66,
           "amount": 0.57,
           "nav": 1.535,
@@ -711,7 +786,7 @@
         },
         {
           "code": "513810",
-          "name": "513810",
+          "name": "港股国企ETF华夏",
           "changePct": 1.21,
           "amount": 0.26,
           "nav": 1.76,
@@ -719,7 +794,7 @@
         },
         {
           "code": "513910",
-          "name": "513910",
+          "name": "港股通央企红利ETF华夏",
           "changePct": 1.41,
           "amount": 1.66,
           "nav": 1.577,
@@ -727,7 +802,7 @@
         },
         {
           "code": "515010",
-          "name": "515010",
+          "name": "证券ETF华夏",
           "changePct": 0.08,
           "amount": 0.8,
           "nav": 1.224,
@@ -735,7 +810,7 @@
         },
         {
           "code": "515020",
-          "name": "515020",
+          "name": "银行ETF华夏",
           "changePct": -0.4,
           "amount": 1.95,
           "nav": 1.748,
@@ -743,7 +818,7 @@
         },
         {
           "code": "515030",
-          "name": "515030",
+          "name": "新能源车ETF华夏",
           "changePct": 1.54,
           "amount": 1.29,
           "nav": 1.644,
@@ -751,7 +826,7 @@
         },
         {
           "code": "515040",
-          "name": "515040",
+          "name": "工业有色ETF华夏",
           "changePct": 2.1,
           "amount": 0.06,
           "nav": 1.072,
@@ -759,7 +834,7 @@
         },
         {
           "code": "515050",
-          "name": "515050",
+          "name": "通信ETF华夏",
           "changePct": 2.64,
           "amount": 9.78,
           "nav": 1.05,
@@ -767,7 +842,7 @@
         },
         {
           "code": "515060",
-          "name": "515060",
+          "name": "房地产ETF华夏",
           "changePct": -1.19,
           "amount": 0.4,
           "nav": 0.581,
@@ -775,7 +850,7 @@
         },
         {
           "code": "515070",
-          "name": "515070",
+          "name": "人工智能ETF华夏",
           "changePct": 1.28,
           "amount": 1.27,
           "nav": 1.108,
@@ -783,7 +858,7 @@
         },
         {
           "code": "515170",
-          "name": "515170",
+          "name": "食品饮料ETF华夏",
           "changePct": -1.49,
           "amount": 0.49,
           "nav": 0.462,
@@ -791,7 +866,7 @@
         },
         {
           "code": "515370",
-          "name": "515370",
+          "name": "光伏ETF华夏",
           "changePct": 0,
           "amount": 0.14,
           "nav": 0.815,
@@ -799,7 +874,7 @@
         },
         {
           "code": "515640",
-          "name": "515640",
+          "name": "家电ETF华夏",
           "changePct": 0.21,
           "amount": 0,
           "nav": 0.953,
@@ -807,7 +882,7 @@
         },
         {
           "code": "515760",
-          "name": "515760",
+          "name": "浙江国资ETF华夏",
           "changePct": -0.29,
           "amount": 0.03,
           "nav": 1.358,
@@ -815,7 +890,7 @@
         },
         {
           "code": "515970",
-          "name": "515970",
+          "name": "工程机械ETF华夏",
           "changePct": 0.24,
           "amount": 0.84,
           "nav": 0.85,
@@ -823,7 +898,7 @@
         },
         {
           "code": "516000",
-          "name": "516000",
+          "name": "大数据ETF华夏",
           "changePct": -0.42,
           "amount": 0.33,
           "nav": 0.94,
@@ -831,7 +906,7 @@
         },
         {
           "code": "516100",
-          "name": "516100",
+          "name": "金融科技ETF华夏",
           "changePct": 1.19,
           "amount": 0.21,
           "nav": 1.022,
@@ -839,7 +914,7 @@
         },
         {
           "code": "516190",
-          "name": "516190",
+          "name": "传媒ETF华夏",
           "changePct": -0.92,
           "amount": 0.12,
           "nav": 0.972,
@@ -847,7 +922,7 @@
         },
         {
           "code": "516260",
-          "name": "516260",
+          "name": "物联网ETF华夏",
           "changePct": 1.26,
           "amount": 0.01,
           "nav": 1.361,
@@ -855,7 +930,7 @@
         },
         {
           "code": "516320",
-          "name": "516320",
+          "name": "高端装备ETF华夏",
           "changePct": 0.86,
           "amount": 0.04,
           "nav": 0.943,
@@ -863,7 +938,7 @@
         },
         {
           "code": "516500",
-          "name": "516500",
+          "name": "生物科技ETF华夏",
           "changePct": -4.03,
           "amount": 0.13,
           "nav": 0.667,
@@ -871,7 +946,7 @@
         },
         {
           "code": "516630",
-          "name": "516630",
+          "name": "云计算ETF华夏",
           "changePct": 0,
           "amount": 0.96,
           "nav": 1.637,
@@ -879,7 +954,7 @@
         },
         {
           "code": "516650",
-          "name": "516650",
+          "name": "有色金属ETF华夏",
           "changePct": 2.81,
           "amount": 2.72,
           "nav": 1.902,
@@ -887,7 +962,7 @@
         },
         {
           "code": "516710",
-          "name": "516710",
+          "name": "新材料ETF华夏",
           "changePct": 1.05,
           "amount": 0.01,
           "nav": 0.768,
@@ -895,7 +970,7 @@
         },
         {
           "code": "516810",
-          "name": "516810",
+          "name": "农业ETF华夏",
           "changePct": -1.72,
           "amount": 0.81,
           "nav": 0.744,
@@ -903,7 +978,7 @@
         },
         {
           "code": "516850",
-          "name": "516850",
+          "name": "新能源ETF华夏",
           "changePct": 1.31,
           "amount": 0.11,
           "nav": 0.931,
@@ -911,7 +986,7 @@
         },
         {
           "code": "517170",
-          "name": "517170",
+          "name": "沪港深500ETF华夏",
           "changePct": 0.5,
           "amount": 0.01,
           "nav": 1.014,
@@ -919,7 +994,7 @@
         },
         {
           "code": "518850",
-          "name": "518850",
+          "name": "黄金ETF华夏",
           "changePct": 1.67,
           "amount": 6.87,
           "nav": 9.48,
@@ -927,7 +1002,7 @@
         },
         {
           "code": "520510",
-          "name": "520510",
+          "name": "港股通医疗ETF华夏",
           "changePct": -0.3,
           "amount": 3.56,
           "nav": 0.983,
@@ -935,7 +1010,7 @@
         },
         {
           "code": "520910",
-          "name": "520910",
+          "name": "港股通互联网ETF华夏",
           "changePct": -0.46,
           "amount": 0.22,
           "nav": 0.651,
@@ -943,7 +1018,7 @@
         },
         {
           "code": "526000",
-          "name": "526000",
+          "name": "港股通信息技术ETF华夏",
           "changePct": 1.27,
           "amount": 3.85,
           "nav": 1.194,
@@ -951,7 +1026,7 @@
         },
         {
           "code": "530530",
-          "name": "530530",
+          "name": "上证580ETF华夏",
           "changePct": -0.26,
           "amount": 0.01,
           "nav": 1.141,
@@ -959,7 +1034,7 @@
         },
         {
           "code": "551550",
-          "name": "551550",
+          "name": "科创债ETF华夏",
           "changePct": 0.01,
           "amount": 100.17,
           "nav": 101.755,
@@ -967,7 +1042,7 @@
         },
         {
           "code": "560120",
-          "name": "560120",
+          "name": "中证500现金流ETF华夏",
           "changePct": -0.49,
           "amount": 0.21,
           "nav": 1.21,
@@ -975,7 +1050,7 @@
         },
         {
           "code": "560830",
-          "name": "560830",
+          "name": "电力ETF华夏",
           "changePct": -0.56,
           "amount": 0.13,
           "nav": 0.884,
@@ -983,7 +1058,7 @@
         },
         {
           "code": "562500",
-          "name": "562500",
+          "name": "机器人ETF华夏",
           "changePct": 0.63,
           "amount": 4.42,
           "nav": 0.958,
@@ -991,7 +1066,7 @@
         },
         {
           "code": "562510",
-          "name": "562510",
+          "name": "旅游ETF华夏",
           "changePct": -0.88,
           "amount": 0.28,
           "nav": 0.563,
@@ -999,7 +1074,7 @@
         },
         {
           "code": "562520",
-          "name": "562520",
+          "name": "中证1000成长ETF华夏",
           "changePct": 0.15,
           "amount": 0.04,
           "nav": 1.372,
@@ -1007,7 +1082,7 @@
         },
         {
           "code": "562530",
-          "name": "562530",
+          "name": "中证1000价值ETF华夏",
           "changePct": -1.58,
           "amount": 0.06,
           "nav": 1.243,
@@ -1015,7 +1090,7 @@
         },
         {
           "code": "562550",
-          "name": "562550",
+          "name": "绿电ETF华夏",
           "changePct": -0.63,
           "amount": 0.63,
           "nav": 1.112,
@@ -1023,7 +1098,7 @@
         },
         {
           "code": "562560",
-          "name": "562560",
+          "name": "信息技术ETF华夏",
           "changePct": 0.94,
           "amount": 0.01,
           "nav": 2.257,
@@ -1031,7 +1106,7 @@
         },
         {
           "code": "562570",
-          "name": "562570",
+          "name": "信创ETF华夏",
           "changePct": 0.74,
           "amount": 0.09,
           "nav": 1.363,
@@ -1039,7 +1114,7 @@
         },
         {
           "code": "562580",
-          "name": "562580",
+          "name": "可选消费ETF华夏",
           "changePct": -0.28,
           "amount": 0.01,
           "nav": 1.067,
@@ -1047,7 +1122,7 @@
         },
         {
           "code": "562590",
-          "name": "562590",
+          "name": "半导体设备ETF华夏",
           "changePct": -0.39,
           "amount": 5.53,
           "nav": 1.032,
@@ -1055,7 +1130,7 @@
         },
         {
           "code": "562600",
-          "name": "562600",
+          "name": "医疗器械ETF华夏",
           "changePct": -2.12,
           "amount": 0.3,
           "nav": 0.786,
@@ -1063,7 +1138,7 @@
         },
         {
           "code": "562660",
-          "name": "562660",
+          "name": "中证2000ETF华夏",
           "changePct": -0.21,
           "amount": 0.42,
           "nav": 1.863,
@@ -1071,7 +1146,7 @@
         },
         {
           "code": "562700",
-          "name": "562700",
+          "name": "汽车零部件ETF华夏",
           "changePct": 0.68,
           "amount": 0.18,
           "nav": 1.193,
@@ -1079,7 +1154,7 @@
         },
         {
           "code": "588000",
-          "name": "588000",
+          "name": "科创50ETF华夏",
           "changePct": 0.06,
           "amount": 46.52,
           "nav": 1.745,
@@ -1087,7 +1162,7 @@
         },
         {
           "code": "588130",
-          "name": "588130",
+          "name": "科创医药ETF华夏",
           "changePct": -3.51,
           "amount": 1.13,
           "nav": 1.072,
@@ -1095,7 +1170,7 @@
         },
         {
           "code": "588170",
-          "name": "588170",
+          "name": "科创半导体ETF华夏",
           "changePct": -0.69,
           "amount": 51.14,
           "nav": 1.012,
@@ -1103,7 +1178,7 @@
         },
         {
           "code": "588510",
-          "name": "588510",
+          "name": "科创创业人工智能ETF华夏",
           "changePct": 1.19,
           "amount": 0.06,
           "nav": 0.848,
@@ -1111,7 +1186,7 @@
         },
         {
           "code": "588800",
-          "name": "588800",
+          "name": "科创100ETF华夏",
           "changePct": -0.44,
           "amount": 3.03,
           "nav": 1.799,
@@ -1119,7 +1194,7 @@
         },
         {
           "code": "588820",
-          "name": "588820",
+          "name": "科创200ETF华夏",
           "changePct": 0,
           "amount": 0.19,
           "nav": 1.94,
@@ -1127,7 +1202,7 @@
         },
         {
           "code": "589000",
-          "name": "589000",
+          "name": "科创综指ETF华夏",
           "changePct": -0.19,
           "amount": 0.77,
           "nav": 1.573,
@@ -1135,7 +1210,7 @@
         },
         {
           "code": "589010",
-          "name": "589010",
+          "name": "科创人工智能ETF华夏",
           "changePct": -0.29,
           "amount": 0.71,
           "nav": 1.375,
@@ -1143,7 +1218,7 @@
         },
         {
           "code": "589550",
-          "name": "589550",
+          "name": "科创价值ETF华夏",
           "changePct": -0.38,
           "amount": 0.03,
           "nav": 1.328,
@@ -1151,7 +1226,7 @@
         },
         {
           "code": "159021",
-          "name": "159021",
+          "name": "大盘价值ETF华夏",
           "changePct": 0.1,
           "amount": 0.03,
           "nav": 0.999,
@@ -1159,7 +1234,7 @@
         },
         {
           "code": "159030",
-          "name": "159030",
+          "name": "粮食ETF华夏",
           "changePct": -3.99,
           "amount": 0.28,
           "nav": 0.842,
@@ -1167,7 +1242,7 @@
         },
         {
           "code": "159053",
-          "name": "159053",
+          "name": "稀有金属ETF华夏",
           "changePct": 2.32,
           "amount": 0.18,
           "nav": 0.927,
@@ -1175,7 +1250,7 @@
         },
         {
           "code": "159068",
-          "name": "159068",
+          "name": "软件ETF华夏",
           "changePct": -0.4,
           "amount": 0.06,
           "nav": 0.991,
@@ -1183,7 +1258,7 @@
         },
         {
           "code": "159075",
-          "name": "159075",
+          "name": "工业互联网ETF华夏",
           "changePct": 0.88,
           "amount": 0.02,
           "nav": 0.919,
@@ -1191,7 +1266,7 @@
         },
         {
           "code": "159100",
-          "name": "159100",
+          "name": "巴西ETF华夏",
           "changePct": 0,
           "amount": 0.26,
           "nav": 1.052,
@@ -1199,7 +1274,7 @@
         },
         {
           "code": "159101",
-          "name": "159101",
+          "name": "港股通科技ETF华夏",
           "changePct": 0,
           "amount": 1.43,
           "nav": 0.768,
@@ -1207,7 +1282,7 @@
         },
         {
           "code": "159118",
-          "name": "159118",
+          "name": "港股通红利低波ETF华夏",
           "changePct": 0.62,
           "amount": 0.02,
           "nav": 0.97,
@@ -1215,7 +1290,7 @@
         },
         {
           "code": "159151",
-          "name": "159151",
+          "name": "食品ETF华夏",
           "changePct": -1.49,
           "amount": 0.14,
           "nav": 0.925,
@@ -1223,7 +1298,7 @@
         },
         {
           "code": "159189",
-          "name": "159189",
+          "name": "石油ETF华夏",
           "changePct": 1.35,
           "amount": 0.15,
           "nav": 0.903,
@@ -1231,7 +1306,7 @@
         },
         {
           "code": "159201",
-          "name": "159201",
+          "name": "自由现金流ETF华夏",
           "changePct": -0.42,
           "amount": 1.44,
           "nav": 1.179,
@@ -1239,7 +1314,7 @@
         },
         {
           "code": "159227",
-          "name": "159227",
+          "name": "航空航天ETF华夏",
           "changePct": 0.72,
           "amount": 1.75,
           "nav": 0.982,
@@ -1247,7 +1322,7 @@
         },
         {
           "code": "159230",
-          "name": "159230",
+          "name": "通用航空ETF华夏",
           "changePct": 0.32,
           "amount": 0.15,
           "nav": 0.938,
@@ -1255,7 +1330,7 @@
         },
         {
           "code": "159256",
-          "name": "159256",
+          "name": "创业板软件ETF华夏",
           "changePct": -0.49,
           "amount": 0.67,
           "nav": 0.812,
@@ -1263,7 +1338,7 @@
         },
         {
           "code": "159301",
-          "name": "159301",
+          "name": "公用事业ETF华夏",
           "changePct": -0.52,
           "amount": 0.25,
           "nav": 0.953,
@@ -1271,7 +1346,7 @@
         },
         {
           "code": "159323",
-          "name": "159323",
+          "name": "港股通汽车ETF华夏",
           "changePct": 0.93,
           "amount": 2.09,
           "nav": 1.091,
@@ -1279,7 +1354,7 @@
         },
         {
           "code": "159326",
-          "name": "159326",
+          "name": "电网设备ETF华夏",
           "changePct": 0.9,
           "amount": 5.2,
           "nav": 1.687,
@@ -1287,7 +1362,7 @@
         },
         {
           "code": "159367",
-          "name": "159367",
+          "name": "创业板50ETF华夏",
           "changePct": 2.08,
           "amount": 0.21,
           "nav": 1.77,
@@ -1295,7 +1370,7 @@
         },
         {
           "code": "159368",
-          "name": "159368",
+          "name": "创业板新能源ETF华夏",
           "changePct": 1.2,
           "amount": 1.92,
           "nav": 0.677,
@@ -1303,7 +1378,7 @@
         },
         {
           "code": "159381",
-          "name": "159381",
+          "name": "创业板人工智能ETF华夏",
           "changePct": 1.11,
           "amount": 4.22,
           "nav": 1.188,
@@ -1311,7 +1386,7 @@
         },
         {
           "code": "159510",
-          "name": "159510",
+          "name": "沪深300价值ETF华夏",
           "changePct": -0.32,
           "amount": 0.02,
           "nav": 1.252,
@@ -1319,7 +1394,7 @@
         },
         {
           "code": "159523",
-          "name": "159523",
+          "name": "沪深300成长ETF华夏",
           "changePct": 0.87,
           "amount": 0.07,
           "nav": 1.276,
@@ -1327,7 +1402,7 @@
         },
         {
           "code": "159547",
-          "name": "159547",
+          "name": "红利低波ETF华夏",
           "changePct": -0.33,
           "amount": 1.21,
           "nav": 1.203,
@@ -1335,7 +1410,7 @@
         },
         {
           "code": "159562",
-          "name": "159562",
+          "name": "黄金股ETF华夏",
           "changePct": 4.18,
           "amount": 7.28,
           "nav": 2.469,
@@ -1343,7 +1418,7 @@
         },
         {
           "code": "159563",
-          "name": "159563",
+          "name": "创业板综ETF华夏",
           "changePct": 0.6,
           "amount": 0.03,
           "nav": 1.832,
@@ -1351,7 +1426,7 @@
         },
         {
           "code": "159573",
-          "name": "159573",
+          "name": "创业板200ETF华夏",
           "changePct": -0.48,
           "amount": 0.13,
           "nav": 1.445,
@@ -1359,7 +1434,7 @@
         },
         {
           "code": "159601",
-          "name": "159601",
+          "name": "A50ETF华夏",
           "changePct": 0.98,
           "amount": 0.67,
           "nav": 1.136,
@@ -1367,7 +1442,7 @@
         },
         {
           "code": "159617",
-          "name": "159617",
+          "name": "中证500价值ETF华夏",
           "changePct": -1.31,
           "amount": 0.03,
           "nav": 1.356,
@@ -1375,7 +1450,7 @@
         },
         {
           "code": "159620",
-          "name": "159620",
+          "name": "中证500成长ETF华夏",
           "changePct": -0.08,
           "amount": 0.04,
           "nav": 1.277,
@@ -1383,7 +1458,7 @@
         },
         {
           "code": "159627",
-          "name": "159627",
+          "name": "A100ETF华夏",
           "changePct": 0.85,
           "amount": 0.09,
           "nav": 1.312,
@@ -1391,7 +1466,7 @@
         },
         {
           "code": "159635",
-          "name": "159635",
+          "name": "基建ETF华夏",
           "changePct": -0.4,
           "amount": 0.25,
           "nav": 0.989,
@@ -1399,7 +1474,7 @@
         },
         {
           "code": "159655",
-          "name": "159655",
+          "name": "标普500ETF华夏",
           "changePct": 0.05,
           "amount": 1.28,
           "nav": 2.003,
@@ -1407,7 +1482,7 @@
         },
         {
           "code": "159663",
-          "name": "159663",
+          "name": "机床ETF华夏",
           "changePct": 1.21,
           "amount": 0.62,
           "nav": 1.002,
@@ -1415,7 +1490,7 @@
         },
         {
           "code": "159666",
-          "name": "159666",
+          "name": "交通运输ETF华夏",
           "changePct": 0.31,
           "amount": 0.17,
           "nav": 0.983,
@@ -1423,7 +1498,7 @@
         },
         {
           "code": "159711",
-          "name": "159711",
+          "name": "港股通50ETF华夏",
           "changePct": 0.22,
           "amount": 0.55,
           "nav": 1.359,
@@ -1431,7 +1506,7 @@
         },
         {
           "code": "159726",
-          "name": "159726",
+          "name": "港股通高股息ETF华夏",
           "changePct": 0.29,
           "amount": 0.06,
           "nav": 1.371,
@@ -1439,7 +1514,7 @@
         },
         {
           "code": "159731",
-          "name": "159731",
+          "name": "石化ETF华夏",
           "changePct": 0.74,
           "amount": 0.53,
           "nav": 0.95,
@@ -1447,7 +1522,7 @@
         },
         {
           "code": "159732",
-          "name": "159732",
+          "name": "消费电子ETF华夏",
           "changePct": 1.02,
           "amount": 3.14,
           "nav": 1.383,
@@ -1455,7 +1530,7 @@
         },
         {
           "code": "159758",
-          "name": "159758",
+          "name": "红利质量ETF华夏",
           "changePct": -1.14,
           "amount": 0.47,
           "nav": 1.13,
@@ -1463,7 +1538,7 @@
         },
         {
           "code": "159783",
-          "name": "159783",
+          "name": "科创创业50ETF华夏",
           "changePct": 1.18,
           "amount": 1.72,
           "nav": 1.113,
@@ -1471,7 +1546,7 @@
         },
         {
           "code": "159790",
-          "name": "159790",
+          "name": "碳中和ETF华夏",
           "changePct": 0.56,
           "amount": 0.13,
           "nav": 0.715,
@@ -1479,7 +1554,7 @@
         },
         {
           "code": "159791",
-          "name": "159791",
+          "name": "300ESGETF华夏",
           "changePct": 0.18,
           "amount": 0.01,
           "nav": 1.107,
@@ -1487,7 +1562,7 @@
         },
         {
           "code": "159845",
-          "name": "159845",
+          "name": "中证1000ETF华夏",
           "changePct": 0.22,
           "amount": 14.27,
           "nav": 3.167,
@@ -1495,7 +1570,7 @@
         },
         {
           "code": "159850",
-          "name": "159850",
+          "name": "恒生国企ETF华夏",
           "changePct": 0.12,
           "amount": 0.05,
           "nav": 0.83,
@@ -1503,7 +1578,7 @@
         },
         {
           "code": "159869",
-          "name": "159869",
+          "name": "游戏ETF华夏",
           "changePct": -0.65,
           "amount": 3.25,
           "nav": 1.073,
@@ -1511,7 +1586,7 @@
         },
         {
           "code": "159888",
-          "name": "159888",
+          "name": "智能汽车ETF华夏",
           "changePct": 0.1,
           "amount": 0.22,
           "nav": 1.014,
@@ -1519,7 +1594,7 @@
         },
         {
           "code": "159892",
-          "name": "159892",
+          "name": "恒生医药ETF华夏",
           "changePct": -0.85,
           "amount": 8.33,
           "nav": 0.819,
@@ -1527,7 +1602,7 @@
         },
         {
           "code": "159902",
-          "name": "159902",
+          "name": "中小100ETF华夏",
           "changePct": 0.79,
           "amount": 0.12,
           "nav": 4.608,
@@ -1535,7 +1610,7 @@
         },
         {
           "code": "159920",
-          "name": "159920",
+          "name": "恒生ETF华夏",
           "changePct": 0.53,
           "amount": 1.96,
           "nav": 1.524,
@@ -1543,7 +1618,7 @@
         },
         {
           "code": "159957",
-          "name": "159957",
+          "name": "创业板ETF华夏",
           "changePct": 1.48,
           "amount": 1.98,
           "nav": 2.335,
@@ -1551,7 +1626,7 @@
         },
         {
           "code": "159966",
-          "name": "159966",
+          "name": "创业板价值ETF华夏",
           "changePct": 0.73,
           "amount": 0.09,
           "nav": 0.551,
@@ -1559,7 +1634,7 @@
         },
         {
           "code": "159967",
-          "name": "159967",
+          "name": "创业板成长ETF华夏",
           "changePct": 2.14,
           "amount": 8.35,
           "nav": 0.811,
@@ -1567,7 +1642,7 @@
         },
         {
           "code": "159985",
-          "name": "159985",
+          "name": "豆粕ETF华夏",
           "changePct": -2.22,
           "amount": 3.65,
           "nav": 2.163,
@@ -1575,7 +1650,7 @@
         },
         {
           "code": "159995",
-          "name": "159995",
+          "name": "芯片ETF华夏",
           "changePct": 0.7,
           "amount": 6.14,
           "nav": 1.159,
@@ -1585,7 +1660,7 @@
       "efunds": [
         {
           "code": "510100",
-          "name": "510100",
+          "name": "上证50ETF易方达",
           "changePct": 0.17,
           "amount": 1.96,
           "nav": 2.951,
@@ -1593,7 +1668,7 @@
         },
         {
           "code": "510130",
-          "name": "510130",
+          "name": "上证中盘ETF易方达",
           "changePct": 0.26,
           "amount": 0.02,
           "nav": 7.343,
@@ -1601,7 +1676,7 @@
         },
         {
           "code": "510310",
-          "name": "510310",
+          "name": "沪深300ETF易方达",
           "changePct": 0.66,
           "amount": 7.52,
           "nav": 4.55,
@@ -1609,7 +1684,7 @@
         },
         {
           "code": "510580",
-          "name": "510580",
+          "name": "中证500ETF易方达",
           "changePct": 0.1,
           "amount": 1.29,
           "nav": 4.145,
@@ -1617,7 +1692,7 @@
         },
         {
           "code": "510900",
-          "name": "510900",
+          "name": "恒生中国企业ETF易方达",
           "changePct": 0.28,
           "amount": 1.23,
           "nav": 1.062,
@@ -1625,7 +1700,7 @@
         },
         {
           "code": "511110",
-          "name": "511110",
+          "name": "公司债ETF易方达",
           "changePct": 0.01,
           "amount": 80.15,
           "nav": 103.19,
@@ -1633,7 +1708,7 @@
         },
         {
           "code": "511800",
-          "name": "511800",
+          "name": "易方达货币ETF",
           "changePct": 0.01,
           "amount": 0.03,
           "nav": 100.019,
@@ -1641,7 +1716,7 @@
         },
         {
           "code": "512010",
-          "name": "512010",
+          "name": "医药ETF易方达",
           "changePct": -3,
           "amount": 6.83,
           "nav": 0.388,
@@ -1649,7 +1724,7 @@
         },
         {
           "code": "512030",
-          "name": "512030",
+          "name": "中证A50增强ETF易方达",
           "changePct": -0.09,
           "amount": 0.01,
           "nav": 1.137,
@@ -1657,7 +1732,7 @@
         },
         {
           "code": "512070",
-          "name": "512070",
+          "name": "证券保险ETF易方达",
           "changePct": 0.65,
           "amount": 3.72,
           "nav": 0.778,
@@ -1665,7 +1740,7 @@
         },
         {
           "code": "512090",
-          "name": "512090",
+          "name": "MSCIA股ETF易方达",
           "changePct": 0.5,
           "amount": 1.14,
           "nav": 2,
@@ -1673,7 +1748,7 @@
         },
         {
           "code": "512560",
-          "name": "512560",
+          "name": "军工ETF易方达",
           "changePct": 0.72,
           "amount": 0.44,
           "nav": 0.698,
@@ -1681,7 +1756,7 @@
         },
         {
           "code": "512570",
-          "name": "512570",
+          "name": "证券ETF易方达",
           "changePct": 0.19,
           "amount": 1.52,
           "nav": 1.071,
@@ -1689,7 +1764,7 @@
         },
         {
           "code": "513000",
-          "name": "513000",
+          "name": "日经225ETF易方达",
           "changePct": -0.65,
           "amount": 1.12,
           "nav": 2.278,
@@ -1697,7 +1772,7 @@
         },
         {
           "code": "513010",
-          "name": "513010",
+          "name": "恒生科技ETF易方达",
           "changePct": 0.65,
           "amount": 5.31,
           "nav": 0.618,
@@ -1705,7 +1780,7 @@
         },
         {
           "code": "513040",
-          "name": "513040",
+          "name": "港股通互联网ETF易方达",
           "changePct": -0.42,
           "amount": 5.79,
           "nav": 0.954,
@@ -1713,7 +1788,7 @@
         },
         {
           "code": "513050",
-          "name": "513050",
+          "name": "中概互联网ETF易方达",
           "changePct": -1.06,
           "amount": 23.26,
           "nav": 1.119,
@@ -1721,7 +1796,7 @@
         },
         {
           "code": "513070",
-          "name": "513070",
+          "name": "港股通消费ETF易方达",
           "changePct": -0.98,
           "amount": 0.77,
           "nav": 1.117,
@@ -1729,7 +1804,7 @@
         },
         {
           "code": "513090",
-          "name": "513090",
+          "name": "香港证券ETF易方达",
           "changePct": 0.72,
           "amount": 28.76,
           "nav": 1.827,
@@ -1737,7 +1812,7 @@
         },
         {
           "code": "513200",
-          "name": "513200",
+          "name": "港股通医药ETF易方达",
           "changePct": -0.63,
           "amount": 2.13,
           "nav": 1.106,
@@ -1745,7 +1820,7 @@
         },
         {
           "code": "513210",
-          "name": "513210",
+          "name": "恒生ETF易方达",
           "changePct": 0.46,
           "amount": 0.05,
           "nav": 1.536,
@@ -1753,7 +1828,7 @@
         },
         {
           "code": "513320",
-          "name": "513320",
+          "name": "港股通新经济ETF易方达",
           "changePct": -0.36,
           "amount": 0.17,
           "nav": 1.117,
@@ -1761,7 +1836,7 @@
         },
         {
           "code": "513850",
-          "name": "513850",
+          "name": "美国50ETF易方达",
           "changePct": -0.71,
           "amount": 0.69,
           "nav": 1.813,
@@ -1769,7 +1844,7 @@
         },
         {
           "code": "515110",
-          "name": "515110",
+          "name": "一带一路ETF易方达",
           "changePct": 0.55,
           "amount": 0.14,
           "nav": 1.645,
@@ -1777,7 +1852,7 @@
         },
         {
           "code": "515180",
-          "name": "515180",
+          "name": "红利ETF易方达",
           "changePct": -0.07,
           "amount": 2.09,
           "nav": 1.433,
@@ -1785,7 +1860,7 @@
         },
         {
           "code": "515810",
-          "name": "515810",
+          "name": "中证800ETF易方达",
           "changePct": 0.47,
           "amount": 0.06,
           "nav": 1.718,
@@ -1793,7 +1868,7 @@
         },
         {
           "code": "516070",
-          "name": "516070",
+          "name": "低碳ETF易方达",
           "changePct": 0.86,
           "amount": 0.01,
           "nav": 0.589,
@@ -1801,7 +1876,7 @@
         },
         {
           "code": "516080",
-          "name": "516080",
+          "name": "创新药ETF易方达",
           "changePct": -4.81,
           "amount": 3.88,
           "nav": 0.713,
@@ -1809,7 +1884,7 @@
         },
         {
           "code": "516090",
-          "name": "516090",
+          "name": "新能源ETF易方达",
           "changePct": 1.01,
           "amount": 0.38,
           "nav": 0.502,
@@ -1817,7 +1892,7 @@
         },
         {
           "code": "516310",
-          "name": "516310",
+          "name": "银行ETF易方达",
           "changePct": -0.29,
           "amount": 1.74,
           "nav": 1.353,
@@ -1825,7 +1900,7 @@
         },
         {
           "code": "516350",
-          "name": "516350",
+          "name": "芯片ETF易方达",
           "changePct": 0.61,
           "amount": 1.4,
           "nav": 1.648,
@@ -1833,7 +1908,7 @@
         },
         {
           "code": "516510",
-          "name": "516510",
+          "name": "云计算ETF易方达",
           "changePct": 0.12,
           "amount": 1.28,
           "nav": 1.674,
@@ -1841,7 +1916,7 @@
         },
         {
           "code": "516570",
-          "name": "516570",
+          "name": "化工行业ETF易方达",
           "changePct": 0.68,
           "amount": 0.22,
           "nav": 1.038,
@@ -1849,7 +1924,7 @@
         },
         {
           "code": "516590",
-          "name": "516590",
+          "name": "智能汽车ETF易方达",
           "changePct": 1.19,
           "amount": 0.01,
           "nav": 1.108,
@@ -1857,7 +1932,7 @@
         },
         {
           "code": "517010",
-          "name": "517010",
+          "name": "沪港深500ETF易方达",
           "changePct": 0.62,
           "amount": 0.02,
           "nav": 1.133,
@@ -1865,7 +1940,7 @@
         },
         {
           "code": "517030",
-          "name": "517030",
+          "name": "沪港深300ETF易方达",
           "changePct": 0.62,
           "amount": 0,
           "nav": 1.145,
@@ -1873,7 +1948,7 @@
         },
         {
           "code": "517330",
-          "name": "517330",
+          "name": "长江保护ETF易方达",
           "changePct": 0.31,
           "amount": 0,
           "nav": 0.975,
@@ -1881,7 +1956,7 @@
         },
         {
           "code": "520810",
-          "name": "520810",
+          "name": "港股通红利ETF易方达",
           "changePct": 0.87,
           "amount": 0.02,
           "nav": 1.048,
@@ -1889,7 +1964,7 @@
         },
         {
           "code": "520850",
-          "name": "520850",
+          "name": "港股通医疗ETF易方达",
           "changePct": -0.43,
           "amount": 0.39,
           "nav": 0.931,
@@ -1897,7 +1972,7 @@
         },
         {
           "code": "520870",
-          "name": "520870",
+          "name": "巴西ETF易方达",
           "changePct": 0.1,
           "amount": 0.38,
           "nav": 1.048,
@@ -1905,7 +1980,7 @@
         },
         {
           "code": "530060",
-          "name": "530060",
+          "name": "上证指数ETF易方达",
           "changePct": 0.2,
           "amount": 0.4,
           "nav": 0.992,
@@ -1913,7 +1988,7 @@
         },
         {
           "code": "530100",
-          "name": "530100",
+          "name": "上证580ETF易方达",
           "changePct": 0.17,
           "amount": 0.03,
           "nav": 1.15,
@@ -1921,7 +1996,7 @@
         },
         {
           "code": "530180",
-          "name": "530180",
+          "name": "上证180ETF易方达",
           "changePct": 0.08,
           "amount": 0.05,
           "nav": 1.195,
@@ -1929,7 +2004,7 @@
         },
         {
           "code": "530380",
-          "name": "530380",
+          "name": "上证380ETF易方达",
           "changePct": -0.27,
           "amount": 0.01,
           "nav": 1.113,
@@ -1937,7 +2012,7 @@
         },
         {
           "code": "551500",
-          "name": "551500",
+          "name": "科创债ETF易方达",
           "changePct": 0.01,
           "amount": 125.54,
           "nav": 102.213,
@@ -1945,7 +2020,7 @@
         },
         {
           "code": "560160",
-          "name": "560160",
+          "name": "食品ETF易方达",
           "changePct": -2.22,
           "amount": 0.01,
           "nav": 0.926,
@@ -1953,7 +2028,7 @@
         },
         {
           "code": "560370",
-          "name": "560370",
+          "name": "红利质量ETF易方达",
           "changePct": -0.11,
           "amount": 0,
           "nav": 0.898,
@@ -1961,7 +2036,7 @@
         },
         {
           "code": "560390",
-          "name": "560390",
+          "name": "电网设备ETF易方达",
           "changePct": 1.26,
           "amount": 0.84,
           "nav": 0.885,
@@ -1969,7 +2044,7 @@
         },
         {
           "code": "560470",
-          "name": "560470",
+          "name": "有色ETF易方达",
           "changePct": 2.99,
           "amount": 0.14,
           "nav": 0.93,
@@ -1977,7 +2052,7 @@
         },
         {
           "code": "560930",
-          "name": "560930",
+          "name": "电力ETF易方达",
           "changePct": -0.57,
           "amount": 0.03,
           "nav": 0.867,
@@ -1985,7 +2060,7 @@
         },
         {
           "code": "561050",
-          "name": "561050",
+          "name": "稀有金属ETF易方达",
           "changePct": 2.18,
           "amount": 0.12,
           "nav": 0.892,
@@ -1993,7 +2068,7 @@
         },
         {
           "code": "561890",
-          "name": "561890",
+          "name": "A股ETF易方达",
           "changePct": 0.59,
           "amount": 0.02,
           "nav": 1.015,
@@ -2001,7 +2076,7 @@
         },
         {
           "code": "562900",
-          "name": "562900",
+          "name": "农业ETF易方达",
           "changePct": -2.15,
           "amount": 0.17,
           "nav": 0.682,
@@ -2009,7 +2084,7 @@
         },
         {
           "code": "562910",
-          "name": "562910",
+          "name": "高端制造ETF易方达",
           "changePct": 0.96,
           "amount": 0.08,
           "nav": 0.845,
@@ -2017,7 +2092,7 @@
         },
         {
           "code": "562920",
-          "name": "562920",
+          "name": "信息安全ETF易方达",
           "changePct": 0.33,
           "amount": 0.04,
           "nav": 0.916,
@@ -2025,7 +2100,7 @@
         },
         {
           "code": "562930",
-          "name": "562930",
+          "name": "软件ETF易方达",
           "changePct": -0.71,
           "amount": 0.59,
           "nav": 0.702,
@@ -2033,7 +2108,7 @@
         },
         {
           "code": "562950",
-          "name": "562950",
+          "name": "消费电子ETF易方达",
           "changePct": 1.89,
           "amount": 0.94,
           "nav": 1.563,
@@ -2041,7 +2116,7 @@
         },
         {
           "code": "562960",
-          "name": "562960",
+          "name": "绿色电力ETF易方达",
           "changePct": -0.62,
           "amount": 0.21,
           "nav": 1.115,
@@ -2049,7 +2124,7 @@
         },
         {
           "code": "562970",
-          "name": "562970",
+          "name": "光伏ETF易方达",
           "changePct": 0.4,
           "amount": 0.16,
           "nav": 0.998,
@@ -2057,7 +2132,7 @@
         },
         {
           "code": "562990",
-          "name": "562990",
+          "name": "碳中和ETF易方达",
           "changePct": 0.83,
           "amount": 0.03,
           "nav": 0.976,
@@ -2065,7 +2140,7 @@
         },
         {
           "code": "563000",
-          "name": "563000",
+          "name": "中国A50ETF易方达",
           "changePct": 0.98,
           "amount": 0.23,
           "nav": 1.138,
@@ -2073,7 +2148,7 @@
         },
         {
           "code": "563010",
-          "name": "563010",
+          "name": "电信ETF易方达",
           "changePct": 0.51,
           "amount": 0.07,
           "nav": 2.162,
@@ -2081,7 +2156,7 @@
         },
         {
           "code": "563020",
-          "name": "563020",
+          "name": "红利低波ETF易方达",
           "changePct": -0.51,
           "amount": 2.65,
           "nav": 1.168,
@@ -2089,7 +2164,7 @@
         },
         {
           "code": "563030",
-          "name": "563030",
+          "name": "中证500增强ETF易方达",
           "changePct": 0.51,
           "amount": 0.03,
           "nav": 1.588,
@@ -2097,7 +2172,7 @@
         },
         {
           "code": "563050",
-          "name": "563050",
+          "name": "央企科技ETF易方达",
           "changePct": 1.15,
           "amount": 0.06,
           "nav": 1.325,
@@ -2105,7 +2180,7 @@
         },
         {
           "code": "563060",
-          "name": "563060",
+          "name": "央企50ETF易方达",
           "changePct": 0.28,
           "amount": 0.04,
           "nav": 1.082,
@@ -2113,7 +2188,7 @@
         },
         {
           "code": "563080",
-          "name": "563080",
+          "name": "中证A50ETF易方达",
           "changePct": 0.43,
           "amount": 0.73,
           "nav": 1.392,
@@ -2121,7 +2196,7 @@
         },
         {
           "code": "563090",
-          "name": "563090",
+          "name": "上证50增强ETF易方达",
           "changePct": 0.85,
           "amount": 0.03,
           "nav": 1.424,
@@ -2129,7 +2204,7 @@
         },
         {
           "code": "563510",
-          "name": "563510",
+          "name": "A500红利低波ETF易方达",
           "changePct": -1.19,
           "amount": 0.19,
           "nav": 0.995,
@@ -2137,7 +2212,7 @@
         },
         {
           "code": "563530",
-          "name": "563530",
+          "name": "卫星ETF易方达",
           "changePct": 0.55,
           "amount": 0.82,
           "nav": 1.089,
@@ -2145,7 +2220,7 @@
         },
         {
           "code": "563600",
-          "name": "563600",
+          "name": "A500增强ETF易方达",
           "changePct": 0.96,
           "amount": 0.03,
           "nav": 1.051,
@@ -2153,7 +2228,7 @@
         },
         {
           "code": "563700",
-          "name": "563700",
+          "name": "红利价值ETF易方达",
           "changePct": -0.28,
           "amount": 0.06,
           "nav": 1.059,
@@ -2161,7 +2236,7 @@
         },
         {
           "code": "588020",
-          "name": "588020",
+          "name": "科创成长ETF易方达",
           "changePct": -0.34,
           "amount": 2.1,
           "nav": 0.878,
@@ -2169,7 +2244,7 @@
         },
         {
           "code": "588080",
-          "name": "588080",
+          "name": "科创50ETF易方达",
           "changePct": 0,
           "amount": 13.86,
           "nav": 1.692,
@@ -2177,7 +2252,7 @@
         },
         {
           "code": "588210",
-          "name": "588210",
+          "name": "科创100ETF易方达",
           "changePct": -0.65,
           "amount": 0.18,
           "nav": 1.83,
@@ -2185,7 +2260,7 @@
         },
         {
           "code": "588270",
-          "name": "588270",
+          "name": "科创200ETF易方达",
           "changePct": -0.35,
           "amount": 0.27,
           "nav": 1.695,
@@ -2193,7 +2268,7 @@
         },
         {
           "code": "588500",
-          "name": "588500",
+          "name": "科创100增强ETF易方达",
           "changePct": -0.08,
           "amount": 0.15,
           "nav": 2.615,
@@ -2201,7 +2276,7 @@
         },
         {
           "code": "588550",
-          "name": "588550",
+          "name": "科创综指增强ETF易方达",
           "changePct": 0.67,
           "amount": 0.07,
           "nav": 1.358,
@@ -2209,7 +2284,7 @@
         },
         {
           "code": "588730",
-          "name": "588730",
+          "name": "科创人工智能ETF易方达",
           "changePct": -0.07,
           "amount": 0.92,
           "nav": 1.451,
@@ -2217,7 +2292,7 @@
         },
         {
           "code": "589030",
-          "name": "589030",
+          "name": "科创芯片设计ETF易方达",
           "changePct": 0.44,
           "amount": 0.63,
           "nav": 1.132,
@@ -2225,7 +2300,7 @@
         },
         {
           "code": "589130",
-          "name": "589130",
+          "name": "科创芯片ETF易方达",
           "changePct": 0.22,
           "amount": 2.35,
           "nav": 1.396,
@@ -2233,7 +2308,7 @@
         },
         {
           "code": "589800",
-          "name": "589800",
+          "name": "科创综指ETF易方达",
           "changePct": 0.13,
           "amount": 0.72,
           "nav": 1.588,
@@ -2241,7 +2316,7 @@
         },
         {
           "code": "589960",
-          "name": "589960",
+          "name": "科创新能源ETF易方达",
           "changePct": 1.25,
           "amount": 0.33,
           "nav": 0.892,
@@ -2249,7 +2324,7 @@
         },
         {
           "code": "159001",
-          "name": "159001",
+          "name": "货币ETF易方达",
           "changePct": 0,
           "amount": 14.12,
           "nav": 100,
@@ -2257,7 +2332,7 @@
         },
         {
           "code": "159009",
-          "name": "159009",
+          "name": "创业板新能源ETF易方达",
           "changePct": 0.91,
           "amount": 0.01,
           "nav": 0.888,
@@ -2265,7 +2340,7 @@
         },
         {
           "code": "159020",
-          "name": "159020",
+          "name": "养殖ETF易方达",
           "changePct": -1.43,
           "amount": 0.04,
           "nav": 0.897,
@@ -2273,7 +2348,7 @@
         },
         {
           "code": "159032",
-          "name": "159032",
+          "name": "工业有色ETF易方达",
           "changePct": 2.03,
           "amount": 0.21,
           "nav": 0.904,
@@ -2281,7 +2356,7 @@
         },
         {
           "code": "159038",
-          "name": "159038",
+          "name": "粮食ETF易方达",
           "changePct": -3.94,
           "amount": 0.25,
           "nav": 0.903,
@@ -2289,7 +2364,7 @@
         },
         {
           "code": "159051",
-          "name": "159051",
+          "name": "医疗器械ETF易方达",
           "changePct": -2.37,
           "amount": 0.02,
           "nav": 1.032,
@@ -2297,7 +2372,7 @@
         },
         {
           "code": "159091",
-          "name": "159091",
+          "name": "港股通金融ETF易方达",
           "changePct": 1.23,
           "amount": 0.08,
           "nav": 1.067,
@@ -2305,7 +2380,7 @@
         },
         {
           "code": "159105",
-          "name": "159105",
+          "name": "恒生生物科技ETF易方达",
           "changePct": -0.92,
           "amount": 1.41,
           "nav": 0.969,
@@ -2313,7 +2388,7 @@
         },
         {
           "code": "159121",
-          "name": "159121",
+          "name": "港股通汽车ETF易方达",
           "changePct": 0.52,
           "amount": 0.26,
           "nav": 0.772,
@@ -2321,7 +2396,7 @@
         },
         {
           "code": "159138",
-          "name": "159138",
+          "name": "工程机械ETF易方达",
           "changePct": 0.44,
           "amount": 0.08,
           "nav": 0.911,
@@ -2329,7 +2404,7 @@
         },
         {
           "code": "159140",
-          "name": "159140",
+          "name": "科创创业人工智能ETF易方达",
           "changePct": 1.14,
           "amount": 0.63,
           "nav": 1.247,
@@ -2337,7 +2412,7 @@
         },
         {
           "code": "159150",
-          "name": "159150",
+          "name": "深证50ETF易方达",
           "changePct": 1.11,
           "amount": 0.09,
           "nav": 1.633,
@@ -2345,7 +2420,7 @@
         },
         {
           "code": "159175",
-          "name": "159175",
+          "name": "电池ETF易方达",
           "changePct": 1.64,
           "amount": 0.16,
           "nav": 0.93,
@@ -2353,7 +2428,7 @@
         },
         {
           "code": "159181",
-          "name": "159181",
+          "name": "石油ETF易方达",
           "changePct": 1.35,
           "amount": 0.04,
           "nav": 0.9,
@@ -2361,7 +2436,7 @@
         },
         {
           "code": "159191",
-          "name": "159191",
+          "name": "港股通科技ETF易方达",
           "changePct": -0.21,
           "amount": 0.03,
           "nav": 0.954,
@@ -2369,7 +2444,7 @@
         },
         {
           "code": "159196",
-          "name": "159196",
+          "name": "港股通信息技术ETF易方达",
           "changePct": 1.14,
           "amount": 2.36,
           "nav": 1.238,
@@ -2377,7 +2452,7 @@
         },
         {
           "code": "159222",
-          "name": "159222",
+          "name": "自由现金流ETF易方达",
           "changePct": -0.08,
           "amount": 0.61,
           "nav": 1.263,
@@ -2385,7 +2460,7 @@
         },
         {
           "code": "159255",
-          "name": "159255",
+          "name": "通用航空ETF易方达",
           "changePct": 0.48,
           "amount": 0.01,
           "nav": 0.839,
@@ -2393,7 +2468,7 @@
         },
         {
           "code": "159259",
-          "name": "159259",
+          "name": "成长ETF易方达",
           "changePct": 1.74,
           "amount": 4.19,
           "nav": 1.344,
@@ -2401,7 +2476,7 @@
         },
         {
           "code": "159263",
-          "name": "159263",
+          "name": "价值ETF易方达",
           "changePct": -0.7,
           "amount": 2.46,
           "nav": 1.143,
@@ -2409,7 +2484,7 @@
         },
         {
           "code": "159299",
-          "name": "159299",
+          "name": "金融科技ETF易方达",
           "changePct": 1.03,
           "amount": 0.19,
           "nav": 0.688,
@@ -2417,7 +2492,7 @@
         },
         {
           "code": "159311",
-          "name": "159311",
+          "name": "数字经济ETF易方达",
           "changePct": 0.48,
           "amount": 0.01,
           "nav": 1.456,
@@ -2425,7 +2500,7 @@
         },
         {
           "code": "159316",
-          "name": "159316",
+          "name": "港股通创新药ETF易方达",
           "changePct": -1.75,
           "amount": 8.81,
           "nav": 1.177,
@@ -2433,7 +2508,7 @@
         },
         {
           "code": "159328",
-          "name": "159328",
+          "name": "家电ETF易方达",
           "changePct": 0.1,
           "amount": 0.02,
           "nav": 1.041,
@@ -2441,7 +2516,7 @@
         },
         {
           "code": "159361",
-          "name": "159361",
+          "name": "A500ETF易方达",
           "changePct": 0.65,
           "amount": 14.91,
           "nav": 1.248,
@@ -2449,7 +2524,7 @@
         },
         {
           "code": "159369",
-          "name": "159369",
+          "name": "创业板50ETF易方达",
           "changePct": 1.78,
           "amount": 0.32,
           "nav": 1.433,
@@ -2457,7 +2532,7 @@
         },
         {
           "code": "159530",
-          "name": "159530",
+          "name": "机器人ETF易方达",
           "changePct": 0.76,
           "amount": 6.13,
           "nav": 1.33,
@@ -2465,7 +2540,7 @@
         },
         {
           "code": "159532",
-          "name": "159532",
+          "name": "中证2000ETF易方达",
           "changePct": 0.37,
           "amount": 0.37,
           "nav": 1.627,
@@ -2473,7 +2548,7 @@
         },
         {
           "code": "159540",
-          "name": "159540",
+          "name": "信创ETF易方达",
           "changePct": 0.16,
           "amount": 0.17,
           "nav": 1.91,
@@ -2481,7 +2556,7 @@
         },
         {
           "code": "159545",
-          "name": "159545",
+          "name": "恒生红利低波ETF易方达",
           "changePct": 0.23,
           "amount": 1.27,
           "nav": 1.334,
@@ -2489,7 +2564,7 @@
         },
         {
           "code": "159558",
-          "name": "159558",
+          "name": "半导体设备ETF易方达",
           "changePct": -0.43,
           "amount": 14.21,
           "nav": 1.145,
@@ -2497,7 +2572,7 @@
         },
         {
           "code": "159565",
-          "name": "159565",
+          "name": "汽车零部件ETF易方达",
           "changePct": 0.7,
           "amount": 0.24,
           "nav": 1.29,
@@ -2505,7 +2580,7 @@
         },
         {
           "code": "159566",
-          "name": "159566",
+          "name": "储能电池ETF易方达",
           "changePct": 2.62,
           "amount": 2.9,
           "nav": 1.878,
@@ -2513,7 +2588,7 @@
         },
         {
           "code": "159572",
-          "name": "159572",
+          "name": "创业板200ETF易方达",
           "changePct": -0.34,
           "amount": 0.19,
           "nav": 1.448,
@@ -2521,7 +2596,7 @@
         },
         {
           "code": "159597",
-          "name": "159597",
+          "name": "创业板成长ETF易方达",
           "changePct": 1.36,
           "amount": 0.27,
           "nav": 0.818,
@@ -2529,7 +2604,7 @@
         },
         {
           "code": "159606",
-          "name": "159606",
+          "name": "中证500成长ETF易方达",
           "changePct": -0.07,
           "amount": 0.17,
           "nav": 1.357,
@@ -2537,7 +2612,7 @@
         },
         {
           "code": "159633",
-          "name": "159633",
+          "name": "中证1000ETF易方达",
           "changePct": 0.12,
           "amount": 9.52,
           "nav": 3.251,
@@ -2545,7 +2620,7 @@
         },
         {
           "code": "159686",
-          "name": "159686",
+          "name": "A100ETF易方达",
           "changePct": 0.93,
           "amount": 0.1,
           "nav": 1.299,
@@ -2553,7 +2628,7 @@
         },
         {
           "code": "159696",
-          "name": "159696",
+          "name": "纳指ETF易方达",
           "changePct": -0.54,
           "amount": 0.59,
           "nav": 2.022,
@@ -2561,7 +2636,7 @@
         },
         {
           "code": "159715",
-          "name": "159715",
+          "name": "稀土ETF易方达",
           "changePct": 0.51,
           "amount": 0.52,
           "nav": 1.178,
@@ -2569,7 +2644,7 @@
         },
         {
           "code": "159781",
-          "name": "159781",
+          "name": "科创创业ETF易方达",
           "changePct": 1.28,
           "amount": 4.69,
           "nav": 1.109,
@@ -2577,7 +2652,7 @@
         },
         {
           "code": "159787",
-          "name": "159787",
+          "name": "建材ETF易方达",
           "changePct": -0.85,
           "amount": 0.02,
           "nav": 0.586,
@@ -2585,7 +2660,7 @@
         },
         {
           "code": "159788",
-          "name": "159788",
+          "name": "港股通100ETF易方达",
           "changePct": 0.16,
           "amount": 0.07,
           "nav": 1.243,
@@ -2593,7 +2668,7 @@
         },
         {
           "code": "159798",
-          "name": "159798",
+          "name": "消费ETF易方达",
           "changePct": -1.05,
           "amount": 0.08,
           "nav": 0.85,
@@ -2601,7 +2676,7 @@
         },
         {
           "code": "159807",
-          "name": "159807",
+          "name": "科技ETF易方达",
           "changePct": 0.65,
           "amount": 0.31,
           "nav": 0.923,
@@ -2609,7 +2684,7 @@
         },
         {
           "code": "159819",
-          "name": "159819",
+          "name": "人工智能ETF易方达",
           "changePct": 1.1,
           "amount": 4.42,
           "nav": 1.749,
@@ -2617,7 +2692,7 @@
         },
         {
           "code": "159837",
-          "name": "159837",
+          "name": "生物科技ETF易方达",
           "changePct": -4.59,
           "amount": 0.71,
           "nav": 0.52,
@@ -2625,7 +2700,7 @@
         },
         {
           "code": "159847",
-          "name": "159847",
+          "name": "医疗ETF易方达",
           "changePct": -3.02,
           "amount": 0.39,
           "nav": 0.417,
@@ -2633,7 +2708,7 @@
         },
         {
           "code": "159895",
-          "name": "159895",
+          "name": "物联网ETF易方达",
           "changePct": 1.24,
           "amount": 0.02,
           "nav": 1.384,
@@ -2641,7 +2716,7 @@
         },
         {
           "code": "159901",
-          "name": "159901",
+          "name": "深证100ETF易方达",
           "changePct": 1.27,
           "amount": 3.49,
           "nav": 3.669,
@@ -2649,7 +2724,7 @@
         },
         {
           "code": "159915",
-          "name": "159915",
+          "name": "创业板ETF易方达",
           "changePct": 1.37,
           "amount": 58.21,
           "nav": 3.56,
@@ -2657,7 +2732,7 @@
         },
         {
           "code": "159934",
-          "name": "159934",
+          "name": "黄金ETF易方达",
           "changePct": 1.68,
           "amount": 12.67,
           "nav": 9.806,
@@ -2667,7 +2742,7 @@
       "guotai": [
         {
           "code": "510230",
-          "name": "510230",
+          "name": "金融ETF国泰",
           "changePct": 0.15,
           "amount": 0.85,
           "nav": 1.304,
@@ -2675,7 +2750,7 @@
         },
         {
           "code": "510720",
-          "name": "510720",
+          "name": "红利国企ETF国泰",
           "changePct": 0.19,
           "amount": 1.25,
           "nav": 1.063,
@@ -2683,7 +2758,7 @@
         },
         {
           "code": "510760",
-          "name": "510760",
+          "name": "上证指数ETF国泰",
           "changePct": 0.3,
           "amount": 1.99,
           "nav": 1.328,
@@ -2691,7 +2766,7 @@
         },
         {
           "code": "511010",
-          "name": "511010",
+          "name": "国债ETF国泰",
           "changePct": 0.01,
           "amount": 1.86,
           "nav": 141.255,
@@ -2699,7 +2774,7 @@
         },
         {
           "code": "511260",
-          "name": "511260",
+          "name": "十年国债ETF国泰",
           "changePct": 0.04,
           "amount": 56.91,
           "nav": 135.765,
@@ -2707,7 +2782,7 @@
         },
         {
           "code": "511620",
-          "name": "511620",
+          "name": "货币ETF国泰",
           "changePct": 0.01,
           "amount": 0.24,
           "nav": 100.016,
@@ -2715,7 +2790,7 @@
         },
         {
           "code": "512290",
-          "name": "512290",
+          "name": "生物医药ETF国泰",
           "changePct": -3.77,
           "amount": 1.82,
           "nav": 1.071,
@@ -2723,7 +2798,7 @@
         },
         {
           "code": "512660",
-          "name": "512660",
+          "name": "军工ETF国泰",
           "changePct": 0.91,
           "amount": 2.26,
           "nav": 1.107,
@@ -2731,7 +2806,7 @@
         },
         {
           "code": "512720",
-          "name": "512720",
+          "name": "计算机ETF国泰",
           "changePct": -0.17,
           "amount": 0.19,
           "nav": 1.161,
@@ -2739,7 +2814,7 @@
         },
         {
           "code": "512760",
-          "name": "512760",
+          "name": "芯片ETF国泰",
           "changePct": 0.45,
           "amount": 2.97,
           "nav": 1.104,
@@ -2747,7 +2822,7 @@
         },
         {
           "code": "512880",
-          "name": "512880",
+          "name": "证券ETF国泰",
           "changePct": 0,
           "amount": 11.26,
           "nav": 1.063,
@@ -2755,7 +2830,7 @@
         },
         {
           "code": "513020",
-          "name": "513020",
+          "name": "港股科技ETF国泰",
           "changePct": 0.1,
           "amount": 1.51,
           "nav": 0.98,
@@ -2763,7 +2838,7 @@
         },
         {
           "code": "513100",
-          "name": "513100",
+          "name": "纳指ETF国泰",
           "changePct": -0.77,
           "amount": 3,
           "nav": 2.195,
@@ -2771,7 +2846,7 @@
         },
         {
           "code": "513720",
-          "name": "513720",
+          "name": "港股互联网ETF国泰",
           "changePct": -0.74,
           "amount": 0.2,
           "nav": 0.672,
@@ -2779,7 +2854,7 @@
         },
         {
           "code": "515210",
-          "name": "515210",
+          "name": "钢铁ETF国泰",
           "changePct": 0.09,
           "amount": 0.51,
           "nav": 1.161,
@@ -2787,7 +2862,7 @@
         },
         {
           "code": "515220",
-          "name": "515220",
+          "name": "煤炭ETF国泰",
           "changePct": 0.71,
           "amount": 6.18,
           "nav": 1.277,
@@ -2795,7 +2870,7 @@
         },
         {
           "code": "515230",
-          "name": "515230",
+          "name": "软件ETF国泰",
           "changePct": -0.29,
           "amount": 1.35,
           "nav": 0.687,
@@ -2803,7 +2878,7 @@
         },
         {
           "code": "515880",
-          "name": "515880",
+          "name": "通信ETF国泰",
           "changePct": 1.96,
           "amount": 31.48,
           "nav": 0.677,
@@ -2811,7 +2886,7 @@
         },
         {
           "code": "516010",
-          "name": "516010",
+          "name": "游戏ETF国泰",
           "changePct": -0.84,
           "amount": 0.65,
           "nav": 1.063,
@@ -2819,7 +2894,7 @@
         },
         {
           "code": "516110",
-          "name": "516110",
+          "name": "汽车ETF国泰",
           "changePct": -0.54,
           "amount": 0.11,
           "nav": 1.106,
@@ -2827,7 +2902,7 @@
         },
         {
           "code": "516220",
-          "name": "516220",
+          "name": "化工ETF国泰",
           "changePct": 0.33,
           "amount": 0.09,
           "nav": 0.906,
@@ -2835,7 +2910,7 @@
         },
         {
           "code": "516620",
-          "name": "516620",
+          "name": "影视ETF国泰",
           "changePct": -0.74,
           "amount": 0.2,
           "nav": 0.808,
@@ -2843,7 +2918,7 @@
         },
         {
           "code": "516960",
-          "name": "516960",
+          "name": "机械ETF国泰",
           "changePct": 0.67,
           "amount": 0,
           "nav": 0.896,
@@ -2851,7 +2926,7 @@
         },
         {
           "code": "517090",
-          "name": "517090",
+          "name": "央企共赢ETF国泰",
           "changePct": 0.19,
           "amount": 0.03,
           "nav": 1.593,
@@ -2859,7 +2934,7 @@
         },
         {
           "code": "517110",
-          "name": "517110",
+          "name": "创新药ETF国泰",
           "changePct": -2.75,
           "amount": 0.74,
           "nav": 0.814,
@@ -2867,7 +2942,7 @@
         },
         {
           "code": "517400",
-          "name": "517400",
+          "name": "黄金股ETF国泰",
           "changePct": 4.74,
           "amount": 1.64,
           "nav": 1.791,
@@ -2875,7 +2950,7 @@
         },
         {
           "code": "518800",
-          "name": "518800",
+          "name": "黄金ETF国泰",
           "changePct": 1.64,
           "amount": 10.34,
           "nav": 9.838,
@@ -2883,7 +2958,7 @@
         },
         {
           "code": "520720",
-          "name": "520720",
+          "name": "港股汽车ETF国泰",
           "changePct": 1.04,
           "amount": 0.18,
           "nav": 0.78,
@@ -2891,7 +2966,7 @@
         },
         {
           "code": "520930",
-          "name": "520930",
+          "name": "恒生生物科技ETF国泰",
           "changePct": -0.79,
           "amount": 0.27,
           "nav": 1.006,
@@ -2899,7 +2974,7 @@
         },
         {
           "code": "551800",
-          "name": "551800",
+          "name": "科创债ETF国泰",
           "changePct": 0.01,
           "amount": 55.93,
           "nav": 101.1,
@@ -2907,7 +2982,7 @@
         },
         {
           "code": "560730",
-          "name": "560730",
+          "name": "红利低波ETF国泰海通",
           "changePct": -0.38,
           "amount": 0.04,
           "nav": 1.035,
@@ -2915,7 +2990,7 @@
         },
         {
           "code": "561300",
-          "name": "561300",
+          "name": "沪深300增强ETF国泰",
           "changePct": 0.94,
           "amount": 0.34,
           "nav": 1.07,
@@ -2923,7 +2998,7 @@
         },
         {
           "code": "561310",
-          "name": "561310",
+          "name": "消电ETF国泰",
           "changePct": 1.58,
           "amount": 0.05,
           "nav": 0.709,
@@ -2931,7 +3006,7 @@
         },
         {
           "code": "561320",
-          "name": "561320",
+          "name": "交运ETF国泰",
           "changePct": 0.42,
           "amount": 0.01,
           "nav": 0.95,
@@ -2939,7 +3014,7 @@
         },
         {
           "code": "561330",
-          "name": "561330",
+          "name": "矿业ETF国泰",
           "changePct": 3.22,
           "amount": 0.89,
           "nav": 0.993,
@@ -2947,7 +3022,7 @@
         },
         {
           "code": "561350",
-          "name": "561350",
+          "name": "中证500ETF国泰",
           "changePct": 0.16,
           "amount": 0.26,
           "nav": 1.25,
@@ -2955,7 +3030,7 @@
         },
         {
           "code": "561360",
-          "name": "561360",
+          "name": "石油ETF国泰",
           "changePct": 1.84,
           "amount": 0.97,
           "nav": 1.497,
@@ -2963,7 +3038,7 @@
         },
         {
           "code": "561370",
-          "name": "561370",
+          "name": "中证2000ETF国泰",
           "changePct": 0.36,
           "amount": 0.01,
           "nav": 1.398,
@@ -2971,7 +3046,7 @@
         },
         {
           "code": "561380",
-          "name": "561380",
+          "name": "电网设备ETF国泰",
           "changePct": 1.63,
           "amount": 0.6,
           "nav": 0.75,
@@ -2979,7 +3054,7 @@
         },
         {
           "code": "588120",
-          "name": "588120",
+          "name": "科创100ETF国泰",
           "changePct": -0.65,
           "amount": 0.67,
           "nav": 0.923,
@@ -2987,7 +3062,7 @@
         },
         {
           "code": "588360",
-          "name": "588360",
+          "name": "科创创业ETF国泰",
           "changePct": 1.42,
           "amount": 0.26,
           "nav": 1.215,
@@ -2995,7 +3070,7 @@
         },
         {
           "code": "589100",
-          "name": "589100",
+          "name": "科创芯片ETF国泰",
           "changePct": 0.33,
           "amount": 0.43,
           "nav": 0.91,
@@ -3003,7 +3078,7 @@
         },
         {
           "code": "589110",
-          "name": "589110",
+          "name": "科创人工智能ETF国泰",
           "changePct": -0.11,
           "amount": 0.04,
           "nav": 0.903,
@@ -3011,7 +3086,7 @@
         },
         {
           "code": "589220",
-          "name": "589220",
+          "name": "科创200ETF国泰",
           "changePct": -0.1,
           "amount": 0.36,
           "nav": 1.019,
@@ -3019,7 +3094,7 @@
         },
         {
           "code": "589260",
-          "name": "589260",
+          "name": "科创芯片设计ETF国泰",
           "changePct": 0.73,
           "amount": 0.05,
           "nav": 1.234,
@@ -3027,7 +3102,7 @@
         },
         {
           "code": "589360",
-          "name": "589360",
+          "name": "科创50ETF国泰",
           "changePct": 0.23,
           "amount": 0.73,
           "nav": 0.856,
@@ -3035,7 +3110,7 @@
         },
         {
           "code": "589630",
-          "name": "589630",
+          "name": "科创综指ETF国泰",
           "changePct": -0.26,
           "amount": 0.23,
           "nav": 0.781,
@@ -3043,7 +3118,7 @@
         },
         {
           "code": "589720",
-          "name": "589720",
+          "name": "科创创新药ETF国泰",
           "changePct": -4.69,
           "amount": 12.5,
           "nav": 0.955,
@@ -3051,7 +3126,7 @@
         },
         {
           "code": "159033",
-          "name": "159033",
+          "name": "粮食ETF国泰",
           "changePct": -3.93,
           "amount": 0.32,
           "nav": 0.954,
@@ -3059,7 +3134,7 @@
         },
         {
           "code": "159226",
-          "name": "159226",
+          "name": "中证A500增强ETF国泰",
           "changePct": 1.1,
           "amount": 0.2,
           "nav": 1.281,
@@ -3067,7 +3142,7 @@
         },
         {
           "code": "159331",
-          "name": "159331",
+          "name": "红利港股ETF国泰",
           "changePct": 0.76,
           "amount": 0.11,
           "nav": 1.324,
@@ -3075,7 +3150,7 @@
         },
         {
           "code": "159338",
-          "name": "159338",
+          "name": "中证A500ETF国泰",
           "changePct": 0.58,
           "amount": 37.36,
           "nav": 1.224,
@@ -3083,7 +3158,7 @@
         },
         {
           "code": "159375",
-          "name": "159375",
+          "name": "创业板50ETF国泰",
           "changePct": 1.62,
           "amount": 0.13,
           "nav": 0.751,
@@ -3091,7 +3166,7 @@
         },
         {
           "code": "159377",
-          "name": "159377",
+          "name": "创业板医药ETF国泰",
           "changePct": -4.18,
           "amount": 0.58,
           "nav": 1.031,
@@ -3099,7 +3174,7 @@
         },
         {
           "code": "159387",
-          "name": "159387",
+          "name": "创业板新能源ETF国泰",
           "changePct": 0.95,
           "amount": 3.09,
           "nav": 0.747,
@@ -3107,7 +3182,7 @@
         },
         {
           "code": "159388",
-          "name": "159388",
+          "name": "创业板人工智能ETF国泰",
           "changePct": 0.88,
           "amount": 1.37,
           "nav": 1.027,
@@ -3115,7 +3190,7 @@
         },
         {
           "code": "159399",
-          "name": "159399",
+          "name": "现金流ETF国泰",
           "changePct": -0.39,
           "amount": 1.02,
           "nav": 1.01,
@@ -3123,7 +3198,7 @@
         },
         {
           "code": "159516",
-          "name": "159516",
+          "name": "半导体设备ETF国泰",
           "changePct": -0.55,
           "amount": 30.72,
           "nav": 0.729,
@@ -3131,7 +3206,7 @@
         },
         {
           "code": "159519",
-          "name": "159519",
+          "name": "港股国企ETF国泰",
           "changePct": 1.19,
           "amount": 0.12,
           "nav": 1.793,
@@ -3139,7 +3214,7 @@
         },
         {
           "code": "159537",
-          "name": "159537",
+          "name": "信创ETF国泰",
           "changePct": 0.34,
           "amount": 0.03,
           "nav": 0.891,
@@ -3147,7 +3222,7 @@
         },
         {
           "code": "159546",
-          "name": "159546",
+          "name": "集成电路ETF国泰",
           "changePct": 0.78,
           "amount": 0.38,
           "nav": 0.774,
@@ -3155,7 +3230,7 @@
         },
         {
           "code": "159551",
-          "name": "159551",
+          "name": "机器人ETF国泰",
           "changePct": 0.89,
           "amount": 0.12,
           "nav": 1.251,
@@ -3163,7 +3238,7 @@
         },
         {
           "code": "159612",
-          "name": "159612",
+          "name": "标普500ETF国泰",
           "changePct": 0.05,
           "amount": 0.2,
           "nav": 2.064,
@@ -3171,7 +3246,7 @@
         },
         {
           "code": "159619",
-          "name": "159619",
+          "name": "基建ETF国泰",
           "changePct": -0.64,
           "amount": 0.03,
           "nav": 0.93,
@@ -3179,7 +3254,7 @@
         },
         {
           "code": "159621",
-          "name": "159621",
+          "name": "ESGETF国泰",
           "changePct": 0.17,
           "amount": 0.03,
           "nav": 1.162,
@@ -3187,7 +3262,7 @@
         },
         {
           "code": "159643",
-          "name": "159643",
+          "name": "疫苗ETF国泰",
           "changePct": -5.38,
           "amount": 0.68,
           "nav": 0.58,
@@ -3195,7 +3270,7 @@
         },
         {
           "code": "159667",
-          "name": "159667",
+          "name": "工业母机ETF国泰",
           "changePct": 1.52,
           "amount": 2.05,
           "nav": 0.67,
@@ -3203,7 +3278,7 @@
         },
         {
           "code": "159669",
-          "name": "159669",
+          "name": "绿色电力ETF国泰",
           "changePct": -0.46,
           "amount": 0.03,
           "nav": 1.088,
@@ -3211,7 +3286,7 @@
         },
         {
           "code": "159679",
-          "name": "159679",
+          "name": "中证1000增强ETF国泰",
           "changePct": 0.63,
           "amount": 0.05,
           "nav": 1.274,
@@ -3219,7 +3294,7 @@
         },
         {
           "code": "159712",
-          "name": "159712",
+          "name": "港股通50ETF国泰",
           "changePct": 0.72,
           "amount": 0.12,
           "nav": 1.265,
@@ -3227,7 +3302,7 @@
         },
         {
           "code": "159745",
-          "name": "159745",
+          "name": "建材ETF国泰",
           "changePct": -1.12,
           "amount": 0.36,
           "nav": 0.528,
@@ -3235,7 +3310,7 @@
         },
         {
           "code": "159761",
-          "name": "159761",
+          "name": "新材料ETF国泰",
           "changePct": 0.37,
           "amount": 0.04,
           "nav": 0.814,
@@ -3243,7 +3318,7 @@
         },
         {
           "code": "159806",
-          "name": "159806",
+          "name": "新能源车ETF国泰",
           "changePct": 1.55,
           "amount": 0.15,
           "nav": 0.72,
@@ -3251,7 +3326,7 @@
         },
         {
           "code": "159828",
-          "name": "159828",
+          "name": "医疗ETF国泰",
           "changePct": -2.68,
           "amount": 0.76,
           "nav": 0.435,
@@ -3259,7 +3334,7 @@
         },
         {
           "code": "159861",
-          "name": "159861",
+          "name": "碳中和50ETF国泰",
           "changePct": 0.58,
           "amount": 0.02,
           "nav": 1.043,
@@ -3267,7 +3342,7 @@
         },
         {
           "code": "159864",
-          "name": "159864",
+          "name": "光伏ETF国泰",
           "changePct": 0.18,
           "amount": 0.11,
           "nav": 0.557,
@@ -3275,7 +3350,7 @@
         },
         {
           "code": "159865",
-          "name": "159865",
+          "name": "养殖ETF国泰",
           "changePct": -2.03,
           "amount": 2.02,
           "nav": 0.53,
@@ -3283,7 +3358,7 @@
         },
         {
           "code": "159881",
-          "name": "159881",
+          "name": "有色金属ETF国泰",
           "changePct": 2.71,
           "amount": 0.2,
           "nav": 0.946,
@@ -3291,7 +3366,7 @@
         },
         {
           "code": "159889",
-          "name": "159889",
+          "name": "智能汽车ETF国泰",
           "changePct": -0.11,
           "amount": 0,
           "nav": 0.875,
@@ -3299,7 +3374,7 @@
         },
         {
           "code": "159996",
-          "name": "159996",
+          "name": "家电ETF国泰",
           "changePct": 0,
           "amount": 0.65,
           "nav": 1.418,
@@ -3309,7 +3384,7 @@
       "huatai": [
         {
           "code": "510300",
-          "name": "510300",
+          "name": "沪深300ETF华泰柏瑞",
           "changePct": 0.58,
           "amount": 34,
           "nav": 4.68,
@@ -3317,7 +3392,7 @@
         },
         {
           "code": "510880",
-          "name": "510880",
+          "name": "红利ETF华泰柏瑞",
           "changePct": 0.15,
           "amount": 4.62,
           "nav": 3.387,
@@ -3325,7 +3400,7 @@
         },
         {
           "code": "511830",
-          "name": "511830",
+          "name": "货币ETF华泰柏瑞",
           "changePct": 0,
           "amount": 0,
           "nav": 100.006,
@@ -3333,7 +3408,7 @@
         },
         {
           "code": "512430",
-          "name": "512430",
+          "name": "家居家电ETF华泰柏瑞",
           "changePct": 0.11,
           "amount": 0.01,
           "nav": 0.897,
@@ -3341,7 +3416,7 @@
         },
         {
           "code": "512510",
-          "name": "512510",
+          "name": "中证500ETF华泰柏瑞",
           "changePct": -0.04,
           "amount": 0.15,
           "nav": 2.36,
@@ -3349,7 +3424,7 @@
         },
         {
           "code": "512520",
-          "name": "512520",
+          "name": "MSCI中国ETF华泰柏瑞",
           "changePct": 0.82,
           "amount": 0,
           "nav": 1.475,
@@ -3357,7 +3432,7 @@
         },
         {
           "code": "512890",
-          "name": "512890",
+          "name": "红利低波ETF华泰柏瑞",
           "changePct": -0.59,
           "amount": 6.05,
           "nav": 1.176,
@@ -3365,7 +3440,7 @@
         },
         {
           "code": "513110",
-          "name": "513110",
+          "name": "纳指ETF华泰柏瑞",
           "changePct": -0.48,
           "amount": 2.3,
           "nav": 2.465,
@@ -3373,7 +3448,7 @@
         },
         {
           "code": "513130",
-          "name": "513130",
+          "name": "恒生科技ETF华泰柏瑞",
           "changePct": 0.51,
           "amount": 18.97,
           "nav": 0.59,
@@ -3381,7 +3456,7 @@
         },
         {
           "code": "513140",
-          "name": "513140",
+          "name": "港股通金融ETF华泰柏瑞",
           "changePct": 1.07,
           "amount": 0.38,
           "nav": 1.701,
@@ -3389,7 +3464,7 @@
         },
         {
           "code": "513150",
-          "name": "513150",
+          "name": "港股通科技ETF华泰柏瑞",
           "changePct": 0.3,
           "amount": 0.47,
           "nav": 0.992,
@@ -3397,7 +3472,7 @@
         },
         {
           "code": "513310",
-          "name": "513310",
+          "name": "中韩半导体ETF华泰柏瑞",
           "changePct": 1.4,
           "amount": 136.14,
           "nav": 4.85,
@@ -3405,7 +3480,7 @@
         },
         {
           "code": "513530",
-          "name": "513530",
+          "name": "港股通红利ETF华泰柏瑞",
           "changePct": 0.93,
           "amount": 2.7,
           "nav": 1.626,
@@ -3413,7 +3488,7 @@
         },
         {
           "code": "513550",
-          "name": "513550",
+          "name": "港股通50ETF华泰柏瑞",
           "changePct": 0,
           "amount": 0.79,
           "nav": 1.148,
@@ -3421,7 +3496,7 @@
         },
         {
           "code": "513730",
-          "name": "513730",
+          "name": "东南亚科技ETF华泰柏瑞",
           "changePct": -0.26,
           "amount": 0.08,
           "nav": 1.161,
@@ -3429,7 +3504,7 @@
         },
         {
           "code": "513930",
-          "name": "513930",
+          "name": "恒生生物科技ETF华泰柏瑞",
           "changePct": -0.74,
           "amount": 0.7,
           "nav": 1.08,
@@ -3437,7 +3512,7 @@
         },
         {
           "code": "515580",
-          "name": "515580",
+          "name": "科技100ETF华泰柏瑞",
           "changePct": -0.36,
           "amount": 0.02,
           "nav": 1.395,
@@ -3445,7 +3520,7 @@
         },
         {
           "code": "515790",
-          "name": "515790",
+          "name": "光伏ETF华泰柏瑞",
           "changePct": 0.35,
           "amount": 1.55,
           "nav": 0.852,
@@ -3453,7 +3528,7 @@
         },
         {
           "code": "516300",
-          "name": "516300",
+          "name": "中证1000ETF华泰柏瑞",
           "changePct": 0.19,
           "amount": 0.19,
           "nav": 3.197,
@@ -3461,7 +3536,7 @@
         },
         {
           "code": "516330",
-          "name": "516330",
+          "name": "物联网ETF华泰柏瑞",
           "changePct": 1.1,
           "amount": 0,
           "nav": 1.569,
@@ -3469,7 +3544,7 @@
         },
         {
           "code": "516520",
-          "name": "516520",
+          "name": "智能驾驶ETF华泰柏瑞",
           "changePct": 0.19,
           "amount": 0.41,
           "nav": 1.042,
@@ -3477,7 +3552,7 @@
         },
         {
           "code": "516770",
-          "name": "516770",
+          "name": "游戏ETF华泰柏瑞",
           "changePct": -1.06,
           "amount": 0.4,
           "nav": 1.125,
@@ -3485,7 +3560,7 @@
         },
         {
           "code": "516780",
-          "name": "516780",
+          "name": "稀土ETF华泰柏瑞",
           "changePct": 0.35,
           "amount": 2,
           "nav": 0.853,
@@ -3493,7 +3568,7 @@
         },
         {
           "code": "516790",
-          "name": "516790",
+          "name": "医疗ETF华泰柏瑞",
           "changePct": -2.62,
           "amount": 0.04,
           "nav": 0.521,
@@ -3501,7 +3576,7 @@
         },
         {
           "code": "517050",
-          "name": "517050",
+          "name": "互联网ETF华泰柏瑞",
           "changePct": -0.44,
           "amount": 0.02,
           "nav": 0.673,
@@ -3509,7 +3584,7 @@
         },
         {
           "code": "517120",
-          "name": "517120",
+          "name": "创新药ETF华泰柏瑞",
           "changePct": -2.24,
           "amount": 0.32,
           "nav": 0.784,
@@ -3517,7 +3592,7 @@
         },
         {
           "code": "517880",
-          "name": "517880",
+          "name": "品牌消费ETF华泰柏瑞",
           "changePct": -0.79,
           "amount": 0.03,
           "nav": 0.75,
@@ -3525,7 +3600,7 @@
         },
         {
           "code": "520500",
-          "name": "520500",
+          "name": "恒生创新药ETF华泰柏瑞",
           "changePct": -1.83,
           "amount": 16.63,
           "nav": 1.448,
@@ -3533,7 +3608,7 @@
         },
         {
           "code": "520520",
-          "name": "520520",
+          "name": "恒生消费ETF华泰柏瑞",
           "changePct": -0.82,
           "amount": 0.02,
           "nav": 0.972,
@@ -3541,7 +3616,7 @@
         },
         {
           "code": "520830",
-          "name": "520830",
+          "name": "沙特ETF华泰柏瑞",
           "changePct": 0.34,
           "amount": 0.08,
           "nav": 0.898,
@@ -3549,7 +3624,7 @@
         },
         {
           "code": "520890",
-          "name": "520890",
+          "name": "港股通红利低波ETF华泰柏瑞",
           "changePct": 0,
           "amount": 0.25,
           "nav": 1.344,
@@ -3557,7 +3632,7 @@
         },
         {
           "code": "530300",
-          "name": "530300",
+          "name": "上证180ETF华泰柏瑞",
           "changePct": 0.16,
           "amount": 0.02,
           "nav": 1.234,
@@ -3565,7 +3640,7 @@
         },
         {
           "code": "551510",
-          "name": "551510",
+          "name": "科创债ETF华泰柏瑞",
           "changePct": 0.01,
           "amount": 0.51,
           "nav": 102.366,
@@ -3573,7 +3648,7 @@
         },
         {
           "code": "560400",
-          "name": "560400",
+          "name": "证券ETF华泰柏瑞",
           "changePct": -0.1,
           "amount": 0.17,
           "nav": 0.964,
@@ -3581,7 +3656,7 @@
         },
         {
           "code": "560490",
-          "name": "560490",
+          "name": "工业有色ETF华泰柏瑞",
           "changePct": 2.32,
           "amount": 0.12,
           "nav": 0.971,
@@ -3589,7 +3664,7 @@
         },
         {
           "code": "560670",
-          "name": "560670",
+          "name": "银行ETF华泰柏瑞",
           "changePct": -0.38,
           "amount": 0.17,
           "nav": 1.057,
@@ -3597,7 +3672,7 @@
         },
         {
           "code": "560910",
-          "name": "560910",
+          "name": "电池ETF华泰柏瑞",
           "changePct": 1.31,
           "amount": 0.07,
           "nav": 0.775,
@@ -3605,7 +3680,7 @@
         },
         {
           "code": "561030",
-          "name": "561030",
+          "name": "工程机械ETF华泰柏瑞",
           "changePct": 0.23,
           "amount": 0.01,
           "nav": 0.883,
@@ -3613,7 +3688,7 @@
         },
         {
           "code": "561450",
-          "name": "561450",
+          "name": "红利低波50ETF华泰柏瑞",
           "changePct": -0.93,
           "amount": 0.03,
           "nav": 0.96,
@@ -3621,7 +3696,7 @@
         },
         {
           "code": "561500",
-          "name": "561500",
+          "name": "漂亮50ETF华泰柏瑞",
           "changePct": 0.75,
           "amount": 0,
           "nav": 0.808,
@@ -3629,7 +3704,7 @@
         },
         {
           "code": "561510",
-          "name": "561510",
+          "name": "中药ETF华泰柏瑞",
           "changePct": -3.79,
           "amount": 0.03,
           "nav": 0.939,
@@ -3637,7 +3712,7 @@
         },
         {
           "code": "561550",
-          "name": "561550",
+          "name": "中证500增强ETF华泰柏瑞",
           "changePct": 0.21,
           "amount": 0.64,
           "nav": 1.419,
@@ -3645,7 +3720,7 @@
         },
         {
           "code": "561560",
-          "name": "561560",
+          "name": "电力ETF华泰柏瑞",
           "changePct": -0.56,
           "amount": 0.33,
           "nav": 1.242,
@@ -3653,7 +3728,7 @@
         },
         {
           "code": "561570",
-          "name": "561570",
+          "name": "油气ETF华泰柏瑞",
           "changePct": 1.44,
           "amount": 0.31,
           "nav": 1.41,
@@ -3661,7 +3736,7 @@
         },
         {
           "code": "561580",
-          "name": "561580",
+          "name": "央企红利ETF华泰柏瑞",
           "changePct": -0.16,
           "amount": 0.63,
           "nav": 1.242,
@@ -3669,7 +3744,7 @@
         },
         {
           "code": "561590",
-          "name": "561590",
+          "name": "中证1000增强ETF华泰柏瑞",
           "changePct": 0.2,
           "amount": 0.07,
           "nav": 1.505,
@@ -3677,7 +3752,7 @@
         },
         {
           "code": "561620",
-          "name": "561620",
+          "name": "化工ETF华泰柏瑞",
           "changePct": 0.39,
           "amount": 0.07,
           "nav": 1.037,
@@ -3685,7 +3760,7 @@
         },
         {
           "code": "561630",
-          "name": "561630",
+          "name": "红利质量ETF华泰柏瑞",
           "changePct": -0.1,
           "amount": 0.04,
           "nav": 1.037,
@@ -3693,7 +3768,7 @@
         },
         {
           "code": "561810",
-          "name": "561810",
+          "name": "医疗器械ETF华泰柏瑞",
           "changePct": -2.13,
           "amount": 0.05,
           "nav": 1.013,
@@ -3701,7 +3776,7 @@
         },
         {
           "code": "563300",
-          "name": "563300",
+          "name": "中证2000ETF华泰柏瑞",
           "changePct": 0.07,
           "amount": 6.02,
           "nav": 1.406,
@@ -3709,7 +3784,7 @@
         },
         {
           "code": "563320",
-          "name": "563320",
+          "name": "通用航空ETF华泰柏瑞",
           "changePct": 0.24,
           "amount": 0.09,
           "nav": 0.826,
@@ -3717,7 +3792,7 @@
         },
         {
           "code": "563330",
-          "name": "563330",
+          "name": "A股ETF华泰柏瑞",
           "changePct": 0.38,
           "amount": 0.34,
           "nav": 4.203,
@@ -3725,7 +3800,7 @@
         },
         {
           "code": "563350",
-          "name": "563350",
+          "name": "A50ETF华泰柏瑞",
           "changePct": 0.49,
           "amount": 0.1,
           "nav": 1.43,
@@ -3733,7 +3808,7 @@
         },
         {
           "code": "563360",
-          "name": "563360",
+          "name": "A500ETF华泰柏瑞",
           "changePct": 0.55,
           "amount": 48.03,
           "nav": 1.291,
@@ -3741,7 +3816,7 @@
         },
         {
           "code": "563380",
-          "name": "563380",
+          "name": "航空航天ETF华泰柏瑞",
           "changePct": 0.88,
           "amount": 0.36,
           "nav": 0.921,
@@ -3749,7 +3824,7 @@
         },
         {
           "code": "563390",
-          "name": "563390",
+          "name": "全指现金流ETF华泰柏瑞",
           "changePct": -0.65,
           "amount": 0.4,
           "nav": 1.219,
@@ -3757,7 +3832,7 @@
         },
         {
           "code": "588090",
-          "name": "588090",
+          "name": "科创50ETF华泰柏瑞",
           "changePct": 0.12,
           "amount": 1.28,
           "nav": 1.704,
@@ -3765,7 +3840,7 @@
         },
         {
           "code": "588230",
-          "name": "588230",
+          "name": "科创200ETF华泰柏瑞",
           "changePct": -0.11,
           "amount": 0.87,
           "nav": 1.809,
@@ -3773,7 +3848,7 @@
         },
         {
           "code": "588710",
-          "name": "588710",
+          "name": "科创半导体设备ETF华泰柏瑞",
           "changePct": -0.76,
           "amount": 14.57,
           "nav": 1.045,
@@ -3781,7 +3856,7 @@
         },
         {
           "code": "588880",
-          "name": "588880",
+          "name": "科创100ETF华泰柏瑞",
           "changePct": -0.5,
           "amount": 0.07,
           "nav": 1.803,
@@ -3789,7 +3864,7 @@
         },
         {
           "code": "589990",
-          "name": "589990",
+          "name": "科创综指ETF华泰柏瑞",
           "changePct": -0.12,
           "amount": 0.05,
           "nav": 1.651,
@@ -3797,7 +3872,7 @@
         },
         {
           "code": "159007",
-          "name": "159007",
+          "name": "养殖ETF华泰柏瑞",
           "changePct": -1.81,
           "amount": 0.13,
           "nav": 0.866,
@@ -3805,7 +3880,7 @@
         },
         {
           "code": "159069",
-          "name": "159069",
+          "name": "创业板新能源ETF华泰柏瑞",
           "changePct": 1.27,
           "amount": 0.13,
           "nav": 1.037,
@@ -3813,7 +3888,7 @@
         },
         {
           "code": "159139",
-          "name": "159139",
+          "name": "科创创业人工智能ETF华泰柏瑞",
           "changePct": 1.06,
           "amount": 0.33,
           "nav": 1.242,
@@ -3821,7 +3896,7 @@
         },
         {
           "code": "159383",
-          "name": "159383",
+          "name": "创业板50ETF华泰柏瑞",
           "changePct": 1.92,
           "amount": 0.08,
           "nav": 1.752,
@@ -3829,7 +3904,7 @@
         },
         {
           "code": "159738",
-          "name": "159738",
+          "name": "云计算ETF华泰柏瑞",
           "changePct": 0.83,
           "amount": 0.27,
           "nav": 2.057,
@@ -3837,7 +3912,7 @@
         },
         {
           "code": "159773",
-          "name": "159773",
+          "name": "创业板科技ETF华泰柏瑞",
           "changePct": 0.76,
           "amount": 0.05,
           "nav": 1.333,
@@ -3845,6 +3920,5 @@
         }
       ]
     }
-  },
-  "source": "cloud-ingest"
+  }
 }
