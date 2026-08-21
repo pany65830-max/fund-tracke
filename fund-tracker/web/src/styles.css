@@ -578,9 +578,46 @@ html[data-theme="light"] .card { backdrop-filter: none; }
 
 .updated-at { margin-left: 0; }
 
+/* ===== 页面切换转场（导航 / 日期切换） =====
+   方向由 PageStage 的 page-stage-forward / page-stage-back 决定：
+   - forward（基金资讯→ETF 看板 / 后一日）：从右滑入
+   - back（ETF 看板→基金资讯 / 前一日）：从左滑入
+   复用全站统一的 cubic-bezier(0.22,1,0.36,1) 缓动，与封面、卡片光泽保持一致。 */
+.page-stage {
+  will-change: transform;
+  transform-origin: center top;
+  animation-duration: 340ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+.page-stage-forward { animation-name: page-enter-forward; }
+.page-stage-back { animation-name: page-enter-back; }
+
+@keyframes page-enter-forward {
+  from {
+    opacity: 0;
+    transform: translateX(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes page-enter-back {
+  from {
+    opacity: 0;
+    transform: translateX(-26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .blob, .card::after, .brand, .date-chip.active, .live-dot, .digit-col, .tape-inner {
     animation: none !important;
   }
   .cover-splash { display: none; }
+  .page-stage { animation: none !important; }
 }

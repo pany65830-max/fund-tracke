@@ -133,6 +133,36 @@ function applyTheme(theme: Theme, persist = false) {
   else document.documentElement.removeAttribute("data-theme");
 }
 
+function routeOrder(path: string): number {
+  if (path.startsWith("/etf")) return 2;
+  if (path.startsWith("/news")) return 1;
+  return 0;
+}
+
+function PageStage({
+  pathname,
+  date,
+  children,
+}: {
+  pathname: string;
+  date: string;
+  children: React.ReactNode;
+}) {
+  const prev = useRef({ pathname, date });
+  let dir: "forward" | "back" = "forward";
+  if (pathname !== prev.current.pathname) {
+    dir = routeOrder(pathname) >= routeOrder(prev.current.pathname) ? "forward" : "back";
+  } else if (date && prev.current.date && date !== prev.current.date) {
+    dir = date > prev.current.date ? "forward" : "back";
+  }
+  prev.current = { pathname, date };
+  return (
+    <div key={`${pathname}:${date}`} className={`page-stage page-stage-${dir}`}>
+      {children}
+    </div>
+  );
+}
+
 function Shell() {
   const [clock, setClock] = useState(beijingClock);
   const [theme, setTheme] = useState<Theme>(readTheme);
@@ -401,21 +431,23 @@ function Shell() {
       ) : null}
 
       {error ? <div className="banner failed">{error}</div> : null}
-      {snap ? (
-        <Routes>
-          <Route path="/" element={<NewsPage snap={snap} />} />
-          <Route path="/news/:id" element={<NewsDetailPage snap={snap} />} />
-          <Route
-            path="/etf"
-            element={
-              <EtfPage snap={snap} availableDates={availableDates} asOfDate={date} />
-            }
-          />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      ) : !error ? (
-        <p className="muted">加载中…</p>
-      ) : null}
+      <PageStage pathname={location.pathname} date={date}>
+        {snap ? (
+          <Routes>
+            <Route path="/" element={<NewsPage snap={snap} />} />
+            <Route path="/news/:id" element={<NewsDetailPage snap={snap} />} />
+            <Route
+              path="/etf"
+              element={
+                <EtfPage snap={snap} availableDates={availableDates} asOfDate={date} />
+              }
+            />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        ) : !error ? (
+          <p className="muted">加载中…</p>
+        ) : null}
+      </PageStage>
     </div>
       <TickerBar snap={snap} />
     </div>
