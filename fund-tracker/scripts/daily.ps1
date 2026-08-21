@@ -1,4 +1,4 @@
-﻿# scripts/daily.ps1 - ingest at 09:00, push Gitee without Clash/GitHub proxy
+﻿# scripts/daily.ps1 - 09:00 ingest, push GitHub over SSH:443 (no HTTP proxy)
 param([switch]$SkipIngest)
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $MyInvocation.MyCommand.Definition
@@ -6,90 +6,64 @@ $proj = Split-Path -Parent $root
 Set-Location $proj
 
 $env:GIT_TERMINAL_PROMPT = "0"
-$env:HTTPS_PROXY = ""; $env:HTTP_PROXY = ""; $env:https_proxy = ""; $env:http_proxy = ""; $env:ALL_PROXY = ""; $env:all_proxy = ""
+$savedNoProxy = $env:no_proxy
+$savedNO_PROXY = $env:NO_PROXY
+$savedHttp = $env:HTTP_PROXY
+$savedHttps = $env:HTTPS_PROXY
+$savedhttp = $env:http_proxy
+$savedhttps = $env:https_proxy
+$savedAll = $env:ALL_PROXY
+$savedall = $env:all_proxy
 
 $git = Get-Command git -ErrorAction SilentlyContinue
 $npm = Get-Command npm -ErrorAction SilentlyContinue
-$node = Get-Command node -ErrorAction SilentlyContinue
 if (-not $git) { Write-Error "git not found. Install Git for Windows and add to PATH."; exit 1 }
 if (-not $npm) { Write-Error "npm not found. Install Node.js LTS and add to PATH."; exit 1 }
-if (-not $node) { Write-Error "node not found. Install Node.js LTS and add to PATH."; exit 1 }
-
-function Read-DotEnvValue([string]$Key) {
-  foreach ($p in @((Join-Path $proj "config\.env"), (Join-Path $proj ".env"))) {
-    if (-not (Test-Path $p)) { continue }
-    foreach ($line in Get-Content -Path $p -Encoding UTF8) {
-      if ($line -match ("^\s*" + [regex]::Escape($Key) + "\s*=\s*(.*)$")) {
-        $val = $Matches[1].Trim().Trim("'").Trim('"')
-        if ($val) { return $val }
-      }
-    }
-  }
-  return $null
-}
 
 $publishPath = Join-Path $proj "config\publish.json"
-$giteeUrl = "https://gitee.com/py6666654/fund-tracke.git"
+$githubSsh = "git@github.com:pany65830-max/fund-tracke.git"
 if (Test-Path $publishPath) {
   $pub = Get-Content -Raw -Encoding UTF8 $publishPath | ConvertFrom-Json
-  if ($pub.giteeUrl) { $giteeUrl = [string]$pub.giteeUrl }
+  if ($pub.githubUrl -match "github.com[:/]+([^/]+)/([^/.]+)") {
+    $githubSsh = "git@github.com:$($Matches[1])/$($Matches[2]).git"
+  }
 }
 
-$giteeToken = Read-DotEnvValue "GITEE_TOKEN"
-$proxyPort = 18076
-$proxyJs = Join-Path $root "gitee-https-proxy.mjs"
-$proxyProc = Start-Process -FilePath $node.Path -ArgumentList $proxyJs -PassThru -WindowStyle Hidden
-Start-Sleep -Seconds 1
-if ($proxyProc.HasExited) {
-  Write-Error "gitee-https-proxy failed to start"
+$key = Join-Path $env:USERPROFILE ".ssh\fund_tracker_ed25519"
+if (-not (Test-Path $key)) {
+  Write-Error "missing SSH key $key . Add the public key to GitHub and re-run setup-local.ps1"
   exit 1
 }
 
-$giteeCfg = @(
-  "http.proxy=http://127.0.0.1:$proxyPort",
-  "https.proxy=http://127.0.0.1:$proxyPort",
-  "http.version=HTTP/1.1"
-)
-if ($giteeToken) {
-  $basic = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("oauth2:" + $giteeToken)))
-  $giteeCfg += ("http.extraHeader=Authorization: Basic " + $basic)
+function Get-SshGithubIp {
+  try {
+    $json = & curl.exe --noproxy "*" --max-time 8 -s "https://dns.alidns.com/resolve?name=ssh.github.com&type=A"
+    if ($json -match '"data":"(\d+\.\d+\.\d+\.\d+)"') { return $Matches[1] }
+  } catch {}
+  return "20.205.243.160"
 }
 
-function Invoke-GitCfg {
-  param(
-    [Parameter(Mandatory = $true)][string[]]$ExtraConfig,
-    [Parameter(Mandatory = $true)][string[]]$GitArgs
-  )
-  $cfg = @()
-  foreach ($c in $ExtraConfig) { $cfg += @("-c", $c) }
-  & $git.Path @cfg @GitArgs
+$ip = Get-SshGithubIp
+$env:GIT_SSH_COMMAND = "ssh -i `"$key`" -o IdentitiesOnly=yes -p 443 -o HostName=$ip -o StrictHostKeyChecking=accept-new -o BatchMode=yes"
+$env:no_proxy = "*"
+$env:NO_PROXY = "*"
+$env:HTTP_PROXY = ""; $env:HTTPS_PROXY = ""; $env:http_proxy = ""; $env:https_proxy = ""
+$env:ALL_PROXY = ""; $env:all_proxy = ""
+
+function Invoke-Git {
+  param([Parameter(Mandatory = $true)][string[]]$GitArgs)
+  & $git.Path @GitArgs
   return $LASTEXITCODE
 }
 
-function Invoke-GitGitee {
-  param([Parameter(Mandatory = $true)][string[]]$GitArgs)
-  return Invoke-GitCfg -ExtraConfig $giteeCfg -GitArgs $GitArgs
-}
-
 try {
-  $remotes = @(& $git.Path remote)
-  if ($remotes -notcontains "gitee") {
-    Write-Host "==> add gitee remote: $giteeUrl"
-    & $git.Path remote add gitee $giteeUrl
-    if ($LASTEXITCODE -ne 0) { Write-Error "remote add gitee failed"; exit 1 }
-  }
-
-  Write-Host "==> fetch gitee (direct, no Clash)"
-  $ec = Invoke-GitGitee -GitArgs @("fetch", "gitee")
-  if ($ec -ne 0) { Write-Error "fetch gitee failed"; exit 1 }
-
-  & $git.Path show-ref --verify --quiet "refs/remotes/gitee/main"
-  if ($LASTEXITCODE -eq 0) {
-    Write-Host "==> pull --ff-only gitee main"
-    $ec = Invoke-GitGitee -GitArgs @("pull", "--ff-only", "gitee", "main")
-    if ($ec -ne 0) { Write-Error "pull gitee failed"; exit 1 }
+  Write-Host "==> fetch GitHub via SSH $ip :443"
+  $ec = Invoke-Git -GitArgs @("fetch", $githubSsh, "+refs/heads/main:refs/remotes/origin/main")
+  if ($ec -eq 0) {
+    & $git.Path merge --ff-only origin/main
+    if ($LASTEXITCODE -ne 0) { Write-Host "ff-only merge skipped (local ahead or diverged)" }
   } else {
-    Write-Host "gitee has no main yet, skip pull"
+    Write-Host "fetch GitHub failed, continue with local commits"
   }
 
   if (-not $SkipIngest) {
@@ -112,17 +86,22 @@ try {
     if ($LASTEXITCODE -ne 0) { Write-Error "commit failed"; exit 1 }
   }
 
-  Write-Host "==> push gitee"
-  $ec = Invoke-GitGitee -GitArgs @("push", "-u", "gitee", "HEAD:main")
+  Write-Host "==> push GitHub via SSH (no HTTP proxy)"
+  $ec = Invoke-Git -GitArgs @("push", $githubSsh, "HEAD:main")
   if ($ec -ne 0) {
-    Write-Error "push gitee failed. Put a Gitee private token in .env as GITEE_TOKEN="
+    Write-Error "push GitHub SSH failed. Check GitHub SSH key fund-tracker-daily"
     exit 1
   }
-
-  Write-Host "done: pushed gitee. Pages will follow via Gitee Push mirror / GitHub Action."
+  Write-Host "done: pushed GitHub. Pages will rebuild. Gitee Pull mirror can follow."
 }
 finally {
-  if ($proxyProc -and -not $proxyProc.HasExited) {
-    Stop-Process -Id $proxyProc.Id -Force -ErrorAction SilentlyContinue
-  }
+  Remove-Item Env:GIT_SSH_COMMAND -ErrorAction SilentlyContinue
+  $env:no_proxy = $savedNoProxy
+  $env:NO_PROXY = $savedNO_PROXY
+  $env:HTTP_PROXY = $savedHttp
+  $env:HTTPS_PROXY = $savedHttps
+  $env:http_proxy = $savedhttp
+  $env:https_proxy = $savedhttps
+  $env:ALL_PROXY = $savedAll
+  $env:all_proxy = $savedall
 }
