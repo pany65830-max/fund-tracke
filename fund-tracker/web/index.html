@@ -4,10 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>基金看板</title>
-    <style>html,body{background:#08090d;color:#dce1ea;}</style>
+    <style>
+      html,body{background:#08090d;color:#dce1ea;margin:0;}
+      .cover-splash{position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#08090d;}
+      .cover-mark{font-weight:200;font-size:min(28vw,220px);letter-spacing:-0.06em;line-height:0.85;color:#c9b07a;font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;}
+      .cover-progress{margin:28px 0 0;font-size:11px;letter-spacing:0.28em;color:#8b93a3;font-variant-numeric:tabular-nums;}
+    </style>
   </head>
   <body>
-    <div id="root">页面加载中…</div>
+    <div id="root">
+      <div class="cover-splash" aria-hidden="true">
+        <div class="cover-mark">HT</div>
+        <p class="cover-progress">LOADING&nbsp;&nbsp;0%</p>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
