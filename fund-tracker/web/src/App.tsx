@@ -94,49 +94,55 @@ function beijingClock(): string {
   }).format(new Date());
 }
 
+type Theme = "dark" | "light";
+const THEME_PREF_KEY = "ft-theme-pref";
+
+function beijingHour(): number {
+  const raw = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Shanghai",
+    hour: "2-digit",
+    hour12: false,
+  }).format(new Date());
+  return Number.parseInt(raw, 10);
+}
+
+function themeFromClock(): Theme {
+  const hour = beijingHour();
+  return hour >= 6 && hour < 18 ? "light" : "dark";
+}
+
+function readTheme(): Theme {
+  try {
+    const saved = localStorage.getItem(THEME_PREF_KEY);
+    if (saved === "light" || saved === "dark") return saved;
+  } catch {
+    /* ignore */
+  }
+  return themeFromClock();
+}
+
+function applyTheme(theme: Theme, persist = false) {
+  if (persist) {
+    try {
+      localStorage.setItem(THEME_PREF_KEY, theme);
+    } catch {
+      /* ignore quota / private mode */
+    }
+  }
+  if (theme === "light") document.documentElement.setAttribute("data-theme", "light");
+  else document.documentElement.removeAttribute("data-theme");
+}
+
 function Shell() {
   const [clock, setClock] = useState(beijingClock);
-  const cursorRef = useRef<HTMLDivElement>(null);
+  const [theme, setTheme] = useState<Theme>(readTheme);
   useEffect(() => {
     const id = window.setInterval(() => setClock(beijingClock()), 1000);
     return () => window.clearInterval(id);
   }, []);
   useEffect(() => {
-    const el = cursorRef.current;
-    if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      el.hidden = true;
-      return;
-    }
-    let tx = 0;
-    let ty = 0;
-    let x = 0;
-    let y = 0;
-    let started = false;
-    let raf = 0;
-    const ease = 0.08;
-    const tick = () => {
-      x += (tx - x) * ease;
-      y += (ty - y) * ease;
-      el.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
-      raf = requestAnimationFrame(tick);
-    };
-    const onMove = (e: MouseEvent) => {
-      tx = e.clientX;
-      ty = e.clientY;
-      if (!started) {
-        x = tx;
-        y = ty;
-        started = true;
-        raf = requestAnimationFrame(tick);
-      }
-    };
-    window.addEventListener("mousemove", onMove, { passive: true });
-    return () => {
-      window.removeEventListener("mousemove", onMove);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
+    applyTheme(theme);
+  }, [theme]);
 
   // 用 react-router 的 useSearchParams 统一管理 URL 中的 ?date=。
   // 之前直接写 window.location.hash 会绕过 HashRouter 的历史记录
@@ -304,7 +310,6 @@ function Shell() {
       <div className="blob b1" />
       <div className="blob b2" />
       <div className="blob b3" />
-      <div ref={cursorRef} className="cursor-dot" aria-hidden="true" />
     <div className="layout">
       <header className="topbar">
         <div className="brand">基金看板</div>
@@ -339,6 +344,18 @@ function Shell() {
             后一日 ›
           </button>
         </div>
+        <button
+          type="button"
+          className="theme-btn"
+          onClick={() => {
+            const next = theme === "dark" ? "light" : "dark";
+            applyTheme(next, true);
+            setTheme(next);
+          }}
+          title={theme === "dark" ? "切换浅色看板" : "切换深色看板"}
+        >
+          {theme === "dark" ? "浅色" : "深色"}
+        </button>
         <SettingsPanel
           settings={settings}
           onChange={setSettings}
