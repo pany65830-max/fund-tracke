@@ -78,8 +78,6 @@ try {
 
 Write-Host ""
 Write-Host "Next:"
-Write-Host " 1) edit config/.env, set IFIND_REFRESH_TOKEN"
+Write-Host " 1) edit config/.env, set IFIND_REFRESH_TOKEN and GITEE_TOKEN"
 Write-Host " 2) WeWe: docker compose up -d then scan QR at http://127.0.0.1:4000"
-Write-Host " 3) create public Gitee repo fund-tracke with NO README"
-Write-Host " 4) Gitee private token: https://gitee.com/profile/personal_access_tokens"
-Write-Host " 5) test: powershell -File scripts/daily.ps1"
+Write-Host " 3) test: powershell -File scripts/daily.ps1"
