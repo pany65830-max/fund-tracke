@@ -1,8 +1,8 @@
 name: Deploy fund-tracker to Pages
 
-# 数据由本机定时任务（每日 08:30）拉取 iFinD 后 push 到本分支；
-# 海外 Actions 节点连不上 iFinD，因此本工作流【只构建、不拉数】，
-# 直接把已提交的 data/ 打包部署到 GitHub Pages。
+# 数据由本机定时任务（每日 09:00）拉取后先 push 到码云；
+# sync-from-gitee.yml 再镜像到本分支。海外节点不拉 iFinD，
+# 本工作流【只构建、不拉数】，把已提交的 data/ 部署到 GitHub Pages。
 on:
   push:
     branches: [main]

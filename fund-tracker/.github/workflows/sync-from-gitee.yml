@@ -1,0 +1,58 @@
+name: Sync from Gitee
+
+# 本机 09:00 拉数后只推码云（国内直连）。本工作流把码云 main 镜像到 GitHub，
+# 从而触发 deploy.yml，继续发布现在的 github.io，电脑不必开代理。
+on:
+  schedule:
+    # 北京时间工作日 09:15 / 09:35 / 09:55
+    - cron: "15,35,55 1 * * 1-5"
+  workflow_dispatch:
+
+concurrency:
+  group: gitee-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Mirror Gitee main onto GitHub
+        env:
+          GITEE_URL: https://gitee.com/py6666654/fund-tracke.git
+        run: |
+          set -euo pipefail
+          git config user.name "gitee-sync"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add gitee "$GITEE_URL"
+
+          ok=0
+          for i in 1 2 3; do
+            echo "fetch Gitee attempt $i"
+            if git -c http.version=HTTP/1.1 fetch gitee main; then
+              ok=1
+              break
+            fi
+            sleep 20
+          done
+          if [ "$ok" != "1" ]; then
+            echo "::error::GitHub 连不上码云。请确认仓库已公开： $GITEE_URL"
+            exit 1
+          fi
+
+          remote=$(git rev-parse gitee/main)
+          local=$(git rev-parse HEAD)
+          if [ "$remote" = "$local" ]; then
+            echo "already in sync: $local"
+            exit 0
+          fi
+
+          git checkout -B main
+          git reset --hard gitee/main
+          git push --force-with-lease origin main

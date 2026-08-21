@@ -1,46 +1,85 @@
-# scripts/setup-local.ps1 — 在本机一键立起"本地抓取侧"
-# 用法：在 PowerShell 中 `.\scripts\setup-local.ps1`（建议管理员终端）
+﻿# scripts/setup-local.ps1 - one-shot local ingest side (re-run on a new PC)
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $proj = Split-Path -Parent $root
 Set-Location $proj
 
-Write-Host "==> 检查依赖"
+Write-Host "==> check deps"
 $git = Get-Command git -ErrorAction SilentlyContinue
 $npm = Get-Command npm -ErrorAction SilentlyContinue
-if (-not $git) { Write-Error "缺少 git。请安装 Git for Windows (https://git-scm.com) 并勾选 Add to PATH。"; exit 1 }
-if (-not $npm) { Write-Error "缺少 Node.js。请安装 Node.js LTS (https://nodejs.org) 并勾选 Add to PATH。"; exit 1 }
-Write-Host "git = $($git.Path)`nnpm = $($npm.Path)"
+if (-not $git) { Write-Error "git missing. Install Git for Windows and check Add to PATH."; exit 1 }
+if (-not $npm) { Write-Error "Node.js missing. Install Node.js LTS and check Add to PATH."; exit 1 }
+Write-Host "git = $($git.Path)"
+Write-Host "npm = $($npm.Path)"
+
+$publishPath = Join-Path $proj "config\publish.json"
+$giteeUrl = "https://gitee.com/py6666654/fund-tracke.git"
+if (Test-Path $publishPath) {
+  $pub = Get-Content -Raw -Encoding UTF8 $publishPath | ConvertFrom-Json
+  if ($pub.giteeUrl) { $giteeUrl = [string]$pub.giteeUrl }
+}
+
+$remotes = @(& $git.Path remote)
+if ($remotes -contains "gitee") {
+  & $git.Path remote set-url gitee $giteeUrl
+  Write-Host "==> updated gitee remote: $giteeUrl"
+} else {
+  & $git.Path remote add gitee $giteeUrl
+  Write-Host "==> added gitee remote: $giteeUrl"
+}
 
 Write-Host "==> npm install"
 & $npm.Path install
-if ($LASTEXITCODE -ne 0) { Write-Error "npm install 失败"; exit 1 }
+if ($LASTEXITCODE -ne 0) { Write-Error "npm install failed"; exit 1 }
 
-Write-Host "==> 准备 .env"
+Write-Host "==> prepare .env"
 $envPath = Join-Path $proj "config" ".env"
 $exPath  = Join-Path $proj "config" ".env.example"
 if (-not (Test-Path $envPath)) {
   Copy-Item $exPath $envPath
-  Write-Host "已生成 config/.env —— 请打开填写 IFIND_REFRESH_TOKEN 等密钥"
+  Write-Host "created config/.env - fill IFIND_REFRESH_TOKEN"
 } else {
-  Write-Host "config/.env 已存在，跳过"
+  Write-Host "config/.env exists, skip"
 }
 
-# 注册计划任务：每日 08:30 + 登录时，均运行 scripts/daily.ps1
 $taskName = "FundTrackerDailyIngest"
 $pwsh = (Get-Process -Id $pid).Path
 $dailyPs1 = Join-Path $root "daily.ps1"
 $action = New-ScheduledTaskAction -Execute $pwsh -Argument "-NoProfile -ExecutionPolicy Bypass -File `"$dailyPs1`""
 $triggers = @(
-  (New-ScheduledTaskTrigger -Daily -At "08:30"),
+  (New-ScheduledTaskTrigger -Daily -At "09:00"),
   (New-ScheduledTaskTrigger -AtLogOn)
 )
-$settings = New-ScheduledTaskSettingsSet -StartWhenAvailable -RestartCount 2 -RestartInterval (New-TimeSpan -Minutes 5)
-Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $triggers -Settings $settings -Force
-Write-Host "已注册计划任务 '$taskName'（每日 08:30 与登录时运行）"
+$settings = New-ScheduledTaskSettingsSet `
+  -AllowStartIfOnBatteries `
+  -DontStopIfGoingOnBatteries `
+  -StartWhenAvailable `
+  -RestartCount 2 `
+  -RestartInterval (New-TimeSpan -Minutes 5) `
+  -ExecutionTimeLimit (New-TimeSpan -Hours 2)
+$principal = New-ScheduledTaskPrincipal -UserId $env:USERNAME -LogonType Interactive -RunLevel Limited
+try {
+  Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $triggers -Settings $settings -Principal $principal -Force | Out-Null
+  Write-Host "registered task $taskName at 09:00 (runs on battery too)"
+} catch {
+  Write-Host "could not fully re-create the task (need admin). Time/battery may still be updated separately."
+  try {
+    $t = Get-ScheduledTask -TaskName $taskName
+    $t.Settings.DisallowStartIfOnBatteries = $false
+    $t.Settings.StopIfGoingOnBatteries = $false
+    $t.Settings.StartWhenAvailable = $true
+    Set-ScheduledTask -TaskName $taskName -Settings $t.Settings | Out-Null
+    schtasks /Change /TN $taskName /ST 09:00 | Out-Null
+    Write-Host "updated existing task: 09:00, allow battery"
+  } catch {
+    Write-Host "please set the task to 09:00 and uncheck AC-only in Task Scheduler"
+  }
+}
 
 Write-Host ""
-Write-Host "下一步："
-Write-Host " 1) 编辑 config/.env，填入 IFIND_REFRESH_TOKEN"
-Write-Host " 2) (可选) 起 WeWe：docker compose up -d，并按 worker/WEWE-SETUP.md 配隧道"
-Write-Host " 3) 可手动试跑：pwsh scripts/daily.ps1"
+Write-Host "Next:"
+Write-Host " 1) edit config/.env, set IFIND_REFRESH_TOKEN"
+Write-Host " 2) WeWe: docker compose up -d then scan QR at http://127.0.0.1:4000"
+Write-Host " 3) create public Gitee repo fund-tracke with NO README"
+Write-Host " 4) Gitee private token: https://gitee.com/profile/personal_access_tokens"
+Write-Host " 5) test: powershell -File scripts/daily.ps1"

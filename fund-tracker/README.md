@@ -37,7 +37,7 @@ npm install
 npm run ingest
 ```
 
-3. 提交并推送 `fund-tracker/data`（以及如有 UI 改动一并推送），GitHub Pages 会重新部署。
+3. 工作日早上由 `scripts/daily.ps1` 提交 `data/` 并推到码云；GitHub Pages 随后同步。
 
 失败时若当天完全无数据，**不会覆盖**已有的 `latest.json`，避免把网站刷成空白。
 
@@ -67,10 +67,10 @@ npm run ingest
 
 ## 部署（免费）
 
-1. 推送本仓库到 GitHub  
-2. Settings → Pages → Source 选 **GitHub Actions**  
-3. 工作流：`.github/workflows/fund-tracker-daily.yml`（工作日 08:30 北京时间）  
-4. 若 Actions 拉数失败，以本机推送的 `data/` 为准
+1. 本机工作日 **09:00** 拉数，推送到码云 `py6666654/fund-tracke`（直连，不用代理）  
+2. GitHub Actions `sync-from-gitee.yml` 把码云镜像过来，再由 `deploy.yml` 发布 Pages  
+3. 网站：https://pany65830-max.github.io/fund-tracke/  
+4. 换电脑：按 `MIGRATE.md` 从码云 clone，重跑 `scripts/setup-local.ps1`
 
 ## 页面
 
