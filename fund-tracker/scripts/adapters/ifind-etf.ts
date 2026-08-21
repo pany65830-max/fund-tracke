@@ -1,5 +1,6 @@
 import type { EtfDashboard, Institution } from "../../shared/schema.js";
 import type { EtfAdapter } from "./types.js";
+import { pickEtfDisplayName } from "../../shared/etf-name.js";
 import {
   asNumber,
   bareCode,
@@ -173,7 +174,11 @@ export function createIfindEtfAdapter(
         const firm = codeFirm.get(code) || "huatai";
         const changePct = +calcChangePct(row).toFixed(2);
         const amountYi = yuanToYi(asNumber(row.amount));
-        const name = String(row.shortName || "") || names.get(code) || code;
+        const name = pickEtfDisplayName(
+          code,
+          String(row.shortName || ""),
+          names.get(code),
+        );
         productsByFirm[firm] = productsByFirm[firm] || [];
         productsByFirm[firm].push({
           code,

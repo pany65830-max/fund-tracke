@@ -6,6 +6,7 @@
 //
 // 部署：在本目录 `wrangler deploy`（PAT 已通过 `wrangler secret put GITHUB_TOKEN` 配置）。
 
+import { pickEtfDisplayName } from "../shared/etf-name.js";
 import { PRODUCTS } from "./products.js";
 import { createCompanyWebAdapter } from "../scripts/adapters/company-web.js";
 import { createWeweRssAdapter } from "../scripts/adapters/wewe-rss.js";
@@ -280,7 +281,11 @@ async function fetchEtf(accessToken: string) {
     const firm = p.firm;
     const changePct = +calcChangePct(row).toFixed(2);
     const amountYi = yuanToYi(asNumber(row.amount));
-    const name = String(row.shortName || "") || p.code;
+    const name = pickEtfDisplayName(
+      p.code,
+      String(row.shortName || ""),
+      p.name,
+    );
     productsByFirm[firm].push({
       code: p.code,
       name,

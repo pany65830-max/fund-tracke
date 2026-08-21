@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { DaySnapshot } from "../lib/schema";
 import { INSTITUTION_LABEL } from "../lib/labels";
 import { formatPct, pctClass } from "../lib/format";
+import { displayEtfName } from "../lib/etfNames";
 import { SlotPct } from "../components/SlotPct";
 import { loadSnapshot } from "../lib/loadData";
 import { flattenProducts, rangeReturnPct } from "../lib/rangeReturn";
@@ -144,7 +145,13 @@ export function EtfPage({
       const key = productKey(p.firm, p.code);
       if (pickedKey !== "all" && key !== pickedKey) return false;
       const q = codeQuery.trim();
-      if (q && !p.code.includes(q) && !p.name.includes(q)) return false;
+      if (
+        q &&
+        !p.code.includes(q) &&
+        !p.name.includes(q) &&
+        !displayEtfName(p.code, p.name).includes(q)
+      )
+        return false;
       return true;
     })
     .map((p) => {
@@ -220,7 +227,7 @@ export function EtfPage({
                 <div key={productKey(p.firm, p.code)} className="hl-list-row">
                   <span className="hl-rank">{i + 1}</span>
                   <div className="hl-list-main">
-                    <div className="hl-list-name">{p.name}</div>
+                    <div className="hl-list-name">{displayEtfName(p.code, p.name)}</div>
                     <div className="muted hl-list-sub">
                       {INSTITUTION_LABEL[p.firm]} · {p.code}
                     </div>
@@ -328,7 +335,7 @@ export function EtfPage({
                   key={productKey(p.firm, p.code)}
                   value={productKey(p.firm, p.code)}
                 >
-                  {p.code} · {p.name}
+                  {p.code} · {displayEtfName(p.code, p.name)}
                 </option>
               ))}
             </select>
@@ -383,7 +390,7 @@ export function EtfPage({
                 <tr key={productKey(p.firm, p.code)}>
                   <td>{INSTITUTION_LABEL[p.firm]}</td>
                   <td className="mono">{p.code}</td>
-                  <td>{p.name}</td>
+                  <td>{displayEtfName(p.code, p.name)}</td>
                   <td className={`num ${pctClass(p.rangePct ?? 0)}`}>
                     {p.rangePct == null ? "—" : formatPct(p.rangePct)}
                   </td>
@@ -433,7 +440,9 @@ function RankTable({
         <tbody>
           {(rows || []).map((r) => (
             <tr key={r.code}>
-              <td title={r.name}>{r.name}</td>
+              <td title={displayEtfName(r.code, r.name)}>
+                {displayEtfName(r.code, r.name)}
+              </td>
               <td
                 className={`num${plain ? "" : ` ${r.value >= 0 ? "up" : "down"}`}`}
               >
